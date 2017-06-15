@@ -33,30 +33,30 @@ $ff2-size-xl: 46px;
   font-family: $font-family-2;
   letter-spacing: 1px;
 
-  &.-f-ff2-xl {
+  &.-ff2-xl {
     font-size: $ff2-size-xl;
     font-weight: $font-weight-semibold;
     line-height: 1.67;
   }
 
-  &.-f-ff1-l {
+  &.-ff1-l {
     font-size: $ff2-size-l;
     font-weight: $font-weight-light;
     line-height: 1.13;
   }
 
-  &.-f-ff2-m {
+  &.-ff2-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     line-height: 1.75;
   }
 
-  &.-f-ff2-s {
+  &.-ff2-s {
     font-size: $ff2-size-s;
     font-weight: $font-weight-semibold;
   }
 
-  &.-f-ff2-xs {
+  &.-ff2-xs {
     font-size: $ff2-size-xs;
     font-weight: $font-weight-semibold;
     line-height: 1.67;
