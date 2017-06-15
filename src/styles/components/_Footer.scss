@@ -1,3 +1,52 @@
 .c-footer {
+  padding-top: 70px;
+  padding-bottom: 70px;
   background-color: $color-1;
+
+  @media screen and (min-width: $screen-m) {
+    padding-top: 130px;
+    padding-bottom: 25px;
+  }
+
+  .c-footer__logos-container {
+    span {
+      opacity: .5;
+    }
+  }
+
+  .c-footer__newsletter-container {
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: 55px;
+      margin-bottom: 55px;
+    }
+
+    span {
+      opacity: .5;
+    }
+
+    .c-footer__newsletter-form {
+
+      input {
+        &[type='email'] {
+          width: 100%;
+          margin-top: 10px;
+          padding: 15px 20px;
+          border: 0;
+          border-radius: 100px;
+          outline: 0;
+          background-color: darken($color-1, 8%);
+          color: rgba($white, .5);
+        }
+      }
+    }
+  }
+
+  .c-footer__social-networks-container {
+    span {
+      opacity: .5;
+    }
+  }
 }

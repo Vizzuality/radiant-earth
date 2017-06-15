@@ -77,4 +77,9 @@ $ff2-size-xl: 46px;
   &.-uppercase {
     text-transform: uppercase;
   }
+
+  &.-center {
+    display: block;
+    text-align: center;
+  }
 }
