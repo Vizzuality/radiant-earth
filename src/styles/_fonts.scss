@@ -33,47 +33,41 @@ $ff2-size-xl: 46px;
   font-family: $font-family-2;
   letter-spacing: 1px;
 
-  &.-title {
+  &.-f-ff2-xl {
     font-size: $ff2-size-xl;
     font-weight: $font-weight-semibold;
     line-height: 1.67;
   }
 
-  &.-secondary-title {
+  &.-f-ff1-l {
     font-size: $ff2-size-l;
     font-weight: $font-weight-light;
     line-height: 1.13;
   }
 
-  &.-description-text {
+  &.-f-ff2-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     line-height: 1.75;
   }
 
-  &.-menu-item {
+  &.-f-ff2-s {
     font-size: $ff2-size-s;
     font-weight: $font-weight-semibold;
   }
 
-  &.-btn-label {
+  &.-f-ff2-xs {
     font-size: $ff2-size-xs;
     font-weight: $font-weight-semibold;
     line-height: 1.67;
   }
 
-  &.-category-label {
-    font-size: $ff2-size-xs;
-    font-weight: $font-weight-semibold;
-    line-height: 1.67;
+  &.-color-2 {
+    color: $color-2;
   }
 
-  &.-orange {
-    color: $orange;
-  }
-
-  &.-blue {
-    color: $blue;
+  &.-color-1 {
+    color: $color-1;
   }
 
   &.-white {
