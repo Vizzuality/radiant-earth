@@ -1,17 +1,11 @@
 .c-header {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  z-index: 100;
+  height: rem(118px);
 
-  .c-header__background {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .c-header__content {
+    display: flex;
+    align-items: center;
     width: 100%;
-    height: rem(500px);
-    background-image: linear-gradient(to bottom, $color-1, transparent);
-    z-index: -1;
+    height: 100%;
   }
 }

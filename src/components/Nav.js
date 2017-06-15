@@ -7,7 +7,7 @@ class Nav extends Component {
         <ul>
           <li className="text -ff2-s -white">Documentation</li>
           <li className="text -ff2-s -white">Data explorer</li>
-          <li className="text -ff2-s -white">Blog</li>
+          <li className="text -ff2-s -white -selected">Blog</li>
           <li className="text -ff2-s -white">About</li>
         </ul>
       </div>
