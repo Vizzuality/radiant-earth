@@ -1,11 +1,11 @@
 .c-footer {
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: rem(70px);
+  padding-bottom: rem(70px);
   background-color: $color-1;
 
   @media screen and (min-width: $screen-l) {
-    padding-top: 130px;
-    padding-bottom: 125px;
+    padding-top: rem(130px);
+    padding-bottom: rem(125px);
   }
 
   .c-footer__partners-funders-container {
@@ -16,7 +16,7 @@
     }
 
     .c-footer_logos-container {
-      margin: 30px auto 0;
+      margin: rem(30px) auto 0;
 
       .row {
         flex-direction: column;
@@ -28,9 +28,10 @@
 
       .c-footer__logos-item {
         width: 100%;
-        min-width: 150px;
-        max-width: 150px;
-        margin: 30px auto 0;
+        min-width: rem(150px);
+        max-width: rem(150px);
+        height: rem(40px);
+        margin: rem(30px) auto 0;
 
         &:first-of-type {
           margin-top: 0;
@@ -38,8 +39,8 @@
 
 
         @media screen and (min-width: $screen-l) {
-          min-width: 60px;
-          max-width: 150px;
+          min-width: rem(60px);
+          max-width: rem(150px);
           margin-top: 0;
         }
       }
@@ -47,10 +48,10 @@
   }
 
   .c-footer__newsletter-container {
-    margin: 70px auto;
+    margin: rem(70px) auto;
 
     @media screen and (min-width: $screen-l) {
-      margin: 80px auto;
+      margin: rem(80px) auto;
     }
 
     span {
@@ -61,10 +62,10 @@
       input {
         &[type='email'] {
           width: 100%;
-          margin-top: 10px;
-          padding: 15px 20px;
+          margin-top: rem(10px);
+          padding: rem(15px) rem(20px);
           border: 0;
-          border-radius: 100px;
+          border-radius: rem(100px);
           outline: 0;
           background-color: darken($color-1, 8%);
           color: rgba($white, .5);
@@ -77,16 +78,17 @@
     margin: 0 auto;
 
     span {
-      margin-top: 20px;
+      margin-top: rem(20px);
       opacity: .5;
 
       @media screen and (min-width: $screen-l) {
-        margin-top: 40px;
+        margin-top: rem(40px);
       }
     }
 
     .c-footer__logos-item {
-      width: 24px;
+      width: rem(24px);
+      height: rem(24px);
     }
   }
 }
