@@ -1,3 +1,5 @@
+// fonts settings
+
 $font-family-1: 'Lora';
 $font-family-2: 'ProximaNova';
 
@@ -6,10 +8,9 @@ $font-weight-regular: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
-$ff1-size-m: 16px;
-
 $ff2-size-xs: 12px;
 $ff2-size-s: 14px;
+$ff1-size-m: 16px;
 $ff2-size-l: 32px;
 $ff2-size-xl: 46px;
 
@@ -27,53 +28,49 @@ $ff2-size-xl: 46px;
   url('./fonts/ProximaNova-Light.otf');
 }
 
-/**
- * Lora M
- */
-.f-ff1-m {
-  font-family: $font-family-1;
-  font-size: $ff1-size-m;
-  line-height: 1.75;
-}
-
-/**
- * ProximaNova L Light
- */
-.f-ff2-l-light {
+.text {
+  color: $black;
   font-family: $font-family-2;
-  font-size: $ff2-size-l;
-  font-weight: $font-weight-light;
-  line-height: 1.13;
-}
-
-/**
- * ProximaNova XS SemiBold
- */
-.f-ff2-xs-semibold {
-  font-family: $font-family-2;
-  font-size: $ff2-size-xs;
-  font-weight: $font-weight-semibold;
-  line-height: 1.67;
   letter-spacing: 1px;
-}
 
-/**
- * ProximaNova S SemiBold
- */
-.f-ff2-s-semibold {
-  font-family: $font-family-2;
-  font-size: $ff2-size-s;
-  font-weight: $font-weight-semibold;
-  letter-spacing: 1px;
-}
+  &.-ff2-xl {
+    font-size: $ff2-size-xl;
+    font-weight: $font-weight-semibold;
+    line-height: 1.67;
+  }
 
-/**
- * ProximaNova XL SemiBold
- */
-.f-ff2-xl-semibold {
-  font-family: $font-family-2;
-  font-size: $ff2-size-xl;
-  font-weight: $font-weight-semibold;
-  line-height: 1.09;
-  letter-spacing: 1px;
+  &.-ff1-l {
+    font-size: $ff2-size-l;
+    font-weight: $font-weight-light;
+    line-height: 1.13;
+  }
+
+  &.-ff2-m {
+    font-family: $font-family-1;
+    font-size: $ff1-size-m;
+    line-height: 1.75;
+  }
+
+  &.-ff2-s {
+    font-size: $ff2-size-s;
+    font-weight: $font-weight-semibold;
+  }
+
+  &.-ff2-xs {
+    font-size: $ff2-size-xs;
+    font-weight: $font-weight-semibold;
+    line-height: 1.67;
+  }
+
+  &.-color-2 {
+    color: $color-2;
+  }
+
+  &.-color-1 {
+    color: $color-1;
+  }
+
+  &.-white {
+    color: $white;
+  }
 }
