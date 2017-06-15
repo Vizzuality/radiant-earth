@@ -8,19 +8,28 @@
     padding-bottom: 25px;
   }
 
-  .c-footer__logos-container {
+  .c-footer__partners-funders-container {
     span {
       opacity: .5;
     }
   }
 
+  .c-footer_logos-container {
+    margin: 30px auto 0;
+
+    .c-footer__logos-item {
+      img {
+        width: 150px;
+        min-width: 150px;
+      }
+    }
+  }
+
   .c-footer__newsletter-container {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    margin: 70px auto;
 
     @media screen and (min-width: $screen-m) {
-      margin-top: 55px;
-      margin-bottom: 55px;
+      margin: 55px auto;
     }
 
     span {
@@ -45,6 +54,8 @@
   }
 
   .c-footer__social-networks-container {
+    margin: 0 auto;
+
     span {
       opacity: .5;
     }
