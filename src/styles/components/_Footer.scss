@@ -1,0 +1,104 @@
+.c-footer {
+  padding-top: rem(70px);
+  padding-bottom: rem(70px);
+  background-color: $color-1;
+
+  @media screen and (min-width: $screen-l) {
+    padding-top: rem(130px);
+    padding-bottom: rem(125px);
+  }
+
+  .c-footer__partners-funders-container {
+    margin: 0 auto;
+
+    span {
+      opacity: .5;
+    }
+
+    .c-footer_logos-container {
+      margin: rem(30px) auto 0;
+
+      .row {
+        flex-direction: column;
+
+        @media screen and (min-width: $screen-l) {
+          flex-direction: row;
+        }
+      }
+
+      .c-footer__logos-item {
+        width: 100%;
+        min-width: rem(150px);
+        max-width: rem(150px);
+        height: rem(40px);
+        margin: rem(30px) auto 0;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+
+        @media screen and (min-width: $screen-l) {
+          min-width: rem(60px);
+          max-width: rem(150px);
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .c-footer__newsletter-container {
+    margin: rem(70px) auto;
+
+    @media screen and (min-width: $screen-l) {
+      margin: rem(80px) auto;
+    }
+
+    span {
+      opacity: .5;
+    }
+
+    .c-footer__newsletter-form {
+      position: relative;
+      margin-top: rem(10px);
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+        opacity: .5;
+      }
+
+      input {
+        &[type='email'] {
+          width: 100%;
+          padding: rem(15px) rem(20px);
+          border: 0;
+          border-radius: rem(100px);
+          outline: 0;
+          background-color: darken($color-1, 8%);
+          color: rgba($white, .5);
+        }
+      }
+    }
+  }
+
+  .c-footer__social-networks-container {
+    margin: 0 auto;
+
+    span {
+      margin-top: rem(20px);
+      opacity: .5;
+
+      @media screen and (min-width: $screen-l) {
+        margin-top: rem(40px);
+      }
+    }
+
+    .c-footer__logos-item {
+      width: rem(24px);
+      height: rem(24px);
+    }
+  }
+}

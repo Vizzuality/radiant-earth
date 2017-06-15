@@ -10,6 +10,9 @@ rules:
       allow-rgba: true
   no-url-protocols:
     - 0
+  class-name-format:
+    -
+      allow-leading-underscore: false
   nesting-depth:
     - 2
     -

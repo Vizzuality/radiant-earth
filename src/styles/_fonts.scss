@@ -28,6 +28,11 @@ $ff2-size-xl: 46px;
   url('./fonts/ProximaNova-Light.otf');
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .text {
   color: $black;
   font-family: $font-family-2;
@@ -74,8 +79,12 @@ $ff2-size-xl: 46px;
     color: $white;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
+  &.-uppercase {
+    text-transform: uppercase;
+  }
+
+  &.-center {
+    display: block;
+    text-align: center;
   }
 }
