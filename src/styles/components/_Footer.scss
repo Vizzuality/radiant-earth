@@ -3,24 +3,45 @@
   padding-bottom: 70px;
   background-color: $color-1;
 
-  @media screen and (min-width: $screen-m) {
+  @media screen and (min-width: $screen-l) {
     padding-top: 130px;
-    padding-bottom: 25px;
+    padding-bottom: 125px;
   }
 
   .c-footer__partners-funders-container {
+    margin: 0 auto;
+
     span {
       opacity: .5;
     }
-  }
 
-  .c-footer_logos-container {
-    margin: 30px auto 0;
+    .c-footer_logos-container {
+      margin: 30px auto 0;
 
-    .c-footer__logos-item {
-      img {
-        width: 150px;
+      .row {
+        flex-direction: column;
+
+        @media screen and (min-width: $screen-l) {
+          flex-direction: row;
+        }
+      }
+
+      .c-footer__logos-item {
+        width: 100%;
         min-width: 150px;
+        max-width: 150px;
+        margin: 30px auto 0;
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+
+
+        @media screen and (min-width: $screen-l) {
+          min-width: 60px;
+          max-width: 150px;
+          margin-top: 0;
+        }
       }
     }
   }
@@ -28,8 +49,8 @@
   .c-footer__newsletter-container {
     margin: 70px auto;
 
-    @media screen and (min-width: $screen-m) {
-      margin: 55px auto;
+    @media screen and (min-width: $screen-l) {
+      margin: 80px auto;
     }
 
     span {
@@ -37,7 +58,6 @@
     }
 
     .c-footer__newsletter-form {
-
       input {
         &[type='email'] {
           width: 100%;
@@ -57,7 +77,16 @@
     margin: 0 auto;
 
     span {
+      margin-top: 20px;
       opacity: .5;
+
+      @media screen and (min-width: $screen-l) {
+        margin-top: 40px;
+      }
+    }
+
+    .c-footer__logos-item {
+      width: 24px;
     }
   }
 }
