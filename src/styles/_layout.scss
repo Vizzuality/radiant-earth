@@ -2,3 +2,12 @@ body {
   font-family: $font-family-1;
   font-size: $ff1-size-m;
 }
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

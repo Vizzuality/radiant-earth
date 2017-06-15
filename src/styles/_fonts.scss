@@ -73,4 +73,9 @@ $ff2-size-xl: 46px;
   &.-white {
     color: $white;
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
