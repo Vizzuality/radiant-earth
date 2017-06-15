@@ -59,10 +59,20 @@
     }
 
     .c-footer__newsletter-form {
+      position: relative;
+      margin-top: rem(10px);
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translate(0, -50%);
+        opacity: .5;
+      }
+
       input {
         &[type='email'] {
           width: 100%;
-          margin-top: rem(10px);
           padding: rem(15px) rem(20px);
           border: 0;
           border-radius: rem(100px);

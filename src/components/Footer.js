@@ -20,6 +20,7 @@ class Footer extends Component {
           <div className="c-footer__newsletter-container small-6 columns align-self-middle">
             <span className="text -ff2-xs -white -uppercase -center">Subscribe to our newsletter to get latest news and updates</span>
             <form className="c-footer__newsletter-form">
+              <svg className="icon icon-logo"><use xlinkHref="#icon-arrow"></use></svg>
               <input className="text -ff2-s -uppercase" type="email" value="youremail@domain.com" />
             </form>
           </div>
