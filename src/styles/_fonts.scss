@@ -73,4 +73,8 @@ $ff2-size-xl: 46px;
   &.-white {
     color: $white;
   }
+
+  &.-uppercase {
+    text-transform: uppercase;
+  }
 }
