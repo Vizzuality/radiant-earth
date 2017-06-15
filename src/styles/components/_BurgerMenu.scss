@@ -1,0 +1,68 @@
+.c-burger-menu {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+  }
+
+  li {
+    position: relative;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: rem(49px);
+    }
+  }
+
+  .icon-logo {
+    position: absolute;
+    top: rem(29px);
+    left: rem(15px);
+  }
+
+  .bm-burger-button {
+    position: fixed;
+    width: rem(20px);
+    height: rem(15px);
+    right: rem(30px);
+    top: rem(42px);
+    cursor: pointer;
+  }
+
+  .bm-burger-bars {
+    height: rem(2px) !important;
+    background: $white;
+  }
+
+  .bm-cross-button {
+    width: rem(27px) !important;
+    height: rem(30px) !important;
+    right: rem(27px) !important;
+    top: rem(33px) !important;
+  }
+
+  .bm-cross {
+    width: rem(2px) !important;
+    height: rem(20px) !important;
+    background: $white;
+  }
+
+  .bm-menu-wrap {
+    top: 0;
+  }
+
+  .bm-menu {
+    background: $color-1;
+  }
+
+  .bm-item-list {
+    padding: rem(129px) rem(20px) rem(20px) rem(20px);
+  }
+
+  .bm-overlay {
+    display: none;
+  }
+}
