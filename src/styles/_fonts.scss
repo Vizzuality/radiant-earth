@@ -50,6 +50,17 @@ a {
     line-height: 1.13;
   }
 
+  &.-ff2-l {
+    font-size: $ff2-size-l;
+    font-weight: $font-weight-light;
+    line-height: 1.13;
+  }
+
+  &.-ff1-m {
+    font-size: $ff1-size-m;
+    line-height: 1.75;
+  }
+
   &.-ff2-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
@@ -86,5 +97,20 @@ a {
   &.-center {
     display: block;
     text-align: center;
+  }
+
+  &.-underline {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      display: block;
+      position: absolute;
+      bottom: 15px;
+      width: 100%;
+      height: 2px;
+      background-color: $color-2;
+      content: '';
+    }
   }
 }
