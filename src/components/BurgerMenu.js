@@ -8,6 +8,7 @@ class BurgerMenu extends Component {
     return (
       <div className="c-burger-menu">
         <Menu right width={ '100%' }>
+          <svg className="icon icon-logo"><use xlinkHref="#icon-logo"></use></svg>
           <ul>
             {this.props.links.map((item, i) =>
               <NavItem key={i} name={item.name} url={item.url} />
