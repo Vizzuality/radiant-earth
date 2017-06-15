@@ -8,4 +8,19 @@
     width: 100%;
     height: 100%;
   }
+
+  .c-nav {
+    display: none;
+  }
+
+  @media screen and (min-width: $screen-l) {
+
+    .c-burger-menu {
+      display: none;
+    }
+
+    .c-nav {
+      display: block;
+    }
+  }
 }
