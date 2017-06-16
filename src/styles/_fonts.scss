@@ -54,12 +54,14 @@ a {
     font-size: $ff2-size-l;
     font-weight: $font-weight-light;
     line-height: 1.13;
+    letter-spacing: normal;
   }
 
   &.-ff1-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     line-height: 1.75;
+    letter-spacing: normal;
   }
 
   &.-ff2-s {

@@ -17,4 +17,43 @@
   .l-home__description {
     margin-top: 20px;
   }
+
+  .l-home__example {
+
+    > .row {
+      flex-direction: column-reverse;
+    }
+
+    .l-home__example-text {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .l-home__example-text-2 {
+        margin-top: 20px;
+      }
+
+      .l-home__example-text-3 {
+        margin-top: 19px;
+      }
+    }
+
+    .l-home__example-img-container {
+      text-align: center;
+    }
+
+    img {
+      max-width: 330px;
+    }
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    .l-home__example {
+
+      > .row {
+        flex-direction: row;
+      }
+    }
+  }
 }
