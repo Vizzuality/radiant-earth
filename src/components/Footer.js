@@ -4,7 +4,7 @@ class Footer extends Component {
   render() {
     return (
       <div className="c-footer">
-        <div className="row">
+        <div className="row small-up-1 medium-up-10 large-up-10">
           <div className="c-footer__partners-funders-container small-10 columns">
             <span className="text -ff2-xs -white -uppercase -center">We are working with funders and partners to accelerate open earth imagery technologies</span>
             <div className="c-footer_logos-container">
@@ -16,7 +16,7 @@ class Footer extends Component {
             </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row small-up-1 medium-up-2 large-up-2">
           <div className="c-footer__newsletter-container small-6 columns align-self-middle">
             <span className="text -ff2-xs -white -uppercase -center">Subscribe to our newsletter to get latest news and updates</span>
             <form className="c-footer__newsletter-form">
@@ -25,7 +25,7 @@ class Footer extends Component {
             </form>
           </div>
         </div>
-        <div className="row">
+        <div className="row small-up-2 medium-up-2 large-up-3">
           <div className="c-footer__social-networks-container small-4 columns align-self-middle">
             <div className="row align-justify">
               <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-twitter"></use></svg>
