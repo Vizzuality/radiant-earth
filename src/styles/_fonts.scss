@@ -41,7 +41,7 @@ a {
   &.-ff2-xl {
     font-size: $ff2-size-xl;
     font-weight: $font-weight-semibold;
-    line-height: 1.67;
+    line-height: 1.09;
   }
 
   &.-ff1-l {
@@ -57,11 +57,6 @@ a {
   }
 
   &.-ff1-m {
-    font-size: $ff1-size-m;
-    line-height: 1.75;
-  }
-
-  &.-ff2-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     line-height: 1.75;
@@ -99,18 +94,11 @@ a {
     text-align: center;
   }
 
-  &.-underline {
-    display: inline-block;
-    position: relative;
-
-    &::after {
-      display: block;
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      height: 2px;
-      background-color: $color-2;
-      content: '';
-    }
+  &.-underline,
+  .-underline {
+    background-image: linear-gradient(to right, $color-2 100%, transparent 100%);
+    background-position: 0 1.07em;
+    background-repeat: repeat-x;
+    background-size: 10px 2px;
   }
 }

@@ -1,0 +1,20 @@
+.l-home {
+
+  .l-home__block {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+
+    &:first-of-type {
+      height: calc(100vh - #{$header-height});
+    }
+  }
+
+  .l-home__summary {
+    text-align: center;
+  }
+
+  .l-home__description {
+    margin-top: 20px;
+  }
+}
