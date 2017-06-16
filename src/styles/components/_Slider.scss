@@ -1,0 +1,35 @@
+.c-slider {
+  position: relative;
+
+  .c-slider__item_blog {
+    padding-right: 100px;
+  }
+
+  .c-slider__container-btn {
+    display: flex;
+    position: absolute;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100px;
+    height: 100%;
+    outline: 0;
+    background-color: $color-1;
+
+
+    .c-slider__btn-slider {
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-bottom: 40px;
+      border-radius: 100%;
+      background-color: rgba($white, .5);
+      font-size: 0;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $color-2;
+      }
+    }
+  }
+}
