@@ -11,7 +11,7 @@ class Blog extends Component {
 
   showSlider() {
     const mySlider = new Siema({
-      selector: '.c-slider',
+      selector: this.slider,
       duration: 500,
       easing: 'ease-out',
       perPage: 1,
@@ -24,9 +24,6 @@ class Blog extends Component {
     });
 
     Siema.prototype.addPagination = function() {
-      var containerBtn = document.createElement('DIV');
-      containerBtn.className = 'c-slider__container-btn';
-      this.selector.appendChild(containerBtn);
       for (let i = 0; i < this.innerElements.length; i++) {
         const btn = document.createElement('button');
         btn.textContent = i;
@@ -35,7 +32,7 @@ class Blog extends Component {
           btn.classList.add('selected');
         }
         btn.addEventListener('click', () => this.goTo(i));
-        containerBtn.appendChild(btn);
+        document.querySelector('.c-slider__container-btn').appendChild(btn);
       }
 
       const btnSlider = document.querySelectorAll('.c-slider__btn-slider');
@@ -60,27 +57,83 @@ class Blog extends Component {
         <Header />
           <div className="l-blog">
             <div className="row">
-              <div className="small-7 large-offset-5 columns l-blog__header c-slider">
-                <div className="c-slider__item_blog">
-                  <span className="text -ff1-m -color-2 -uppercase">Use Cases</span>
-                  <h1 className="text -ff2-xl -white -underline">How an Amazonas Moisture Index helped the Yanomami tribe</h1>
+              <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider" >
+                <div className="c-slider__container-btn" ref={(c) => { this.containerBtn = c; }}></div>
+                <div ref={(c) => { this.slider = c; }}>
+                  <div className="c-slider__item_blog">
+                    <span className="text -ff1-m -color-2 -uppercase">Use Cases</span>
+                    <h1 className="text -ff2-xl -white -underline">How an Amazonas Moisture Index helped the Yanomami tribe</h1>
+                  </div>
+                  <div className="c-slider__item_blog">
+                    <span className="text -ff1-m -color-2 -uppercase">NEWS</span>
+                    <h1 className="text -ff2-xl -white -underline">Expanding Access to Earth Observation Data.</h1>
+                  </div>
+                  <div className="c-slider__item_blog">
+                    <span className="text -ff1-m -color-2 -uppercase">NEW FEATURES</span>
+                    <h1 className="text -ff2-xl -white -underline">On minimizing the latency of serving painted raster tiles.</h1>
+                  </div>
+                  <div className="c-slider__item_blog">
+                    <span className="text -ff1-m -color-2 -uppercase">NEWS</span>
+                    <h1 className="text -ff2-xl -white -underline">Expanding Access to Earth Observation Data.</h1>
+                  </div>
+                  <div className="c-slider__item_blog">
+                    <span className="text -ff1-m -color-2 -uppercase">Use Cases</span>
+                    <h1 className="text -ff2-xl -white -underline">How an Amazonas Moisture Index helped the Yanomami tribe</h1>
+                  </div>
                 </div>
-                <div className="c-slider__item_blog">
-                  <span className="text -ff1-m -color-2 -uppercase">NEWS</span>
-                  <h1 className="text -ff2-xl -white -underline">Expanding Access to Earth Observation Data.</h1>
+              </div>
+            </div>
+            <div className="row">
+              <div className="small-12 columns l-blog__gallery">
+                <div className="row small-up-1 medium-up-3 large-up-3">
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
                 </div>
-                <div className="c-slider__item_blog">
-                  <span className="text -ff1-m -color-2 -uppercase">NEW FEATURES</span>
-                  <h1 className="text -ff2-xl -white -underline">On minimizing the latency of serving painted raster tiles.</h1>
-                </div>
-                <div className="c-slider__item_blog">
-                  <span className="text -ff1-m -color-2 -uppercase">NEWS</span>
-                  <h1 className="text -ff2-xl -white -underline">Expanding Access to Earth Observation Data.</h1>
-                </div>
-                <div className="c-slider__item_blog">
-                  <span className="text -ff1-m -color-2 -uppercase">Use Cases</span>
-                  <h1 className="text -ff2-xl -white -underline">How an Amazonas Moisture Index helped the Yanomami tribe</h1>
-                </div>
+
+                <div className="row small-up-1 medium-up-3 large-up-3 l-blog__gallery-second">
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
+                  <div className="small-3 columns l-blog__gallery-item">
+                    <div className="l-blog__gallery-item-picture"></div>
+                    <span className="text -ff1-xs -color-2 -uppercase">NEW FEATURES</span>
+                    <h2 className="text -ff2-l -white">Laying Tiles Without Grout and Mortar</h2>
+                    <p className="text -ff1-m -white">On minimizing the latency of serving painted raster tiles.</p>
+                  </div>
+
+              </div>
               </div>
             </div>
           </div>
