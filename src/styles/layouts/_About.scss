@@ -1,24 +1,74 @@
 .l-about {
   .l-about__header {
+    flex: 0 0 100%;
+    max-width: 100%;
     margin-top: 200px;
+
+    @media screen and (min-width: $screen-m) {
+      flex: 0 0 75%;
+      max-width: 75%;
+    }
+
+    @media screen and (min-width: $screen-l) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
   }
 
   .l-about__types-container {
-    margin-top: 230px;
+    margin-top: 50px;
+
+    @media screen and (min-width: $screen-m) {
+      margin-top: 230px;
+    }
+
+    .l-about__types-item {
+      margin-top: 50px;
+
+      @media screen and (min-width: $screen-m) {
+        margin: 0;
+      }
+    }
   }
 
   .l-about__team-container {
     margin-top: 130px;
 
-    .l-about__person-position {
-      display: block;
-      margin-top: 15px;
-    }
+    .l-about__team-item {
+      margin-top: 50px;
 
-    .l-about__person-picture {
-      width: 150px;
-      height: 150px;
-      background-color: $color-2;
+      @media screen and (min-width: $screen-m) {
+        &:nth-last-of-type(2) {
+          margin-top: 50px;
+        }
+
+        &:last-of-type {
+          margin-top: 50px;
+        }
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        margin-top: 0;
+
+        &:nth-last-of-type(2) {
+          margin-top: 0;
+        }
+
+        &:last-of-type {
+          margin-top: 0;
+        }
+      }
+
+      .l-about__person-position {
+        display: block;
+        margin-top: 15px;
+      }
+
+      .l-about__person-picture {
+        width: 150px;
+        height: 150px;
+        background-color: $color-2;
+      }
     }
   }
 }

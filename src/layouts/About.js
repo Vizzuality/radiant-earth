@@ -17,8 +17,8 @@ class About extends Component {
               </p>
             </div>
             <div className="small-12 columns l-about__types-container">
-              <div className="row align-justify">
-                <div className="small-4 columns">
+              <div className="row align-justify small-up-1 medium-up-3 large-up-3">
+                <div className="small-4 columns l-about__types-item">
                   <h2 className="text -ff2-l -white">Enterprise</h2>
                   <p className="text -ff1-m -white">
                     Radiant Earth is the organization of choice for governments, NGOs, companies, developers,
@@ -26,7 +26,7 @@ class About extends Component {
                     the use of earth imagery technology, and commercial adoption.
                   </p>
                 </div>
-                <div className="small-4 columns">
+                <div className="small-4 columns l-about__types-item">
                   <h2 className="text -ff2-l -white">Developers</h2>
                   <p className="text -ff1-m -white">
                     Petabytes of Earth imagery all in one place which is comprised of the world’s open satellite,
@@ -34,7 +34,7 @@ class About extends Component {
                     and find, combine and analyze earth imagery at any scale, and share it on the web.
                   </p>
                 </div>
-                <div className="small-4 columns">
+                <div className="small-4 columns l-about__types-item">
                   <h2 className="text -ff2-l -white">Technical Working Groups</h2>
                   <p className="text -ff1-m -white">
                     Working to solve some of the world’s toughest social, humanitarian and environmental challenges
@@ -45,8 +45,8 @@ class About extends Component {
               </div>
             </div>
             <div className="small-12 columns l-about__team-container">
-              <div className="row align-justify">
-                <div className="small-3 columns">
+              <div className="row align-justify small-up-1 medium-up-2 large-up-4">
+                <div className="small-3 columns l-about__team-item ">
                   <div className="l-about__person-picture"></div>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Executive Officer</span>
                   <h2 className="text -ff2-l -white">Anne Hale Miglarese</h2>
@@ -57,7 +57,7 @@ class About extends Component {
                   </p>
                 </div>
 
-                <div className="small-3 columns">
+                <div className="small-3 columns l-about__team-item ">
                   <div className="l-about__person-picture"></div>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Technology Officer</span>
                   <h2 className="text -ff2-l -white">Dan Lopez</h2>
@@ -68,7 +68,7 @@ class About extends Component {
                   </p>
                 </div>
 
-                <div className="small-3 columns">
+                <div className="small-3 columns l-about__team-item ">
                   <div className="l-about__person-picture"></div>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Director - Community Engagement</span>
                   <h2 className="text -ff2-l -white">Anthony Burn</h2>
@@ -79,7 +79,7 @@ class About extends Component {
                   </p>
                 </div>
 
-                <div className="small-3 columns">
+                <div className="small-3 columns l-about__team-item ">
                   <div className="l-about__person-picture"></div>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Marketing and Communications Associate</span>
                   <h2 className="text -ff2-l -white">Louisa Nakanuku-Diggs</h2>
