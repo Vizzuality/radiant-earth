@@ -8,9 +8,11 @@ $font-weight-regular: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
+$ff1-size-m: 16px;
+
 $ff2-size-xs: 12px;
 $ff2-size-s: 14px;
-$ff1-size-m: 16px;
+$ff2-size-m: 16px;
 $ff2-size-l: 32px;
 $ff2-size-xl: 46px;
 
@@ -64,6 +66,12 @@ a {
     letter-spacing: normal;
   }
 
+  &.-ff2-m {
+    font-size: $ff2-size-m;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1.3px;
+  }
+
   &.-ff2-s {
     font-size: $ff2-size-s;
     font-weight: $font-weight-semibold;
@@ -102,5 +110,14 @@ a {
     background-position: 0 1.07em;
     background-repeat: repeat-x;
     background-size: 10px 2px;
+  }
+
+  @media screen and (min-width: $screen-m) {
+
+    &.-ff2-m {
+      font-size: $ff2-size-xs;
+      line-height: 1.67;
+      letter-spacing: 1px;
+    }
   }
 }

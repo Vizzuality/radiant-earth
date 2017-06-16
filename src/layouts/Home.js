@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import HomeExampleItem from '../components/HomeExampleItem';
 import illustration1 from '../images/home/illustration-1@2X.png';
+import illustration2 from '../images/home/illustration-2@2X.png';
+import illustration3 from '../images/home/illustration-3@2X.png';
 
 class Home extends Component {
   render() {
@@ -19,22 +22,22 @@ class Home extends Component {
               </div>
             </div>
           </div>
-          <div className="l-home__block l-home__example">
-            <div className="row">
-              <div className="small-12 medium-6 columns">
-                <div className="l-home__example-text">
-                  <div className="row">
-                    <div className="small-12 columns text -ff2-xs -color-2 -uppercase">Radiant earth api</div>
-                    <div className="small-12 columns l-home__example-text-2 text -ff2-l -white">Integrate geospatial data with your applications</div>
-                    <div className="small-12 columns l-home__example-text-3 text -ff1-m -white">Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change.</div>
-                  </div>
-                </div>
-              </div>
-              <div className="small-12 medium-6 columns l-home__example-img-container">
-                <img src={illustration1} />
-              </div>
-            </div>
-          </div>
+          <HomeExampleItem
+            headboard="Radiant earth api"
+            title="Integrate geospatial data with your applications"
+            description="Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change."
+            buttonText="Learn more"
+            buttonUrl="#"
+            img={illustration1}
+          />
+
+          <HomeExampleItem
+            headboard="Radiant earth api"
+            title="Get alerts for new imagery"
+            description="Set areas of interest to receive notifications as relevant
+images are added, or trigger automatic analyses."
+            img={illustration3}
+          />
         </div>
         <Footer />
       </div>
