@@ -47,6 +47,7 @@
     }
 
     img {
+      width: 100%;
       max-width: 330px;
     }
   }
@@ -55,8 +56,12 @@
 
     .l-home__example {
 
-      > .row {
+      &:not(.l-home__example--inverse) > .row {
         flex-direction: row;
+      }
+
+      &.l-home__example--inverse > .row {
+        flex-direction: row-reverse;
       }
     }
   }

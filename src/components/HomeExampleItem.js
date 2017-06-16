@@ -4,8 +4,10 @@ import Button from '../components/Button';
 
 class HomeExampleItem extends Component {
   render() {
+    const className = `l-home__block l-home__example ${this.props.inverse ? 'l-home__example--inverse' : null}`;
+
     return (
-      <div className="l-home__block l-home__example">
+      <div className={className}>
         <div className="row">
           <div className="small-12 medium-6 columns">
             <div className="l-home__example-text">
@@ -17,7 +19,7 @@ class HomeExampleItem extends Component {
                   <div className="small-12 medium-5 columns l-home__example-button">
                     <Button text={this.props.buttonText} url={this.props.buttonUrl} />
                   </div>
-                : null}
+                  : null}
               </div>
             </div>
           </div>
@@ -34,9 +36,10 @@ HomeExampleItem.propTypes = {
   headboard: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,
-  img: PropTypes.string.isRequired
+  inverse: PropTypes.bool
 };
 
 export default HomeExampleItem;

@@ -32,6 +32,15 @@ class Home extends Component {
           />
 
           <HomeExampleItem
+            inverse={true}
+            headboard="Radiant earth api"
+            title="Search accross platforms to find imagery that fits your needs"
+            description="Radiant.earth aims to simplify the overall process
+of using satellite imagery."
+            img={illustration2}
+          />
+
+          <HomeExampleItem
             headboard="Radiant earth api"
             title="Get alerts for new imagery"
             description="Set areas of interest to receive notifications as relevant
