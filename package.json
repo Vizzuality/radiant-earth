@@ -12,7 +12,8 @@
     "react": "^15.6.0",
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.6.0",
-    "react-router-dom": "^4.1.1"
+    "react-router-dom": "^4.1.1",
+    "siema": "^1.4.6"
   },
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",

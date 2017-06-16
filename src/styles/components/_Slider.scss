@@ -1,0 +1,53 @@
+.c-slider {
+  position: relative;
+
+  .c-slider__item_blog {
+    padding-right: 100px;
+  }
+
+  .c-slider__container-btn {
+    display: flex;
+    position: absolute;
+    bottom: -20px;
+    left: 20px;
+    flex-direction: row;
+    width: 100%;
+    outline: 0;
+    background-color: $color-1;
+    z-index: 2;
+
+    @media screen and (min-width: $screen-l) {
+      right: 0;
+      left: auto;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 100px;
+      margin-top: 0;
+    }
+
+    .c-slider__btn-slider {
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: 40px;
+      margin-bottom: 0;
+      border-radius: 100%;
+      background-color: rgba($white, .5);
+      font-size: 0;
+      cursor: pointer;
+
+      @media screen and (min-width: $screen-l) {
+        margin-right: 0;
+        margin-bottom: 40px;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &.selected {
+        background-color: $color-2;
+      }
+    }
+  }
+}
