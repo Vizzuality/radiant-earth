@@ -26,8 +26,7 @@ class Home extends Component {
             headboard="Radiant earth api"
             title="Integrate geospatial data with your applications"
             description="Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change."
-            buttonText="Learn more"
-            buttonUrl="#"
+            button={{text: 'Learn more', url: '#'}}
             img={illustration1}
           />
 
@@ -37,6 +36,7 @@ class Home extends Component {
             title="Search accross platforms to find imagery that fits your needs"
             description="Radiant.earth aims to simplify the overall process
 of using satellite imagery."
+            search={{placeholder: 'Search here to try it'}}
             img={illustration2}
           />
 

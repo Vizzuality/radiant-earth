@@ -1,0 +1,63 @@
+.c-search-input {
+  position: relative;
+  width: 100%;
+  height: rem(50px);
+  border-radius: rem(100px);
+  background-color: rgba($color-3, 0.6);
+
+  input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0 rem(40px) 0 rem(22px);
+    border: 0;
+    background-color: transparent;
+    font-family: $font-family-2;
+    font-size: $ff2-size-s;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1px;
+    color: $white;
+    outline: none;
+    z-index: 2;
+
+    &::-webkit-input-placeholder {
+      color: rgba($white, 0.5);
+      text-transform: uppercase;
+    }
+
+    &:-moz-placeholder {
+      color: rgba($white, 0.5);
+      text-transform: uppercase;
+    }
+
+    &::-moz-placeholder {
+      color: rgba($white, 0.5);
+      text-transform: uppercase;
+    }
+
+    &:-ms-input-placeholder {
+      color: rgba($white, 0.5);
+      text-transform: uppercase;
+    }
+  }
+
+  .icon-search {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: rem(20px);
+    margin: auto;
+    width: rem(14px);
+    height: rem(14px);
+    opacity: 0.5;
+  }
+
+  @media screen and (min-width: $screen-m) {
+    height: rem(40px);
+
+    input {
+      font-size: $ff2-size-xs;
+      letter-spacing: 1.2px;
+    }
+  }
+}

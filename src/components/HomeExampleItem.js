@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
+import SearchInput from '../components/SearchInput';
 
 class HomeExampleItem extends Component {
   render() {
@@ -15,9 +16,14 @@ class HomeExampleItem extends Component {
                 <div className="small-12 columns text -ff2-xs -color-2 -uppercase">{this.props.headboard}</div>
                 <div className="small-12 columns l-home__example-text-2 text -ff2-l -white">{this.props.title}</div>
                 <div className="small-12 columns l-home__example-text-3 text -ff1-m -white">{this.props.description}</div>
-                { this.props.buttonText ?
+                { this.props.button ?
                   <div className="small-12 medium-5 columns l-home__example-button">
-                    <Button text={this.props.buttonText} url={this.props.buttonUrl} />
+                    <Button text={this.props.button.text} url={this.props.button.url} />
+                  </div>
+                  : null}
+                { this.props.search ?
+                  <div className="small-12 medium-9 columns l-home__example-search">
+                    <SearchInput placeholder={this.props.search.placeholder} />
                   </div>
                   : null}
               </div>
@@ -37,9 +43,9 @@ HomeExampleItem.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  buttonText: PropTypes.string,
-  buttonUrl: PropTypes.string,
-  inverse: PropTypes.bool
+  inverse: PropTypes.bool,
+  button: PropTypes.object,
+  search: PropTypes.object
 };
 
 export default HomeExampleItem;

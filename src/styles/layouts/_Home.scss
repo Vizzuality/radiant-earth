@@ -15,7 +15,7 @@
   }
 
   .l-home__description {
-    margin-top: 20px;
+    margin-top: rem(20px);
   }
 
   .l-home__example {
@@ -30,15 +30,16 @@
       height: 100%;
 
       .l-home__example-text-2 {
-        margin-top: 20px;
+        margin-top: rem(20px);
       }
 
       .l-home__example-text-3 {
-        margin-top: 19px;
+        margin-top: rem(19px);
       }
 
-      .l-home__example-button {
-        margin-top: 30px;
+      .l-home__example-button,
+      .l-home__example-search {
+        margin-top: rem(10px);
       }
     }
 
@@ -48,7 +49,7 @@
 
     img {
       width: 100%;
-      max-width: 330px;
+      max-width: rem(330px);
     }
   }
 
@@ -62,6 +63,11 @@
 
       &.l-home__example--inverse > .row {
         flex-direction: row-reverse;
+      }
+
+      .l-home__example-button,
+      .l-home__example-search {
+        margin-top: rem(30px);
       }
     }
   }
