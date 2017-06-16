@@ -13,15 +13,15 @@
     flex-direction: row;
     width: 100%;
     outline: 0;
-
     background-color: $color-1;
-
+    z-index: 2;
 
     @media screen and (min-width: $screen-l) {
       right: 0;
-      left: 0;
+      left: auto;
       flex-direction: column;
       align-items: flex-end;
+      width: 100px;
       margin-top: 0;
     }
 
@@ -37,7 +37,7 @@
       cursor: pointer;
 
       @media screen and (min-width: $screen-l) {
-        margin-right: 40px;
+        margin-right: 0;
         margin-bottom: 40px;
       }
 
