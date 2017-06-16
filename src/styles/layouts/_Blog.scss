@@ -1,0 +1,32 @@
+.l-blog {
+  .l-blog__header {
+    margin-top: 200px;
+  }
+
+  .l-blog__gallery {
+    margin-top: 130px;
+
+    .l-blog__gallery-second {
+      margin-top: 0;
+
+      @media screen and (min-width: $screen-l) {
+        margin-top: 50px;
+      }
+    }
+
+    .l-blog__gallery-item {
+      margin-bottom: 50px;
+
+      @media screen and (min-width: $screen-l) {
+        margin-bottom: 0;
+      }
+
+      .l-blog__gallery-item-picture {
+        width: 100%;
+        height: 180px;
+        margin-bottom: 15px;
+        background-color: $color-2;
+      }
+    }
+  }
+}
