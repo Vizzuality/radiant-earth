@@ -53,6 +53,20 @@
     }
   }
 
+  .l-home__slider {
+    max-width: 100%;
+    width: 100%;
+    height: rem(168px);
+    padding-right: rem(10px);
+
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+    }
+  }
+
   @media screen and (min-width: $screen-m) {
 
     .l-home__example {
@@ -69,6 +83,11 @@
       .l-home__example-search {
         margin-top: rem(30px);
       }
+    }
+
+    .l-home__slider {
+      height: rem(375px);
+      padding-right: 0;
     }
   }
 }

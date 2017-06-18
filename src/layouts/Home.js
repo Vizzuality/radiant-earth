@@ -47,6 +47,15 @@ of using satellite imagery."
 images are added, or trigger automatic analyses."
             img={illustration3}
           />
+
+          <HomeExampleItem
+            inverse={true}
+            headboard="Data explorer"
+            title="Browse the whole world, updated constantly."
+            description="Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives."
+            button={{text: 'Enter explorer', url: '#'}}
+            slider={{images: ['', '', '']}}
+          />
         </div>
         <Footer />
       </div>
