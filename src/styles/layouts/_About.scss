@@ -2,7 +2,7 @@
   .l-about__header {
     flex: 0 0 100%;
     max-width: 100%;
-    margin-top: 200px;
+    margin-top: rem(200px);
 
     @media screen and (min-width: $screen-m) {
       flex: 0 0 75%;
@@ -16,14 +16,14 @@
   }
 
   .l-about__types-container {
-    margin-top: 50px;
+    margin-top: rem(50px);
 
     @media screen and (min-width: $screen-m) {
-      margin-top: 230px;
+      margin-top: rem(230px);
     }
 
     .l-about__types-item {
-      margin-top: 50px;
+      margin-top: rem(50px);
 
       @media screen and (min-width: $screen-m) {
         margin: 0;
@@ -32,18 +32,18 @@
   }
 
   .l-about__team-container {
-    margin-top: 130px;
+    margin-top: rem(130px);
 
     .l-about__team-item {
-      margin-top: 50px;
+      margin-top: rem(50px);
 
       @media screen and (min-width: $screen-m) {
         &:nth-last-of-type(2) {
-          margin-top: 50px;
+          margin-top: rem(50px);
         }
 
         &:last-of-type {
-          margin-top: 50px;
+          margin-top: rem(50px);
         }
       }
 
@@ -61,13 +61,12 @@
 
       .l-about__person-position {
         display: block;
-        margin-top: 15px;
+        margin-top: rem(15px);
       }
 
       .l-about__person-picture {
-        width: 150px;
-        height: 150px;
-        background-color: $color-2;
+        width: rem(150px);
+        height: rem(150px);
       }
     }
   }

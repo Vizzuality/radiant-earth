@@ -65,7 +65,7 @@
       .icon {
         position: absolute;
         top: 50%;
-        right: 20px;
+        right: rem(20px);
         transform: translate(0, -50%);
         opacity: .5;
       }
