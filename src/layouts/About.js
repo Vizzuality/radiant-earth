@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import annePic from '../images/team/bios_anne.png';
+import danPic from '../images/team/bios_dan.png';
+import anthonyPic from '../images/team/bios_anthony.png';
+import louisaPic from '../images/team/bios_louisa.png';
 
 class About extends Component {
   render() {
@@ -47,7 +51,7 @@ class About extends Component {
             <div className="small-12 columns l-about__team-container">
               <div className="row align-justify small-up-1 medium-up-2 large-up-4">
                 <div className="small-3 columns l-about__team-item ">
-                  <div className="l-about__person-picture"></div>
+                  <img className="l-about__person-picture" src={annePic}></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Executive Officer</span>
                   <h2 className="text -ff2-l -white">Anne Hale Miglarese</h2>
                   <p className="text -ff1-m -white">
@@ -58,7 +62,7 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <div className="l-about__person-picture"></div>
+                  <img className="l-about__person-picture" src={danPic}></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Technology Officer</span>
                   <h2 className="text -ff2-l -white">Dan Lopez</h2>
                   <p className="text -ff1-m -white">
@@ -69,7 +73,7 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <div className="l-about__person-picture"></div>
+                  <img className="l-about__person-picture" src={anthonyPic}></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Director - Community Engagement</span>
                   <h2 className="text -ff2-l -white">Anthony Burn</h2>
                   <p className="text -ff1-m -white">
@@ -80,7 +84,7 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <div className="l-about__person-picture"></div>
+                  <img className="l-about__person-picture" src={louisaPic}></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Marketing and Communications Associate</span>
                   <h2 className="text -ff2-l -white">Louisa Nakanuku-Diggs</h2>
                   <p className="text -ff1-m -white">

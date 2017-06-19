@@ -8,10 +8,16 @@ class Footer extends Component {
           <div className="c-footer__partners-funders-container small-10 columns">
             <span className="text -ff2-xs -white -uppercase -center">We are working with funders and partners to accelerate open earth imagery technologies</span>
             <div className="c-footer_logos-container">
-              <div className="row align-justify">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Omidyar"></use></svg>
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-BillnMelinda"></use></svg>
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Vizzuality"></use></svg>
+              <div className="row align-spaced">
+                <a className="" href="https://www.omidyar.com/" target="_blank">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Omidyar"></use></svg>
+                </a>
+                <a href="http://www.gatesfoundation.org/" target="_blank">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-BillnMelinda"></use></svg>
+                </a>
+                <a href="http://www.vizzuality.com/" target="_blank">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Vizzuality"></use></svg>
+                </a>
               </div>
             </div>
           </div>
@@ -28,11 +34,21 @@ class Footer extends Component {
         <div className="row small-up-2 medium-up-2 large-up-3">
           <div className="c-footer__social-networks-container small-4 columns align-self-middle">
             <div className="row align-justify">
-              <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-twitter"></use></svg>
-              <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-linkedin"></use></svg>
-              <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-facebook"></use></svg>
-              <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-medium"></use></svg>
-              <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-instagram"></use></svg>
+              <a href="https://twitter.com/ourradiantearth" target="_blank">
+                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-twitter"></use></svg>
+              </a>
+              <a href="https://www.linkedin.com/company-beta/11020837/" target="_blank">
+                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-linkedin"></use></svg>
+              </a>
+              <a href="https://www.facebook.com/OurRadiantEarth" target="_blank">
+                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-facebook"></use></svg>
+              </a>
+              <a href="https://medium.com/@ourradiantearth" target="_blank">
+                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-medium"></use></svg>
+              </a>
+              <a href="https://www.instagram.com/OurRadiantEarth/" target="_blank">
+                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-instagram"></use></svg>
+              </a>
             </div>
             <span className="text -ff2-xs -white -center">Copyright © 2017 Radiant. All Rights Reserved.</span>
           </div>
