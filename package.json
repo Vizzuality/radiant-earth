@@ -13,7 +13,9 @@
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.6.0",
     "react-router-dom": "^4.1.1",
-    "siema": "^1.4.6"
+    "react-slick": "^0.14.11",
+    "siema": "^1.4.6",
+    "slick-carousel": "^1.6.0"
   },
   "devDependencies": {
     "node-sass-chokidar": "0.0.3",

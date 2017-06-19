@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Siema from 'siema';
+import Slider from'react-slick';
 import Button from '../components/Button';
 import SearchInput from '../components/SearchInput';
 
 class HomeExampleItem extends Component {
-  componentDidMount() {
-    if (this.props.slider) {
-      this.showSlider();
-    }
-  }
-
-  showSlider() {
-    new Siema();
-  }
-
   render() {
-    const contentClass = `l-home__block l-home__example ${this.props.inverse ? 'l-home__example--inverse' : null}`;
+    const contentClass = `l-home__block l-home__example ${this.props.inverse ? 'l-home__example--inverse' : ''}`;
     const textBlockClass = this.props.slider ? 'small-12 medium-5 columns' : 'small-12 medium-6 columns';
+
+    const sliderOptions = {
+      arrows: false,
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
 
     return (
       <div className={contentClass}>
@@ -43,18 +42,18 @@ class HomeExampleItem extends Component {
           </div>
           { this.props.img ?
             <div className="small-12 medium-6 columns l-home__example-img-container">
-              <img src={this.props.img} />
+              <img src={this.props.img} alt="" />
             </div>
             : null }
           { this.props.slider ?
-            <div className="small-12 medium-7 columns">
-              <div className="siema">
+            <div className="small-12 medium-7 columns l-home__example-slider">
+              <Slider {...sliderOptions}>
                 {this.props.slider.images.map((item, i) =>
-                  <div key={i} className="l-home__slider">
+                  <div key={i} className="l-home__example-slider-item">
                     <span></span>
                   </div>
                 )}
-              </div>
+              </Slider>
             </div>
             : null }
         </div>
