@@ -128,7 +128,9 @@ class Blog extends Component {
                 <div className="row small-up-1 medium-up-3 large-up-3">
                   {this.blogContent.map((item, i) =>
                     <div key={i} className="small-3 columns l-blog__gallery-item">
-                      <div className="l-blog__gallery-item-picture"></div>
+                      <div className="l-blog__gallery-item-picture">
+                        <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
+                      </div>
                       <span className="text -ff1-xs -color-2 -uppercase">{item.tag}</span>
                       <h2 className="text -ff2-l -white">{item.title}</h2>
                       <p className="text -ff1-m -white">{item.description}</p>
