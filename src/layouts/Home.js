@@ -34,8 +34,7 @@ class Home extends Component {
             inverse={true}
             headboard="Radiant earth api"
             title="Search accross platforms to find imagery that fits your needs"
-            description="Radiant.earth aims to simplify the overall process
-of using satellite imagery."
+            description="Radiant.earth aims to simplify the overall process of using satellite imagery."
             search={{placeholder: 'Search here to try it'}}
             img={illustration2}
           />
@@ -43,8 +42,7 @@ of using satellite imagery."
           <HomeExampleItem
             headboard="Radiant earth api"
             title="Get alerts for new imagery"
-            description="Set areas of interest to receive notifications as relevant
-images are added, or trigger automatic analyses."
+            description="Set areas of interest to receive notifications as relevant images are added, or trigger automatic analyses."
             img={illustration3}
           />
 
