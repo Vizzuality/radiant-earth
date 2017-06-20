@@ -133,9 +133,9 @@ class Blog extends Component {
                         <div className="l-blog__gallery-item-picture">
                           <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
                         </div>
-                        <span className="text -ff1-xs -color-2 -uppercase">{item.tag}</span>
-                        <h2 className="text -ff2-l -white">{item.title}</h2>
-                        <p className="text -ff1-m -white">{item.description}</p>
+                        <span className="text -ff2-xs -color-2 -uppercase">{item.tag}</span>
+                        <h2 className="l-blog__gallery-item-title text -ff2-l -white">{item.title}</h2>
+                        <p className="l-blog__gallery-item-summary text -ff1-m -white">{item.description}</p>
                       </a>
                     </div>
                   )}
