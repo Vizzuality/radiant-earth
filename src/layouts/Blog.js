@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Siema from 'siema';
+import Masonry from 'react-masonry-component';
 
 class Blog extends Component {
 
@@ -125,18 +126,20 @@ class Blog extends Component {
             </div>
             <div className="row">
               <div className="small-12 columns l-blog__gallery">
-                <div className="row small-up-1 medium-up-3 large-up-3">
+                <Masonry className="l-blog__gallery-masonry">
                   {this.blogContent.map((item, i) =>
-                    <div key={i} className="small-3 columns l-blog__gallery-item">
-                      <div className="l-blog__gallery-item-picture">
-                        <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
-                      </div>
-                      <span className="text -ff1-xs -color-2 -uppercase">{item.tag}</span>
-                      <h2 className="text -ff2-l -white">{item.title}</h2>
-                      <p className="text -ff1-m -white">{item.description}</p>
+                    <div key={i} className="l-blog__gallery-item">
+                      <a href="#">
+                        <div className="l-blog__gallery-item-picture">
+                          <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
+                        </div>
+                        <span className="text -ff2-xs -color-2 -uppercase">{item.tag}</span>
+                        <h2 className="l-blog__gallery-item-title text -ff2-l -white">{item.title}</h2>
+                        <p className="l-blog__gallery-item-summary text -ff1-m -white">{item.description}</p>
+                      </a>
                     </div>
                   )}
-                </div>
+                </Masonry>
               </div>
             </div>
           </div>

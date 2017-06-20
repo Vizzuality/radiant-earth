@@ -12,6 +12,7 @@
     "react": "^15.6.0",
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.6.0",
+    "react-masonry-component": "^5.0.7",
     "react-router-dom": "^4.1.1",
     "react-slick": "^0.14.11",
     "siema": "^1.4.6",
