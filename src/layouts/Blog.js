@@ -116,7 +116,8 @@ class Blog extends Component {
                     <div key={i} className="small-12 columns l-blog__gallery-item">
                       <div className="c-slider__item_blog">
                         <span className="text -ff1-m -color-2 -uppercase">{item.tag}</span>
-                        <h1 className="text -ff2-xl -white -underline">{item.title}</h1>
+                        <h1 className="text -ff2-xl -white">
+                          <span className="-underline">{item.title}</span></h1>
                       </div>
                     </div>
                   )}

@@ -13,7 +13,9 @@ class About extends Component {
         <Header />
           <div className="row l-about">
             <div className="small-6 columns l-about__header">
-              <h1 className="text -ff2-xl -white -underline">About</h1>
+              <h1 className="text -ff2-xl -white">
+                <span className="-underline">About</span>
+              </h1>
               <p className="text -ff1-m -white">
                 Radiant launched operations in August 2016 to answer the call for open access to geospatial data,
                 with analytical tools for global development practitioners designed to
