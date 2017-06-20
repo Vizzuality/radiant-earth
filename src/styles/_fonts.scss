@@ -8,9 +8,11 @@ $font-weight-regular: 400;
 $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
+$ff1-size-m: 16px;
+
 $ff2-size-xs: 12px;
 $ff2-size-s: 14px;
-$ff1-size-m: 16px;
+$ff2-size-m: 16px;
 $ff2-size-l: 32px;
 $ff2-size-xl: 46px;
 
@@ -41,7 +43,7 @@ a {
   &.-ff2-xl {
     font-size: $ff2-size-xl;
     font-weight: $font-weight-semibold;
-    line-height: 1.67;
+    line-height: 1.09;
   }
 
   &.-ff1-l {
@@ -54,17 +56,20 @@ a {
     font-size: $ff2-size-l;
     font-weight: $font-weight-light;
     line-height: 1.13;
+    letter-spacing: normal;
   }
 
   &.-ff1-m {
-    font-size: $ff1-size-m;
-    line-height: 1.75;
-  }
-
-  &.-ff2-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     line-height: 1.75;
+    letter-spacing: normal;
+  }
+
+  &.-ff2-m {
+    font-size: $ff2-size-m;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1.3px;
   }
 
   &.-ff2-s {
@@ -99,18 +104,20 @@ a {
     text-align: center;
   }
 
-  &.-underline {
-    display: inline-block;
-    position: relative;
+  &.-underline,
+  .-underline {
+    background-image: linear-gradient(to right, $color-2 100%, transparent 100%);
+    background-position: 0 1.07em;
+    background-repeat: repeat-x;
+    background-size: 10px 2px;
+  }
 
-    &::after {
-      display: block;
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      height: 2px;
-      background-color: $color-2;
-      content: '';
+  @media screen and (min-width: $screen-m) {
+
+    &.-ff2-m {
+      font-size: $ff2-size-xs;
+      line-height: 1.67;
+      letter-spacing: 1px;
     }
   }
 }
