@@ -130,7 +130,7 @@ class Blog extends Component {
                 <Masonry className="l-blog__gallery-masonry">
                   {this.blogContent.map((item, i) =>
                     <div key={i} className="l-blog__gallery-item">
-                      <a href="#">
+                      <a href={''}>
                         <div className="l-blog__gallery-item-picture">
                           <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
                         </div>
