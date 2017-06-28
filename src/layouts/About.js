@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CircleImages from '../components/CircleImages';
 import annePic from '../images/team/bios_anne.png';
 import danPic from '../images/team/bios_dan.png';
 import anthonyPic from '../images/team/bios_anthony.png';
@@ -11,6 +12,7 @@ class About extends Component {
     return (
       <div>
         <Header />
+        <CircleImages />
           <div className="row l-about">
             <div className="small-6 columns l-about__header">
               <h1 className="text -ff2-xl -white">

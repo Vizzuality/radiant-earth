@@ -1,0 +1,110 @@
+//List images
+$all-images: 'images/header/1.jpeg', 'images/header/2.jpeg', 'images/header/3.jpeg', 'images/header/4.jpeg';
+
+.c-circle-images {
+  .c-header__back-gradient {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(to bottom, $color-1, rgba(2, 99, 209, 0));
+    z-index: 3;
+  }
+
+  .c-header__big-picture,
+  .c-header__medium-picture,
+  .c-header__small-picture {
+    position: absolute;
+    transition: opacity .5s linear;
+    background-size: cover;
+    z-index: -1;
+
+    &.-visible {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    &.-hidden {
+      opacity: 0;
+      z-index: 2;
+    }
+
+  }
+
+
+  .c-header__big-picture {
+    top: rem(-400px);
+    right: rem(-200px);
+    width: rem(900px);
+    height: rem(900px);
+    transition-delay: .5s;
+    border-radius: 100%;
+
+
+    &.-img-1 {
+      background-image: url(nth($all-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($all-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($all-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($all-images, 4));
+    }
+  }
+
+  .c-header__medium-picture {
+    top: rem(222px);
+    right: calc(585px);
+    width: rem(410px);
+    height: rem(410px);
+    transition-delay: 1s;
+    border-radius: 100%;
+
+    &.-img-1 {
+      background-image: url(nth($all-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($all-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($all-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($all-images, 4));
+    }
+  }
+
+  .c-header__small-picture {
+    top: 0;
+    right: calc(700px);
+    width: rem(220px);
+    height: rem(220px);
+    transition-delay: 1.5s;
+    border-radius: 100%;
+
+    &.-img-1 {
+      background-image: url(nth($all-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($all-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($all-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($all-images, 4));
+    }
+  }
+}

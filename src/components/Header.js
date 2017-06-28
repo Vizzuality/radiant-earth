@@ -3,8 +3,9 @@ import Nav from './Nav';
 import BurgerMenu from './BurgerMenu';
 
 class Header extends Component {
-  constructor () {
-    super();
+
+  constructor (props) {
+    super(props);
 
     this.navLinks = [
       {
