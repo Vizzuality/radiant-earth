@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Siema from 'siema';
+import Slider from 'react-slick';
 import Masonry from 'react-masonry-component';
 
 class Blog extends Component {
@@ -66,41 +66,19 @@ class Blog extends Component {
     ];
   }
 
-  componentDidMount() {
-    this.showSlider();
-  }
-
-  showSlider() {
-    const mySlider = new Siema({
-      selector: this.slider,
-      duration: 500,
-      easing: 'ease-out',
-      perPage: 1,
-      startIndex: 0,
-      draggable: true,
-      threshold: 20,
-      loop: false,
-      onInit: () => {},
-      onChange: () => {},
-    });
-
-    const btnSlider = document.querySelectorAll('.c-slider__btn-slider');
-    btnSlider[0].classList.add('selected');
-
-    for (var i = 0; i < btnSlider.length; i++) {
-      btnSlider[i].addEventListener('click', function(event) {
-        for (var j = 0; j < btnSlider.length; j++) {
-          if (btnSlider[j].classList.contains('selected')) {
-            btnSlider[j].classList.remove('selected');
-          }
-        }
-        mySlider.goTo(parseInt(event.target.innerHTML));
-        this.classList.add('selected');
-      });
-    }
-  }
-
   render() {
+
+    const sliderOptions = {
+      arrows: false,
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      dotsClass: 'c-slider__dots',
+      appendDots: this.containerBtn
+    };
+
     return (
       <div>
         <Header />
@@ -108,11 +86,8 @@ class Blog extends Component {
             <div className="row">
               <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider" >
                 <div className="c-slider__container-btn columns" ref={(c) => { this.containerBtn = c; }}>
-                  {this.sliderContent.map((item, i) =>
-                    <button className="c-slider__btn-slider" key={i}>{i}</button>
-                  )}
                 </div>
-                <div ref={(c) => { this.slider = c; }}>
+                <Slider {...sliderOptions}>
                   {this.sliderContent.map((item, i) =>
                     <div key={i} className="small-12 columns l-blog__gallery-item">
                       <div className="c-slider__item_blog">
@@ -122,7 +97,7 @@ class Blog extends Component {
                       </div>
                     </div>
                   )}
-                </div>
+                </ Slider>
               </div>
             </div>
             <div className="row">

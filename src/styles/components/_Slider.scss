@@ -50,4 +50,32 @@
       }
     }
   }
+
+  .c-slider__dots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    list-style: none;
+
+    li {
+      position: relative;
+      margin-bottom: 30px;
+      font-size: 0;
+      cursor: pointer;
+
+      &::before {
+        display: block;
+        width: 8px;
+        height: 8px;
+        border-radius: 100%;
+        background-color: $white;
+        content: '';
+        cursor: pointer;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

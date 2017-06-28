@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Slider from'react-slick';
+import Slider from 'react-slick';
 import Button from '../components/Button';
 import SearchInput from '../components/SearchInput';
 
