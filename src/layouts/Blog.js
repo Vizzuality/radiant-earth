@@ -6,8 +6,12 @@ import Masonry from 'react-masonry-component';
 
 class Blog extends Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      count: 1,
+    };
 
     this.blogContent = [
       {
@@ -45,23 +49,28 @@ class Blog extends Component {
     this.sliderContent = [
       {
         tag: 'NEW FEATURES',
-        title: 'Laying Tiles Without Grout and Mortar'
+        title: 'Laying Tiles Without Grout and Mortar',
+        image: 1
       },
       {
         tag: 'NEWS',
-        title: 'Expanding Access to Earth Observation Data'
+        title: 'Expanding Access to Earth Observation Data',
+        image: 2
       },
       {
         tag: 'TUTORIALS',
-        title: 'Atomate analyses when updated imagery is available'
+        title: 'Atomate analyses when updated imagery is available',
+        image: 3
       },
       {
         tag: 'TUTORIALS',
-        title: 'How to integrate the Radiant Earth API with your application'
+        title: 'How to integrate the Radiant Earth API with your application',
+        image: 4
       },
       {
         tag: 'NEW FEATURES',
-        title: 'Ingest your own data'
+        title: 'Ingest your own data',
+        image: 5
       }
     ];
   }
@@ -76,7 +85,12 @@ class Blog extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       draggable: false,
-      dotsClass: 'c-slider__dots'
+      dotsClass: 'c-slider__dots',
+      afterChange: function(slider){
+        this.setState({
+          count: slider + 1
+        });
+      }.bind(this)
     };
 
     return (
@@ -84,9 +98,10 @@ class Blog extends Component {
         <Header />
           <div className="l-blog">
             <div className="row">
-              <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider" >
-                <div className="c-slider__container-btn columns" ref={(c) => { this.containerBtn = c; }}>
-                </div>
+              {this.sliderContent.map((item, i) =>
+                <div className={`l-blog__circle-image -img-${item.image} ${this.state.count === item.image ? '-visible' : '-hidden' }`}></div>
+              )}
+              <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider">
                 <Slider {...sliderOptions}>
                   {this.sliderContent.map((item, i) =>
                     <div key={i} className="small-12 columns l-blog__gallery-item">

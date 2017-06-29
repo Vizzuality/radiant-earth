@@ -16,12 +16,6 @@ class CircleImages extends Component {
       secondMediumImage: false,
       firstSmallImage: true,
       secondSmallImage: false,
-      countBigPicture: 0,
-      countMediumPicture: 0,
-      countrSmallPicture: 0,
-      imagesSmall: [2,3,4,1],
-      imagesMedium: [1,2,3,4],
-      imagesBig: [4,3,2,1],
       count: 0,
     };
   }
