@@ -1,8 +1,31 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 
 class AddBlog extends Component {
+
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      value: 'Example',
+      options: [
+        { label: 'News', value: 'news' },
+        { label: 'Blog', value: 'blog' },
+        { label: 'Maps', value: 'map' },
+      ]
+    };
+  }
+
+  handleSelectChange (value) {
+    this.setState({
+      value: value
+    });
+  }
+
   render() {
+
     return (
       <div className="row l-add-blog align-center">
         <div className="l-add-blog__form small-10 medium-10 large-10">
@@ -12,18 +35,25 @@ class AddBlog extends Component {
             <input className="text -ff2-s" type="text" placeholder="eg: We love tiles"/>
             <label className="text -ff2-xm -uppercase">Description</label>
             <textarea className="text -ff2-s"></textarea>
-
             <div className="l-add-blog__two-inputs">
-              <div>
+              <div className="container">
                 <label className="text -ff2-xm -uppercase">Tags</label>
-                <input className="text -ff2-s" type="text" placeholder="eg: #News"/>
+                <Select
+                  className="text -ff2-s"
+                  multi
+                  simpleValue
+                  disabled= {false}
+                  value={this.state.value}
+                  placeholder="Select your favourite(s)"
+                  options={this.state.options}
+                  onChange={this.handleSelectChange.bind(this)}
+                />
               </div>
-              <div>
+              <div className="container">
                 <label className="text -ff2-xm -uppercase">Image</label>
                 <input className="text -ff2-s" type="file" />
               </div>
             </div>
-
             <label className="text -ff2-xm -uppercase">Original post (url)</label>
             <input className="text -ff2-s" type="text" placeholder="Paste your url"/>
             <input className="text -ff2-s -white -uppercase" type="button" value="Submit" />
