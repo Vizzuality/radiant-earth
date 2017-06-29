@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Siema from 'siema';
+import Slider from 'react-slick';
 import Masonry from 'react-masonry-component';
 
 class Blog extends Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      count: 1,
+    };
 
     this.blogContent = [
       {
@@ -45,84 +49,70 @@ class Blog extends Component {
     this.sliderContent = [
       {
         tag: 'NEW FEATURES',
-        title: 'Laying Tiles Without Grout and Mortar'
+        title: 'Laying Tiles Without Grout and Mortar',
+        image: 1
       },
       {
         tag: 'NEWS',
-        title: 'Expanding Access to Earth Observation Data'
+        title: 'Expanding Access to Earth Observation Data',
+        image: 2
       },
       {
         tag: 'TUTORIALS',
-        title: 'Atomate analyses when updated imagery is available'
+        title: 'Atomate analyses when updated imagery is available',
+        image: 3
       },
       {
         tag: 'TUTORIALS',
-        title: 'How to integrate the Radiant Earth API with your application'
+        title: 'How to integrate the Radiant Earth API with your application',
+        image: 4
       },
       {
         tag: 'NEW FEATURES',
-        title: 'Ingest your own data'
+        title: 'Ingest your own data',
+        image: 5
       }
     ];
   }
 
-  componentDidMount() {
-    this.showSlider();
-  }
-
-  showSlider() {
-    const mySlider = new Siema({
-      selector: this.slider,
-      duration: 500,
-      easing: 'ease-out',
-      perPage: 1,
-      startIndex: 0,
-      draggable: true,
-      threshold: 20,
-      loop: false,
-      onInit: () => {},
-      onChange: () => {},
-    });
-
-    const btnSlider = document.querySelectorAll('.c-slider__btn-slider');
-    btnSlider[0].classList.add('selected');
-
-    for (var i = 0; i < btnSlider.length; i++) {
-      btnSlider[i].addEventListener('click', function(event) {
-        for (var j = 0; j < btnSlider.length; j++) {
-          if (btnSlider[j].classList.contains('selected')) {
-            btnSlider[j].classList.remove('selected');
-          }
-        }
-        mySlider.goTo(parseInt(event.target.innerHTML));
-        this.classList.add('selected');
-      });
-    }
-  }
-
   render() {
+
+    const sliderOptions = {
+      arrows: false,
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: false,
+      dotsClass: 'c-slider__dots',
+      afterChange: function(slider){
+        this.setState({
+          count: slider + 1
+        });
+      }.bind(this)
+    };
+
     return (
       <div>
         <Header />
           <div className="l-blog">
             <div className="row">
-              <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider" >
-                <div className="c-slider__container-btn columns" ref={(c) => { this.containerBtn = c; }}>
-                  {this.sliderContent.map((item, i) =>
-                    <button className="c-slider__btn-slider" key={i}>{i}</button>
-                  )}
-                </div>
-                <div ref={(c) => { this.slider = c; }}>
+              {this.sliderContent.map((item, i) =>
+                <div className={`l-blog__circle-image -img-${item.image} ${this.state.count === item.image ? '-visible' : '-hidden' }`}></div>
+              )}
+              <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider">
+                <Slider {...sliderOptions}>
                   {this.sliderContent.map((item, i) =>
                     <div key={i} className="small-12 columns l-blog__gallery-item">
                       <div className="c-slider__item_blog">
-                        <span className="text -ff1-m -color-2 -uppercase">{item.tag}</span>
+                        <span className="text -ff2-xs  -color-2 -uppercase c-slider__tag">{item.tag}</span>
                         <h1 className="text -ff2-xl -white">
                           <span className="-underline">{item.title}</span></h1>
                       </div>
                     </div>
                   )}
-                </div>
+                </ Slider>
               </div>
             </div>
             <div className="row">

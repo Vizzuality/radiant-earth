@@ -1,0 +1,134 @@
+//List images
+$big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg', 'images/header/4.jpg';
+$medium-images: 'images/header/5.jpg', 'images/header/6.jpg', 'images/header/7.jpg', 'images/header/8.jpg';
+$small-images: 'images/header/9.jpg', 'images/header/10.jpg', 'images/header/11.jpg', 'images/header/12.jpg';
+
+.c-circle-images {
+  .c-header__back-gradient {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: rem(400px);
+    background-image: linear-gradient(to bottom, $color-1, rgba(2, 99, 209, 0));
+  }
+
+  .c-header__big-picture,
+  .c-header__medium-picture,
+  .c-header__small-picture {
+    position: absolute;
+    transition: opacity .5s linear;
+    background-size: cover;
+    z-index: -1;
+
+    &.-visible {
+      opacity: 1;
+    }
+
+    &.-hidden {
+      opacity: 0;
+    }
+
+  }
+
+  .c-header__big-picture {
+    top: rem(-200px);
+    right: rem(-200px);
+    width: rem(600px);
+    height: rem(600px);
+    transition-delay: .5s;
+    border-radius: 100%;
+
+    @media screen and (min-width: $screen-xl) {
+      top: rem(-400px);
+      right: rem(-200px);
+      width: rem(900px);
+      height: rem(900px);
+    }
+
+
+    &.-img-1 {
+      background-image: url(nth($big-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($big-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($big-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($big-images, 4));
+    }
+  }
+
+  .c-header__medium-picture {
+    top: rem(250px);
+    right: rem(320px);
+    width: rem(200px);
+    height: rem(200px);
+    transition-delay: 1s;
+    border-radius: 100%;
+
+    @media screen and (min-width: $screen-xl) {
+      top: rem(222px);
+      right: calc(585px);
+      width: rem(410px);
+      height: rem(410px);
+    }
+
+    &.-visible {
+      opacity: .5;
+    }
+
+    &.-img-1 {
+      background-image: url(nth($medium-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($medium-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($medium-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($medium-images, 4));
+    }
+  }
+
+  .c-header__small-picture {
+    top: rem(113px);
+    right: rem(396px);
+    width: rem(140px);
+    height: rem(140px);
+    transition-delay: 1.5s;
+    border-radius: 100%;
+
+    @media screen and (min-width: $screen-xl) {
+      top: 0;
+      right: calc(700px);
+      width: rem(220px);
+      height: rem(220px);
+    }
+
+
+    &.-img-1 {
+      background-image: url(nth($small-images, 1));
+    }
+
+    &.-img-2 {
+      background-image: url(nth($small-images, 2));
+    }
+
+    &.-img-3 {
+      background-image: url(nth($small-images, 3));
+    }
+
+    &.-img-4 {
+      background-image: url(nth($small-images, 4));
+    }
+  }
+}
