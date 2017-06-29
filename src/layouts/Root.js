@@ -8,6 +8,7 @@ import Blog from './Blog';
 import About from './About';
 import Login from './Login';
 import AddBlog from './AddBlog';
+import Dashboard from './Dashboard';
 
 const Root = ({ store }) => (
   <Router>
@@ -17,6 +18,7 @@ const Root = ({ store }) => (
       <Route exact path="/about" component={About}/>
       <Route exact path="/admin/login" component={Login}/>
       <Route exact path="/admin/add-blog" component={AddBlog}/>
+      <Route exact path="/admin/dashboard" component={Dashboard}/>
     </div>
   </Router>
 );

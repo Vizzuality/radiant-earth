@@ -29,12 +29,15 @@ class AddBlog extends Component {
     return (
       <div className="row l-add-blog align-center">
         <div className="l-add-blog__form small-10 medium-10 large-10">
+          <div className="l-add-blog__menu">
+            <a className="text -ff2-s" href="/admin/dashboard">Go dashboard</a>
+          </div>
           <h1 className="text -ff2-xl">Add new blog.</h1>
           <form>
             <label className="text -ff2-xm -uppercase">Title</label>
-            <input className="text -ff2-s" type="text" placeholder="eg: We love tiles"/>
+            <input className="text -ff2-s c-input -text-field" type="text" placeholder="eg: We love tiles"/>
             <label className="text -ff2-xm -uppercase">Description</label>
-            <textarea className="text -ff2-s"></textarea>
+            <textarea className="text -ff2-s c-input -textarea"></textarea>
             <div className="l-add-blog__two-inputs">
               <div className="container">
                 <label className="text -ff2-xm -uppercase">Tags</label>
@@ -55,8 +58,8 @@ class AddBlog extends Component {
               </div>
             </div>
             <label className="text -ff2-xm -uppercase">Original post (url)</label>
-            <input className="text -ff2-s" type="text" placeholder="Paste your url"/>
-            <input className="text -ff2-s -white -uppercase" type="button" value="Submit" />
+            <input className="text -ff2-s c-input -text-field" type="text" placeholder="Paste your url"/>
+            <input className="text -ff2-s -uppercase c-button -primary" type="button" value="Submit" />
           </form>
         </div>
       </div>

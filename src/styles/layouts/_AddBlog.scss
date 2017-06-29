@@ -3,9 +3,19 @@
   padding-bottom: 50px;
 
   .l-add-blog__form {
+    position: relative;
     padding: 50px 40px;
     background-color: $white;
     box-shadow: 1px 1px 6px 1px rgba($black, .3);
+
+    .l-add-blog__menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px 20px;
+      border-bottom: 1px solid rgba($black, .2);
+      border-left: 1px solid rgba($black, .2);
+    }
 
     form {
       margin-top: 40px;
@@ -20,22 +30,12 @@
         width: 100%;
         margin-bottom: 60px;
         padding-bottom: 8px;
-        border: 0;
-        border-bottom: 1px solid rgba($black, .2);
-        outline: 0;
 
         &[type='button'] {
-          display: flex;
-          align-items: center;
-          justify-content: center;
           width: 30%;
           margin-top: rem(40px);
           margin-bottom: 0;
           margin-left: 70%;
-          padding: 10px 30px;
-          border-radius: 100px;
-          background-color: $color-1;
-          cursor: pointer;
         }
       }
 
@@ -45,9 +45,6 @@
         height: rem(200px);
         max-height: rem(200px);
         margin-bottom: 60px;
-        padding: 8px;
-        border: 1px solid rgba($black, .2);
-        outline: 0;
       }
     }
 
