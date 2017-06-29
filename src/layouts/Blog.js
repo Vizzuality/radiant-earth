@@ -75,8 +75,8 @@ class Blog extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
-      dotsClass: 'c-slider__dots',
-      appendDots: this.containerBtn
+      draggable: false,
+      dotsClass: 'c-slider__dots'
     };
 
     return (
@@ -91,7 +91,7 @@ class Blog extends Component {
                   {this.sliderContent.map((item, i) =>
                     <div key={i} className="small-12 columns l-blog__gallery-item">
                       <div className="c-slider__item_blog">
-                        <span className="text -ff1-m -color-2 -uppercase">{item.tag}</span>
+                        <span className="text -ff2-xs  -color-2 -uppercase c-slider__tag">{item.tag}</span>
                         <h1 className="text -ff2-xl -white">
                           <span className="-underline">{item.title}</span></h1>
                       </div>
