@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import CircleImages from '../components/CircleImages';
-import annePic from '../images/team/bios_anne.png';
-import danPic from '../images/team/bios_dan.png';
-import anthonyPic from '../images/team/bios_anthony.png';
-import louisaPic from '../images/team/bios_louisa.png';
+import annePic from '../images/team/bios_anne.jpg';
+import danPic from '../images/team/bios_dan.jpg';
+import anthonyPic from '../images/team/bios_anthony.jpg';
+import louisaPic from '../images/team/bios_louisa.jpg';
 
 class About extends Component {
   render() {
@@ -55,10 +55,10 @@ class About extends Component {
             <div className="small-12 columns l-about__team-container">
               <div className="row align-justify small-up-1 medium-up-2 large-up-4">
                 <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={annePic}></img>
+                  <img className="l-about__person-picture" src={annePic} alt="Anne Hale Miglarese"></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Executive Officer</span>
                   <h2 className="text -ff2-l -white">Anne Hale Miglarese</h2>
-                  <p className="text -ff1-m -white">
+                  <p className="text -ff1-m -white l-about__description">
                     Anne Hale Miglarese, founding CEO of Radiant, is committed to providing geospatial analytics using
                     imagery and mapping data to empower informed decision-making to help solve the developing
                     world’s greatest social, economic and environmental challenges.
@@ -66,10 +66,10 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={danPic}></img>
+                  <img className="l-about__person-picture" src={danPic} alt="Dan Lopez"></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Technology Officer</span>
                   <h2 className="text -ff2-l -white">Dan Lopez</h2>
-                  <p className="text -ff1-m -white">
+                  <p className="text -ff1-m -white l-about__description">
                     Dan Lopez is an innovative entrepreneur and architect who
                     has advised a wide variety of web-centric businesses and
                     brands by lending his creative, strategic and technological vision.
@@ -77,10 +77,10 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={anthonyPic}></img>
+                  <img className="l-about__person-picture" src={anthonyPic} alt="Anthony Burn"></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Director - Community Engagement</span>
                   <h2 className="text -ff2-l -white">Anthony Burn</h2>
-                  <p className="text -ff1-m -white">
+                  <p className="text -ff1-m -white l-about__description">
                     Anthony Burn is passionate about harnessing the full power of GIS
                     enabled data across multiple platforms, to transform individual
                     lives and whole societies for the better.
@@ -88,10 +88,10 @@ class About extends Component {
                 </div>
 
                 <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={louisaPic}></img>
+                  <img className="l-about__person-picture" src={louisaPic} alt="Louisa Nakanuku-Diggs"></img>
                   <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Marketing and Communications Associate</span>
                   <h2 className="text -ff2-l -white">Louisa Nakanuku-Diggs</h2>
-                  <p className="text -ff1-m -white">
+                  <p className="text -ff1-m -white l-about__description">
                     Louisa Nakanuku-Diggs is passionate about storytelling and visualization and their
                     possibilities to transform complex topics into simple, yet engaging and effective narratives.
                   </p>
