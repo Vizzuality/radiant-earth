@@ -13,6 +13,7 @@ $ff1-size-m: 16px;
 $ff2-size-xs: 12px;
 $ff2-size-s: 14px;
 $ff2-size-m: 16px;
+$ff2-size-xm: 20px;
 $ff2-size-l: 32px;
 $ff2-size-xl: 46px;
 
@@ -68,6 +69,12 @@ a {
 
   &.-ff2-m {
     font-size: $ff2-size-m;
+    font-weight: $font-weight-semibold;
+    letter-spacing: 1.3px;
+  }
+
+  &.-ff2-xm {
+    font-size: $ff2-size-xm;
     font-weight: $font-weight-semibold;
     letter-spacing: 1.3px;
   }

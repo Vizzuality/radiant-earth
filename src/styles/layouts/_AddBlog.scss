@@ -1,0 +1,77 @@
+.l-add-blog {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  
+  .l-add-blog__form {
+    padding: 50px 40px;
+    background-color: $white;
+
+    form {
+      margin-top: 40px;
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        margin-bottom: 60px;
+        padding-bottom: 8px;
+        border: 0;
+        border-bottom: 1px solid rgba($black, .2);
+        outline: 0;
+
+        &[type='button'] {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 30%;
+          margin-top: rem(40px);
+          margin-bottom: 0;
+          margin-left: 70%;
+          padding: 10px 30px;
+          border-radius: 100px;
+          background-color: $color-1;
+          cursor: pointer;
+        }
+      }
+
+      textarea {
+        width: 100%;
+        max-width: 100%;
+        height: rem(200px);
+        max-height: rem(200px);
+        margin-bottom: 60px;
+        padding: 8px;
+        border: 1px solid rgba($black, .2);
+        outline: 0;
+      }
+    }
+
+    .l-add-blog__two-inputs {
+      display: flex;
+      justify-content: space-between;
+
+      div {
+        flex-basis: calc(50% - 50px);
+
+        &:first-of-type {
+          position: relative;
+
+          &::after {
+            display: block;
+            position: absolute;
+            top: 25px;
+            right: -50px;
+            width: 1px;
+            height: calc(100% - 50px);
+            background-color: rgba($black, .2);
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}
