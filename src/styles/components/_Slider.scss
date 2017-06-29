@@ -7,8 +7,8 @@
 
   .c-slider__tag {
     display: block;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: rem(15px);
+    margin-bottom: rem(10px);
   }
 
   .c-slider__dots {
@@ -24,17 +24,15 @@
     li {
       display: inline-block;
       position: relative;
-      width: 20px;
-      height: 20px;
-      margin: 0 5px;
-      margin-right: 30px;
-      margin-bottom: 0;
+      width: rem(20px);
+      height: rem(20px);
+      margin: 0 rem(30px) 0 rem(5px);
       padding: 0;
       cursor: pointer;
 
       @media screen and (min-width: $screen-l) {
         display: block;
-        margin-bottom: 20px;
+        margin-bottom: rem(20px);
 
         &:last-of-type {
           margin-bottom: 0;
@@ -47,9 +45,9 @@
 
       button {
         display: block;
-        width: 30px;
-        height: 230px;
-        padding: 5px;
+        width: rem(30px);
+        height: rem(230px);
+        padding: rem(5px);
         border: 0;
         outline: none;
         background: transparent;
@@ -62,15 +60,15 @@
           position: absolute;
           top: 0;
           left: 0;
-          width: 30px;
-          height: 30px;
+          width: rem(30px);
+          height: rem(30px);
           color: $white;
           font-family: 'slick';
-          font-size: 10px;
-          line-height: 20px;
+          font-size: rem(10px);
+          line-height: rem(20px);
           text-align: center;
           content: '\2022';
-          opacity: .25;
+          opacity: 0.25;
         }
       }
     }

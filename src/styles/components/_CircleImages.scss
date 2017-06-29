@@ -8,7 +8,7 @@ $small-images: 'images/header/9.jpg', 'images/header/10.jpg', 'images/header/11.
     position: absolute;
     top: 0;
     width: 100%;
-    height: 400px;
+    height: rem(400px);
     background-image: linear-gradient(to bottom, $color-1, rgba(2, 99, 209, 0));
   }
 
