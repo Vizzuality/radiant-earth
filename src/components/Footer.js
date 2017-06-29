@@ -18,6 +18,9 @@ class Footer extends Component {
                 <a href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
                   <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Vizzuality"></use></svg>
                 </a>
+                <a href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-azavea"></use></svg>
+                </a>
               </div>
             </div>
           </div>
