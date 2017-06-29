@@ -13,23 +13,36 @@
 
   .c-slider__dots {
     position: absolute;
-    top: 0;
-    right: 0;
-    background-color: $color-1;
+    padding-left: 0;
     list-style: none;
 
+    @media screen and (min-width: $screen-l) {
+      top: 0;
+      right: 0;
+    }
+
     li {
-      display: block;
+      display: inline-block;
       position: relative;
       width: 20px;
       height: 20px;
       margin: 0 5px;
-      margin-bottom: 20px;
+      margin-right: 30px;
+      margin-bottom: 0;
       padding: 0;
       cursor: pointer;
 
+      @media screen and (min-width: $screen-l) {
+        display: block;
+        margin-bottom: 20px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+
       &:last-of-type {
-        margin-bottom: 0;
+        margin-right: 0;
       }
 
       button {

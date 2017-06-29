@@ -74,15 +74,25 @@ $big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg'
 
   .l-blog__circle-image {
     position: absolute;
-    top: rem(35px);
-    left: rem(100px);
-    width: rem(600px);
-    height: rem(600px);
+    top: calc(-20% - 150px);
+    right: 50%;
+    width: calc(100vw + 100px);
+    height: calc(100vw + 100px);
+    transform: translate(50%, 0);
     transition: opacity .5s linear;
     border-radius: 100%;
     background-image: url(nth($big-images, 1));
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media screen and (min-width: $screen-l) {
+      top: rem(35px);
+      left: rem(100px);
+      width: rem(600px);
+      max-width: none;
+      height: rem(600px);
+      max-height: none;
+    }
 
 
     &.-visible {
