@@ -3,6 +3,7 @@
     flex: 0 0 100%;
     max-width: 100%;
     margin-top: rem(200px);
+    z-index: 4;
 
     @media screen and (min-width: $screen-m) {
       flex: 0 0 75%;
