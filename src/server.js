@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -5,9 +6,9 @@ const Post = require('./models/posts');
 
 const app = express();
 const router = express.Router();
-const port = 3001;
+const port = process.env.LOCAL_API_PORT;
 
-mongoose.connect('mongodb://radiant:password@ds141232.mlab.com:41232/radiant-earth');
+mongoose.connect(process.env.MONGODB_URL);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

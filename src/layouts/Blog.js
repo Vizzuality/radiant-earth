@@ -47,7 +47,7 @@ class Blog extends Component {
   }
 
   loadCommentsFromServer() {
-    axios.get('http://localhost:3001/api/posts')
+    axios.get(process.env.REACT_APP_API_POSTS_URL)
       .then(res => {
         this.setState({ posts: res.data });
       })
