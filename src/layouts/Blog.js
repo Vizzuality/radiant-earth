@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Slider from 'react-slick';
@@ -11,40 +12,8 @@ class Blog extends Component {
 
     this.state = {
       count: 1,
+      posts: []
     };
-
-    this.blogContent = [
-      {
-        tag: 'NEW FEATURES',
-        title: 'Laying Tiles Without Grout and Mortar',
-        description:'On minimizing the latency of serving painted raster tiles.'
-      },
-      {
-        tag: 'NEWS',
-        title: 'Expanding Access to Earth Observation Data',
-        description:'Reflections on a SatSummit panel focused on how to expand access and distribution to earth imagery.'
-      },
-      {
-        tag: 'TUTORIALS',
-        title: 'Atomate analyses when updated imagery is available',
-        description:'Develop custom algorithms to extract information from your imagery and define automated pipelines to analyze your data.'
-      },
-      {
-        tag: 'TUTORIALS',
-        title: 'How to integrate the Radiant Earth API with your application',
-        description:'Learn how to create powerful insights and evidence-based support for change'
-      },
-      {
-        tag: 'NEW FEATURES',
-        title: 'Ingest your own data',
-        description:'Bring your own drone, manned-aerial, and satellite imagery into the Data Explorer with a few clicks.'
-      },
-      {
-        tag: 'NEWS',
-        title: 'Hello World',
-        description:'Today, I am really excited to introduce and announce Raster Foundry.'
-      }
-    ];
 
     this.sliderContent = [
       {
@@ -73,6 +42,19 @@ class Blog extends Component {
         image: 5
       }
     ];
+
+    this.loadCommentsFromServer = this.loadCommentsFromServer.bind(this);
+  }
+
+  loadCommentsFromServer() {
+    axios.get('http://localhost:3001/api/posts')
+      .then(res => {
+        this.setState({ posts: res.data });
+      })
+  }
+
+  componentDidMount() {
+    this.loadCommentsFromServer();
   }
 
   render() {
@@ -118,15 +100,17 @@ class Blog extends Component {
             <div className="row">
               <div className="small-12 columns l-blog__gallery">
                 <Masonry className="l-blog__gallery-masonry">
-                  {this.blogContent.map((item, i) =>
+                  {this.state.posts.map((item, i) =>
                     <div key={i} className="l-blog__gallery-item">
                       <a href={''}>
                         <div className="l-blog__gallery-item-picture">
-                          <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
+                          {item.source === 'Medium' &&
+                            <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
+                          }
                         </div>
-                        <span className="text -ff2-xs -color-2 -uppercase">{item.tag}</span>
+                        <span className="text -ff2-xs -color-2 -uppercase">{item.category}</span>
                         <h2 className="l-blog__gallery-item-title text -ff2-l -white">{item.title}</h2>
-                        <p className="l-blog__gallery-item-summary text -ff1-m -white">{item.description}</p>
+                        <p className="l-blog__gallery-item-summary text -ff1-m -white">{item.summary}</p>
                       </a>
                     </div>
                   )}
