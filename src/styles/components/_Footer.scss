@@ -79,6 +79,10 @@
           outline: 0;
           background-color: darken($color-1, 8%);
           color: rgba($white, .5);
+
+          @include placeholder {
+            color: rgba($white, .5);
+          }
         }
       }
     }

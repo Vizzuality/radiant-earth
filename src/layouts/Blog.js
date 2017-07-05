@@ -99,7 +99,7 @@ class Blog extends Component {
           <div className="l-blog">
             <div className="row">
               {this.sliderContent.map((item, i) =>
-                <div className={`l-blog__circle-image -img-${item.image} ${this.state.count === item.image ? '-visible' : '-hidden' }`}></div>
+                <div key={i} className={`l-blog__circle-image -img-${item.image} ${this.state.count === item.image ? '-visible' : '-hidden' }`}></div>
               )}
               <div className="small-12 medium-9 large-7 small-offset-0 medium-offset-2 large-offset-5 columns l-blog__header c-slider">
                 <Slider {...sliderOptions}>
