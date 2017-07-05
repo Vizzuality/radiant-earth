@@ -20,10 +20,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-router.get('/', function(req, res) {
-  res.json({ message: 'API Initialized!'});
-});
-
 router.route('/posts')
   .get(function(req, res) {
     Post.find(function(err, posts) {
@@ -34,8 +30,8 @@ router.route('/posts')
     });
   })
   .post(function(req, res) {
-    var post = new Post();
-console.log(req);
+    let post = new Post();
+
     post.title = req.body.title;
     post.summary = req.body.summary;
     post.category = req.body.category;
