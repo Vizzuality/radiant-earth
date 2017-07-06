@@ -9,12 +9,8 @@ class Header extends Component {
 
     this.navLinks = [
       {
-        name: 'Documentation',
-        url: '#'
-      },
-      {
-        name: 'Data explorer',
-        url: '#'
+        name: 'API Documentation',
+        url: 'https://radiant-earth-doc-api.herokuapp.com/'
       },
       {
         name: 'Blog',
