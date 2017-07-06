@@ -34,7 +34,8 @@ $big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg'
         width: calc(100% + #{$masonry-margin * 2});
         height: rem(180px);
         margin-bottom: rem(12px);
-        background-color: $color-2;
+        background-size: cover;
+        background-repeat: no-repeat;
 
         .l-blog__gallery-item-logo {
           position: absolute;

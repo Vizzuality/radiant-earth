@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Slider from 'react-slick';
 import Masonry from 'react-masonry-component';
+import BlogGalleryItem from '../components/BlogGalleryItem';
 
 class Blog extends Component {
 
@@ -101,18 +102,15 @@ class Blog extends Component {
               <div className="small-12 columns l-blog__gallery">
                 <Masonry className="l-blog__gallery-masonry">
                   {this.state.posts.map((item, i) =>
-                    <div key={i} className="l-blog__gallery-item">
-                      <a href={''}>
-                        <div className="l-blog__gallery-item-picture">
-                          {item.source === 'Medium' &&
-                            <svg className="icon icon-logo l-blog__gallery-item-logo"><use xlinkHref="#icon-medium"></use></svg>
-                          }
-                        </div>
-                        <span className="text -ff2-xs -color-2 -uppercase">{item.category}</span>
-                        <h2 className="l-blog__gallery-item-title text -ff2-l -white">{item.title}</h2>
-                        <p className="l-blog__gallery-item-summary text -ff1-m -white">{item.summary}</p>
-                      </a>
-                    </div>
+                    <BlogGalleryItem
+                      key={i}
+                      picture={item.picture}
+                      category={item.category}
+                      title={item.title}
+                      summary={item.summary}
+                      link={item.link}
+                      source={item.source}
+                    />
                   )}
                 </Masonry>
               </div>
