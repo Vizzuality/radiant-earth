@@ -6,7 +6,8 @@ const PostsSchema = new Schema({
   summary: String,
   category: String,
   picture: String,
-  source: String
+  source: String,
+  link: String
 });
 
 module.exports = mongoose.model('Post', PostsSchema);
