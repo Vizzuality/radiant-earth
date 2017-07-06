@@ -38,6 +38,7 @@ router.route('/posts')
     post.category = req.body.category;
     post.picture = req.body.picture;
     post.source = req.body.source;
+    post.link = req.body.link;
 
     post.save(function(err) {
       if (err) {
