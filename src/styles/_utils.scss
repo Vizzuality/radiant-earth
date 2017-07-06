@@ -1,3 +1,10 @@
 @function rem($px, $base: 16px) {
   @return ($px / $base) * 1rem;
 }
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder {@content}
+  &::-moz-placeholder {@content}
+  &:-ms-input-placeholder {@content}
+}

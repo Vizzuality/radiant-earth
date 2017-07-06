@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
-import BurgerMenu from './BurgerMenu';
 
 class CircleImages extends Component {
 
