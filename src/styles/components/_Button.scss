@@ -44,4 +44,12 @@
       background-color: rgba($color-4, .1);
     }
   }
+
+  &.-white {
+    background-color: $white;
+    color: $color-2;
+    border: 0;
+    padding-bottom: 0 !important;
+    outline: 0;
+  }
 }
