@@ -11,6 +11,15 @@
       border-bottom: 1px solid $color-4;
       color: $color-4;
     }
+
+    &.-white {
+      border-bottom: 1px solid $white;
+      color: $white;
+    }
+  }
+
+  &.-transparent {
+    background-color: transparent;
   }
 
   &.-textarea {
