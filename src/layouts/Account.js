@@ -21,17 +21,26 @@ class Account extends Component {
             <div className="l-acount__user">
               <div className="l-account__user-input">
                 <label className="text -ff2-xs -uppercase -white">Name</label>
-                <input className="text -ff2-s c-input -text-field -transparent -white" type="text" placeholder="John Doe"/>
+                <div className="l-account__edit-input">
+                  <input className="text -ff2-s c-input -text-field -transparent -white" type="text" placeholder="John Doe"/>
+                  <svg className="icon icon-edit"><use xlinkHref="#icon-edit"></use></svg>
+                </div>
               </div>
               <div className="l-account__user-input">
                 <label className="text -ff2-xs -uppercase -white">Email address</label>
-                <input className="text -ff2-s c-input -text-field -transparent -white" type="email" placeholder="email@organization.com"/>
+                <div className="l-account__edit-input">
+                  <input className="text -ff2-s c-input -text-field -transparent -white" type="email" placeholder="email@organization.com"/>
+                  <svg className="icon icon-edit"><use xlinkHref="#icon-edit"></use></svg>
+                </div>
               </div>
             </div>
             <h1 className="text -ff2-xl -white">API access tokens</h1>
             <div className="l-account__token">
               <label className="text -ff2-xs -uppercase -white">Default public token</label>
-              <input className="text -ff2-s c-input -text-field -transparent -white" type="email" placeholder="pk.eyJ1IjoiZm9yZXN0d2F0Y2hlciIsImEiOiJjajQ3NzFuODMwMjExMzNwazF0OThxeGY0In0.WWyW…"/>
+              <div className="l-account__token-input">
+                <input className="text -ff2-s c-input -text-field -transparent -white" type="email" placeholder="pk.eyJ1IjoiZm9yZXN0d2F0Y2hlciIsImEiOiJj…"/>
+                <svg className="icon icon-copy"><use xlinkHref="#icon-content_copy"></use></svg>
+              </div>
             </div>
             <input className="text -ff2-s -uppercase c-button -white" type="button" value="Submit" />
           </form>

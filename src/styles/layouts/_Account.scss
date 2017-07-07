@@ -38,10 +38,27 @@
   }
 
   .l-account__list {
+    margin-top: rem(50px);
     list-style: none;
 
     li {
       display: block;
+      margin-bottom: rem(30px);
+    }
+  }
+
+  .l-account__edit-input,
+  .l-account__token-input {
+    position: relative;
+
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      fill: $white;
+      width: rem(13px);
+      height: rem(13px);
+      opacity: .3;
     }
   }
 }
