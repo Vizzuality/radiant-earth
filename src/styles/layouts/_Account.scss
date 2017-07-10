@@ -61,4 +61,20 @@
       opacity: .3;
     }
   }
+
+  ::-webkit-input-placeholder {
+    color: $white;
+  }
+
+  ::-moz-placeholder {
+    color: $white;
+  }
+
+  :-ms-input-placeholder {
+    color: $white;
+  }
+
+  :-moz-placeholder {
+    color: $white;
+  }
 }
