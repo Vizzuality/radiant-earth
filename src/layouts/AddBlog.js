@@ -10,7 +10,7 @@ class AddBlog extends Component {
     super(props);
 
     this.state = {
-      value: 'Example',
+      value: '',
       valueString: [],
       showLoader: false,
       showSuccess: false,
@@ -58,7 +58,7 @@ class AddBlog extends Component {
         this.setState({
           showSuccess: false,
         });
-      }.bind(this), 1500);
+      }.bind(this), 2000);
     }.bind(this))
     .catch(function (error) {
       //error
