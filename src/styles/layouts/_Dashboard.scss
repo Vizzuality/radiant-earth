@@ -1,0 +1,70 @@
+.l-dashboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .l-dashboard__panel {
+    width: calc(100vw - 100px);
+    margin-top: 50px;
+    padding: 50px 40px;
+    background-color: $white;
+
+    .l-dashboard__item-add {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      align-items: center;
+
+      .icon-plus {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        border: 1px solid rgba($color-4, .5);
+        border-radius: 60px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+
+    .l-dashboard__container-drag-drop {
+      position: relative;
+      right: 15px;
+      width: calc(100% + 30px);
+      max-width: none;
+      margin-top: 50px;
+
+
+      .l-dashboard__item-drag-drop {
+        position: relative;
+        margin-bottom: 40px;
+        padding: 20px;
+        border: 1px solid rgba($color-4, .5);
+        cursor: move;
+
+        .tags {
+          display: block;
+          margin-top: 5px;
+        }
+      }
+
+      .l-dashboard__order {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+      }
+    }
+
+    .sortable-chosen {
+      .l-dashboard__item-drag-drop {
+        background-color: rgba($color-4, .3);
+      }
+    }
+  }
+}

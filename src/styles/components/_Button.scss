@@ -1,4 +1,5 @@
 .c-button {
+  cursor: pointer;
   width: 100%;
   height: 40px;
   border-radius: 100px;
@@ -11,5 +12,45 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+  }
+
+  &.-primary,
+  &.-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: auto;
+    padding: 10px 30px;
+    border: 0;
+    border-radius: 100px;
+    box-shadow: none;
+    cursor: pointer;
+  }
+
+  &.-primary {
+    background-color: $color-1;
+    color: $white;
+
+    &:hover {
+      background-color: darken($color-1, 5%);
+    }
+  }
+
+  &.-secondary {
+    background-color: rgba($color-4, .05);
+    color: $black;
+
+    &:hover {
+      background-color: rgba($color-4, .1);
+    }
+  }
+
+  &.-white {
+    background-color: $white;
+    color: $color-2;
+    border: 0;
+    padding-bottom: 0 !important;
+    outline: 0;
   }
 }

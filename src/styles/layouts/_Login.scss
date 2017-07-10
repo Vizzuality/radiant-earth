@@ -1,0 +1,30 @@
+.l-login {
+  align-items: center;
+  height: 100vh;
+
+  .l-login__form {
+    padding: 50px 40px;
+    background-color: $white;
+    box-shadow: 1px 1px 6px 1px rgba($black, .3);
+
+    form {
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input {
+        display: block;
+        width: 100%;
+        margin-bottom: 60px;
+        padding-bottom: 8px;
+
+        &[type='button'] {
+          width: 50%;
+          margin-bottom: 0;
+          margin-left: 50%;
+        }
+      }
+    }
+  }
+}
