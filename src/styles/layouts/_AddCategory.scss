@@ -1,21 +1,23 @@
-.l-add-blog {
+.l-add-category {
+  align-items: center;
+  height: 100vh;
   padding-top: 50px;
   padding-bottom: 50px;
 
-  .l-add-blog__form {
+  .l-add-category__form {
     position: relative;
     padding: 50px 40px;
     background-color: $white;
     box-shadow: 1px 1px 6px 1px rgba($black, .3);
 
-    .l-add-blog__menu-container {
+    .l-add-category__menu-container {
       display: flex;
       position: absolute;
       top: 0;
       right: 0;
       flex-direction: row;
 
-      .l-add-blog__menu {
+      .l-add-category__menu {
         padding: 10px 20px;
         transition: background-color .1s linear;
         border-bottom: 1px solid rgba($black, .2);
@@ -55,70 +57,10 @@
           cursor: not-allowed;
         }
       }
-
-      textarea {
-        width: 100%;
-        max-width: 100%;
-        height: rem(200px);
-        max-height: rem(200px);
-        margin-bottom: 60px;
-      }
-    }
-
-    .l-add-blog__two-inputs {
-      display: flex;
-      justify-content: space-between;
-
-      .container {
-        flex-basis: calc(50% - 50px);
-
-        &:first-of-type {
-          position: relative;
-
-          &::after {
-            display: block;
-            position: absolute;
-            top: 25px;
-            right: -50px;
-            width: 1px;
-            height: calc(100% - 50px);
-            background-color: rgba($black, .2);
-            content: '';
-          }
-        }
-      }
     }
   }
 
-  .Select-input {
-    margin-left: 0;
-  }
-
-  .Select-arrow-zone {
-    padding-right: 0;
-    text-align: right;
-  }
-
-  .Select-control {
-    padding-bottom: 8px;
-    border: 0;
-    border-bottom: 1px solid rgba($black, .2);
-    border-radius: 0;
-
-    .Select-placeholder {
-      padding: 0;
-    }
-  }
-
-  .Select--multi {
-    .Select-value {
-      border: 1px solid rgba($color-1, .4);
-      background-color: transparent;
-      color: $black;
-    }
-  }
-
-  .l-add-blog__back-loader {
+  .l-add-category__back-loader {
     display: none;
     position: fixed;
     top: 0;
@@ -133,7 +75,7 @@
     }
   }
 
-  .l-add-blog__message {
+  .l-add-category__message {
     display: flex;
     position: fixed;
     top: -60px;

@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import ReactSortable from 'react-sortablejs';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from 'react-router-dom';
 
 
 class Dashboard extends Component {
@@ -9,90 +15,112 @@ class Dashboard extends Component {
 
     this.state = {
       count: 1,
+      logout: false,
+      showBlogs: true,
+      showCategories: false,
+      posts: [],
+      categories: [],
     };
+  }
 
-    this.content = [
-      {
-        tag: 'NEW FEATURES',
-        title: 'Laying Tiles Without Grout and Mortar',
-        image: 1
-      },
-      {
-        tag: 'NEWS',
-        title: 'Expanding Access to Earth Observation Data',
-        image: 2
-      },
-      {
-        tag: 'TUTORIALS, NEWS',
-        title: 'Atomate analyses when updated imagery is available',
-        image: 3
-      },
-      {
-        tag: 'TUTORIALS',
-        title: 'How to integrate the Radiant Earth API with your application',
-        image: 4
-      },
-      {
-        tag: 'NEW FEATURES,TUTORIALS',
-        title: 'Ingest your own data',
-        image: 5
-      },
-      {
-        tag: 'NEW FEATURES',
-        title: 'Laying Tiles Without Grout and Mortar',
-        image: 1
-      },
-      {
-        tag: 'NEWS',
-        title: 'Expanding Access to Earth Observation Data',
-        image: 2
-      },
-      {
-        tag: 'TUTORIALS, NEWS',
-        title: 'Atomate analyses when updated imagery is available',
-        image: 3
-      },
-      {
-        tag: 'TUTORIALS',
-        title: 'How to integrate the Radiant Earth API with your application',
-        image: 4
-      },
-      {
-        tag: 'NEW FEATURES,TUTORIALS',
-        title: 'Ingest your own data',
-        image: 5
-      }
-    ];
+  loadBlog() {
+    axios.get(process.env.REACT_APP_API_POSTS_URL)
+      .then(res => {
+        this.setState({ posts: res.data });
+      })
+  }
+
+  loadCategories() {
+    axios.get(process.env.REACT_APP_API_CATEGORY_URL)
+      .then(res => {
+        this.setState({ categories: res.data });
+      })
+  }
+
+  componentDidMount() {
+    this.loadBlog();
+    this.loadCategories();
+  }
+
+  logout() {
+    localStorage.setItem('loginSuccess', false);
+    this.setState({ logout: true });
+  }
+
+  changeTab(e) {
+    this.setState({
+      showBlogs: e.target.getAttribute('data-value') === 'blog' ? true : false,
+      showCategories: e.target.getAttribute('data-value') === 'category' ? true : false,
+     });
   }
 
   render() {
+
+    if (localStorage.getItem('loginSuccess') === null || localStorage.getItem('loginSuccess') === 'false' || this.setState.logout) {
+      return (
+        <Redirect to='/admin/login'/>
+      )
+    }
+
     return (
       <div className="l-dashboard align-center">
         <div className="l-dashboard__panel">
-          <h1 className="text -ff2-xl">Dashboard.</h1>
-          <ReactSortable
-              tag="div"
-              className="l-dashboard__container-drag-drop row"
-          >
-            <div className="small-4 medium-4 large-4 column">
-              <div className="l-dashboard__item-drag-drop l-dashboard__item-add">
-                <div className="icon-plus">
-                  <svg className="icon icon-logo"><use xlinkHref="#icon-plus"></use></svg>
-                </div>
-                <span className="text -ff2-s -uppercase">Add new blog</span>
-              </div>
+          <div className="l-add-dashboard__menu-container">
+            <div className="l-add-dashboard__menu">
+              <a className="text -ff2-s" href="/admin/add-blog">Add new blog</a>
             </div>
-            {this.content.map((item, i) =>
-              <div className="small-4 medium-4 large-4 column">
-                <div key={i} className="l-dashboard__item-drag-drop">
-                  <span className="l-dashboard__order text -ff2-xs">{i + 1}</span>
-                  <h2 className="text -ff2-xm">{item.title}</h2>
-                  <p className="tags text -ff2-xs -color-2 -uppercase">{item.tag}</p>
-                </div>
-              </div>
-            )}
-          </ReactSortable>
+            <div className="l-add-dashboard__menu">
+              <a className="text -ff2-s" href="/admin/add-category">Add new category</a>
+            </div>
+            <div className="l-add-dashboard__menu">
+              <span className="text -ff2-s" onClick={this.logout.bind(this)}>Logout</span>
+            </div>
+          </div>
+          <h1 className="text -ff2-xl">Dashboard.</h1>
+          <div className="l-dashboard__tabs">
+            <span data-value="blog" className={`text -ff2-s -uppercase ${this.state.showBlogs ? '-selected' : ''}`} onClick={this.changeTab.bind(this)}>Blogs</span>
+            <span data-value="category" className={`text -ff2-s -uppercase ${this.state.showCategories ? '-selected' : ''}`} onClick={this.changeTab.bind(this)}>Categories</span>
+          </div>
+          <div className="">
 
+            <div className={`l-dashboard__blog-container ${this.state.showBlogs ? '-show' : '-hidden'}`}>
+              {this.state.posts.map((item, i) =>
+                <div key={i} className="l-dashboard__item">
+                  <div>
+                    <span className="text -ff2-s -uppercase">({i + 1}) {item.title}</span>
+                    <p className="tags text -ff2-s -color-2 l-dashboard__item-tag">{item.category}</p>
+                  </div>
+                  <div className="l-dashboard__item-actions">
+                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                    </div>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <div className={`l-dashboard__category-container ${this.state.showCategories ? '-show' : '-hidden'}`}>
+              {this.state.categories.map((item, i) =>
+                <div key={i} className="l-dashboard__item">
+                  <div>
+                    <span className="text -ff2-s -uppercase">{item.name}</span>
+                  </div>
+                  <div className="l-dashboard__item-actions">
+                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                    </div>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
         </div>
       </div>
     )
