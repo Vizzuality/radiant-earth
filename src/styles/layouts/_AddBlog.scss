@@ -23,6 +23,7 @@
       label {
         display: block;
         margin-bottom: 5px;
+        font-size: $ff2-size-xm;
       }
 
       input {
@@ -30,12 +31,17 @@
         width: 100%;
         margin-bottom: 60px;
         padding-bottom: 8px;
+      }
 
-        &[type='button'] {
-          width: 30%;
-          margin-top: rem(40px);
-          margin-bottom: 0;
-          margin-left: 70%;
+      button {
+        width: 30%;
+        margin-top: rem(40px);
+        margin-bottom: 0;
+        margin-left: 70%;
+
+        &:disabled {
+          background-color: rgba($color-1, .5);
+          cursor: not-allowed;
         }
       }
 

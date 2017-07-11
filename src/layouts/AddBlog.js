@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from 'react-router-dom';
+import _ from 'underscore';
 import axios from 'axios';
+import Formsy from 'formsy-react';
+import MyInput from '../components/MyOwnInput';
 import 'react-select/dist/react-select.css';
 
 
@@ -14,13 +22,26 @@ class AddBlog extends Component {
       valueString: [],
       showLoader: false,
       showSuccess: false,
-      options: [
-        { label: 'News', value: 'news' },
-        { label: 'Blog', value: 'blog' },
-        { label: 'Maps', value: 'map' },
-      ]
+      options: [],
     };
   }
+
+  loadCategories() {
+    axios.get(process.env.REACT_APP_API_CATEGORY_URL)
+      .then(res => {
+        _.each(res.data, function(data){
+          this.state.options.push({
+            label: data.name.toLowerCase(),
+            value: data.name.toLowerCase(),
+          })
+        }.bind(this));
+      })
+  }
+
+  componentDidMount() {
+    this.loadCategories();
+  }
+
 
   handleSelectChange (value) {
     this.setState({
@@ -29,17 +50,17 @@ class AddBlog extends Component {
     });
   }
 
-  postNewBlog() {
+  submit(data) {
     this.setState({
       showLoader: true,
     });
 
-    var title = this.textInput.value;
+    var title = data.title;
     var description = this.textArea.value;
     var category = [];
     category = this.state.value.split(',');
     var picture = this.picture.value;
-    var url = this.url.value;
+    var url = data.url;
 
     axios.post(process.env.REACT_APP_API_POSTS_URL, {
       title: title,
@@ -58,6 +79,7 @@ class AddBlog extends Component {
         this.setState({
           showSuccess: false,
         });
+        this.myFormRef.reset();
       }.bind(this), 2000);
     }.bind(this))
     .catch(function (error) {
@@ -65,7 +87,20 @@ class AddBlog extends Component {
     });
   }
 
+  enableButton() {
+    this.setState({ canSubmit: true });
+  }
+
+  disableButton() {
+    this.setState({ canSubmit: false });
+  }
+
   render() {
+    if (localStorage.getItem('loginSuccess') === 'false') {
+      return (
+        <Redirect to='/admin/login'/>
+      )
+    }
 
     return (
       <div className="row l-add-blog align-center">
@@ -86,13 +121,15 @@ class AddBlog extends Component {
             <a className="text -ff2-s" href="/admin/dashboard">Go dashboard</a>
           </div>
           <h1 className="text -ff2-xl">Add new blog.</h1>
-          <form>
-            <label className="text -ff2-xm -uppercase">Title</label>
-            <input
-              className="text -ff2-s c-input -text-field"
+          <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addBlog">
+            <MyInput
+              class="text -ff2-s c-input -text-field"
+              value=""
+              name="title"
+              title="Title"
               type="text"
               placeholder="eg: We love tiles"
-              ref={(input) => { this.textInput = input; }}
+              required
             />
             <label className="text -ff2-xm -uppercase">Description</label>
             <textarea className="text -ff2-s c-input -textarea" ref={(input) => { this.textArea = input; }}></textarea>
@@ -116,10 +153,17 @@ class AddBlog extends Component {
                 <input className="text -ff2-s" type="file" ref={(input) => { this.picture = input; }} />
               </div>
             </div>
-            <label className="text -ff2-xm -uppercase">Original post (url)</label>
-            <input className="text -ff2-s c-input -text-field" type="text" placeholder="Paste your url" ref={(input) => { this.url= input; }}/>
-            <input className="text -ff2-s -uppercase c-button -primary" type="button" value="Submit" onClick={this.postNewBlog.bind(this)} />
-          </form>
+            <MyInput
+              class="text -ff2-s c-input -text-field"
+              value=""
+              name="url"
+              title="Original post (url)"
+              type="text"
+              placeholder="Paste your url"
+              required
+            />
+            <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
+          </Formsy.Form>
         </div>
       </div>
     )
