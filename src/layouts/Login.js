@@ -33,9 +33,16 @@ class Login extends Component {
         if (email === data.email) {
           if (password === data.password) {
             success = true;
+            localStorage.setItem('loginSuccess', true);
             this.setState({ loginSuccess: true });
-          } else {this.setState({ loginError: true });}
-        } else {this.setState({ loginError: true });}
+          } else {
+            localStorage.setItem('loginSuccess', false);
+            this.setState({ loginError: true });
+          }
+        } else {
+          localStorage.setItem('loginSuccess', false);
+          this.setState({ loginError: true });
+        }
       }.bind(this));
     })
   }
@@ -49,8 +56,7 @@ class Login extends Component {
   }
 
   render() {
-    
-    if (this.state.loginSuccess) {
+    if (this.state.loginSuccess || localStorage.getItem('loginSuccess') === 'true') {
       return (
         <Redirect to='/admin/dashboard'/>
       )
