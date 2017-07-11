@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Post = require('./models/posts');
+const User = require('./models/users');
 
 const app = express();
 const router = express.Router();
@@ -47,6 +48,31 @@ router.route('/posts')
       res.json({ message: 'Post successfully added!' });
     });
   });
+
+  router.route('/users')
+    .get(function(req, res) {
+      User.find(function(err, users) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(users)
+      });
+    })
+    .post(function(req, res) {
+      let user = new User();
+
+      user.title = req.body.name;
+      user.summary = req.body.password;
+
+      user.save(function(err) {
+        if (err) {
+          res.send(err);
+        }
+        res.json({ message: 'User successfully added!' });
+      });
+    });
+
+
 
 app.use('/api', router);
 

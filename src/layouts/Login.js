@@ -1,18 +1,70 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect
+} from 'react-router-dom';
+import axios from 'axios';
+import _ from 'underscore';
+import Formsy from 'formsy-react';
+import MyInput from '../components/MyOwnInput';
 
 
 class Login extends Component {
+
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      canSubmit: false,
+      loginError: false,
+      loginSuccess: false,
+    };
+  }
+
+  submit(data) {
+    var email = data.email;
+    var password = data.password;
+    var success = false;
+
+    axios.get(process.env.REACT_APP_API_USERS_URL)
+    .then(res => {
+      _.each(res.data, function(data){
+        if (email === data.email) {
+          if (password === data.password) {
+            success = true;
+            this.setState({ loginSuccess: true });
+          } else {this.setState({ loginError: true });}
+        } else {this.setState({ loginError: true });}
+      }.bind(this));
+    })
+  }
+
+  enableButton() {
+    this.setState({ canSubmit: true });
+  }
+
+  disableButton() {
+    this.setState({ canSubmit: false });
+  }
+
   render() {
+    
+    if (this.state.loginSuccess) {
+      return (
+        <Redirect to='/admin/dashboard'/>
+      )
+    }
+
     return (
       <div className="row l-login align-center">
         <div className="l-login__form small-6 medium-6 large-6">
-          <form>
-            <label className="text -ff2-xs -uppercase">User</label>
-            <input className="text -ff2-s c-input -text-field" type="email" placeholder="eg: Sayid"/>
-            <label className="text -ff2-xs -uppercase">Password</label>
-            <input className="text -ff2-s c-input -text-field" type="password" placeholder="******" />
-            <input className="text -ff2-s -uppercase c-button -primary" type="button" value="Submit" />
-          </form>
+          <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} className="login">
+            <MyInput class="text -ff2-s c-input -text-field" value="" name="email" title="Email" validations="isEmail" validationError="This is not a valid email" required />
+            <MyInput class="text -ff2-s c-input -text-field" value="" name="password" title="Password" type="password" required />
+            <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
+          </Formsy.Form>
+          <span className={`text -ff2-xs -uppercase -error validation-error l-login__error-login ${this.state.loginError ? '-show' : ''}`}>Login fail</span>
         </div>
       </div>
     )

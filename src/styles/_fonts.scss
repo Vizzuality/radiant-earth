@@ -102,6 +102,10 @@ a {
     color: $white;
   }
 
+  &.-error {
+    color: $color-6;
+  }
+
   &.-uppercase {
     text-transform: uppercase;
   }
