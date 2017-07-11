@@ -62,7 +62,7 @@ class AddBlog extends Component {
     }.bind(this))
     .catch(function (error) {
       //error
-    });;
+    });
   }
 
   render() {

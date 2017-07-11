@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Post = require('./models/posts');
 const User = require('./models/users');
+const Category = require('./models/category');
 
 const app = express();
 const router = express.Router();
@@ -71,6 +72,28 @@ router.route('/posts')
         res.json({ message: 'User successfully added!' });
       });
     });
+
+    router.route('/category')
+      .get(function(req, res) {
+        Category.find(function(err, category) {
+          if (err) {
+            res.send(err);
+          }
+          res.json(category)
+        });
+      })
+      .post(function(req, res) {
+        let category = new Category();
+
+        category.name = req.body.name;
+
+        category.save(function(err) {
+          if (err) {
+            res.send(err);
+          }
+          res.json({ message: 'Category successfully added!' });
+        });
+      });
 
 
 

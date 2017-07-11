@@ -10,6 +10,7 @@ import Login from './Login';
 import AddBlog from './AddBlog';
 import Dashboard from './Dashboard';
 import Account from './Account';
+import AddCategory from './AddCategory';
 
 const Root = ({ store }) => (
   <Router>
@@ -21,6 +22,7 @@ const Root = ({ store }) => (
       <Route exact path="/admin/add-blog" component={AddBlog}/>
       <Route exact path="/admin/dashboard" component={Dashboard}/>
       <Route exact path="/account" component={Account}/>
+      <Route exact path="/admin/add-category" component={AddCategory}/>
     </div>
   </Router>
 );
