@@ -82,9 +82,106 @@
       }
     }
 
-    .sortable-chosen {
-      .l-dashboard__item-drag-drop {
-        background-color: rgba($color-4, .3);
+    .l-dashboard__blog-container,
+    .l-dashboard__category-container {
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin-top: rem(40px);
+
+      &.-show {
+        display: flex;
+      }
+
+      &.-hidden {
+        display: none;
+      }
+
+      .l-dashboard__item {
+        position: relative;
+        flex-basis: calc((100% / 3) - 30px);
+        margin-bottom: rem(30px);
+        padding: rem(5px) rem(10px);
+        border: 1px solid rgba($black, .4);
+
+        .l-dashboard__item-tag {
+          margin-top: 5px;
+          padding-top: 5px;
+          border-top: 1px solid rgba($black, .1);
+        }
+
+        .l-dashboard__item-actions {
+          display: flex;
+          position: absolute;
+          top: -1px;
+          right: -1px;
+          flex-direction: column;
+          height: calc(100% + 2px);
+
+          .l-dashboard__item-actions-delete {
+            display: flex;
+            flex-basis: 50%;
+            align-items: center;
+            justify-content: center;
+            padding: 0 rem(10px);
+            background-color: $color-6;
+            cursor: pointer;
+
+            .icon {
+              width: 18px;
+              height: 18px;
+              fill: $white;
+            }
+          }
+
+          .l-dashboard__item-actions-edit {
+            display: flex;
+            flex-basis: 50%;
+            align-items: center;
+            justify-content: center;
+            padding: 0 rem(10px);
+            background-color: $color-5;
+            cursor: pointer;
+
+            .icon {
+              fill: $white;
+            }
+          }
+        }
+      }
+    }
+
+    .l-dashboard__category-container {
+      .l-dashboard__item {
+        display: flex;
+        align-items: center;
+        min-height: rem(68px);
+      }
+    }
+
+    .l-dashboard__tabs {
+      display: flex;
+      margin-top: rem(40px);
+
+      span {
+        display: inline-block;
+        cursor: pointer;
+
+        &:first-of-type {
+          margin-right: rem(40px);
+        }
+
+        &.-selected {
+          position: relative;
+
+          &::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: rem(4px);
+            background-color: rgba($black, .5);
+            content: '';
+          }
+        }
       }
     }
   }

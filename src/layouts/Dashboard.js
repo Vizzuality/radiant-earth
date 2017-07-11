@@ -16,24 +16,42 @@ class Dashboard extends Component {
     this.state = {
       count: 1,
       logout: false,
+      showBlogs: true,
+      showCategories: false,
       posts: [],
+      categories: [],
     };
   }
 
-  loadCommentsFromServer() {
+  loadBlog() {
     axios.get(process.env.REACT_APP_API_POSTS_URL)
       .then(res => {
         this.setState({ posts: res.data });
       })
   }
 
+  loadCategories() {
+    axios.get(process.env.REACT_APP_API_CATEGORY_URL)
+      .then(res => {
+        this.setState({ categories: res.data });
+      })
+  }
+
   componentDidMount() {
-    this.loadCommentsFromServer();
+    this.loadBlog();
+    this.loadCategories();
   }
 
   logout() {
     localStorage.setItem('loginSuccess', false);
     this.setState({ logout: true });
+  }
+
+  changeTab(e) {
+    this.setState({
+      showBlogs: e.target.getAttribute('data-value') === 'blog' ? true : false,
+      showCategories: e.target.getAttribute('data-value') === 'category' ? true : false,
+     });
   }
 
   render() {
@@ -59,28 +77,50 @@ class Dashboard extends Component {
             </div>
           </div>
           <h1 className="text -ff2-xl">Dashboard.</h1>
-            <ReactSortable
-                tag="div"
-                className="l-dashboard__container-drag-drop row"
-            >
-              <div className="small-4 medium-4 large-4 column">
-                <div className="l-dashboard__item-drag-drop l-dashboard__item-add">
-                  <div className="icon-plus">
-                    <svg className="icon icon-logo"><use xlinkHref="#icon-plus"></use></svg>
-                  </div>
-                  <span className="text -ff2-s -uppercase">Add new blog</span>
-                </div>
-              </div>
+          <div className="l-dashboard__tabs">
+            <span data-value="blog" className={`text -ff2-s -uppercase ${this.state.showBlogs ? '-selected' : ''}`} onClick={this.changeTab.bind(this)}>Blogs</span>
+            <span data-value="category" className={`text -ff2-s -uppercase ${this.state.showCategories ? '-selected' : ''}`} onClick={this.changeTab.bind(this)}>Categories</span>
+          </div>
+          <div className="">
+
+            <div className={`l-dashboard__blog-container ${this.state.showBlogs ? '-show' : '-hidden'}`}>
               {this.state.posts.map((item, i) =>
-                <div key={i} className="small-4 medium-4 large-4 column">
-                  <div key={i} className="l-dashboard__item-drag-drop">
-                    <span className="l-dashboard__order text -ff2-xs">{i + 1}</span>
-                    <h2 className="text -ff2-xm">{item.title}</h2>
-                    <p className="tags text -ff2-xs -color-2 -uppercase">{item.category}</p>
+                <div key={i} className="l-dashboard__item">
+                  <div>
+                    <span className="text -ff2-s -uppercase">({i + 1}) {item.title}</span>
+                    <p className="tags text -ff2-s -color-2 l-dashboard__item-tag">{item.category}</p>
+                  </div>
+                  <div className="l-dashboard__item-actions">
+                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                    </div>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    </div>
                   </div>
                 </div>
               )}
-            </ReactSortable>
+            </div>
+
+            <div className={`l-dashboard__category-container ${this.state.showCategories ? '-show' : '-hidden'}`}>
+              {this.state.categories.map((item, i) =>
+                <div key={i} className="l-dashboard__item">
+                  <div>
+                    <span className="text -ff2-s -uppercase">{item.name}</span>
+                  </div>
+                  <div className="l-dashboard__item-actions">
+                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                    </div>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
+                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+          </div>
         </div>
       </div>
     )

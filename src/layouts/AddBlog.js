@@ -126,7 +126,7 @@ class AddBlog extends Component {
         <div className="l-add-blog__form small-10 medium-10 large-10">
           <div className="l-add-blog__menu-container">
             <div className="l-add-blog__menu">
-              <a className="text -ff2-s" href="/admin/dashboard">Go dashboard</a>
+              <a className="text -ff2-s" href="/admin/dashboard">Go to dashboard</a>
             </div>
             <div className="l-add-blog__menu">
               <a className="text -ff2-s" href="/admin/add-category">Add new category</a>
