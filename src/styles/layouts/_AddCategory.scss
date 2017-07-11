@@ -10,13 +10,24 @@
     background-color: $white;
     box-shadow: 1px 1px 6px 1px rgba($black, .3);
 
-    .l-add-category__menu {
+    .l-add-category__menu-container {
+      display: flex;
       position: absolute;
       top: 0;
       right: 0;
-      padding: 10px 20px;
-      border-bottom: 1px solid rgba($black, .2);
-      border-left: 1px solid rgba($black, .2);
+      flex-direction: row;
+
+      .l-add-category__menu {
+        padding: 10px 20px;
+        transition: background-color .1s linear;
+        border-bottom: 1px solid rgba($black, .2);
+        border-left: 1px solid rgba($black, .2);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($black, .1);
+        }
+      }
     }
 
     form {

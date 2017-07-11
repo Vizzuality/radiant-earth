@@ -21,6 +21,7 @@ class AddBlog extends Component {
       value: '',
       valueString: [],
       showLoader: false,
+      logout: false,
       showSuccess: false,
       options: [],
     };
@@ -48,6 +49,11 @@ class AddBlog extends Component {
       value: value,
       valueString: JSON.stringify(value),
     });
+  }
+
+  logout() {
+    localStorage.setItem('loginSuccess', false);
+    this.setState({ logout: true });
   }
 
   submit(data) {
@@ -96,7 +102,8 @@ class AddBlog extends Component {
   }
 
   render() {
-    if (localStorage.getItem('loginSuccess') === 'false') {
+
+    if (localStorage.getItem('loginSuccess') === null || localStorage.getItem('loginSuccess') === 'false' || this.setState.logout) {
       return (
         <Redirect to='/admin/login'/>
       )
@@ -117,8 +124,16 @@ class AddBlog extends Component {
           </div>
         </div>
         <div className="l-add-blog__form small-10 medium-10 large-10">
-          <div className="l-add-blog__menu">
-            <a className="text -ff2-s" href="/admin/dashboard">Go dashboard</a>
+          <div className="l-add-blog__menu-container">
+            <div className="l-add-blog__menu">
+              <a className="text -ff2-s" href="/admin/dashboard">Go dashboard</a>
+            </div>
+            <div className="l-add-blog__menu">
+              <a className="text -ff2-s" href="/admin/add-category">Add new category</a>
+            </div>
+            <div className="l-add-blog__menu">
+              <span className="text -ff2-s" onClick={this.logout.bind(this)}>Logout</span>
+            </div>
           </div>
           <h1 className="text -ff2-xl">Add new blog.</h1>
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addBlog">

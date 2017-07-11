@@ -4,6 +4,7 @@
   justify-content: center;
 
   .l-dashboard__panel {
+    position: relative;
     width: calc(100vw - 100px);
     margin-top: 50px;
     padding: 50px 40px;
@@ -28,6 +29,26 @@
         svg {
           width: 30px;
           height: 30px;
+        }
+      }
+    }
+
+    .l-add-dashboard__menu-container {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 0;
+      flex-direction: row;
+
+      .l-add-dashboard__menu {
+        padding: 10px 20px;
+        transition: background-color .1s linear;
+        border-bottom: 1px solid rgba($black, .2);
+        border-left: 1px solid rgba($black, .2);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba($black, .1);
         }
       }
     }
