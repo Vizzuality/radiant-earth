@@ -184,9 +184,9 @@ class Dashboard extends Component {
           </div>
           <div className="">
 
-            <div className={`l-dashboard__blog-container ${this.state.showBlogs ? '-show' : '-hidden'}`}>
+            <div className={`row l-dashboard__blog-container ${this.state.showBlogs ? '-show' : '-hidden'}`}>
               {this.state.posts.map((item, i) =>
-                <div key={i} className="l-dashboard__item">
+                <div key={i} className="l-dashboard__item large-4 medium-4 small-4">
                   <div>
                     <span className="text -ff2-s -uppercase">({i + 1}) {item.title}</span>
                     <p className="tags text -ff2-s -color-2 l-dashboard__item-tag">{item.category}</p>
@@ -203,9 +203,9 @@ class Dashboard extends Component {
               )}
             </div>
 
-            <div className={`l-dashboard__category-container ${this.state.showCategories ? '-show' : '-hidden'}`}>
+            <div className={`row l-dashboard__category-container ${this.state.showCategories ? '-show' : '-hidden'}`}>
               {this.state.categories.map((item, i) =>
-                <div key={i} className="l-dashboard__item">
+                <div key={i} className="l-dashboard__item large-4 medium-4 small-4">
                   <div>
                     <span className="text -ff2-s -uppercase">{item.name}</span>
                   </div>

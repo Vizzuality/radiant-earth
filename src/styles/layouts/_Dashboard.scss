@@ -1,3 +1,5 @@
+$right: rem(30px);
+
 .l-dashboard {
   display: flex;
   align-items: center;
@@ -84,8 +86,7 @@
 
     .l-dashboard__blog-container,
     .l-dashboard__category-container {
-      flex-flow: row wrap;
-      justify-content: space-between;
+      max-width: none;
       margin-top: rem(40px);
 
       &.-show {
@@ -99,9 +100,15 @@
       .l-dashboard__item {
         position: relative;
         flex-basis: calc((100% / 3) - 30px);
+        min-height: rem(68px);
+        margin-right: calc((30px * 3) / 2);
         margin-bottom: rem(30px);
         padding: rem(5px) rem(10px);
         border: 1px solid rgba($black, .4);
+
+        &:nth-child(3n+3) {
+          margin-right: 0;
+        }
 
         .l-dashboard__item-tag {
           margin-top: 5px;
