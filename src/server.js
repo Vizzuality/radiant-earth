@@ -25,12 +25,23 @@ app.use(function(req, res, next) {
 
 router.route('/posts')
   .get(function(req, res) {
-    Post.find(function(err, posts) {
-      if (err) {
-        res.send(err);
-      }
-      res.json(posts)
-    });
+    if (req.query.post_id) {
+      Post.find({_id: req.query.post_id},function(err, posts) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(posts)
+      });
+    } else {
+      Post.find(function(err, posts) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(posts)
+      });
+    }
+
+
   })
   .post(function(req, res) {
     let post = new Post();
@@ -54,6 +65,27 @@ router.route('/posts')
         res.send(err);
       } else {
         res.send(true);
+      }
+    });
+  })
+  .put(function(req, res) {
+    Post.findById(req.body.post_id, function(err, posts) {
+      if (err) {
+        res.send(err);
+      } else {
+        posts.title = req.body.title;
+        posts.summary = req.body.summary;
+        posts.category = req.body.category;
+        posts.picture = req.body.picture;
+        posts.source = req.body.source;
+        posts.link = req.body.link;
+
+        posts.save(function(err, todo) {
+          if (err) {
+            res.status(500).send(err)
+          }
+          res.send(todo);
+        });
       }
     });
   });
@@ -83,12 +115,21 @@ router.route('/posts')
 
     router.route('/category')
       .get(function(req, res) {
-        Category.find(function(err, category) {
-          if (err) {
-            res.send(err);
-          }
-          res.json(category)
-        });
+        if (req.query.category_id) {
+          Category.find({_id: req.query.category_id},function(err, category) {
+            if (err) {
+              res.send(err);
+            }
+            res.json(category)
+          });
+        } else {
+          Category.find(function(err, category) {
+            if (err) {
+              res.send(err);
+            }
+            res.json(category)
+          });
+        }
       })
       .post(function(req, res) {
         let category = new Category();
@@ -110,9 +151,23 @@ router.route('/posts')
             res.send(true);
           }
         });
-      });
+      })
+      .put(function(req, res) {
+        Category.findById(req.body.category_id, function(err, categories) {
+          if (err) {
+            res.send(err);
+          } else {
+            categories.name = req.body.name;
 
-
+            categories.save(function(err, todo) {
+              if (err) {
+                res.status(500).send(err)
+              }
+              res.send(todo);
+            });
+          }
+        });
+      });;
 
 app.use('/api', router);
 

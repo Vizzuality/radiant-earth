@@ -8,9 +8,11 @@ import Blog from './Blog';
 import About from './About';
 import Login from './Login';
 import AddBlog from './AddBlog';
+import EditBlog from './EditBlog';
 import Dashboard from './Dashboard';
 import Account from './Account';
 import AddCategory from './AddCategory';
+import EditCategory from './EditCategory';
 
 const Root = ({ store }) => (
   <Router>
@@ -23,6 +25,8 @@ const Root = ({ store }) => (
       <Route exact path="/admin/dashboard" component={Dashboard}/>
       <Route exact path="/account" component={Account}/>
       <Route exact path="/admin/add-category" component={AddCategory}/>
+      <Route exact path="/admin/edit-category" component={EditCategory}/>
+      <Route exact path="/admin/edit-blog" component={EditBlog}/>
     </div>
   </Router>
 );

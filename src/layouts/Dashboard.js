@@ -4,7 +4,8 @@ import ReactSortable from 'react-sortablejs';
 import {
   BrowserRouter as Router,
   Route,
-  Redirect
+  Redirect,
+  Link
 } from 'react-router-dom';
 
 
@@ -194,9 +195,9 @@ class Dashboard extends Component {
                     <p className="tags text -ff2-s -color-2 l-dashboard__item-tag">{item.category}</p>
                   </div>
                   <div className="l-dashboard__item-actions">
-                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                    <Link className="l-dashboard__item-actions-edit" data-id={item._id} to={{ pathname: '/admin/edit-blog', query: item._id  }}>
                       <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-edit"></use></svg>
-                    </div>
+                    </Link>
                     <div className="l-dashboard__item-actions-delete" data-id={item._id} onClick={this.showDeleteBlog.bind(this)}>
                       <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-trash-2"></use></svg>
                     </div>
@@ -212,9 +213,9 @@ class Dashboard extends Component {
                     <span className="text -ff2-s -uppercase">{item.name}</span>
                   </div>
                   <div className="l-dashboard__item-actions">
-                    <div className="l-dashboard__item-actions-edit" data-id={item._id}>
+                    <Link className="l-dashboard__item-actions-edit" data-id={item._id} to={{ pathname: '/admin/edit-category', query: item._id  }}>
                       <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-edit"></use></svg>
-                    </div>
+                    </Link>
                     <div className="l-dashboard__item-actions-delete" data-id={item._id} onClick={this.showDeleteCategory.bind(this)}>
                       <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-trash-2"></use></svg>
                     </div>
