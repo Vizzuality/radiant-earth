@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import {
-  BrowserRouter as Router,
-  Route,
   Redirect
 } from 'react-router-dom';
 import _ from 'underscore';

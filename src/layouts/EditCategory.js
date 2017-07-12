@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
   Redirect
 } from 'react-router-dom';
 import axios from 'axios';
@@ -47,7 +45,6 @@ class EditCategory extends Component {
     });
     var name = data.name === '' ? this.state.nameValue : data.name;
     var id = this.props.location.query;
-    var success = false;
     axios.put(process.env.REACT_APP_API_CATEGORY_URL, {
       name: name,
       category_id: id,

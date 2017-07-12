@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ReactSortable from 'react-sortablejs';
 import {
-  BrowserRouter as Router,
-  Route,
   Redirect,
   Link
 } from 'react-router-dom';
@@ -110,9 +107,9 @@ class Dashboard extends Component {
     }
 
     if (this.state.blogDelete) {
-      var id = this.state.idBlog;
+      var idPost = this.state.idBlog;
       axios.delete(process.env.REACT_APP_API_POSTS_URL, {
-        params: { post_id: id }
+        params: { post_id: idPost }
       })
       .then(function (response) {
         setTimeout(function(){

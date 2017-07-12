@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
   Redirect
 } from 'react-router-dom';
 import axios from 'axios';
@@ -31,7 +29,6 @@ class AddCategory extends Component {
       showLoader: true,
     });
     var name = data.name;
-    var success = false;
     axios.post(process.env.REACT_APP_API_CATEGORY_URL, {
       name: name
     })
