@@ -15,9 +15,17 @@ class Dashboard extends Component {
 
     this.state = {
       count: 1,
+      showLoader: false,
+      showAlertDelete: false,
+      showBack: false,
       logout: false,
+      showSuccess: false,
       showBlogs: true,
       showCategories: false,
+      idBlog: '',
+      idCategory: '',
+      blogDelete: false,
+      categoryDelete: true,
       posts: [],
       categories: [],
     };
@@ -37,11 +45,6 @@ class Dashboard extends Component {
       })
   }
 
-  componentDidMount() {
-    this.loadBlog();
-    this.loadCategories();
-  }
-
   logout() {
     localStorage.setItem('loginSuccess', false);
     this.setState({ logout: true });
@@ -54,6 +57,87 @@ class Dashboard extends Component {
      });
   }
 
+
+  showDeleteCategory(e) {
+    this.setState({
+       showBack: true,
+       showAlertDelete: true,
+       blogDelete: false,
+       categoryDelete: true,
+       idCategory: e.target.getAttribute('data-id')
+     });
+  }
+
+
+  showDeleteBlog(e) {
+    this.setState({
+       showBack: true,
+       showAlertDelete: true,
+       blogDelete: true,
+       categoryDelete: false,
+       idBlog: e.target.getAttribute('data-id')
+     });
+  }
+
+  deleteElement() {
+    this.setState({
+      showLoader: true,
+      showAlertDelete: false,
+    });
+
+    if (this.state.categoryDelete) {
+      var id = this.state.idCategory;
+      axios.delete(process.env.REACT_APP_API_CATEGORY_URL, {
+        params: { category_id: id }
+      })
+      .then(function (response) {
+        setTimeout(function(){
+          this.loadCategories();
+          this.setState({
+            showLoader: false,
+            showSuccess: true,
+            showBack: false,
+          });
+        }.bind(this), 1000);
+        setTimeout(function(){
+          this.setState({
+            showSuccess: false,
+          });
+        }.bind(this), 2000);
+      }.bind(this))
+      .catch(function (error) {});
+    }
+
+    if (this.state.blogDelete) {
+      var id = this.state.idBlog;
+      axios.delete(process.env.REACT_APP_API_POSTS_URL, {
+        params: { post_id: id }
+      })
+      .then(function (response) {
+        setTimeout(function(){
+          this.loadBlog();
+          this.setState({
+            showLoader: false,
+            showSuccess: true,
+            showBack: false,
+          });
+        }.bind(this), 1000);
+        setTimeout(function(){
+          this.setState({
+            showSuccess: false,
+          });
+        }.bind(this), 2000);
+      }.bind(this))
+      .catch(function (error) {});
+    }
+  }
+
+
+  componentDidMount() {
+    this.loadBlog();
+    this.loadCategories();
+  }
+
   render() {
 
     if (localStorage.getItem('loginSuccess') === null || localStorage.getItem('loginSuccess') === 'false' || this.setState.logout) {
@@ -64,6 +148,25 @@ class Dashboard extends Component {
 
     return (
       <div className="l-dashboard align-center">
+        <div className={`l-dashboard__alert-box ${this.state.showAlertDelete ? '-show' : ''}`}>
+          <h3 className="text -ff2-xm">Do you want to delete it?</h3>
+          <div className="l-dashboard__alert-box-options">
+            <span className="option -yes text -ff2-xs -white -uppercase" onClick={this.deleteElement.bind(this)}>yes</span>
+            <span className="option -no text -ff2-xs -white -uppercase">no</span>
+          </div>
+        </div>
+        <div className={`l-add-dashboard__message -success ${this.state.showSuccess ? '-show' : ''}`}>
+          <span className="text -white">success!</span>
+        </div>
+        <div className={`l-add-dashboard__back-loader ${this.state.showBack ? '-show' : ''}`} ref={(loader) => { this.loader = loader; }}>
+          <div className={`c-loader ${this.state.showLoader ? '' : '-hidden'}`}>
+            <div className="c-loader__ball-scale-multiple">
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
         <div className="l-dashboard__panel">
           <div className="l-add-dashboard__menu-container">
             <div className="l-add-dashboard__menu">
@@ -92,10 +195,10 @@ class Dashboard extends Component {
                   </div>
                   <div className="l-dashboard__item-actions">
                     <div className="l-dashboard__item-actions-edit" data-id={item._id}>
-                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                      <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-edit"></use></svg>
                     </div>
-                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
-                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id} onClick={this.showDeleteBlog.bind(this)}>
+                      <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-trash-2"></use></svg>
                     </div>
                   </div>
                 </div>
@@ -110,10 +213,10 @@ class Dashboard extends Component {
                   </div>
                   <div className="l-dashboard__item-actions">
                     <div className="l-dashboard__item-actions-edit" data-id={item._id}>
-                      <svg className="icon icon-logo"><use xlinkHref="#icon-edit"></use></svg>
+                      <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-edit"></use></svg>
                     </div>
-                    <div className="l-dashboard__item-actions-delete" data-id={item._id}>
-                      <svg className="icon icon-logo"><use xlinkHref="#icon-trash-2"></use></svg>
+                    <div className="l-dashboard__item-actions-delete" data-id={item._id} onClick={this.showDeleteCategory.bind(this)}>
+                      <svg data-id={item._id} className="icon icon-logo"><use data-id={item._id} xlinkHref="#icon-trash-2"></use></svg>
                     </div>
                   </div>
                 </div>

@@ -34,7 +34,6 @@ router.route('/posts')
   })
   .post(function(req, res) {
     let post = new Post();
-
     post.title = req.body.title;
     post.summary = req.body.summary;
     post.category = req.body.category;
@@ -47,6 +46,15 @@ router.route('/posts')
         res.send(err);
       }
       res.json({ message: 'Post successfully added!' });
+    });
+  })
+  .delete(function(req, res) {
+    Post.remove({_id: req.query.post_id}, function (err, todo) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(true);
+      }
     });
   });
 
@@ -92,6 +100,15 @@ router.route('/posts')
             res.send(err);
           }
           res.json({ message: 'Category successfully added!' });
+        });
+      })
+      .delete(function(req, res) {
+        Category.remove({_id: req.query.category_id}, function (err, todo) {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send(true);
+          }
         });
       });
 
