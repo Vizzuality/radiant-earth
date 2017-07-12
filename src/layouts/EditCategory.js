@@ -6,7 +6,7 @@ import axios from 'axios';
 import Formsy from 'formsy-react';
 import MyInput from '../components/MyOwnInput';
 
-class AddCategory extends Component {
+class EditCategory extends Component {
 
   constructor (props) {
     super(props);
@@ -16,6 +16,7 @@ class AddCategory extends Component {
       showLoader: false,
       logout: false,
       showSuccess: false,
+      nameValue: '',
     };
   }
 
@@ -24,13 +25,29 @@ class AddCategory extends Component {
     this.setState({ logout: true });
   }
 
+  loadCategoryData() {
+    axios.get(process.env.REACT_APP_API_CATEGORY_URL, {
+      params: { category_id: this.props.location.query }
+    }).then(res => {
+      this.setState({
+        nameValue: res.data[0].name,
+      });
+    })
+  }
+
+  componentDidMount() {
+    this.loadCategoryData();
+  }
+
   submit(data) {
     this.setState({
       showLoader: true,
     });
-    var name = data.name;
-    axios.post(process.env.REACT_APP_API_CATEGORY_URL, {
-      name: name
+    var name = data.name === '' ? this.state.nameValue : data.name;
+    var id = this.props.location.query;
+    axios.put(process.env.REACT_APP_API_CATEGORY_URL, {
+      name: name,
+      category_id: id,
     })
     .then(function (response) {
       setTimeout(function(){
@@ -43,7 +60,6 @@ class AddCategory extends Component {
         this.setState({
           showSuccess: false,
         });
-        this.myFormRef.reset();
       }.bind(this), 2000);
     }.bind(this))
     .catch(function (error) {
@@ -87,21 +103,18 @@ class AddCategory extends Component {
               <a className="text -ff2-s" href="/admin/dashboard">Go to dashboard</a>
             </div>
             <div className="l-add-category__menu">
-              <a className="text -ff2-s" href="/admin/add-blog">Add new blog</a>
-            </div>
-            <div className="l-add-category__menu">
               <span className="text -ff2-s" onClick={this.logout.bind(this)}>Logout</span>
             </div>
           </div>
-          <h1 className="text -ff2-xl">Add new category.</h1>
+          <h1 className="text -ff2-xl">Edit category.</h1>
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addCategory">
             <MyInput
               class="text -ff2-s c-input -text-field"
-              value=""
+              value={this.state.nameValue}
               name="name"
               title="Name"
               type="text"
-              placeholder="eg: News"
+              placeholder=""
               required
             />
             <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
@@ -112,4 +125,4 @@ class AddCategory extends Component {
   };
 }
 
-export default AddCategory;
+export default EditCategory;

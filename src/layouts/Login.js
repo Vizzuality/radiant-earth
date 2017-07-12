@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
   Redirect
 } from 'react-router-dom';
 import axios from 'axios';
@@ -25,14 +23,12 @@ class Login extends Component {
   submit(data) {
     var email = data.email;
     var password = data.password;
-    var success = false;
 
     axios.get(process.env.REACT_APP_API_USERS_URL)
     .then(res => {
       _.each(res.data, function(data){
         if (email === data.email) {
           if (password === data.password) {
-            success = true;
             localStorage.setItem('loginSuccess', true);
             this.setState({ loginSuccess: true });
           } else {

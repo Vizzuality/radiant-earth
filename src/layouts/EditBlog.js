@@ -10,7 +10,7 @@ import MyInput from '../components/MyOwnInput';
 import 'react-select/dist/react-select.css';
 
 
-class AddBlog extends Component {
+class EditBlog extends Component {
 
   constructor (props) {
     super(props);
@@ -22,6 +22,12 @@ class AddBlog extends Component {
       logout: false,
       showSuccess: false,
       options: [],
+      postId: null,
+      titleValue: '',
+      descriptionValue: '',
+      categoryValue: '',
+      imageValue: '',
+      urlPost: ''
     };
   }
 
@@ -37,7 +43,22 @@ class AddBlog extends Component {
       })
   }
 
+  loadBlogData() {
+    axios.get(process.env.REACT_APP_API_POSTS_URL, {
+      params: { post_id: this.props.location.query }
+    }).then(res => {
+      this.setState({
+        titleValue: res.data[0].title,
+        descriptionValue: res.data[0].summary,
+        urlPost: res.data[0].link,
+        imageValue: res.data[0].picture,
+        categoryValue: res.data[0].category
+      });
+    })
+  }
+
   componentDidMount() {
+    this.loadBlogData();
     this.loadCategories();
   }
 
@@ -58,19 +79,22 @@ class AddBlog extends Component {
     this.setState({
       showLoader: true,
     });
-    var title = data.title;
-    var description = this.textArea.value;
+
+    var title = data.title === '' ? this.state.titleValue : data.title;
+    var description = this.textArea.value === '' ? this.state.descriptionValue : this.textArea;
     var category = [];
     category = this.state.value.split(',');
-    var picture = data.picture;
-    var url = data.url;
+    var picture = data.picture === '' ? this.state.imageValue : data.picture;
+    var url = data.url === '' ? this.state.urlPost : data.url;
+    var id = this.props.location.query;
 
-    axios.post(process.env.REACT_APP_API_POSTS_URL, {
+    axios.put(process.env.REACT_APP_API_POSTS_URL, {
       title: title,
       summary: description,
       category: category,
       link: url,
-      picture: picture
+      picture: picture,
+      post_id: id
     })
     .then(function (response) {
       setTimeout(function(){
@@ -83,12 +107,9 @@ class AddBlog extends Component {
         this.setState({
           showSuccess: false,
         });
-        this.myFormRef.reset();
       }.bind(this), 2000);
     }.bind(this))
-    .catch(function (error) {
-      //error
-    });
+    .catch(function (error) {});
   }
 
   enableButton() {
@@ -127,17 +148,14 @@ class AddBlog extends Component {
               <a className="text -ff2-s" href="/admin/dashboard">Go to dashboard</a>
             </div>
             <div className="l-add-blog__menu">
-              <a className="text -ff2-s" href="/admin/add-category">Add new category</a>
-            </div>
-            <div className="l-add-blog__menu">
               <span className="text -ff2-s" onClick={this.logout.bind(this)}>Logout</span>
             </div>
           </div>
-          <h1 className="text -ff2-xl">Add new blog.</h1>
+          <h1 className="text -ff2-xl">Edit blog.</h1>
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addBlog">
             <MyInput
               class="text -ff2-s c-input -text-field"
-              value=""
+              value={this.state.titleValue}
               name="title"
               title="Title"
               type="text"
@@ -145,7 +163,11 @@ class AddBlog extends Component {
               required
             />
             <label className="text -ff2-xm -uppercase">Description</label>
-            <textarea className="text -ff2-s c-input -textarea" ref={(input) => { this.textArea = input; }}></textarea>
+            <textarea
+              className="text -ff2-s c-input -textarea"
+              placeholder={this.state.descriptionValue}
+              ref={(input) => { this.textArea = input; }}>
+              </textarea>
             <div className="l-add-blog__two-inputs">
               <div className="container">
                 <label className="text -ff2-xm -uppercase">Tags</label>
@@ -154,28 +176,27 @@ class AddBlog extends Component {
                   multi
                   simpleValue
                   disabled= {false}
-                  value={this.state.value}
-                  placeholder="Select your favourite(s)"
+                  placeholder={this.state.categoryValue}
                   options={this.state.options}
                   onChange={this.handleSelectChange.bind(this)}
                   ref={(input) => { this.selectCategory = input; }}
                 />
               </div>
               <div className="container">
-                <MyInput
-                  class="text -ff2-s c-input -text-field"
-                  value={this.state.imageValue}
-                  name="picture"
-                  title="Image"
-                  type="text"
-                  placeholder="Paste image url"
-                  required
-                />
+              <MyInput
+                class="text -ff2-s c-input -text-field"
+                value={this.state.imageValue}
+                name="picture"
+                title="Image"
+                type="text"
+                placeholder="Paste image url"
+                required
+              />
               </div>
             </div>
             <MyInput
               class="text -ff2-s c-input -text-field"
-              value=""
+              value={this.state.urlPost}
               name="url"
               title="Original post (url)"
               type="text"
@@ -190,4 +211,4 @@ class AddBlog extends Component {
   };
 }
 
-export default AddBlog;
+export default EditBlog;
