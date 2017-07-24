@@ -6,7 +6,7 @@ import {
 import _ from 'underscore';
 import axios from 'axios';
 import Formsy from 'formsy-react';
-//import MyInput from '../components/MyOwnInput';
+import MyInput from '../components/MyOwnInput';
 import 'react-select/dist/react-select.css';
 
 
@@ -135,6 +135,15 @@ class AddBlog extends Component {
           </div>
           <h1 className="text -ff2-xl">Add new blog.</h1>
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addBlog">
+            <MyInput
+              class="text -ff2-s c-input -text-field"
+              value=""
+              name="title"
+              title="Title"
+              type="text"
+              placeholder="eg: We love tiles"
+              required
+            />
             <label className="text -ff2-xm -uppercase">Description</label>
             <textarea className="text -ff2-s c-input -textarea" ref={(input) => { this.textArea = input; }}></textarea>
             <div className="l-add-blog__two-inputs">
@@ -153,8 +162,26 @@ class AddBlog extends Component {
                 />
               </div>
               <div className="container">
+                <MyInput
+                  class="text -ff2-s c-input -text-field"
+                  value={this.state.imageValue}
+                  name="picture"
+                  title="Image"
+                  type="text"
+                  placeholder="Paste image url"
+                  required
+                />
               </div>
             </div>
+            <MyInput
+              class="text -ff2-s c-input -text-field"
+              value=""
+              name="url"
+              title="Original post (url)"
+              type="text"
+              placeholder="Paste your url"
+              required
+            />
             <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
           </Formsy.Form>
         </div>

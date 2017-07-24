@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 import Formsy from 'formsy-react';
-//import MyInput from '../components/MyOwnInput';
+import MyInput from '../components/MyOwnInput';
 
 class AddCategory extends Component {
 
@@ -95,6 +95,15 @@ class AddCategory extends Component {
           </div>
           <h1 className="text -ff2-xl">Add new category.</h1>
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} ref={(el) => this.myFormRef = el} className="addCategory">
+            <MyInput
+              class="text -ff2-s c-input -text-field"
+              value=""
+              name="name"
+              title="Name"
+              type="text"
+              placeholder="eg: News"
+              required
+            />
             <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
           </Formsy.Form>
         </div>
