@@ -12,6 +12,7 @@ const port = process.env.LOCAL_API_PORT;
 
 mongoose.connect(process.env.MONGODB_URL);
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -167,9 +168,13 @@ router.route('/posts')
             });
           }
         });
-      });;
+      });
 
 app.use('/api', router);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
 app.listen(port, function() {
   console.log(`api running on port ${port}`);
