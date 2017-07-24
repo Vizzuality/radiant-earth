@@ -13,7 +13,7 @@ const port = process.env.LOCAL_API_PORT;
 
 mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 
-app.use(express.static(path.join(__dirname, '/../client/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -174,7 +174,8 @@ router.route('/category')
 app.use('/api', router);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../client/build/index.html'));
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 app.listen(port, function() {
