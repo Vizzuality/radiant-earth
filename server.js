@@ -173,5 +173,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(process.env.PORT || port, function(){
-  console.log("Express server listening on port %d in %s mode");
+  console.log("radiant-earth is working! :)");
 });
