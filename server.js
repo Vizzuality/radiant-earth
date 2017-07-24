@@ -39,8 +39,6 @@ app
         if (err) {
           res.send(err);
         }
-
-        console.log(posts);
         res.json(posts)
       });
     }
