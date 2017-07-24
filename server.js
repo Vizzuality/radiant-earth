@@ -172,6 +172,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
-app.listen(port, function() {
-  console.log(`api running on port ${port}`);
+app.listen(process.env.PORT || port, function(){
+  console.log("Express server listening on port %d in %s mode");
 });
