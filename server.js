@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Post = require('./models/posts');
@@ -10,8 +11,9 @@ const app = express();
 const router = express.Router();
 const port = process.env.LOCAL_API_PORT;
 
-mongoose.connect(process.env.MONGODB_URL);
+mongoose.connect(process.env.MONGODB_URL, {useMongoClient: true});
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -23,8 +25,8 @@ app.use(function(req, res, next) {
   next();
 });
 
-router.route('/posts')
-  .get(function(req, res) {
+app
+  .get('/api/posts', function(req, res) {
     if (req.query.post_id) {
       Post.find({_id: req.query.post_id},function(err, posts) {
         if (err) {
@@ -40,10 +42,8 @@ router.route('/posts')
         res.json(posts)
       });
     }
-
-
   })
-  .post(function(req, res) {
+  .post('/api/posts', function(req, res) {
     let post = new Post();
     post.title = req.body.title;
     post.summary = req.body.summary;
@@ -59,7 +59,7 @@ router.route('/posts')
       res.json({ message: 'Post successfully added!' });
     });
   })
-  .delete(function(req, res) {
+  .delete('/api/posts', function(req, res) {
     Post.remove({_id: req.query.post_id}, function (err, todo) {
       if (err) {
         res.send(err);
@@ -68,7 +68,7 @@ router.route('/posts')
       }
     });
   })
-  .put(function(req, res) {
+  .put('/api/posts', function(req, res) {
     Post.findById(req.body.post_id, function(err, posts) {
       if (err) {
         res.send(err);
@@ -88,89 +88,90 @@ router.route('/posts')
         });
       }
     });
+  })
+
+  .get('/api/users', function(req, res) {
+    User.find(function(err, users) {
+      if (err) {
+        res.send(err);
+      }
+      res.json(users)
+    });
+  })
+  .post('/api/users', function(req, res) {
+    let user = new User();
+
+    user.title = req.body.name;
+    user.summary = req.body.password;
+
+    user.save(function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({ message: 'User successfully added!' });
+    });
+  })
+
+  .get('/api/category', function(req, res) {
+    if (req.query.category_id) {
+      Category.find({_id: req.query.category_id},function(err, category) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(category)
+      });
+    } else {
+      Category.find(function(err, category) {
+        if (err) {
+          res.send(err);
+        }
+        res.json(category)
+      });
+    }
+  })
+  .post('/api/category', function(req, res) {
+    let category = new Category();
+
+    category.name = req.body.name;
+
+    category.save(function(err) {
+      if (err) {
+        res.send(err);
+      }
+      res.json({ message: 'Category successfully added!' });
+    });
+  })
+  .delete('/api/category', function(req, res) {
+    Category.remove({_id: req.query.category_id}, function (err, todo) {
+      if (err) {
+        res.send(err);
+      } else {
+        res.send(true);
+      }
+    });
+  })
+  .put('/api/category', function(req, res) {
+    Category.findById(req.body.category_id, function(err, categories) {
+      if (err) {
+        res.send(err);
+      } else {
+        categories.name = req.body.name;
+
+        categories.save(function(err, todo) {
+          if (err) {
+            res.status(500).send(err)
+          }
+          res.send(todo);
+        });
+      }
+    });
   });
 
-  router.route('/users')
-    .get(function(req, res) {
-      User.find(function(err, users) {
-        if (err) {
-          res.send(err);
-        }
-        res.json(users)
-      });
-    })
-    .post(function(req, res) {
-      let user = new User();
+app.get('*', (req, res) => {
+  console.log(__dirname);
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 
-      user.title = req.body.name;
-      user.summary = req.body.password;
-
-      user.save(function(err) {
-        if (err) {
-          res.send(err);
-        }
-        res.json({ message: 'User successfully added!' });
-      });
-    });
-
-    router.route('/category')
-      .get(function(req, res) {
-        if (req.query.category_id) {
-          Category.find({_id: req.query.category_id},function(err, category) {
-            if (err) {
-              res.send(err);
-            }
-            res.json(category)
-          });
-        } else {
-          Category.find(function(err, category) {
-            if (err) {
-              res.send(err);
-            }
-            res.json(category)
-          });
-        }
-      })
-      .post(function(req, res) {
-        let category = new Category();
-
-        category.name = req.body.name;
-
-        category.save(function(err) {
-          if (err) {
-            res.send(err);
-          }
-          res.json({ message: 'Category successfully added!' });
-        });
-      })
-      .delete(function(req, res) {
-        Category.remove({_id: req.query.category_id}, function (err, todo) {
-          if (err) {
-            res.send(err);
-          } else {
-            res.send(true);
-          }
-        });
-      })
-      .put(function(req, res) {
-        Category.findById(req.body.category_id, function(err, categories) {
-          if (err) {
-            res.send(err);
-          } else {
-            categories.name = req.body.name;
-
-            categories.save(function(err, todo) {
-              if (err) {
-                res.status(500).send(err)
-              }
-              res.send(todo);
-            });
-          }
-        });
-      });;
-
-app.use('/api', router);
-
-app.listen(port, function() {
-  console.log(`api running on port ${port}`);
+app.listen(process.env.PORT || port, function(){
+  console.log("Express server listening on port %d in %s mode");
 });
