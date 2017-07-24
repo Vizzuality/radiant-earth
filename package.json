@@ -2,6 +2,10 @@
   "name": "radiant-earth",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=7.10",
+    "npm": ">=4.2.0"
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
