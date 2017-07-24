@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'react-slick';
-import Button from '../components/Button';
-import SearchInput from '../components/SearchInput';
+import Button from './Button';
+import SearchInput from './SearchInput';
 
 class HomeExampleItem extends Component {
   render() {
