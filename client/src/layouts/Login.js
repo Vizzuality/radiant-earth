@@ -5,7 +5,7 @@ import {
 import axios from 'axios';
 import _ from 'underscore';
 import Formsy from 'formsy-react';
-import MyInput from '../components/MyOwnInput';
+//import MyInput from '../components/MyOwnInput';
 
 
 class Login extends Component {
@@ -62,8 +62,6 @@ class Login extends Component {
       <div className="row l-login align-center">
         <div className="l-login__form small-6 medium-6 large-6">
           <Formsy.Form onSubmit={this.submit.bind(this)} onValid={this.enableButton.bind(this)} onInvalid={this.disableButton.bind(this)} className="login">
-            <MyInput class="text -ff2-s c-input -text-field" placeholder="eg: sawyer@iamlost.com" value="" name="email" title="Email" validations="isEmail" validationError="This is not a valid email" required />
-            <MyInput class="text -ff2-s c-input -text-field" placeholder="********" value="" name="password" title="Password" type="password" required />
             <button className="text -ff2-s -uppercase c-button -primary" type="submit" disabled={!this.state.canSubmit}>Submit</button>
           </Formsy.Form>
           <span className={`text -ff2-xs -uppercase -error validation-error l-login__error-login ${this.state.loginError ? '-show' : ''}`}>Login fail</span>
