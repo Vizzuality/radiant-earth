@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from './Nav';
 import BurgerMenu from './BurgerMenu';
+import radiantLogo from '../images/logos/radiant.png';
 
 class Header extends Component {
 
@@ -9,17 +10,25 @@ class Header extends Component {
 
     this.navLinks = [
       {
-        name: 'API Documentation',
-        url: 'https://radiant-earth-doc-api.herokuapp.com/'
+        name: 'Explore',
+        url: '/explore'
       },
       {
-        name: 'Blog',
-        url: '/blog'
+        name: 'Community',
+        url: '/community'
+      },
+      {
+        name: 'Get Involved',
+        url: '/get-involved'
+      },
+      {
+        name: 'News',
+        url: '/news'
       },
       {
         name: 'About',
         url: '/about'
-      }
+      },
     ];
   }
 
@@ -29,7 +38,7 @@ class Header extends Component {
         <div className="c-header__content row">
           <div className="small-3 columns">
             <a href="/">
-              <svg className="icon icon-logo"><use xlinkHref="#icon-logo"></use></svg>
+              <img className="c-header__logo" src={radiantLogo} />
             </a>
           </div>
           <div className="small-9 columns">

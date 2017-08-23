@@ -1,10 +1,16 @@
 .c-button {
-  cursor: pointer;
   width: 100%;
   height: 40px;
-  border-radius: 100px;
-  background-color: $white;
-  box-shadow: 0 6px 3px 0 rgba(0, 0, 25, 0.1);
+  border-radius: rem(100px);
+  cursor: pointer;
+
+  &.-back-orange {
+    background-color: $color-2;
+  }
+
+  &.-back-white {
+    background-color: $white;
+  }
 
   a {
     display: flex;
@@ -47,10 +53,10 @@
   }
 
   &.-white {
+    padding-bottom: 0 !important;
+    border: 0;
+    outline: 0;
     background-color: $white;
     color: $color-2;
-    border: 0;
-    padding-bottom: 0 !important;
-    outline: 0;
   }
 }

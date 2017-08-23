@@ -1,0 +1,15 @@
+.c-box-title-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h2 {
+    margin: rem(15px) 0;
+  }
+
+  .c-button {
+    max-width: rem(180px);
+    margin-top: rem(20px);
+  }
+
+}

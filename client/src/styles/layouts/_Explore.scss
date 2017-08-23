@@ -1,0 +1,29 @@
+.l-explore {
+  h3 {
+    margin-bottom: rem(10px);
+  }
+
+  .l-explore__slider-content {
+    padding: rem(60px) 0;
+
+    .l-explore__image {
+      .img {
+        width: 100%;
+        height: 375px;
+        background-color: rgba($color-1, .1);
+      }
+    }
+
+    .l-explore__content {
+      .c-box-title-content {
+        p {
+          opacity: .8;
+        }
+      }
+    }
+  }
+
+  .l-explore__api-content {
+    padding: rem(60px) 0 rem(50px);
+  }
+}
