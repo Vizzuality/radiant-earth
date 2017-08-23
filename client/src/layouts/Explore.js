@@ -8,6 +8,34 @@ import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
 
 class Explore extends Component {
+
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      slider: 0,
+    };
+
+    this.sliderContent = [
+      {
+        img: {oneExplore},
+        subTitle: 'RADIANT.EARTH DATA EXPLORER',
+        title: 'Browse the whole world, updated constantly.',
+        text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
+        buttonText: 'REQUEST ACCESS',
+        buttonUrl: '#',
+      },
+      {
+        img: {twoExplore},
+        subTitle: 'RADIANT.EARTH DATA EXPLORER',
+        title: 'Browse the whole world, updated constantly. -2',
+        text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
+        buttonText: 'REQUEST ACCESS',
+        buttonUrl: '#',
+      },
+    ];
+  }
+
   render() {
     return (
       <div>
@@ -19,19 +47,19 @@ class Explore extends Component {
               <div className="l-explore__image columns large-6 medium-6 small-6">
                 <div className="img"></div>
               </div>
-
-              <div className="l-explore__content columns large-6 medium-6 small-6">
-                <BoxTitleContent
-                  subTitle="RADIANT.EARTH DATA EXPLORER"
-                  title="Browse the whole world, updated constantly."
-                  text="Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives."
-                  buttonText="REQUEST ACCESS"
-                  buttonUrl="#"
-                />
-              </div>
+              {this.sliderContent.map((item, i) =>
+                <div key={i} className={`l-explore__content columns large-6 medium-6 small-6 ${i === this.state.slider ? '-show' : ''}`}>
+                  <BoxTitleContent
+                    subTitle={item.subTitle}
+                    title={item.title}
+                    text={item.text}
+                    buttonText={item.buttonText}
+                    buttonUrl={item.buttonUrl}
+                  />
+                </div>
+              )}
             </div>
           </div>
-
           <div className="-back-white l-explore__api-content">
             <div className="row">
               <h3 className="text -ff2-xs -color-2 -uppercase columns large-12 medium-12 small-12">RADIANT.EARTH API</h3>
