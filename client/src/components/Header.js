@@ -38,7 +38,7 @@ class Header extends Component {
         <div className="c-header__content row">
           <div className="small-3 columns">
             <a href="/">
-              <img className="c-header__logo" src={radiantLogo} />
+              <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />
             </a>
           </div>
           <div className="small-9 columns">

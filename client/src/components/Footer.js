@@ -18,21 +18,21 @@ class Footer extends Component {
               <h4 className="text -ff2-xs -uppercase -white">Funders</h4>
               <div className="row align-middle">
                 <a className="columns small-4 link-logo" href="http://www.gatesfoundation.org/" target="_blank" rel="noopener noreferrer">
-                  <img className="c-footer__logos-item" src={billMelinda} />
+                  <img alt="Bill & Melinda" className="c-footer__logos-item" src={billMelinda} />
                 </a>
                 <a className="columns small-4 link-logo" href="https://www.omidyar.com/" target="_blank" rel="noopener noreferrer">
-                  <img className="c-footer__logos-item" src={omidyar} />
+                  <img alt="Omidyar" className="c-footer__logos-item" src={omidyar} />
                 </a>
               </div>
             </div>
             <div className="c-footer__logos-container">
               <h4 className="text -ff2-xs -uppercase -white">data providers</h4>
               <div className="row align-middle">
-                <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
-                  <img className="c-footer__logos-item -esa" src={esa} />
+                <a className="columns small-4 link-logo" href={'#'} target="_blank" rel="noopener noreferrer">
+                  <img alt="ESA" className="c-footer__logos-item -esa" src={esa} />
                 </a>
                 <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
-                  <img className="c-footer__logos-item -nasa" src={nasa} />
+                  <img alt="NASA" className="c-footer__logos-item -nasa" src={nasa} />
                 </a>
               </div>
             </div>
@@ -40,13 +40,13 @@ class Footer extends Component {
               <h4 className="text -ff2-xs -uppercase -white">Partners</h4>
                 <div className="row align-middle">
                   <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
-                    <img className="c-footer__logos-item" src={unitar} />
+                    <img alt="Unitar" className="c-footer__logos-item" src={unitar} />
                   </a>
                   <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
-                    <img className="c-footer__logos-item -esa" src={esa} />
+                    <img  alt="ESA"className="c-footer__logos-item -esa" src={esa} />
                   </a>
                   <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
-                    <img className="c-footer__logos-item" src={newAmerica} />
+                    <img alt="New America" className="c-footer__logos-item" src={newAmerica} />
                   </a>
                 </div>
             </div>
@@ -54,10 +54,10 @@ class Footer extends Component {
               <h4 className="text -ff2-xs -uppercase -white">Collaborators</h4>
                 <div className="row align-middle">
                   <a className="columns small-4 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
-                    <img className="c-footer__logos-item" src={azavea} />
+                    <img alt="Azavea" className="c-footer__logos-item" src={azavea} />
                   </a>
                   <a className="columns small-4 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
-                    <img className="c-footer__logos-item" src={vizzuality} />
+                    <img alt="Vizzuality" className="c-footer__logos-item" src={vizzuality} />
                   </a>
                 </div>
             </div>

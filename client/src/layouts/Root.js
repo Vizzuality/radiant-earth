@@ -7,16 +7,16 @@ import {
 import Home from './Home';
 import Explore from './Explore';
 
-{/*import Blog from './Blog';
-import About from './About';
-import Login from './Login';
-import AddBlog from './AddBlog';
-import EditBlog from './EditBlog';
-import Dashboard from './Dashboard';
-import Account from './Account';
-import AddCategory from './AddCategory';
-import EditCategory from './EditCategory';
-*/}
+// import Blog from './Blog';
+// import About from './About';
+// import Login from './Login';
+// import AddBlog from './AddBlog';
+// import EditBlog from './EditBlog';
+// import Dashboard from './Dashboard';
+// import Account from './Account';
+// import AddCategory from './AddCategory';
+// import EditCategory from './EditCategory';
+
 
 const Root = ({ store }) => (
   <Router>
