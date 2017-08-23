@@ -42,11 +42,13 @@
         &.-esa {
           min-width: rem(100px);
           max-width: rem(110px);
+          mix-blend-mode: screen;
         }
 
         &.-nasa {
           min-width: rem(60px);
           max-width: rem(80px);
+          mix-blend-mode: screen;
         }
       }
     }
