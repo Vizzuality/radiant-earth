@@ -4,56 +4,65 @@ class Footer extends Component {
   render() {
     return (
       <div className="c-footer">
-        <div className="row small-up-1 medium-up-10 large-up-10">
-          <div className="c-footer__partners-funders-container small-10 columns">
-            <span className="text -ff2-xs -white -uppercase -center">We are working with funders and partners to accelerate open earth imagery technologies</span>
-            <div className="c-footer_logos-container">
-              <div className="row align-spaced">
-                <a className="" href="https://www.omidyar.com/" target="_blank" rel="noopener noreferrer">
-                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Omidyar"></use></svg>
-                </a>
-                <a href="http://www.gatesfoundation.org/" target="_blank" rel="noopener noreferrer">
+        <div className="row">
+          <div className="c-footer__logos columns large-6 medium-6 small-12">
+            <div className="c-footer__logos-container">
+              <h4 className="text -ff2-xs -uppercase -white">Funders</h4>
+              <div className="row align-middle">
+                <a className="columns small-4 link-logo" href="http://www.gatesfoundation.org/" target="_blank" rel="noopener noreferrer">
                   <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-BillnMelinda"></use></svg>
                 </a>
-                <a href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
-                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Vizzuality"></use></svg>
-                </a>
-                <a href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
-                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-azavea"></use></svg>
+                <a className="columns small-4 link-logo" href="https://www.omidyar.com/" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Omidyar"></use></svg>
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="row small-up-1 medium-up-2 large-up-2">
-          <div className="c-footer__newsletter-container small-6 columns align-self-middle">
-            <span className="text -ff2-xs -white -uppercase -center">Subscribe to our newsletter to get latest news and updates</span>
-            <form className="c-footer__newsletter-form">
-              <svg className="icon icon-logo"><use xlinkHref="#icon-arrow"></use></svg>
-              <input className="text -ff2-s -uppercase" type="email" placeholder="youremail@domain.com" />
-            </form>
-          </div>
-        </div>
-        <div className="row small-up-2 medium-up-2 large-up-3">
-          <div className="c-footer__social-networks-container small-4 columns align-self-middle">
-            <div className="row align-justify">
-              <a href="https://twitter.com/ourradiantearth" target="_blank" rel="noopener noreferrer">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-twitter"></use></svg>
-              </a>
-              <a href="https://www.linkedin.com/company-beta/11020837/" target="_blank" rel="noopener noreferrer">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-linkedin"></use></svg>
-              </a>
-              <a href="https://www.facebook.com/OurRadiantEarth" target="_blank" rel="noopener noreferrer">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-facebook"></use></svg>
-              </a>
-              <a href="https://medium.com/@ourradiantearth" target="_blank" rel="noopener noreferrer">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-medium"></use></svg>
-              </a>
-              <a href="https://www.instagram.com/OurRadiantEarth/" target="_blank" rel="noopener noreferrer">
-                <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-instagram"></use></svg>
-              </a>
+            <div className="c-footer__logos-container">
+              <h4 className="text -ff2-xs -uppercase -white">data providers</h4>
             </div>
-            <span className="text -ff2-xs -white -center">Copyright © 2017 Radiant. All Rights Reserved.</span>
+            <div className="c-footer__logos-container">
+              <h4 className="text -ff2-xs -uppercase -white">Partners</h4>
+            </div>
+            <div className="c-footer__logos-container">
+              <h4 className="text -ff2-xs -uppercase -white">Collaborators</h4>
+                <div className="row align-middle">
+                  <a className="columns small-4 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
+                    <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-azavea"></use></svg>
+                  </a>
+                  <a className="columns small-4 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
+                    <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-Vizzuality"></use></svg>
+                  </a>
+                </div>
+            </div>
+          </div>
+          <div className="c-footer__social columns large-6 medium-6 small-12">
+            <div className="c-footer__social-container">
+              <h4 className="text -ff2-xs -uppercase -white">Subscribe to our newsletter</h4>
+              <form className="c-footer__newsletter-form">
+                <svg className="icon icon-logo"><use xlinkHref="#icon-arrow"></use></svg>
+                <input className="text -ff2-s -uppercase" type="email" placeholder="youremail@domain.com" />
+              </form>
+            </div>
+            <div className="c-footer__social-container">
+              <h4 className="text -ff2-xs -uppercase -white">or follow us to get the latest updates</h4>
+              <div className="row align-justify">
+                <a className="columns small-2" href="https://twitter.com/ourradiantearth" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-twitter"></use></svg>
+                </a>
+                <a className="columns small-2" href="https://www.linkedin.com/company-beta/11020837/" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-linkedin"></use></svg>
+                </a>
+                <a className="columns small-2" href="https://www.facebook.com/OurRadiantEarth" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-facebook"></use></svg>
+                </a>
+                <a className="columns small-2" href="https://medium.com/@ourradiantearth" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-medium"></use></svg>
+                </a>
+                <a className="columns small-2" href="https://www.instagram.com/OurRadiantEarth/" target="_blank" rel="noopener noreferrer">
+                  <svg className="icon icon-logo c-footer__logos-item"><use xlinkHref="#icon-instagram"></use></svg>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
