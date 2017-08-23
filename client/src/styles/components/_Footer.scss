@@ -30,7 +30,7 @@
 
         &.-vizzuality {
           position: relative;
-          top: rem(5px);
+          top: rem(7px);
         }
       }
 
@@ -38,7 +38,16 @@
         width: 100%;
         min-width: rem(100px);
         max-width: rem(130px);
-        height: rem(40px);
+
+        &.-esa {
+          min-width: rem(100px);
+          max-width: rem(110px);
+        }
+
+        &.-nasa {
+          min-width: rem(60px);
+          max-width: rem(80px);
+        }
       }
     }
   }
