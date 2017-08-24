@@ -1,0 +1,20 @@
+.c-box-card {
+  display: flex;
+  flex-direction: column;
+
+  .c-box-card__img {
+    min-height: rem(240px);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .c-box-title-content {
+    height: 100%;
+    padding: rem(5px) rem(20px) rem(20px);
+    background-color: rgba($color-4, .05);
+
+    p {
+      opacity: .8;
+    }
+  }
+}

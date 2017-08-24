@@ -3,8 +3,8 @@
   ul {
     margin: 0;
     padding: 0;
-    list-style: none;
     font-size: 0;
+    list-style: none;
   }
 
   li {
@@ -38,14 +38,16 @@
         margin-left: rem(40px);
       }
 
-      &.-selected:before {
-        content: '';
-        position: absolute;
-        bottom: rem(-1px);
-        left: 0;
-        width: 100%;
-        height: rem(2px);
-        background-color: $color-2;
+      &.-selected {
+        &::before {
+          content: '';
+          position: absolute;
+          bottom: rem(-1px);
+          left: 0;
+          width: 100%;
+          height: rem(2px);
+          background-color: $color-2;
+        }
       }
     }
   }
