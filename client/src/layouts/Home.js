@@ -6,15 +6,25 @@ import image1 from '../images/home/cover/1.jpg';
 import image2 from '../images/home/cover/2.jpg';
 import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
+import image5 from '../images/home/cover/5.jpg';
 
 class Home extends Component {
 
   constructor(props) {
     super(props);
 
+    const positionCircle =  Math.floor((Math.random() * 2) + 0);
+    const classCircles = ['-one-position', '-two-position'];
+    const classCircle = classCircles[positionCircle];
+
     this.state = {
       slider: null,
+      classCircleSelect: classCircle,
     };
+  }
+
+  componentDidMount() {
+
   }
 
   render() {
@@ -31,10 +41,11 @@ class Home extends Component {
               <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
             </span>
 
-            <div className="l-home__circle-image -image-1" style={{backgroundImage: 'url(' + image1 + ')'}}></div>
-            <div className="l-home__circle-image -image-2" style={{backgroundImage: 'url(' + image2 + ')'}}></div>
-            <div className="l-home__circle-image -image-3" style={{backgroundImage: 'url(' + image3 + ')'}}></div>
-            <div className="l-home__circle-image -image-4" style={{backgroundImage: 'url(' + image4 + ')'}}></div>
+            <div className={`l-home__circle-image -image-1 ${this.state.classCircleSelect}`} style={{backgroundImage: 'url(' + image1 + ')'}}></div>
+            <div className={`l-home__circle-image -image-2 ${this.state.classCircleSelect}`} style={{backgroundImage: 'url(' + image2 + ')'}}></div>
+            <div className={`l-home__circle-image -image-3 ${this.state.classCircleSelect}`} style={{backgroundImage: 'url(' + image3 + ')'}}></div>
+            <div className={`l-home__circle-image -image-4 ${this.state.classCircleSelect}`} style={{backgroundImage: 'url(' + image4 + ')'}}></div>
+            <div className={`l-home__circle-image -image-5 ${this.state.classCircleSelect}`} style={{backgroundImage: 'url(' + image5 + ')'}}></div>
 
           </div>
 
