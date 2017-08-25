@@ -7,6 +7,10 @@ import oneExplore from '../images/explorePage/1.png';
 import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
 
+import oneSlider from '../images/explorePage/1_slider.png';
+import twoSlider from '../images/explorePage/2_slider.png';
+import threeSlider from '../images/explorePage/3_slider.png';
+
 class Explore extends Component {
 
   constructor (props) {
@@ -18,7 +22,7 @@ class Explore extends Component {
 
     this.sliderContent = [
       {
-        img: {oneExplore},
+        img: oneSlider,
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
         title: 'Browse the whole world, updated constantly.',
         text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
@@ -26,14 +30,28 @@ class Explore extends Component {
         buttonUrl: '#',
       },
       {
-        img: {twoExplore},
+        img: twoSlider,
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
         title: 'Browse the whole world, updated constantly. -2',
+        text: 'Find free and timely imagery of open data sets like the Landsat and Sentinel archives.',
+        buttonText: 'REQUEST ACCESS',
+        buttonUrl: '#',
+      },
+      {
+        img: threeSlider,
+        subTitle: 'RADIANT.EARTH DATA EXPLORER',
+        title: 'Browse the whole world, updated constantly. -3',
         text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
         buttonText: 'REQUEST ACCESS',
         buttonUrl: '#',
       },
     ];
+  }
+
+  changeSlider(slide) {
+    this.setState({
+      slider: slide,
+    })
   }
 
   render() {
@@ -45,19 +63,32 @@ class Explore extends Component {
           <div className="l-explore__slider-content">
             <div className="row align-middle">
               <div className="l-explore__image columns large-6 medium-6 small-6">
-                <div className="img"></div>
+                {this.sliderContent.map((item, i) =>
+                  <div
+                    key={i}
+                    className={`img ${i === this.state.slider ? '-show' : '-hidden'}`}
+                    style={{backgroundImage: 'url(' + item.img + ')'}}>
+                  </div>
+                )}
               </div>
-              {this.sliderContent.map((item, i) =>
-                <div key={i} className={`l-explore__content columns large-6 medium-6 small-6 ${i === this.state.slider ? '-show' : ''}`}>
-                  <BoxTitleContent
-                    subTitle={item.subTitle}
-                    title={item.title}
-                    text={item.text}
-                    buttonText={item.buttonText}
-                    buttonUrl={item.buttonUrl}
-                  />
-                </div>
-              )}
+              <div className="l-explore__content columns large-6 medium-6 small-6">
+                {this.sliderContent.map((item, i) =>
+                  <div key={i} className={`box-container ${i === this.state.slider ? '-show' : '-hidden'}`}>
+                    <BoxTitleContent
+                      subTitle={item.subTitle}
+                      title={item.title}
+                      text={item.text}
+                      buttonText={item.buttonText}
+                      buttonUrl={item.buttonUrl}
+                    />
+                  </div>
+                )}
+              </div>
+              <ul className="l-explore__circle-container columns large-12 medium-12 small-12 ">
+                {this.sliderContent.map((item, i) =>
+                  <li key={i} className={`circle ${i === this.state.slider ? '-active' : ''}`} onClick={() => this.changeSlider(i)}></li>
+                )}
+              </ul>
             </div>
           </div>
           <div className="-back-white l-explore__api-content">
