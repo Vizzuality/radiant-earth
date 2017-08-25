@@ -1,6 +1,6 @@
 body {
   max-width: 100%;
-  background-color: rgba($color-4, .05);
+  background-color: $white;
   font-family: $font-family-1;
   font-size: $ff1-size-m;
   overflow-x: hidden;
@@ -13,8 +13,4 @@ body {
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
-}
-
-.-back-white {
-  background-color: $white;
 }

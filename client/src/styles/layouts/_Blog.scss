@@ -1,5 +1,4 @@
 $masonry-margin: rem(15px);
-$big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg', 'images/header/4.jpg', 'images/header/5.jpg';
 
 .l-blog {
 
@@ -82,7 +81,6 @@ $big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg'
     transform: translate(50%, 0);
     transition: opacity .5s linear;
     border-radius: 100%;
-    background-image: url(nth($big-images, 1));
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -102,26 +100,6 @@ $big-images: 'images/header/1.jpg', 'images/header/2.jpg', 'images/header/3.jpg'
 
     &.-hidden {
       opacity: 0;
-    }
-
-    &.-img-1 {
-      background-image: url(nth($big-images, 1));
-    }
-
-    &.-img-2 {
-      background-image: url(nth($big-images, 2));
-    }
-
-    &.-img-3 {
-      background-image: url(nth($big-images, 3));
-    }
-
-    &.-img-4 {
-      background-image: url(nth($big-images, 4));
-    }
-
-    &.-img-4 {
-      background-image: url(nth($big-images, 5));
     }
   }
 }

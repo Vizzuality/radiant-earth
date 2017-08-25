@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   height: $header-height;
+  background-color: rgba($color-4, .05);
   z-index: 4;
 
   .icon-logo {
