@@ -60,3 +60,24 @@
     color: $color-2;
   }
 }
+
+.c-button-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(40px);
+  height: rem(40px);
+  border-radius: rem(40px);
+  background-color: $color-2;
+  color: $white;
+  cursor: pointer;
+
+  &.-right {
+    transform: rotate(-90deg);
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+}
