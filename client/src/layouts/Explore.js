@@ -9,7 +9,7 @@ import threeExplore from '../images/explorePage/3.png';
 
 class Explore extends Component {
 
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -18,7 +18,7 @@ class Explore extends Component {
 
     this.sliderContent = [
       {
-        img: {oneExplore},
+        img: { oneExplore },
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
         title: 'Browse the whole world, updated constantly.',
         text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
@@ -26,7 +26,7 @@ class Explore extends Component {
         buttonUrl: '#',
       },
       {
-        img: {twoExplore},
+        img: { twoExplore },
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
         title: 'Browse the whole world, updated constantly. -2',
         text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
@@ -45,7 +45,7 @@ class Explore extends Component {
           <div className="l-explore__slider-content">
             <div className="row align-middle">
               <div className="l-explore__image columns large-6 medium-6 small-6">
-                <div className="img"></div>
+                <div className="img">{}</div>
               </div>
               {this.sliderContent.map((item, i) =>
                 <div key={i} className={`l-explore__content columns large-6 medium-6 small-6 ${i === this.state.slider ? '-show' : ''}`}>
