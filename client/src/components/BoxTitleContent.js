@@ -16,9 +16,9 @@ class BoxTitleContent extends Component {
             {this.props.text}
           </p>
         </div>
-        <div className={`${this.props.buttonText ? '' : 'hidden-button'}`}>
+        {this.props.buttonText &&<div>
           <Button text={this.props.buttonText} url={this.props.buttonUrl} back="orange"/>
-        </div>
+        </div> }
       </div>
     )
   };

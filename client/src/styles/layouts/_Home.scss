@@ -277,17 +277,30 @@ $testimonial-font-size: 18px;
     }
 
     .c-button-circle {
+      display: none;
       position: absolute;
       top: calc(50% - 20px);
-      left: calc((100vw / 4) * 3);
-      margin-left: 90px;
+      z-index: 3;
+
+      &.-next {
+        left: calc((100vw / 4) * 3);
+        margin-left: 90px;
+      }
+
+      &.-back {
+        left: 0;
+      }
+
+      &.-show {
+        display: flex;
+      }
     }
 
     .l-home__studies-slider {
       display: flex;
       position: relative;
       margin-top: rem(10px);
-      transition: left .4s linear;
+      transition: .3s linear;
 
       .l-home__studies-item {
         min-width: calc(100vw / 4);
