@@ -76,6 +76,10 @@
     transform: rotate(-90deg);
   }
 
+  &.-left {
+    transform: rotate(90deg);
+  }
+
   .icon {
     width: 25px;
     height: 25px;
