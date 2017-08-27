@@ -191,15 +191,20 @@ $testimonial-font-size: 18px;
   .l-home__testimonial {
     margin-top: rem(95px);
 
+    .row {
+      position: relative;
+    }
+
+    .c-button-circle {
+      position: absolute;
+      top: calc(50% - 20px);
+      left: calc((100vw / 2.7) * 2);
+      margin-left: 60px;
+    }
+
     .l-home__testimonial-slider {
       display: flex;
       margin-top: rem(10px);
-
-      .c-button-circle {
-        position: absolute;
-        top: calc(50% - 40px);
-        right: 0;
-      }
 
       .l-home__testimonial-item {
         min-width: calc(100vw / 2.7);
@@ -252,10 +257,15 @@ $testimonial-font-size: 18px;
     margin-top: rem(95px);
     margin-bottom: rem(60px);
 
+    .row {
+      position: relative;
+    }
 
     .c-button-circle {
       position: absolute;
-      right: calc(100vw / 8);
+      top: calc(50% - 20px);
+      left: calc((100vw / 4) * 3);
+      margin-left: 90px;
     }
 
     .l-home__studies-slider {
