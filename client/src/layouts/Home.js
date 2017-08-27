@@ -23,25 +23,38 @@ class Home extends Component {
       slideTestimonialNumber: 1,
       slideTestimonialNext: true,
       slideTestimonialBack: false,
+      positionSlideTestimonial: '',
+      slideStudiesNumber: 1,
+      slideStudiesNext: true,
+      slideStudiesBack: false,
+      positionSlideStudies: '',
     };
   }
 
   slideTestimonial(d) {
-    const e = this.sliderTestimonial;
     const windowWidth = window.innerWidth;
     const vwSlidePx = 30 / (windowWidth * 0.01);
     let currentSlider;
     currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
-    e.style.transform = `translate3d(calc((((100vw / 2.7) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`;
     this.setState({
       slideTestimonialNumber: currentSlider,
       slideTestimonialBack: currentSlider > 1,
       slideTestimonialNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 1),
+      positionSlideTestimonial: `translate3d(calc((((100vw / 2.7) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
     });
   }
 
-  slideCaseStudies() {
-
+  slideStudies(d) {
+    const windowWidth = window.innerWidth;
+    const vwSlidePx = 30 / (windowWidth * 0.01);
+    let currentSlider;
+    currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
+    this.setState({
+      slideStudiesNumber: currentSlider,
+      slideStudiesBack: currentSlider > 1,
+      slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 1),
+      positionSlideStudies: `translate3d(calc((((100vw / 4) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+    });
   }
 
   render() {
@@ -91,7 +104,21 @@ class Home extends Component {
                 <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
               </span>
               <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">TESTIMONIAL</h2>
-              <div className="l-home__testimonial-slider columns large-12 medium-12 small-12" ref={(sliderTestimonial) => { this.sliderTestimonial = sliderTestimonial; }}>
+              <div className="l-home__testimonial-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideTestimonial}}>
+
+                <div className="l-home__testimonial-item">
+                  <div>
+                    <p className="text -ff2-m">
+                      <span className="quotes">“</span>
+                        This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.
+                      <span className="quotes">”</span>
+                    </p>
+                  </div>
+                  <div className="author-contain">
+                    <span className="name text -color-1">- Einar Bjorgo, UNOSAT´s Manager</span>
+                    <div className="img"></div>
+                  </div>
+                </div>
 
                 <div className="l-home__testimonial-item">
                   <div>
@@ -170,11 +197,35 @@ class Home extends Component {
 
           <div className="l-home__studies">
             <div className="row">
-              <span className="c-button-circle -right">
+              <span className={`c-button-circle -next -right ${this.state.slideStudiesNext ? '-show' : ''}`} onClick={()=>this.slideStudies('next')}>
+                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+              </span>
+
+              <span className={`c-button-circle -back -left ${this.state.slideStudiesBack ? '-show' : ''}`} onClick={()=>this.slideStudies('back')}>
                 <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
               </span>
               <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">LATEST CASE STUDIES</h2>
-              <div className="l-home__studies-slider columns large-12 medium-12 small-12">
+              <div className="l-home__studies-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideStudies}}>
+                <div className="l-home__studies-item">
+                  <div className="img"></div>
+                  <div>
+                    <BoxTitleContent
+                      title="Open geospatial data for positive global impact, and improved decision-making"
+                      text="Radiant offers solutions to fully realizing the potential of earth observation for positive, even life-changing global impact: It simplifies the overall process across the value chain of using geospatial data."
+                    />
+                  </div>
+                </div>
+
+                <div className="l-home__studies-item">
+                  <div className="img"></div>
+                  <div>
+                    <BoxTitleContent
+                      title="Open geospatial data for positive global impact, and improved decision-making"
+                      text="Radiant offers solutions to fully realizing the potential of earth observation for positive, even life-changing global impact: It simplifies the overall process across the value chain of using geospatial data."
+                    />
+                  </div>
+                </div>
+
                 <div className="l-home__studies-item">
                   <div className="img"></div>
                   <div>
