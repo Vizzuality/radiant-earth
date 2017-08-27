@@ -91,7 +91,7 @@ class Explore extends Component {
               </ul>
             </div>
           </div>
-          <div className="l-explore__api-content">
+          <div className="-back-white l-explore__api-content">
             <div className="row">
               <h3 className="text -ff2-xs -color-2 -uppercase columns large-12 medium-12 small-12">RADIANT.EARTH API</h3>
                 <BoxCard

@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "globals": {
+    "Stats": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "extends": "airbnb",
+  "rules": {
+    "no-console": ["error", {
+      "allow": ["warn", "error", "info"]
+    }],
+    "comma-dangle": 0,
+    "no-restricted-properties": ["error", {
+      "object": "arguments",
+      "property": "callee",
+      "message": "arguments.callee is deprecated",
+    }, {
+      "property": "__defineGetter__",
+      "message": "Please use Object.defineProperty instead.",
+    }, {
+      "property": "__defineSetter__",
+      "message": "Please use Object.defineProperty instead.",
+    }]
+  }
+}
