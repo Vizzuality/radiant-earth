@@ -23,10 +23,6 @@ class Home extends Component {
     };
   }
 
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <div>
@@ -66,6 +62,9 @@ class Home extends Component {
 
           <div className="l-home__testimonial">
             <div className="row">
+              <span className="c-button-circle -right">
+                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+              </span>
               <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">TESTIMONIAL</h2>
               <div className="l-home__testimonial-slider columns large-12 medium-12 small-12">
 
@@ -132,7 +131,10 @@ class Home extends Component {
 
           <div className="l-home__studies">
             <div className="row">
-              <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">TESTIMONIAL</h2>
+              <span className="c-button-circle -right">
+                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+              </span>
+              <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">LATEST CASE STUDIES</h2>
               <div className="l-home__studies-slider columns large-12 medium-12 small-12">
                 <div className="l-home__studies-item">
                   <div className="img"></div>
