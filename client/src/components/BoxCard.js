@@ -3,11 +3,10 @@ import BoxTitleContent from './BoxTitleContent';
 
 class BoxCard extends Component {
   render() {
-
     return (
       <div className="c-box-card columns large-4 medium-4 small-4">
         <div className="c-box-card__img"
-          style={{backgroundImage: 'url(' + this.props.img + ')'}}
+          style={{ backgroundImage: 'url(' + this.props.img + ')' }}
         ></div>
         <BoxTitleContent
           title={this.props.title}
@@ -17,7 +16,7 @@ class BoxCard extends Component {
         />
       </div>
     )
-  };
+  }
 }
 
 export default BoxCard;
