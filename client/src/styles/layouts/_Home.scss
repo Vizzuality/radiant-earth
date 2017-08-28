@@ -225,7 +225,17 @@ $testimonial-font-size: 18px;
         min-width: calc(100vw / 2.7);
         margin-right: rem(30px);
         padding: rem(40px);
+        transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
+        opacity: .5;
+
+        &.-show {
+          opacity: 1;
+        }
+
+        &.-not-back {
+          opacity: .5;
+        }
 
         p {
           color: rgba($black-2, .6);
@@ -288,7 +298,7 @@ $testimonial-font-size: 18px;
       }
 
       &.-back {
-        left: 0;
+        left: -5px;
       }
 
       &.-show {
@@ -305,7 +315,17 @@ $testimonial-font-size: 18px;
       .l-home__studies-item {
         min-width: calc(100vw / 4);
         margin-right: rem(30px);
+        transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
+        opacity: .5;
+
+        &.-show {
+          opacity: 1;
+        }
+
+        &.-not-back {
+          opacity: .5;
+        }
 
         .img {
           height: rem(180px);

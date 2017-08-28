@@ -8,7 +8,6 @@ import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
 
 class Explore extends Component {
-
   constructor(props) {
     super(props);
 
@@ -63,27 +62,27 @@ class Explore extends Component {
           <div className="l-explore__api-content">
             <div className="row">
               <h3 className="text -ff2-xs -color-2 -uppercase columns large-12 medium-12 small-12">RADIANT.EARTH API</h3>
-                <BoxCard
-                  img={oneExplore}
-                  title="Integrate geospatial data with your applications "
-                  text="Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change."
-                  buttonText="LEARN MORE"
-                  buttonUrl="#"
-                />
-                <BoxCard
-                  img={twoExplore}
-                  title="Search accross global archives to find imagery that fits your needs"
-                  text="Radiant.Earth aims to simplify the overall process of using satellite imagery."
-                  buttonText="LEARN MORE"
-                  buttonUrl="#"
-                />
-                <BoxCard
-                  img={threeExplore}
-                  title="Active monitoring"
-                  text="Set areas of interest to actively monitor areas around the world as new imagery becomes available, or trigger automatic analyses."
-                  buttonText="LEARN MORE"
-                  buttonUrl="#"
-                />
+              <BoxCard
+                img={oneExplore}
+                title="Integrate geospatial data with your applications "
+                text="Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change."
+                buttonText="LEARN MORE"
+                buttonUrl="#"
+              />
+              <BoxCard
+                img={twoExplore}
+                title="Search accross global archives to find imagery that fits your needs"
+                text="Radiant.Earth aims to simplify the overall process of using satellite imagery."
+                buttonText="LEARN MORE"
+                buttonUrl="#"
+              />
+              <BoxCard
+                img={threeExplore}
+                title="Active monitoring"
+                text="Set areas of interest to actively monitor areas around the world as new imagery becomes available, or trigger automatic analyses."
+                buttonText="LEARN MORE"
+                buttonUrl="#"
+              />
             </div>
           </div>
 
