@@ -189,7 +189,7 @@ class About extends Component {
               <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
             </span>
 
-            <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">LATEST CASE STUDIES</h2>
+            <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">BOARD</h2>
             <div className="l-about__board-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideBoard}}>
               {this.boardContent.map((item, i) =>
                 <div key={i} className={`l-about__board-item ${(i) > (this.state.slideBoardNumber + 2) ? '' : '-show'} ${(i + 1) < (this.state.slideBoardNumber) ? '-not-back' : ''}`}>
