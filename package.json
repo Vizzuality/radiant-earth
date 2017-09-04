@@ -13,7 +13,8 @@
     "express": "^4.15.3",
     "mongoose": "^4.11.1",
     "nodemon": "^1.11.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react-select-me": "^0.9.0"
   },
   "scripts": {
     "start": "node server.js",

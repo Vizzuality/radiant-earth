@@ -2,10 +2,44 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
+import Select from 'react-select-me';
+import 'react-select-me/lib/ReactSelectMe.css';
 
 class GetInvolved extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      country: null,
+      area: null,
+    };
+  }
+
+  onChangeCountry(country) {
+    this.setState({
+      country
+    });
+  }
+
+  onChangeArea(area) {
+    this.setState({
+      area
+    });
+  }
+
   render() {
+    const optionsCountry = [
+      { value: 'spain', label: 'Spain' },
+      { value: 'portugal', label: 'Portugal' },
+      { value: 'france', label: 'France' },
+    ];
+
+    const optionsArea= [
+      { value: '1', label: 'Area 1' },
+      { value: '2', label: 'Area 2' },
+      { value: '3', label: 'Area 3' },
+    ];
+
     return (
       <div>
         <Header />
@@ -23,19 +57,30 @@ class GetInvolved extends Component {
               <form className="row">
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">name</label>
-                  <input className="c-input -text-field" placeholder="ex: John Doe" />
+                  <input className="c-input -text-field text -ff2-s" placeholder="ex: John Doe" />
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">email address</label>
-                  <input className="c-input -text-field" placeholder="ex: email@organization.com" />
+                  <input className="c-input -text-field text -ff2-s" placeholder="ex: email@organization.com" />
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">country</label>
-                  <input className="c-input -text-field" placeholder="Select a country" />
+                  <Select
+                    options={optionsCountry}
+                    value={this.state.country}
+                    onChange={this.onChangeCountry.bind(this)}
+                  />
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">area of interest</label>
-                  <input className="c-input -text-field" placeholder="Select a country" />
+                  <div className="contain-select">
+                    <Select
+                      options={optionsArea}
+                      value={this.state.area}
+                      onChange={this.onChangeArea.bind(this)}
+                    />
+                    <svg className="icon"><use xlinkHref="#icon-arrow-down"></use></svg>
+                  </div>
                 </div>
                 <div className="columns mall-12 contain-button">
                   <button className="text -ff2-xs -uppercase c-button -back-orange">notify me</button>
