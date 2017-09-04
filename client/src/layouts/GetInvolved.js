@@ -34,7 +34,7 @@ class GetInvolved extends Component {
       { value: 'france', label: 'France' },
     ];
 
-    const optionsArea= [
+    const optionsArea = [
       { value: '1', label: 'Area 1' },
       { value: '2', label: 'Area 2' },
       { value: '3', label: 'Area 3' },
@@ -65,11 +65,14 @@ class GetInvolved extends Component {
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">country</label>
-                  <Select
-                    options={optionsCountry}
-                    value={this.state.country}
-                    onChange={this.onChangeCountry.bind(this)}
-                  />
+                  <div className="contain-select">
+                    <Select
+                      options={optionsCountry}
+                      value={this.state.country}
+                      onChange={this.onChangeCountry.bind(this)}
+                    />
+                    <svg className="icon"><use xlinkHref="#icon-arrow-down"></use></svg>
+                  </div>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label className="text -ff2-xs -uppercase">area of interest</label>
