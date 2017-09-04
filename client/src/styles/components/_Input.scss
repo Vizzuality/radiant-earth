@@ -2,13 +2,15 @@
   &.-text-field {
     transition: border-bottom .1s linear;
     border: 0;
-    border-bottom: 1px solid rgba($color-4, .3);
+    border-bottom: 2px solid rgba($color-4, .5);
     outline: 0;
+    background-color: transparent;
     color: rgba($color-4, .3);
+
 
     &:hover,
     &:focus {
-      border-bottom: 1px solid $color-4;
+      border-bottom: 2px solid $color-4;
       color: $color-4;
     }
 

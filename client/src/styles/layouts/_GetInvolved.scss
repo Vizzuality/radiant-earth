@@ -1,0 +1,27 @@
+.l-get-involved {
+  padding: rem(110px) 0 rem(175px);
+  background-color: rgba($color-4, .05);
+
+  .l-get-involved__form {
+    margin: rem(15px) 0;
+
+    label {
+      display: block;
+      margin-bottom: rem(5px);
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: rem(30px);
+    }
+
+    .contain-button {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        max-width: rem(155px);
+      }
+    }
+  }
+}

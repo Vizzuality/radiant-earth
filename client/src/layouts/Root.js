@@ -7,6 +7,7 @@ import {
 import Home from './Home';
 import Explore from './Explore';
 import About from './About';
+import GetInvolved from './GetInvolved';
 
 // import Blog from './Blog';
 // import Login from './Login';
@@ -24,6 +25,7 @@ const Root = ({ store }) => (
       <Route exact path="/" component={Home} />
       <Route exact path="/explore" component={Explore} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/get-involved" component={GetInvolved} />
       {/*<Route exact path="/blog" component={Blog}/>
       <Route exact path="/admin/login" component={Login}/>
       <Route exact path="/admin/add-blog" component={AddBlog}/>
