@@ -102,6 +102,10 @@ a {
     color: $white;
   }
 
+  &.-gray {
+    color: rgba($color-4, .6);
+  }
+
   &.-error {
     color: $color-6;
   }

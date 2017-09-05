@@ -12,12 +12,12 @@ import twoSlider from '../images/explorePage/2_slider.png';
 import threeSlider from '../images/explorePage/3_slider.png';
 
 class Explore extends Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       slider: 0,
+      showModal: false,
     };
 
     this.sliderContent = [
@@ -48,75 +48,130 @@ class Explore extends Component {
     ];
   }
 
-  changeSlider(slide) {
+  changeSlider(slider) {
     this.setState({
-      slider: slide,
-    })
+      slider,
+    });
+  }
+
+  showModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   render() {
+    const { slider, showModal } = this.state;
     return (
       <div>
         <Header />
-
         <div className="l-explore">
           <div className="l-explore__slider-content">
             <div className="row align-middle">
               <div className="l-explore__image columns large-6 medium-6 small-6">
                 {this.sliderContent.map((item, i) =>
-                  <div
-                    key={i}
-                    className={`img ${i === this.state.slider ? '-show' : '-hidden'}`}
-                    style={{backgroundImage: 'url(' + item.img + ')'}}>
-                  </div>
+                  (<div
+                    key={i.toString()}
+                    className={`img ${i === slider ? '-show' : '-hidden'}`}
+                    style={{ backgroundImage: `url(${item.img})` }}
+                  >
+                    {}
+                  </div>)
                 )}
               </div>
               <div className="l-explore__content columns large-6 medium-6 small-6">
                 {this.sliderContent.map((item, i) =>
-                  <div key={i} className={`box-container ${i === this.state.slider ? '-show' : '-hidden'}`}>
+                  (<div key={i.toString()} className={`box-container ${i === slider ? '-show' : '-hidden'}`}>
                     <BoxTitleContent
                       subTitle={item.subTitle}
                       title={item.title}
                       text={item.text}
-                      buttonText={item.buttonText}
-                      buttonUrl={item.buttonUrl}
                     />
-                  </div>
+                    <div className="container-buttons">
+                      <button
+                        onClick={() => this.showModal()}
+                        className="c-button -back-gray text -ff2-m -uppercase -gray"
+                      >REQUEST ACCESS</button>
+                      <div className="c-button -back-orange">
+                        <a className="text -ff2-m -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
+                      </div>
+                    </div>
+                  </div>)
                 )}
               </div>
               <ul className="l-explore__circle-container columns large-12 medium-12 small-12 ">
                 {this.sliderContent.map((item, i) =>
-                  <li key={i} className={`circle ${i === this.state.slider ? '-active' : ''}`} onClick={() => this.changeSlider(i)}></li>
+                  (<button key={i.toString()} onClick={() => this.changeSlider(i)}>
+                    <li className={`circle ${i === slider ? '-active' : ''}`}>{}</li>
+                  </button>)
                 )}
               </ul>
             </div>
           </div>
           <div className="-back-white l-explore__api-content">
             <div className="row">
-              <h3 className="text -ff2-xs -color-2 -uppercase columns large-12 medium-12 small-12">RADIANT.EARTH API</h3>
+              <h3
+                className="text -ff2-xs -color-2 -uppercase columns large-12 medium-12 small-12"
+              >RADIANT.EARTH API
+              </h3>
               <BoxCard
                 img={oneExplore}
                 title="Integrate geospatial data with your applications "
-                text="Providing the global community with the greatest collection of satellite data can help create powerful insights and evidence-based support for change."
+                text="Providing the global community with the greatest collection of satellite
+                data can help create powerful insights and evidence-based support for change."
                 buttonText="LEARN MORE"
                 buttonUrl="#"
               />
               <BoxCard
                 img={twoExplore}
                 title="Search accross global archives to find imagery that fits your needs"
-                text="Radiant.Earth aims to simplify the overall process of using satellite imagery."
+                text="Radiant.Earth aims to simplify the overall
+                process of using satellite imagery."
                 buttonText="LEARN MORE"
                 buttonUrl="#"
               />
               <BoxCard
                 img={threeExplore}
                 title="Active monitoring"
-                text="Set areas of interest to actively monitor areas around the world as new imagery becomes available, or trigger automatic analyses."
+                text="Set areas of interest to actively monitor areas around the world
+                as new imagery becomes available, or trigger automatic analyses."
                 buttonText="LEARN MORE"
                 buttonUrl="#"
               />
             </div>
           </div>
+          { showModal &&
+            <div
+              className="l-explore__modal-back"
+              onClick={() => this.showModal()}
+              role="button"
+              tabIndex={0}
+            >{}</div>
+          }
+          { showModal && <div className="l-explore__modal-resquest">
+            <form>
+              <svg className="icon" onClick={() => this.showModal()}>
+                <use xlinkHref="#icon-close">{}</use>
+              </svg>
+              <div className="contain-input">
+                <label htmlFor="email" className="text -ff2-xs -uppercase">Name</label>
+                <input
+                  name="email"
+                  className="c-input -text-field text -ff2-s"
+                  placeholder="ex: email@organization.com"
+                />
+              </div>
+              <div className="contain-input">
+                <label htmlFor="text" className="text -ff2-xs -uppercase">Text</label>
+                <textarea className="text -ff2-s" name="text" />
+              </div>
+              <div className="contain-button">
+                <button
+                  className="c-button text -ff2-m -color-2 -uppercase -back-orange"
+                >Submit request</button>
+              </div>
+            </form>
+          </div> }
 
         </div>
         <Footer />

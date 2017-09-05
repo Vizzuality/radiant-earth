@@ -13,6 +13,15 @@
     background-color: $white;
   }
 
+  &.-back-gray {
+    background-color: rgba($color-4, .05);
+    color: rgba($color-4, .4);
+
+    &:hover {
+      background-color: rgba($color-4, .1);
+    }
+  }
+
   a {
     display: flex;
     align-items: center;
