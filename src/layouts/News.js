@@ -84,13 +84,14 @@ class News extends Component {
           <div className="l-news__gallery">
             <div className="row">
               {gridNewsContent.map((item, i) =>
-                <BoxCard
+                (<BoxCard
                   key={i}
                   img={item.img}
                   subTitle={item.subTitle}
                   title={item.title}
                   text={item.text}
                 />
+                )
               )}
             </div>
           </div>
