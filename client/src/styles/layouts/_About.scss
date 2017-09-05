@@ -1,78 +1,216 @@
 .l-about {
-  .l-about__header {
-    flex: 0 0 100%;
-    max-width: 100%;
-    margin-top: rem(200px);
-    z-index: 4;
+  .l-about__cover {
+    position: relative;
+    background-color: rgba($color-4, .05);
 
-    @media screen and (min-width: $screen-m) {
-      flex: 0 0 75%;
-      max-width: 75%;
-    }
+    .l-about__circle-image {
+      position: absolute;
+      z-index: 4;
 
-    @media screen and (min-width: $screen-l) {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-  }
-
-  .l-about__types-container {
-    margin-top: rem(50px);
-
-    @media screen and (min-width: $screen-m) {
-      margin-top: rem(230px);
-    }
-
-    .l-about__types-item {
-      margin-top: rem(50px);
-
-      @media screen and (min-width: $screen-m) {
-        margin: 0;
-      }
-    }
-  }
-
-  .l-about__team-container {
-    margin-top: rem(130px);
-
-    .l-about__team-item {
-      margin-top: rem(50px);
-
-      @media screen and (min-width: $screen-m) {
-        &:nth-last-of-type(2) {
-          margin-top: rem(50px);
-        }
-
-        &:last-of-type {
-          margin-top: rem(50px);
-        }
+      &.-image-1 {
+        right: -260px;
+        bottom: -140px;
+        width: rem(572px);
+        height: rem(572px);
+        border-radius: rem(572px);
       }
 
-      @media screen and (min-width: $screen-xl) {
-        margin-top: 0;
-
-        &:nth-last-of-type(2) {
-          margin-top: 0;
-        }
-
-        &:last-of-type {
-          margin-top: 0;
-        }
-      }
-
-      .l-about__person-position {
-        display: block;
-        margin-top: rem(15px);
-      }
-
-      .l-about__person-picture {
+      &.-image-2 {
+        top: 200px;
+        right: 270px;
         width: rem(150px);
         height: rem(150px);
+        border-radius: rem(150px);
       }
 
-      .l-about__description {
+      &.-image-3 {
+        top: 305px;
+        right: 312px;
+        width: rem(360px);
+        height: rem(360px);
+        border-radius: rem(360px);
+      }
+
+      &.-image-4 {
+        right: 178px;
+        bottom: -310px;
+        width: rem(284px);
+        height: rem(284px);
+        border-radius: rem(284px);
+      }
+
+      &.-image-5 {
+        right: -195px;
+        bottom: -565px;
+        width: rem(422px);
+        height: rem(422px);
+        border-radius: rem(422px);
+      }
+    }
+
+    .title {
+      max-width: rem(528px);
+      margin-top: rem(150px);
+      margin-bottom: rem(285px);
+    }
+  }
+
+  .l-about__information {
+    .l-about__information-text {
+      max-width: rem(510px);
+      margin-top: rem(60px);
+
+      p {
         margin-top: rem(5px);
-        opacity: .8;
+        color: rgba($color-4, .8);
+      }
+    }
+  }
+
+  .l-about__staff {
+    margin-top: rem(100px);
+
+    .row {
+      position: relative;
+    }
+
+    .l-about__staff-slider {
+      display: flex;
+      position: relative;
+      margin-top: rem(10px);
+      transition: .3s linear;
+
+      .l-about__staff-item {
+        min-width: calc(100vw / 2.7);
+        margin-right: rem(30px);
+        padding: rem(20px);
+        transition: opacity .3s linear;
+        background-color: rgba($color-4, .05);
+        opacity: .5;
+
+        &.-show {
+          opacity: 1;
+        }
+
+        &.-not-back {
+          opacity: .5;
+        }
+
+        .contain-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .info {
+            span {
+              font-weight: $font-weight-semibold;
+              opacity: .5;
+            }
+          }
+
+          .img {
+            width: rem(130px);
+            height: rem(130px);
+            margin-right: rem(30px);
+            border-radius: rem(130px);
+            background-repeat: no-repeat;
+            background-size: cover;
+          }
+        }
+
+        .contain-text {
+          margin-top: rem(10px);
+
+          p {
+            opacity: .6;
+          }
+        }
+      }
+    }
+
+    .c-button-circle {
+      display: none;
+      position: absolute;
+      top: calc(50% - 20px);
+      z-index: 3;
+
+      &.-next {
+        left: calc((100vw / 2.7) * 2);
+        margin-left: 60px;
+      }
+
+      &.-back {
+        left: 0;
+      }
+
+      &.-show {
+        display: flex;
+      }
+    }
+  }
+
+  .l-about__board {
+    margin-top: rem(100px);
+    padding: rem(80px) 0;
+    background-color: rgba($color-4, .05);
+
+    .row {
+      position: relative;
+    }
+
+    .l-about__board-slider {
+      display: flex;
+      position: relative;
+      margin-top: rem(10px);
+      transition: .3s linear;
+
+      .l-about__board-item {
+        min-width: calc(100vw / 5.4);
+        margin-right: rem(30px);
+        transition: opacity .3s linear;
+        opacity: .5;
+
+        &.-show {
+          opacity: 1;
+        }
+
+        &.-not-back {
+          opacity: .5;
+        }
+
+        span {
+          display: block;
+          margin: rem(20px) 0;
+          opacity: .5;
+        }
+
+        .img {
+          width: rem(130px);
+          height: rem(130px);
+          border-radius: rem(130px);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+    }
+
+    .c-button-circle {
+      display: none;
+      position: absolute;
+      top: calc(50% - 70px);
+      z-index: 3;
+
+      &.-next {
+        left: calc((100vw / 5.4) * 4);
+        margin-left: 120px;
+      }
+
+      &.-back {
+        left: 0;
+      }
+
+      &.-show {
+        display: flex;
       }
     }
   }

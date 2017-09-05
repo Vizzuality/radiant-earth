@@ -1,108 +1,210 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import CircleImages from '../components/CircleImages';
-import annePic from '../images/team/bios_anne.jpg';
-import danPic from '../images/team/bios_dan.jpg';
-import anthonyPic from '../images/team/bios_anthony.jpg';
-import louisaPic from '../images/team/bios_louisa.jpg';
+
+import image1 from '../images/home/cover/1.jpg';
+import image2 from '../images/home/cover/2.jpg';
+import image3 from '../images/home/cover/3.jpg';
+import image4 from '../images/home/cover/4.jpg';
+import image5 from '../images/home/cover/5.jpg';
+
+import anne from '../images/team/bios_anne.jpg';
+import dan from '../images/team/bios_dan.jpg';
+import anthony from '../images/team/bios_anthony.jpg';
+
+import peter from '../images/team/bios_peter.png';
+import sanjay from '../images/team/bios_sanjay.png';
+import margie from '../images/team/bios_margie.png';
 
 class About extends Component {
+
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      slideStaffNumber: 1,
+      slideStaffNext: true,
+      slideStaffBack: false,
+      positionSlideStaff: '',
+      slideBoardNumber: 1,
+      slideBoardNext: true,
+      slideBoardBack: false,
+      positionSlideBoard: '',
+    };
+
+    this.staffContent = [
+      {
+        img: anne,
+        position: 'CEO, Radiant.Earth',
+        name: 'Anne Hale Miglarese',
+        text: 'Anne Hale Miglarese, founding CEO of Radiant, is committed to providing geospatial analytics using imagery and mapping data to empower informed decision-making to help solve the developing world’s greatest social, economic and environmental challenges. Read more',
+      },
+      {
+        img: dan,
+        position: 'Chief Technology Officer',
+        name: 'Dan Lopez',
+        text: 'Dan Lopez is an innovative entrepreneur and architect who has advised a wide variety of web-centric businesses and brands by lending his creative, strategic and technological vision. Read more',
+      },
+      {
+        img: anthony,
+        position: '...',
+        name: 'Anthony Burn',
+        text: 'Anthony Burn is passionate about harnessing the full power of GIS enabled data across multiple platforms, to transform individual lives and whole societies for the better. Read more',
+      },
+    ];
+
+    this.boardContent = [
+      {
+        img: anne,
+        position: 'CEO, Radiant.Earth',
+        name: 'Anne Hale Miglarese',
+      },
+      {
+        img: peter,
+        position: 'Venture Partner, Omidyar Network',
+        name: 'Peter Rabley',
+      },
+      {
+        img: sanjay,
+        position: 'CEO, Geospatial Media & Communications',
+        name: 'Sanjay Kumar',
+      },
+      {
+        img: margie,
+        position: 'CEO, Sullivan Strategy',
+        name: 'Margie Sullivan',
+      },
+      {
+        img: anne,
+        position: 'CEO, Radiant.Earth',
+        name: 'Anne Hale Miglarese',
+      },
+      {
+        img: peter,
+        position: 'Venture Partner, Omidyar Network',
+        name: 'Peter Rabley',
+      },
+      {
+        img: sanjay,
+        position: 'CEO, Geospatial Media & Communications',
+        name: 'Sanjay Kumar',
+      },
+      {
+        img: margie,
+        position: 'CEO, Sullivan Strategy',
+        name: 'Margie Sullivan',
+      },
+    ];
+  }
+
+  slideStaff(d) {
+    const windowWidth = window.innerWidth;
+    const vwSlidePx = 30 / (windowWidth * 0.01);
+    let currentSlider;
+    currentSlider = d === 'next' ? currentSlider = this.state.slideStaffNumber + 1 : currentSlider = this.state.slideStaffNumber - 1;
+    this.setState({
+      slideStaffNumber: currentSlider,
+      slideStaffBack: currentSlider > 1,
+      slideStaffNext: currentSlider !== (document.getElementsByClassName('l-about__staff-item').length - 1),
+      positionSlideStaff: `translate3d(calc((((100vw / 2.7) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+    });
+  }
+
+  slideBoard(d) {
+    const windowWidth = window.innerWidth;
+    const vwSlidePx = 30 / (windowWidth * 0.01);
+    let currentSlider;
+    currentSlider = d === 'next' ? currentSlider = this.state.slideBoardNumber + 1 : currentSlider = this.state.slideBoardNumber - 1;
+    this.setState({
+      slideBoardNumber: currentSlider,
+      slideBoardBack: currentSlider > 1,
+      slideBoardNext: currentSlider !== (document.getElementsByClassName('l-about__board-item').length - 3),
+      positionSlideBoard: `translate3d(calc((((100vw / 5.4) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+    });
+  }
+
   render() {
     return (
-      <div>
+      <div className="l-about">
         <Header />
-        <CircleImages />
-          <div className="row l-about">
-            <div className="small-6 columns l-about__header">
-              <h1 className="text -ff2-xl -white">
-                <span className="-underline">About</span>
-              </h1>
-              <p className="text -ff1-m -white">
-                Radiant launched operations in August 2016 to answer the call for open access to geospatial data,
-                with analytical tools for global development practitioners designed to
-                improve decision-making, and to foster entrepreneurship worldwide.
-              </p>
-            </div>
-            <div className="small-12 columns l-about__types-container">
-              <div className="row align-justify small-up-1 medium-up-3 large-up-3">
-                <div className="small-4 columns l-about__types-item">
-                  <h2 className="text -ff2-l -white">Enterprise</h2>
-                  <p className="text -ff1-m -white">
-                    Radiant Earth is the organization of choice for governments, NGOs, companies, developers,
-                    and entrepreneurs to build open source ecosystems that accelerate
-                    the use of earth imagery technology, and commercial adoption.
-                  </p>
-                </div>
-                <div className="small-4 columns l-about__types-item">
-                  <h2 className="text -ff2-l -white">Developers</h2>
-                  <p className="text -ff1-m -white">
-                    Petabytes of Earth imagery all in one place which is comprised of the world’s open satellite,
-                    aerial, and drone imagery archives. Access it all easily with open web standards,
-                    and find, combine and analyze earth imagery at any scale, and share it on the web.
-                  </p>
-                </div>
-                <div className="small-4 columns l-about__types-item">
-                  <h2 className="text -ff2-l -white">Technical Working Groups</h2>
-                  <p className="text -ff1-m -white">
-                    Working to solve some of the world’s toughest social, humanitarian and environmental challenges
-                    using earth observation data? Are you working on your own open source geospatial or imagery
-                    project? If so, please get in touch at code@radiant.earth.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="small-12 columns l-about__team-container">
-              <div className="row align-justify small-up-1 medium-up-2 large-up-4">
-                <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={annePic} alt="Anne Hale Miglarese"></img>
-                  <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Executive Officer</span>
-                  <h2 className="text -ff2-l -white">Anne Hale Miglarese</h2>
-                  <p className="text -ff1-m -white l-about__description">
-                    Anne Hale Miglarese, founding CEO of Radiant, is committed to providing geospatial analytics using
-                    imagery and mapping data to empower informed decision-making to help solve the developing
-                    world’s greatest social, economic and environmental challenges.
-                  </p>
-                </div>
-
-                <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={danPic} alt="Dan Lopez"></img>
-                  <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Chief Technology Officer</span>
-                  <h2 className="text -ff2-l -white">Dan Lopez</h2>
-                  <p className="text -ff1-m -white l-about__description">
-                    Dan Lopez is an innovative entrepreneur and architect who
-                    has advised a wide variety of web-centric businesses and
-                    brands by lending his creative, strategic and technological vision.
-                  </p>
-                </div>
-
-                <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={anthonyPic} alt="Anthony Burn"></img>
-                  <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Director - Community Engagement</span>
-                  <h2 className="text -ff2-l -white">Anthony Burn</h2>
-                  <p className="text -ff1-m -white l-about__description">
-                    Anthony Burn is passionate about harnessing the full power of GIS
-                    enabled data across multiple platforms, to transform individual
-                    lives and whole societies for the better.
-                  </p>
-                </div>
-
-                <div className="small-3 columns l-about__team-item ">
-                  <img className="l-about__person-picture" src={louisaPic} alt="Louisa Nakanuku-Diggs"></img>
-                  <span className="l-about__person-position text -ff2-xs -color-2 -uppercase">Marketing and Communications Associate</span>
-                  <h2 className="text -ff2-l -white">Louisa Nakanuku-Diggs</h2>
-                  <p className="text -ff1-m -white l-about__description">
-                    Louisa Nakanuku-Diggs is passionate about storytelling and visualization and their
-                    possibilities to transform complex topics into simple, yet engaging and effective narratives.
-                  </p>
-                </div>
-              </div>
+        <div className="l-about__cover">
+          <div className="l-about__circle-image -image-1" style={{ backgroundImage: 'url(' + image1 + ')' }}>{}</div>
+          <div className="l-about__circle-image -image-2" style={{ backgroundImage: 'url(' + image2 + ')' }}>{}</div>
+          <div className="l-about__circle-image -image-3" style={{ backgroundImage: 'url(' + image3 + ')' }}>{}</div>
+          <div className="l-about__circle-image -image-4" style={{ backgroundImage: 'url(' + image4 + ')' }}>{}</div>
+          <div className="l-about__circle-image -image-5" style={{ backgroundImage: 'url(' + image5 + ')' }}>{}</div>
+          <div className="row">
+            <div className="columns large-12 medium-12 small-12 title">
+              <h1 className="text -ff2-xl -color-1">Open geospatial data for positive impact</h1>
+              <p className="text -ff1-m">Connecting people globally to Earth imagery, geospatial data, tools and knowledge to meet the world’s most critical challenges.</p>
             </div>
           </div>
+        </div>
+        <div className="l-about__information row">
+          <div className="columns l-about__information-text">
+            <h2 className="text -ff1-l -color-1">Our Purpose</h2>
+            <p className="text -ff1-m">We like to think of Radiant.Earth as a launch pad. But instead of a rocket lifting into space, we propel people in the global development community into an illuminated world of Earth imagery, data, visualizations, and analytical tools, all fueling new discoveries, solutions, and innovation.</p>
+            <p className="text -ff1-m">Just as rockets enable the unique perspective of looking at the Earth from space, Radiant.Earth enables users to explore an unlimited number of Earth imagery-related resources via an open and neutral pathway, meaning that these resources may be publicly or commercially available.</p>
+            <p className="text -ff1-m">How we plan to propel the global development community Radiant.Earth is aggregating the world’s open Earth imagery and providing access and education on its use to the global development community.</p>
+            <p className="text -ff1-m">At the center of Radiant.Earth is an open technology platform that will help people discover and analyze the vast resources of Earth imagery, accelerating improved decision-making and fueling new solutions, discoveries and innovations. </p>
+            <p className="text -ff1-m">In support of this user-driven platform, Radiant.Earth offers an integrated and robust community development program to guide people in the use of imagery, geospatial data sets and tools. This includes insights into the commercial marketplace and related policies. </p>
+          </div>
+        </div>
+        <div className="l-about__staff">
+          <div className="row">
+            <span className={`c-button-circle -next -right ${this.state.slideStaffNext ? '-show' : ''}`} onClick={() => this.slideStaff('next')}>
+              <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+            </span>
+
+            <span className={`c-button-circle -back -left ${this.state.slideStaffBack ? '-show' : ''}`} onClick={() => this.slideStaff('back')}>
+              <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+            </span>
+
+            <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">STAFF</h2>
+            <div className="l-about__staff-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideStaff}}>
+              {this.staffContent.map((item, i) =>
+                <div key={i} className={`l-about__staff-item ${(i + 1) > (this.state.slideStaffNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideStaffNumber ? '-not-back' : ''}`}>
+                  <div className="contain-info">
+                    <div className="img" style={{ backgroundImage: 'url(' + item.img + ')' }}>{}</div>
+                    <div className="info">
+                      <span className="text -ff2-xs -uppercase">{item.position}</span>
+                      <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                    </div>
+                  </div>
+                  <div className="contain-text">
+                    <p className="text -ff1-m">{item.text}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="l-about__board">
+          <div className="row">
+            <span className={`c-button-circle -next -right ${this.state.slideBoardNext ? '-show' : ''}`} onClick={() => this.slideBoard('next')}>
+              <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+            </span>
+
+            <span className={`c-button-circle -back -left ${this.state.slideBoardBack ? '-show' : ''}`} onClick={() => this.slideBoard('back')}>
+              <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
+            </span>
+
+            <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">BOARD</h2>
+            <div className="l-about__board-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideBoard}}>
+              {this.boardContent.map((item, i) =>
+                <div key={i} className={`l-about__board-item ${(i) > (this.state.slideBoardNumber + 2) ? '' : '-show'} ${(i + 1) < (this.state.slideBoardNumber) ? '-not-back' : ''}`}>
+                  <div className="img" style={{ backgroundImage: 'url(' + item.img + ')' }}>{}</div>
+                  <span className="text -ff2-xs -uppercase">{item.position}</span>
+                  <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
         <Footer />
       </div>
-    )
-  };
+    );
+  }
 }
 
 export default About;

@@ -3,7 +3,6 @@ import Button from './Button';
 
 class BoxTitleContent extends Component {
   render() {
-
     return (
       <div className="c-box-title-content">
         <div>
@@ -17,9 +16,9 @@ class BoxTitleContent extends Component {
             {this.props.text}
           </p>
         </div>
-        <div>
+        {this.props.buttonText &&<div>
           <Button text={this.props.buttonText} url={this.props.buttonUrl} back="orange"/>
-        </div>
+        </div> }
       </div>
     )
   };

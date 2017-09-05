@@ -14,7 +14,7 @@ rules:
     -
       allow-leading-underscore: false
   nesting-depth:
-    - 2
+    - 8
     -
       max-depth: 3
   no-vendor-prefixes: 0

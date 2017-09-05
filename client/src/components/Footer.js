@@ -28,10 +28,10 @@ class Footer extends Component {
             <div className="c-footer__logos-container">
               <h4 className="text -ff2-xs -uppercase -white">data providers</h4>
               <div className="row align-middle">
-                <a className="columns small-4 link-logo" href={'#'} target="_blank" rel="noopener noreferrer">
+                <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
                   <img alt="ESA" className="c-footer__logos-item -esa" src={esa} />
                 </a>
-                <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
+                <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
                   <img alt="NASA" className="c-footer__logos-item -nasa" src={nasa} />
                 </a>
               </div>
@@ -39,13 +39,13 @@ class Footer extends Component {
             <div className="c-footer__logos-container">
               <h4 className="text -ff2-xs -uppercase -white">Partners</h4>
                 <div className="row align-middle">
-                  <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
+                  <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
                     <img alt="Unitar" className="c-footer__logos-item" src={unitar} />
                   </a>
-                  <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
+                  <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
                     <img  alt="ESA"className="c-footer__logos-item -esa" src={esa} />
                   </a>
-                  <a className="columns small-4 link-logo" href="#" target="_blank" rel="noopener noreferrer">
+                  <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
                     <img alt="New America" className="c-footer__logos-item" src={newAmerica} />
                   </a>
                 </div>

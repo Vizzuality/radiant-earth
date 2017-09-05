@@ -1,0 +1,58 @@
+.dd__wrapper {
+  .dd__selectControl {
+    padding: 0 0 rem(8px);
+    border: 0;
+    border-bottom: 2px solid rgba($color-4, .5);
+    border-radius: 0;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      border-bottom: 2px solid $color-4;
+    }
+
+    .dd__selected {
+      .dd__selectedItem {
+        div {
+          color: $color-4;
+          font-family: $font-family-2;
+          font-size: $ff2-size-s;
+          font-weight: $font-weight-semibold;
+          letter-spacing: 1px;
+
+          &:hover {
+            color: $color-4;
+          }
+        }
+      }
+    }
+  }
+}
+
+.dd__placeholder {
+  color: rgba($color-4, .5);
+  font-family: $font-family-2;
+  font-size: $ff2-size-s;
+  font-weight: $font-weight-semibold;
+  letter-spacing: 1px;
+}
+
+.dd__list{
+  &.dd__openTobottom {
+    margin-top: 0;
+    border-radius: 0;
+    border: 2px solid rgba($color-4, .5);
+    border-top: 0;
+
+    div {
+      color: $color-4;
+      font-family: $font-family-2;
+      font-size: $ff2-size-s;
+      line-height: 1.45;
+    }
+  }
+}
+
+.dd__expandIcon {
+  display: none;
+}
