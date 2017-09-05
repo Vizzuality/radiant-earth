@@ -11,6 +11,7 @@ class GetInvolved extends Component {
     this.state = {
       country: null,
       area: null,
+      caseSlider: 0,
     };
   }
 
@@ -23,6 +24,12 @@ class GetInvolved extends Component {
   onChangeArea(area) {
     this.setState({
       area
+    });
+  }
+
+  changeSlider(caseSlider) {
+    this.setState({
+      caseSlider
     });
   }
 
@@ -39,6 +46,26 @@ class GetInvolved extends Component {
       { value: '3', label: 'Area 3' },
     ];
 
+    const casesInformation = [
+      {
+        title: '#case1',
+        titleText: '#case1 | Join our community in the creation of powerful insights and evidence-based support for change',
+        text: 'If you are interested in participating, please fill out this form. We will notify you when new learning educational materials become available.'
+      },
+      {
+        title: '#case2',
+        titleText: '#case2 | Join our community in the creation of powerful insights and evidence-based support for change',
+        text: 'If you are interested in participating, please fill out this form. We will notify you when new learning educational materials become available.'
+      },
+      {
+        title: '#case3',
+        titleText: '#case3 | Join our community in the creation of powerful insights and evidence-based support for change',
+        text: 'If you are interested in participating, please fill out this form. We will notify you when new learning educational materials become available.'
+      },
+    ];
+
+    const { caseSlider } = this.state;
+
     return (
       <div>
         <Header />
@@ -46,12 +73,30 @@ class GetInvolved extends Component {
           <div className="row ">
 
             <div className="columns large-6 medium-12 small-12">
-              <BoxTitleContent
-                title="Join our community in the creation of powerful
-                insights and evidence-based support for change"
-                text="If you are interested in participating, please fill out this
-                form. We will notify you when new learning educational materials become available."
-              />
+              <div>
+                {casesInformation.map((item, i) =>
+                  (<div
+                    className={`${i === caseSlider ? 'show-box' : 'hidden-box'}`}
+                    key={i.toString()}
+                  >
+                    <BoxTitleContent
+                      title={item.titleText}
+                      text={item.text}
+                    />
+                  </div>)
+                )}
+              </div>
+              <div className="l-get-involved__tab-case">
+                <ul>
+                  {casesInformation.map((item, i) =>
+                    (<li
+                      onClick={() => this.changeSlider(i)}
+                      key={i.toString()}
+                      className={`text -ff2-s -uppercase ${i === caseSlider ? '-selected' : ''}`}
+                    >{item.title}</li>)
+                  )}
+                </ul>
+              </div>
             </div>
             <div className="columns large-6 medium-12 small-12 l-get-involved__form">
               <form className="row">
@@ -69,6 +114,25 @@ class GetInvolved extends Component {
                     name="email"
                     className="c-input -text-field text -ff2-s"
                     placeholder="ex: email@organization.com"
+                  />
+                </div>
+                <div className="columns large-6 medium-6 small-6">
+                  <label
+                    htmlFor="organization"
+                    className="text -ff2-xs -uppercase"
+                  >organization</label>
+                  <input
+                    name="organization"
+                    className="c-input -text-field text -ff2-s"
+                    placeholder="ex: Organization"
+                  />
+                </div>
+                <div className="columns large-6 medium-6 small-6">
+                  <label htmlFor="website" className="text -ff2-xs -uppercase">website</label>
+                  <input
+                    name="website"
+                    className="c-input -text-field text -ff2-s"
+                    placeholder="ex: website.com"
                   />
                 </div>
                 <div className="columns large-6 medium-6 small-6">
@@ -99,6 +163,13 @@ class GetInvolved extends Component {
                     <svg className="icon"><use xlinkHref="#icon-arrow-down">{}</use></svg>
                   </div>
                 </div>
+                <div className="columns small-12 contain-textarea">
+                  <label
+                    htmlFor="description"
+                    className="text -ff2-xs -uppercase"
+                  >Description</label>
+                  <textarea name="description" />
+                </div>
                 <div className="columns mall-12 contain-button">
                   <button
                     className="text -ff2-xs -uppercase c-button -back-orange"
@@ -110,7 +181,7 @@ class GetInvolved extends Component {
         </div>
         <Footer />
       </div>
-    )
+    );
   }
 }
 
