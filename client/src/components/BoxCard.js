@@ -10,6 +10,7 @@ class BoxCard extends Component {
         ></div>
         <BoxTitleContent
           title={this.props.title}
+          subTitle={this.props.subTitle}
           text={this.props.text}
           buttonText={this.props.buttonText}
           buttonUrl={this.props.buttonUrl}
