@@ -1,24 +1,41 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import YouTube from 'react-youtube';
+import Player from '@vimeo/player';
 
 class ModalVideo extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      player: null,
+      playerYoutube: null,
+      playerVimeo: null
     };
+  }
+
+  componentWillReceiveProps() {
+    const player = new Player('vimeo-contain', {
+      id: 19231868,
+      width: 640
+    });
+
+    this.setState({
+      playerVimeo: player,
+    });
   }
 
   onReady(event) {
     this.setState({
-      player: event.target,
+      playerYoutube: event.target,
     });
   }
 
   onPauseVideo() {
-    this.state.player.pauseVideo();
+    if (this.state.playerYoutube) {
+      this.state.playerYoutube.pauseVideo();
+    } else {
+      this.state.playerVimeo.pause();
+    }
   }
 
   closeModal() {
@@ -33,12 +50,13 @@ class ModalVideo extends Component {
         autoplay: 0
       }
     };
+
     return (
       <div
         role="button"
         tabIndex={0}
         className={`c-modal-video ${isOpen ? '-show' : ''}`}
-        onClick={() => this.closeModal()}
+        onClick={() => this.closeModal(channel)}
       >
         {channel === 'youtube' &&
         <div className={`video-contain -youtube ${isOpen ? '-show' : ''}`}>
@@ -51,7 +69,7 @@ class ModalVideo extends Component {
         }
 
         {channel === 'vimeo' &&
-        <div className={`video-contain -vimeo ${isOpen ? '-show' : ''}`}>
+        <div id="vimeo-contain" className={`video-contain -vimeo ${isOpen ? '-show' : ''}`}>
           {}
         </div>
         }
