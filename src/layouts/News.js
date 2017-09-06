@@ -83,6 +83,20 @@ class News extends Component {
       },
       {
         img: image1,
+        video: '113009024',
+        channel: 'vimeo',
+        subTitle: 'NEW FEATURES',
+        title: 'Laying Tiles Without Grout and Mortar',
+        text: 'On minimizing the latency of serving painted raster tiles.',
+      },
+      {
+        img: image2,
+        subTitle: 'NEWS',
+        title: 'Expanding Access to Earth Observation Data',
+        text: 'Reflections on a SatSummit panel focused on how to expand access and distribution to earth imagery.',
+      },
+      {
+        img: image1,
         video: '82557065',
         channel: 'vimeo',
         subTitle: 'NEW FEATURES',

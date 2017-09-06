@@ -34,8 +34,8 @@ class ModalVideo extends Component {
   }
 
   vimeoVideo() {
-    const player = new Player('vimeo-contain', {
-      id: 19231868,
+    const player = new Player(`vimeo-video-${this.props.videoId}`, {
+      id: this.props.videoId,
       width: 640
     });
 
@@ -50,7 +50,7 @@ class ModalVideo extends Component {
   }
 
   render() {
-    const { channel, videoId, isOpen } = this.props;
+    const { channel, videoId, isOpen, id } = this.props;
     const optsYoutube = {
       playerVars: {
         autoplay: 0
@@ -75,7 +75,7 @@ class ModalVideo extends Component {
         }
 
         {channel === 'vimeo' &&
-        <div id="vimeo-contain" className={`video-contain -vimeo ${isOpen ? '-show' : ''}`}>
+        <div id={`vimeo-video-${videoId}`} className={`video-contain -vimeo ${isOpen ? '-show' : ''}`}>
           {}
         </div>
         }
