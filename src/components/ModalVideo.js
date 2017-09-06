@@ -50,7 +50,7 @@ class ModalVideo extends Component {
   }
 
   render() {
-    const { channel, videoId, isOpen, id } = this.props;
+    const { channel, videoId, isOpen } = this.props;
     const optsYoutube = {
       playerVars: {
         autoplay: 0

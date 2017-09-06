@@ -8,7 +8,9 @@
   "globals": {
     "Stats": true
   },
+  "parser": "babel-eslint",
   "parserOptions": {
+    "allowImportExportEverywhere": false,
     "ecmaVersion": 7,
     "ecmaFeatures": {
       "jsx": true
@@ -17,7 +19,20 @@
   },
   "extends": "airbnb",
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/href-no-hash": [0, { components: ['a'] }],
+    "react/jsx-no-bind": [1, {
+      "ignoreRefs": true,
+      "allowArrowFunctions": true,
+      "allowBind": true
+    }],
+    "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
+    "jsx-a11y/label-has-for": [ 2, {
+      "components": [ "Label" ],
+      "required": {
+          "every": [ "nesting", "id" ]
+      },
+      "allowChildren": false,
+    }],
     "no-console": ["error", {
       "allow": ["warn", "error", "info"]
     }],

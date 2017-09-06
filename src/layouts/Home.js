@@ -9,7 +9,6 @@ import image4 from '../images/home/cover/4.jpg';
 import image5 from '../images/home/cover/5.jpg';
 
 class Home extends Component {
-
   constructor(props) {
     super(props);
 
@@ -131,11 +130,11 @@ class Home extends Component {
                 <use xlinkHref="#icon-arrow-down">{}</use>
               </svg>
             </span>
-            <div className={`l-home__circle-image -image-1 ${this.state.classCircleSelect}`} style={{ backgroundImage: 'url(' + image1 + ')' }}>{}</div>
-            <div className={`l-home__circle-image -image-2 ${this.state.classCircleSelect}`} style={{ backgroundImage: 'url(' + image2 + ')' }}>{}</div>
-            <div className={`l-home__circle-image -image-3 ${this.state.classCircleSelect}`} style={{ backgroundImage: 'url(' + image3 + ')' }}>{}</div>
-            <div className={`l-home__circle-image -image-4 ${this.state.classCircleSelect}`} style={{ backgroundImage: 'url(' + image4 + ')' }}>{}</div>
-            <div className={`l-home__circle-image -image-5 ${this.state.classCircleSelect}`} style={{ backgroundImage: 'url(' + image5 + ')' }}>{}</div>
+            <div className={`l-home__circle-image -image-1 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image1})` }}>{}</div>
+            <div className={`l-home__circle-image -image-2 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image2})` }}>{}</div>
+            <div className={`l-home__circle-image -image-3 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image3})` }}>{}</div>
+            <div className={`l-home__circle-image -image-4 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image4})` }}>{}</div>
+            <div className={`l-home__circle-image -image-5 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image5})` }}>{}</div>
           </div>
           <div className="l-home__intro">
             <div className="row">
@@ -143,8 +142,12 @@ class Home extends Component {
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""
-                  title="Open geospatial data for positive global impact, and improved decision-making"
-                  text="Radiant offers solutions to fully realizing the potential of earth observation for positive, even life-changing global impact: It simplifies the overall process across the value chain of using geospatial data."
+                  title="Open geospatial data for positive global
+                  impact, and improved decision-making"
+                  text="Radiant offers solutions to fully realizing
+                  the potential of earth observation for positive, even l
+                  ife-changing global impact: It simplifies the overall process
+                  across the value chain of using geospatial data."
                   buttonText="find out more"
                   buttonUrl="#"
                 />
@@ -153,17 +156,23 @@ class Home extends Component {
           </div>
           <div className="l-home__testimonial">
             <div className="row">
-              <span className={`c-button-circle -next -right ${this.state.slideTestimonialNext ? '-show' : ''}`} onClick={()=>this.slideTestimonial('next')}>
-                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
-              </span>
-
-              <span className={`c-button-circle -back -left ${this.state.slideTestimonialBack ? '-show' : ''}`} onClick={()=>this.slideTestimonial('back')}>
-                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
-              </span>
-              <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">TESTIMONIAL</h2>
-              <div className="l-home__testimonial-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideTestimonial}}>
+              <button className={`c-button-circle -next -right ${this.state.slideTestimonialNext ? '-show' : ''}`} onClick={() => this.slideTestimonial('next')}>
+                <svg className="icon icon-arrow-down">
+                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
+              </button>
+              <button className={`c-button-circle -back -left ${this.state.slideTestimonialBack ? '-show' : ''}`} onClick={() => this.slideTestimonial('back')}>
+                <svg className="icon icon-arrow-down">
+                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
+              </button>
+              <h2
+                className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
+              >TESTIMONIAL</h2>
+              <div
+                className="l-home__testimonial-slider columns large-12 medium-12 small-12"
+                style={{ transform: this.state.positionSlideTestimonial }}
+              >
                 {this.sliderTestimonial.map((item, i) =>
-                  <div key={i} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
+                  (<div key={i.toString()} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
                     <div>
                       <p className="text -ff2-m">
                         <span className="quotes">“</span>
@@ -175,7 +184,7 @@ class Home extends Component {
                       <span className="name text -color-1">- {item.name}</span>
                       <div className="img">{}</div>
                     </div>
-                  </div>
+                  </div>)
                 )}
               </div>
             </div>
@@ -185,27 +194,39 @@ class Home extends Component {
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""
-                  title="Open geospatial data for positive global impact, and improved decision-making"
-                  text="Radiant offers solutions to fully realizing the potential of earth observation for positive, even life-changing global impact: It simplifies the overall process across the value chain of using geospatial data."
+                  title="Open geospatial data for positive
+                  global impact, and improved decision-making"
+                  text="Radiant offers solutions to fully
+                  realizing the potential of earth observation
+                  for positive, even life-changing global impact:
+                  It simplifies the overall process across the value
+                  chain of using geospatial data."
                   buttonText="find out more"
                   buttonUrl="#"
                 />
               </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-6"></div>
+              <div className="l-home__intro-image columns large-6 medium-6 small-6">{}</div>
             </div>
           </div>
           <div className="l-home__studies">
             <div className="row">
-              <span className={`c-button-circle -next -right ${this.state.slideStudiesNext ? '-show' : ''}`} onClick={()=>this.slideStudies('next')}>
-                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
-              </span>
-              <span className={`c-button-circle -back -left ${this.state.slideStudiesBack ? '-show' : ''}`} onClick={()=>this.slideStudies('back')}>
-                <svg className="icon icon-arrow-down"><use xlinkHref="#icon-arrow-down"></use></svg>
-              </span>
-              <h2 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12">LATEST CASE STUDIES</h2>
-              <div className="l-home__studies-slider columns large-12 medium-12 small-12" style={{transform: this.state.positionSlideStudies}}>
+              <button className={`c-button-circle -next -right ${this.state.slideStudiesNext ? '-show' : ''}`} onClick={() => this.slideStudies('next')}>
+                <svg className="icon icon-arrow-down">
+                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
+              </button>
+              <button className={`c-button-circle -back -left ${this.state.slideStudiesBack ? '-show' : ''}`} onClick={() => this.slideStudies('back')}>
+                <svg className="icon icon-arrow-down">
+                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
+              </button>
+              <h2
+                className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
+              >LATEST CASE STUDIES</h2>
+              <div
+                className="l-home__studies-slider columns large-12 medium-12 small-12"
+                style={{ transform: this.state.positionSlideStudies }}
+              >
                 {this.sliderStudies.map((item, i) =>
-                  <div key={i} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
+                  (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
                     <div className="img">{}</div>
                     <div>
                       <BoxTitleContent
@@ -213,7 +234,7 @@ class Home extends Component {
                         text={item.text}
                       />
                     </div>
-                  </div>
+                  </div>)
                 )};
               </div>
             </div>
