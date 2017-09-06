@@ -8,11 +8,7 @@
   },
   "dependencies": {
     "axios": "^0.16.2",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1",
     "formsy-react": "^0.19.5",
     "node-sass-chokidar": "^0.0.3",
     "npm-run-all": "^4.0.2",
@@ -20,6 +16,7 @@
     "react": "^15.6.1",
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.6.1",
+    "react-iframe": "^1.0.7",
     "react-masonry-component": "^5.0.7",
     "react-router-dom": "^4.1.1",
     "react-select": "^1.0.0-rc.5",
@@ -27,15 +24,23 @@
     "react-slick": "^0.14.11",
     "react-sortable-hoc": "^0.6.3",
     "react-sortablejs": "^1.3.4",
+    "react-vimeo": "^1.0.0",
+    "react-youtube": "^7.4.0",
     "siema": "^1.4.6",
     "slick-carousel": "^1.6.0",
     "sortablejs": "^1.6.0",
     "underscore": "^1.8.3",
-    "validator": "^8.0.0"
+    "validator": "^8.0.0",
+    "vimeo-reactjs": "0.0.2"
   },
   "devDependencies": {
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
     "react-scripts": "1.0.10",
-    "sass-lint": "^1.10.2"
+    "sass-lint": "^1.11.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -44,6 +49,7 @@
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test-eslint": "eslint --ext .jsx --ext .js src/**",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:5000"

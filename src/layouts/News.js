@@ -10,17 +10,14 @@ import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
 
 class News extends Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props);
-
     this.state = {
       slider: 0,
     };
   }
 
   render() {
-
     const gridNewsContent = [
       {
         img: image1,
@@ -30,6 +27,8 @@ class News extends Component {
       },
       {
         img: image2,
+        video: 'Jf3CPnDMVz0',
+        channel: 'youtube',
         subTitle: 'NEWS',
         title: 'Expanding Access to Earth Observation Data',
         text: 'Reflections on a SatSummit panel focused on how to expand access and distribution to earth imagery.',
@@ -48,6 +47,8 @@ class News extends Component {
       },
       {
         img: image1,
+        video: '82557065',
+        channel: 'vimeo',
         subTitle: 'NEW FEATURES',
         title: 'Laying Tiles Without Grout and Mortar',
         text: 'On minimizing the latency of serving painted raster tiles.',
@@ -66,7 +67,7 @@ class News extends Component {
         <div className="l-news">
           <div className="l-news__cover">
             <div className="row">
-              <div className="columns large-6 medium-6 small-12 circle-image" style={{ backgroundImage: 'url(' + image4 + ')' }}>{}</div>
+              <div className="columns large-6 medium-6 small-12 circle-image" style={{ backgroundImage: `url(${image4})` }}>{}</div>
               <div className="columns large-6 medium-6 small-12 text-cover">
                 <BoxTitleContent
                   subTitle="Use cases"
@@ -85,11 +86,13 @@ class News extends Component {
             <div className="row">
               {gridNewsContent.map((item, i) =>
                 (<BoxCard
-                  key={i}
+                  key={i.toString()}
                   img={item.img}
                   subTitle={item.subTitle}
                   title={item.title}
                   text={item.text}
+                  video={item.video}
+                  channel={item.channel}
                 />
                 )
               )}
