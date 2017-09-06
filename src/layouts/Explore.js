@@ -154,16 +154,19 @@ class Explore extends Component {
                 <use xlinkHref="#icon-close">{}</use>
               </svg>
               <div className="contain-input">
-                <label htmlFor="email" className="text -ff2-xs -uppercase">Name</label>
-                <input
-                  name="email"
-                  className="c-input -text-field text -ff2-s"
-                  placeholder="ex: email@organization.com"
-                />
+                <label htmlFor="email" className="text -ff2-xs -uppercase">Name
+                  <input
+                    id="email"
+                    name="email"
+                    className="c-input -text-field text -ff2-s"
+                    placeholder="ex: email@organization.com"
+                  />
+                </label>
               </div>
               <div className="contain-input">
-                <label htmlFor="text" className="text -ff2-xs -uppercase">Text</label>
-                <textarea className="text -ff2-s" name="text" />
+                <label htmlFor="text" className="text -ff2-xs -uppercase">Text
+                  <textarea className="text -ff2-s" name="text" id="text" />
+                </label>
               </div>
               <div className="contain-button">
                 <button

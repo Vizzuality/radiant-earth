@@ -4,8 +4,7 @@ import BurgerMenu from './BurgerMenu';
 import radiantLogo from '../images/logos/radiant.png';
 
 class Header extends Component {
-
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.navLinks = [
@@ -42,13 +41,13 @@ class Header extends Component {
             </a>
           </div>
           <div className="small-9 columns">
-            <Nav links={this.navLinks}/>
-            <BurgerMenu links={this.navLinks}/>
+            <Nav links={this.navLinks} />
+            <BurgerMenu links={this.navLinks} />
           </div>
         </div>
       </div>
-    )
-  };
+    );
+  }
 }
 
 export default Header;
