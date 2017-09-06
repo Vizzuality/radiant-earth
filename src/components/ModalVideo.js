@@ -13,15 +13,10 @@ class ModalVideo extends Component {
     };
   }
 
-  componentWillReceiveProps() {
-    const player = new Player('vimeo-contain', {
-      id: 19231868,
-      width: 640
-    });
-
-    this.setState({
-      playerVimeo: player,
-    });
+  componentDidMount() {
+    if (this.props.channel === 'vimeo') {
+      this.vimeoVideo();
+    }
   }
 
   onPauseVideo() {
@@ -35,6 +30,17 @@ class ModalVideo extends Component {
   onReady(event) {
     this.setState({
       playerYoutube: event.target,
+    });
+  }
+
+  vimeoVideo() {
+    const player = new Player('vimeo-contain', {
+      id: 19231868,
+      width: 640
+    });
+
+    this.setState({
+      playerVimeo: player,
     });
   }
 

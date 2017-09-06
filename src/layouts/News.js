@@ -14,6 +14,7 @@ class News extends Component {
     super(props);
     this.state = {
       slider: 0,
+      limitGrid: 3
     };
   }
 
@@ -23,8 +24,13 @@ class News extends Component {
     });
   }
 
-  render() {
+  updateLimitGrid() {
+    this.setState({
+      limitGrid: this.state.limitGrid + 3
+    });
+  }
 
+  render() {
     const sliderContent = [
       {
         img: image1,
@@ -91,7 +97,7 @@ class News extends Component {
       },
     ];
 
-    const { slider } = this.state;
+    const { slider, limitGrid } = this.state;
 
     return (
       <div>
@@ -130,7 +136,7 @@ class News extends Component {
           </div>
           <div className="l-news__gallery">
             <div className="row">
-              {gridNewsContent.map((item, i) =>
+              {gridNewsContent.slice(0, limitGrid).map((item, i) =>
                 (<BoxCard
                   key={i.toString()}
                   img={item.img}
@@ -142,6 +148,12 @@ class News extends Component {
                 />
                 )
               )}
+              <div className="contain-button large-12 medium-12 small-12">
+                <button
+                  className="c-button -primary text -uppercase -ff2-m"
+                  onClick={() => this.updateLimitGrid()}
+                >load more</button>
+              </div>
             </div>
           </div>
         </div>
