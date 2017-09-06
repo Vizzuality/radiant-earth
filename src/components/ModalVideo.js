@@ -24,18 +24,18 @@ class ModalVideo extends Component {
     });
   }
 
-  onReady(event) {
-    this.setState({
-      playerYoutube: event.target,
-    });
-  }
-
   onPauseVideo() {
     if (this.state.playerYoutube) {
       this.state.playerYoutube.pauseVideo();
     } else {
       this.state.playerVimeo.pause();
     }
+  }
+
+  onReady(event) {
+    this.setState({
+      playerYoutube: event.target,
+    });
   }
 
   closeModal() {

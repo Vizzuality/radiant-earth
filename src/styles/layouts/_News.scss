@@ -1,3 +1,4 @@
+$height-slider: rem(510px);
 .l-news {
   .row {
     align-items: center;
@@ -12,17 +13,54 @@
       position: relative;
     }
 
-    .circle-image {
-      width: rem(510px);
-      max-width: rem(510px);
-      height: rem(510px);
-      max-height: rem(510px);
-      border-radius: rem(510px);
-      background-color: $color-1;
+    .l-news__image {
+      position: relative;
+      height: $height-slider;
+
+      .circle-image {
+        position: absolute;
+        top: 0;
+        width: rem(510px);
+        max-width: rem(510px);
+        height: rem(510px);
+        max-height: rem(510px);
+        transition: opacity $animation-text linear;
+        border-radius: rem(510px);
+        background-color: $color-1;
+
+
+        &.-show {
+          position: absolute;
+          opacity: 1;
+        }
+
+        &.-hidden {
+          opacity: 0;
+        }
+      }
     }
 
-    .text-cover {
+    .l-news__text-cover {
+      display: flex;
+      position: relative;
+      align-items: center;
+      height: $height-slider;
       padding-right: rem(45px);
+
+      .text-cover-contain {
+        position: absolute;
+        width: 100%;
+        transition: opacity $animation-text linear;
+
+        &.-show {
+          position: absolute;
+          opacity: 1;
+        }
+
+        &.-hidden {
+          opacity: 0;
+        }
+      }
     }
 
     .dots-cover {
@@ -32,12 +70,14 @@
       transform: translate(50%, 0%);
       list-style: none;
 
-      li {
+      li,
+      button {
         display: block;
         width: rem(8px);
         height: rem(8px);
         margin-bottom: rem(40px);
         border-radius: rem(8px);
+        outline: 0;
         background-color: rgba($color-4, .1);
         cursor: pointer;
 

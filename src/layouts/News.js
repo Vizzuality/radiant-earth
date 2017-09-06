@@ -17,7 +17,37 @@ class News extends Component {
     };
   }
 
+  changeSlider(slider) {
+    this.setState({
+      slider,
+    });
+  }
+
   render() {
+
+    const sliderContent = [
+      {
+        img: image1,
+        subTitle: '1Use cases',
+        title: 'How an Amazonas Moisture Index helped the Yanomami tribe'
+      },
+      {
+        img: image2,
+        subTitle: '2Use cases',
+        title: 'How an Amazonas Moisture Index helped the Yanomami tribe'
+      },
+      {
+        img: image3,
+        subTitle: '3Use cases',
+        title: 'How an Amazonas Moisture Index helped the Yanomami tribe'
+      },
+      {
+        img: image4,
+        subTitle: '4Use cases',
+        title: 'How an Amazonas Moisture Index helped the Yanomami tribe'
+      },
+    ];
+
     const gridNewsContent = [
       {
         img: image1,
@@ -61,24 +91,40 @@ class News extends Component {
       },
     ];
 
+    const { slider } = this.state;
+
     return (
       <div>
         <Header />
         <div className="l-news">
           <div className="l-news__cover">
             <div className="row">
-              <div className="columns large-6 medium-6 small-12 circle-image" style={{ backgroundImage: `url(${image4})` }}>{}</div>
-              <div className="columns large-6 medium-6 small-12 text-cover">
-                <BoxTitleContent
-                  subTitle="Use cases"
-                  title="How an Amazonas Moisture Index helped the Yanomami tribe"
-                />
+              <div className="columns large-6 medium-6 small-12 l-news__image">
+                {sliderContent.map((item, i) =>
+                  <div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`} style={{ backgroundImage: `url(${item.img})` }}>{}</div>
+                )}
+              </div>
+              <div className="columns large-6 medium-6 small-12 l-news__text-cover">
+                {sliderContent.map((item, i) =>
+                  (<div key={i.toString()} className={`text-cover-contain ${i === slider ? '-show' : '-hidden'}`}>
+                    <BoxTitleContent
+                      subTitle={item.subTitle}
+                      title={item.title}
+                    />
+                  </div>)
+                )}
               </div>
               <ul className="dots-cover">
-                <li className="-selected">{}</li>
-                <li>{}</li>
-                <li>{}</li>
-                <li>{}</li>
+                {sliderContent.map((item, i) =>
+                  (<button
+                    onClick={() => this.changeSlider(i)}
+                    key={i.toString()}
+                  >
+                    <li
+                      className={`${i === slider ? '-selected' : ''}`}
+                    >{}</li>
+                  </button>)
+                )}
               </ul>
             </div>
           </div>
