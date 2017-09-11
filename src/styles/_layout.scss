@@ -4,6 +4,10 @@ body {
   font-family: $font-family-1;
   font-size: $ff1-size-m;
   overflow-x: hidden;
+
+  button {
+    outline: 0;
+  }
 }
 
 .icon {

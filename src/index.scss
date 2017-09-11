@@ -5,8 +5,6 @@
 @import 'styles/foundation';
 @import 'styles/layout';
 @import 'styles/overrideSelect';
-@import '~slick-carousel/slick/slick.css';
-@import '~slick-carousel/slick/slick-theme.css';
 
 @import 'styles/components/Header';
 @import 'styles/components/Footer';
@@ -19,6 +17,7 @@
 @import 'styles/components/Loader';
 @import 'styles/components/BoxTitleContent';
 @import 'styles/components/BoxCard';
+@import 'styles/components/ModalVideo';
 
 @import 'styles/layouts/About';
 @import 'styles/layouts/Home';

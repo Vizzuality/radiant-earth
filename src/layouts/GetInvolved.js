@@ -87,88 +87,103 @@ class GetInvolved extends Component {
                 )}
               </div>
               <div className="l-get-involved__tab-case">
-                <ul>
+                <div className="tab-case-list">
                   {casesInformation.map((item, i) =>
-                    (<li
+                    (<button
                       onClick={() => this.changeSlider(i)}
                       key={i.toString()}
                       className={`text -ff2-s -uppercase ${i === caseSlider ? '-selected' : ''}`}
-                    >{item.title}</li>)
+                    >
+                      {item.title}
+                    </button>)
                   )}
-                </ul>
+                </div>
               </div>
             </div>
             <div className="columns large-6 medium-12 small-12 l-get-involved__form">
               <form className="row">
                 <div className="columns large-6 medium-6 small-6">
-                  <label htmlFor="name" className="text -ff2-xs -uppercase">name</label>
-                  <input
-                    name="name"
-                    className="c-input -text-field text -ff2-s"
-                    placeholder="ex: John Doe"
-                  />
+                  <label htmlFor="name" className="text -ff2-xs -uppercase">name
+                    <input
+                      id="name"
+                      name="name"
+                      className="c-input -text-field text -ff2-s"
+                      placeholder="ex: John Doe"
+                    />
+                  </label>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
-                  <label htmlFor="name" className="text -ff2-xs -uppercase">email address</label>
-                  <input
-                    name="email"
-                    className="c-input -text-field text -ff2-s"
-                    placeholder="ex: email@organization.com"
-                  />
+                  <label htmlFor="email" className="text -ff2-xs -uppercase">email address
+                    <input
+                      id="email"
+                      name="email"
+                      className="c-input -text-field text -ff2-s"
+                      placeholder="ex: email@organization.com"
+                    />
+                  </label>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label
                     htmlFor="organization"
                     className="text -ff2-xs -uppercase"
-                  >organization</label>
-                  <input
-                    name="organization"
-                    className="c-input -text-field text -ff2-s"
-                    placeholder="ex: Organization"
-                  />
+                  >organization
+                    <input
+                      id="organization"
+                      name="organization"
+                      className="c-input -text-field text -ff2-s"
+                      placeholder="ex: Organization"
+                    />
+                  </label>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
-                  <label htmlFor="website" className="text -ff2-xs -uppercase">website</label>
-                  <input
-                    name="website"
-                    className="c-input -text-field text -ff2-s"
-                    placeholder="ex: website.com"
-                  />
+                  <label htmlFor="website" className="text -ff2-xs -uppercase">website
+                    <input
+                      id="website"
+                      name="website"
+                      className="c-input -text-field text -ff2-s"
+                      placeholder="ex: website.com"
+                    />
+                  </label>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label
                     htmlFor="country-select"
                     className="text -ff2-xs -uppercase"
-                  >country</label>
-                  <div className="contain-select">
-                    <Select
-                      options={optionsCountry}
-                      value={this.state.country}
-                      onChange={this.onChangeCountry.bind(this)}
-                    />
-                    <svg className="icon"><use xlinkHref="#icon-arrow-down">{}</use></svg>
-                  </div>
+                  >country
+                    <div className="contain-select">
+                      <Select
+                        id="country-select"
+                        options={optionsCountry}
+                        value={this.state.country}
+                        onChange={this.onChangeCountry.bind(this)}
+                      />
+                      <svg className="icon"><use xlinkHref="#icon-arrow-down">{}</use></svg>
+                    </div>
+                  </label>
                 </div>
                 <div className="columns large-6 medium-6 small-6">
                   <label
                     htmlFor="area-select"
                     className="text -ff2-xs -uppercase"
-                  >area of interest</label>
-                  <div className="contain-select">
-                    <Select
-                      options={optionsArea}
-                      value={this.state.area}
-                      onChange={this.onChangeArea.bind(this)}
-                    />
-                    <svg className="icon"><use xlinkHref="#icon-arrow-down">{}</use></svg>
-                  </div>
+                  >area of interest
+                    <div className="contain-select">
+                      <Select
+                        id="area-select"
+                        options={optionsArea}
+                        value={this.state.area}
+                        onChange={this.onChangeArea.bind(this)}
+                      />
+                      <svg className="icon"><use xlinkHref="#icon-arrow-down">{}</use></svg>
+                    </div>
+                  </label>
                 </div>
                 <div className="columns small-12 contain-textarea">
                   <label
                     htmlFor="description"
                     className="text -ff2-xs -uppercase"
-                  >Description</label>
-                  <textarea name="description" />
+                  >Description
+                    <textarea id="description" name="description" />
+                  </label>
                 </div>
                 <div className="columns mall-12 contain-button">
                   <button
