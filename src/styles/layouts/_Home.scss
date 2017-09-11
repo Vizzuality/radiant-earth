@@ -335,16 +335,17 @@ $testimonial-font-size: 18px;
         }
 
         .text {
-          padding: 0 rem(20px) rem(20px);
+          padding: 0 rem(20px);
         }
 
         .c-box-title-content {
           h2 {
             font-size: 24px;
-            line-height: 1.33
+            line-height: 1.33;
           }
 
           p {
+            margin: rem(5px) 0 rem(20px);
             color: rgba($black-2, .8);
           }
         }

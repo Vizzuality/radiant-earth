@@ -70,6 +70,17 @@ class BoxCard extends Component {
   }
 }
 
+BoxCard.defaultProps = {
+  title: null,
+  subTitle: null,
+  text: null,
+  buttonText: null,
+  buttonUrl: null,
+  channel: null,
+  img: null,
+  video: null,
+};
+
 BoxCard.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,

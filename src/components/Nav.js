@@ -16,7 +16,7 @@ function Nav(props) {
 }
 
 Nav.propTypes = {
-  links: PropTypes.string.isRequired
+  links: PropTypes.array.isRequired
 };
 
 export default Nav;

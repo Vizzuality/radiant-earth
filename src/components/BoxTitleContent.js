@@ -7,15 +7,15 @@ function BoxTitleContent(props) {
   return (
     <div className="c-box-title-content">
       <div>
-        <span className="text -ff2-xs -color-2 -uppercase">
+        {subTitle && <span className="text -ff2-xs -color-2 -uppercase">
           {subTitle}
-        </span>
-        <h2 className="text -ff2-l -color-1">
+        </span>}
+        {title && <h2 className="text -ff2-l -color-1">
           {title}
-        </h2>
-        <p className="text -ff1-m">
+        </h2>}
+        {text && <p className="text -ff1-m">
           {text}
-        </p>
+        </p>}
       </div>
       {buttonText && <div>
         <Button text={buttonText} url={buttonUrl} back="orange" />
@@ -24,12 +24,20 @@ function BoxTitleContent(props) {
   );
 }
 
+BoxTitleContent.defaultProps = {
+  subTitle: null,
+  text: null,
+  buttonText: null,
+  buttonUrl: null,
+  title: null
+};
+
 BoxTitleContent.propTypes = {
-  subTitle: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  subTitle: PropTypes.string,
+  text: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonUrl: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default BoxTitleContent;
