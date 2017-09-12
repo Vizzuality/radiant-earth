@@ -3,12 +3,18 @@ import PropTypes from 'prop-types';
 import NavItem from './NavItem';
 
 function Nav(props) {
-  const { links } = props;
+  const { links, color } = props;
   return (
     <div className="c-nav">
       <ul>
         {links.map((item, i) =>
-          <NavItem key={i.toString()} name={item.name} url={item.url} subMenu={item.subMenu} />
+          (<NavItem
+            key={i.toString()}
+            name={item.name}
+            url={item.url}
+            subMenu={item.subMenu}
+            color={color}
+          />)
         )}
       </ul>
     </div>
@@ -16,7 +22,8 @@ function Nav(props) {
 }
 
 Nav.propTypes = {
-  links: PropTypes.array.isRequired
+  links: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
 
 export default Nav;

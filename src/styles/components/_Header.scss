@@ -5,6 +5,10 @@
   background-color: rgba($color-4, .05);
   z-index: 4;
 
+  &.-white {
+    background-color: transparent;
+  }
+
   .icon-logo {
     width: rem(150px);
     height: rem(54px);

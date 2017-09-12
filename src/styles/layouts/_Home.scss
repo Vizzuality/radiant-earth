@@ -9,7 +9,8 @@ $testimonial-font-size: 18px;
     align-content: center;
     align-items: center;
     justify-content: center;
-    min-height: rem(542px);
+    height: calc(100vh - 40px);
+    margin-top: -118px;
 
     &:before {
       display: block;
@@ -55,138 +56,6 @@ $testimonial-font-size: 18px;
       position: absolute;
       bottom: -20px;
       z-index: 1;
-    }
-
-    .l-home__circle-image {
-      position: absolute;
-      background-repeat: no-repeat;
-      background-size: cover;
-
-      &.-image-1 {
-        &.-one-position {
-          top: rem(120px);
-          left: -30px;
-          width: rem(160px);
-          height: rem(160px);
-          border-radius: rem(160px);
-        }
-
-        &.-two-position {
-          top: rem(120px);
-          left: -110px;
-          width: rem(300px);
-          height: rem(300px);
-          border-radius: rem(160px);
-        }
-
-        &.-three-position {
-          top: rem(120px);
-          left: -30px;
-          width: rem(160px);
-          height: rem(160px);
-          border-radius: rem(160px);
-        }
-      }
-
-      &.-image-2 {
-        &.-one-position {
-          bottom: -78px;
-          left: -30px;
-          width: rem(360px);
-          height: rem(360px);
-          border-radius: rem(360px);
-        }
-
-        &.-two-position {
-          bottom: -300px;
-          left: 32px;
-          width: rem(500px);
-          height: rem(500px);
-          border-radius: rem(360px);
-        }
-
-        &.-three-position {
-          bottom: -78px;
-          left: -30px;
-          width: rem(360px);
-          height: rem(360px);
-          border-radius: rem(360px);
-        }
-      }
-
-      &.-image-3 {
-        &.-one-position {
-          right: rem(240px);
-          bottom: -50px;
-          width: rem(160px);
-          height: rem(160px);
-          border-radius: rem(160px);
-        }
-
-        &.-two-position {
-          right: rem(200px);
-          bottom: 126px;
-          width: rem(140px);
-          height: rem(140px);
-          border-radius: rem(200px);
-        }
-
-        &.-three-position {
-          right: rem(240px);
-          bottom: -50px;
-          width: rem(140px);
-          height: rem(140px);
-          border-radius: rem(140px);
-        }
-      }
-
-      &.-image-4 {
-        &.-one-position {
-          right: -91px;
-          bottom: -30px;
-          width: rem(320px);
-          height: rem(320px);
-          border-radius: rem(320px);
-        }
-
-        &.-two-position {
-          top: 60px;
-          right: -70px;
-          width: rem(310px);
-          height: rem(310px);
-          border-radius: rem(300px);
-        }
-
-        &.-three-position {
-          right: -91px;
-          bottom: -30px;
-          width: rem(360px);
-          height: rem(360px);
-          border-radius: rem(360px);
-        }
-      }
-
-      &.-image-5 {
-        &.-one-position {
-          display: none;
-        }
-
-        &.-two-position {
-          right: 60px;
-          bottom: 0;
-          width: rem(178px);
-          height: rem(178px);
-          border-radius: rem(170px);
-        }
-
-        &.-three-position {
-          right: -91px;
-          bottom: -30px;
-          width: rem(360px);
-          height: rem(360px);
-          border-radius: rem(360px);
-        }
-      }
     }
 
     .contain-buttons {

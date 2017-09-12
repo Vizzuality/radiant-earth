@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
-import image1 from '../images/home/cover/1.jpg';
-import image2 from '../images/home/cover/2.jpg';
-import image3 from '../images/home/cover/3.jpg';
-import image4 from '../images/home/cover/4.jpg';
-import image5 from '../images/home/cover/5.jpg';
 
 import slider1 from '../images/home/cover/slider/1.jpg';
 import slider2 from '../images/home/cover/slider/2.jpg';
@@ -149,24 +144,17 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header color="white" />
         <div className="l-home">
           <div className="l-home__cover">
             {this.sliderHomePage.map((item, i) =>
               (<div key={i.toString()} style={{ backgroundImage: `url(${item.image})` }} className={`l-home__cover-slider ${i === this.state.sliderHomePage ? '-show' : ''}`} >
                 <div className="l-home__cover-title">
                   <h1 className="text -ff2-xl -white -center">{item.title}</h1>
-                  <p className="text -ff1-m -white -center -shadow">{item.text}</p>
+                  <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
                 </div>
               </div>)
             )}
-            {/*
-            <div className={`l-home__circle-image -image-1 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image1})` }}>{}</div>
-            <div className={`l-home__circle-image -image-2 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image2})` }}>{}</div>
-            <div className={`l-home__circle-image -image-3 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image3})` }}>{}</div>
-            <div className={`l-home__circle-image -image-4 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image4})` }}>{}</div>
-            <div className={`l-home__circle-image -image-5 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image5})` }}>{}</div>
-            */}
             <div className="contain-buttons">
               {this.sliderHomePage.map((item, i) =>
                 <button key={i.toString()} className={`${i === this.state.sliderHomePage ? '-selected' : ''}`} onClick={() => this.slideHomePage(i)}>{}</button>
