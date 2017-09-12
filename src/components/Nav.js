@@ -8,7 +8,7 @@ function Nav(props) {
     <div className="c-nav">
       <ul>
         {links.map((item, i) =>
-          <NavItem key={i.toString()} name={item.name} url={item.url} />
+          <NavItem key={i.toString()} name={item.name} url={item.url} subMenu={item.subMenu} />
         )}
       </ul>
     </div>

@@ -147,4 +147,57 @@
       }
     }
   }
+
+  .l-about__logos {
+    padding: rem(50px) 0;
+
+    .l-about__logos-container {
+      margin-bottom: rem(50px);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      h4 {
+        opacity: .5;
+      }
+
+      .row {
+        margin-top: rem(10px);
+
+        &:first-of-type {
+          margin-top: 0;
+        }
+      }
+
+      .link-logo {
+        display: flex;
+        align-items: center;
+
+        &.-vizzuality {
+          position: relative;
+          top: rem(7px);
+        }
+      }
+
+      .l-about__logos-item {
+        width: 100%;
+        min-width: rem(100px);
+        max-width: rem(130px);
+        mix-blend-mode: screen;
+
+        &.-esa {
+          min-width: rem(100px);
+          max-width: rem(110px);
+          mix-blend-mode: screen;
+        }
+
+        &.-nasa {
+          min-width: rem(60px);
+          max-width: rem(80px);
+          mix-blend-mode: screen;
+        }
+      }
+    }
+  }
 }

@@ -1,12 +1,7 @@
 import React from 'react';
 import billMelinda from '../images/footer/billMelinda.png';
 import omidyar from '../images/footer/omidyar.png';
-import esa from '../images/footer/esa.png';
-import nasa from '../images/footer/nasa.png';
-import unitar from '../images/footer/unitar.png';
-import newAmerica from '../images/footer/newAmerica.png';
-import azavea from '../images/footer/azavea.png';
-import vizzuality from '../images/footer/vizzuality.png';
+
 
 function Footer() {
   return (
@@ -21,42 +16,6 @@ function Footer() {
               </a>
               <a className="columns small-4 link-logo" href="https://www.omidyar.com/" target="_blank" rel="noopener noreferrer">
                 <img alt="Omidyar" className="c-footer__logos-item" src={omidyar} />
-              </a>
-            </div>
-          </div>
-          <div className="c-footer__logos-container">
-            <h4 className="text -ff2-xs -uppercase -white">data providers</h4>
-            <div className="row align-middle">
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
-                <img alt="ESA" className="c-footer__logos-item -esa" src={esa} />
-              </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
-                <img alt="NASA" className="c-footer__logos-item -nasa" src={nasa} />
-              </a>
-            </div>
-          </div>
-          <div className="c-footer__logos-container">
-            <h4 className="text -ff2-xs -uppercase -white">Partners</h4>
-            <div className="row align-middle">
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
-                <img alt="Unitar" className="c-footer__logos-item" src={unitar} />
-              </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
-                <img alt="ESA"className="c-footer__logos-item -esa" src={esa} />
-              </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
-                <img alt="New America" className="c-footer__logos-item" src={newAmerica} />
-              </a>
-            </div>
-          </div>
-          <div className="c-footer__logos-container">
-            <h4 className="text -ff2-xs -uppercase -white">Collaborators</h4>
-            <div className="row align-middle">
-              <a className="columns small-4 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
-                <img alt="Azavea" className="c-footer__logos-item" src={azavea} />
-              </a>
-              <a className="columns small-4 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
-                <img alt="Vizzuality" className="c-footer__logos-item" src={vizzuality} />
               </a>
             </div>
           </div>

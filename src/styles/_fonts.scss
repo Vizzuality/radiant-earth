@@ -119,11 +119,16 @@ a {
     text-align: center;
   }
 
+  &.-shadow {
+    font-weight: $font-weight-semibold;
+    text-shadow: 0 1px 4px rgba($black, .2);
+  }
+
   &.-underline,
   .-underline {
     background-image: linear-gradient(to right, $color-2 100%, transparent 100%);
-    background-position: 0 1.07em;
     background-repeat: repeat-x;
+    background-position: 0 1.07em;
     background-size: 10px 2px;
   }
 
@@ -131,8 +136,8 @@ a {
 
     &.-ff2-m {
       font-size: $ff2-size-xs;
-      line-height: 1.67;
       letter-spacing: 1px;
+      line-height: 1.67;
     }
   }
 }

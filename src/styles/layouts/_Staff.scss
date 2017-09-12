@@ -1,0 +1,51 @@
+.l-staff {
+  .l-staff__content {
+    padding: rem(110px) 0 rem(175px);
+    background-color: rgba($color-4, .05);
+
+    .row {
+      h2 {
+        margin-bottom: rem(20px);
+      }
+
+      .columns {
+        margin-bottom: rem(30px);
+      }
+    }
+
+    .l-about__staff-item {
+      padding: rem(20px);
+      background-color: $white;
+
+      .contain-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .info {
+          span {
+            font-weight: $font-weight-semibold;
+            opacity: .5;
+          }
+        }
+
+        .img {
+          width: rem(130px);
+          height: rem(130px);
+          margin-right: rem(30px);
+          border-radius: rem(130px);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      .contain-text {
+        margin-top: rem(10px);
+
+        p {
+          opacity: .6;
+        }
+      }
+    }
+  }
+}
