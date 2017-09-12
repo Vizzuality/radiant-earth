@@ -93,7 +93,7 @@ class About extends Component {
           </div>
         </div>
         <div className="l-about__information row">
-          <div className="columns l-about__information-text">
+          <div className="columns small-6 l-about__information-text">
             <h2 className="text -ff1-l -color-1">Our Purpose</h2>
             <p
               className="text -ff1-m"
@@ -134,6 +134,23 @@ class About extends Component {
             and tools. This includes insights into the
             commercial marketplace and related policies.
             </p>
+          </div>
+          <div className="l-about__contact small-6 columns">
+            <div className="contain-contact">
+              <div className="contain-contact-text">
+                <h4 className="text -ff2-xs -uppercase -color-2 columns">Contact</h4>
+                <div className="l-about__contact-text columns">
+                  <div>
+                    <p className="text -ff2-m">740 15th Street, Suite 900</p>
+                    <p className="text -ff2-m">Washington, DC 20005</p>
+                  </div>
+                  <div>
+                    <p className="text -ff2-m">Email: <a className="text -color-1" href="mailto:hello@radiant.earth">hello@radiant.earth</a></p>
+                    <p className="text -ff2-m">Phone: <a className="text -color-1" href="tel:+1.2020.596.3603">+1.2020.596.3603</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="l-about__board">
@@ -189,22 +206,6 @@ class About extends Component {
                 <img alt="Vizzuality" className="l-about__logos-item" src={vizzuality} />
               </a>
             </div>
-          </div>
-        </div>
-        <div className="l-about__contact">
-          <div className="row">
-            <h4 className="text -ff2-xs -uppercase -color-2 small-12 columns">Contact</h4>
-            <div className="l-about__contact-text small-6 columns">
-              <div>
-                <p className="text -ff2-m">740 15th Street, Suite 900</p>
-                <p className="text -ff2-m">Washington, DC 20005</p>
-              </div>
-              <div>
-                <p className="text -ff2-m">Email: <a className="text -color-1" href="mailto:hello@radiant.earth">hello@radiant.earth</a></p>
-                <p className="text -ff2-m">Phone: <a className="text -color-1" href="tel:+1.2020.596.3603">+1.2020.596.3603</a></p>
-              </div>
-            </div>
-            <div className="l-about__contact-map small-6">{}</div>
           </div>
         </div>
         <Footer />
