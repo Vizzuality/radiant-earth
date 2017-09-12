@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
+import MotionCircle from '../components/MotionCircle';
 
 import slider1 from '../images/home/cover/slider/1.jpg';
 import slider2 from '../images/home/cover/slider/2.jpg';
 import slider3 from '../images/home/cover/slider/3.jpg';
 import slider4 from '../images/home/cover/slider/4.jpg';
+
+import sub1 from '../images/home/cover/1-sub.jpg';
+import sub2 from '../images/home/cover/2-sub.jpg';
 
 import einar from '../images/home/testimonials/einar.jpg';
 import jed from '../images/home/testimonials/jed.jpg';
@@ -156,7 +160,9 @@ class Home extends Component {
           </div>
           <div className="l-home__intro">
             <div className="row">
-              <div className="l-home__intro-image columns large-6 medium-6 small-6" ref={(c) => { this.hello = c; }}>{}</div>
+              <div className="l-home__intro-image columns large-6 medium-6 small-6">
+                <MotionCircle width="510" backgroundImage={sub1} />
+              </div>
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""
@@ -211,7 +217,9 @@ class Home extends Component {
                   buttonUrl="#"
                 />
               </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">{}</div>
+              <div className="l-home__intro-image columns large-6 medium-6 small-6">
+                <MotionCircle width="510" backgroundImage={sub2} />
+              </div>
             </div>
           </div>
           <div className="l-home__studies">

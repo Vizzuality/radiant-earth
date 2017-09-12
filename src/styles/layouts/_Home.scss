@@ -98,19 +98,12 @@ $testimonial-font-size: 18px;
       max-width: rem(510px);
       height: rem(510px);
       margin-right: rem(15px);
-      border-radius: rem(510px);
-      background-image: url('./images/home/cover/1-sub.jpg');
-      background-size: cover;
     }
   }
 
   .l-home__intro-secondary  {
     margin-top: rem(95px);
     padding-top: 0;
-
-    .l-home__intro-image {
-      background-image: url('./images/home/cover/2-sub.jpg');
-    }
   }
 
   .l-home__testimonial {
