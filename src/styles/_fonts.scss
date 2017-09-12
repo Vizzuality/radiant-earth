@@ -9,6 +9,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 $ff1-size-m: 16px;
+$ff1-size-xm: 20px;
 
 $ff2-size-xs: 12px;
 $ff2-size-s: 14px;
@@ -63,8 +64,16 @@ a {
   &.-ff1-m {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
-    line-height: 1.75;
     letter-spacing: normal;
+    line-height: 1.75;
+
+  }
+
+  &.-ff1-xm {
+    font-family: $font-family-1;
+    font-size: $ff1-size-xm;
+    letter-spacing: normal;
+    line-height: 1.75;
   }
 
   &.-ff2-m {
