@@ -40,14 +40,36 @@
 
       &.-selected {
         &::before {
-          content: '';
           position: absolute;
           bottom: rem(-1px);
           left: 0;
           width: 100%;
           height: rem(2px);
           background-color: $color-2;
+          content: '';
         }
+      }
+    }
+  }
+
+  .has-sub-menu {
+    .sub-menu {
+      display: none;
+      position: absolute;
+      top: rem(22px);
+      left: 0;
+      width: calc(100% + 50px);
+      padding: rem(5px) rem(12px);
+      transition: display .2s;
+      transition-delay: .5s;
+      border: 2px solid rgba($color-4, .5);
+      background-color: $white;
+      text-align: left;
+    }
+
+    &:hover {
+      .sub-menu {
+        display: block;
       }
     }
   }

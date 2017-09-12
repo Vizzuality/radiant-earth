@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDom from 'react-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -138,7 +139,7 @@ class Home extends Component {
           </div>
           <div className="l-home__intro">
             <div className="row">
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">{}</div>
+              <div className="l-home__intro-image columns large-6 medium-6 small-6" ref={(c) => { this.hello = c; }}>{}</div>
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""

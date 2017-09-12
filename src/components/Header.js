@@ -26,7 +26,13 @@ class Header extends Component {
       },
       {
         name: 'About',
-        url: '/about'
+        url: '/about',
+        subMenu: [
+          {
+            name: 'staff',
+            url: '/staff'
+          }
+        ]
       },
     ];
   }

@@ -16,6 +16,13 @@ import peter from '../images/team/bios_peter.png';
 import sanjay from '../images/team/bios_sanjay.png';
 import margie from '../images/team/bios_margie.png';
 
+import esa from '../images/footer/esa.png';
+import nasa from '../images/footer/nasa.png';
+import unitar from '../images/footer/unitar.png';
+import newAmerica from '../images/footer/newAmerica.png';
+import azavea from '../images/footer/azavea.png';
+import vizzuality from '../images/footer/vizzuality.png';
+
 class About extends Component {
   constructor(props) {
     super(props);
@@ -129,29 +136,6 @@ class About extends Component {
             </p>
           </div>
         </div>
-        <div className="l-about__staff">
-          <div className="row">
-            <h2
-              className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-            >STAFF</h2>
-            {this.staffContent.map((item, i) =>
-              (<div className="columns large-6 medium-6 small-6" key={i.toString()}>
-                <div className="l-about__staff-item">
-                  <div className="contain-info">
-                    <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
-                    <div className="info">
-                      <span className="text -ff2-xs -uppercase">{item.position}</span>
-                      <h3 className="text -ff2-l -color-1">{item.name}</h3>
-                    </div>
-                  </div>
-                  <div className="contain-text">
-                    <p className="text -ff1-m">{item.text}</p>
-                  </div>
-                </div>
-              </div>)
-            )}
-          </div>
-        </div>
         <div className="l-about__board">
           <div className="row">
             <h2
@@ -167,6 +151,44 @@ class About extends Component {
                 <h3 className="text -ff2-l -color-1">{item.name}</h3>
               </div>)
             )}
+          </div>
+        </div>
+        <div className="l-about__logos">
+          <div className="l-about__logos-container">
+            <h4 className="text -ff2-xs -uppercase -color-2 row columns">data providers</h4>
+            <div className="row align-middle">
+              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+                <img alt="ESA" className="l-about__logos-item -esa" src={esa} />
+              </a>
+              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+                <img alt="NASA" className="l-about__logos-item -nasa" src={nasa} />
+              </a>
+            </div>
+          </div>
+          <div className="l-about__logos-container">
+            <h4 className="text -ff2-xs -uppercase -color-2 row columns">Partners</h4>
+            <div className="row align-middle">
+              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+                <img alt="Unitar" className="l-about__logos-item" src={unitar} />
+              </a>
+              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+                <img alt="ESA"className="l-about__logos-item -esa" src={esa} />
+              </a>
+              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+                <img alt="New America" className="l-about__logos-item" src={newAmerica} />
+              </a>
+            </div>
+          </div>
+          <div className="l-about__logos-container">
+            <h4 className="text -ff2-xs -uppercase -color-2 row columns">Collaborators</h4>
+            <div className="row align-middle">
+              <a className="columns small-4 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
+                <img alt="Azavea" className="l-about__logos-item" src={azavea} />
+              </a>
+              <a className="columns small-4 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
+                <img alt="Vizzuality" className="l-about__logos-item" src={vizzuality} />
+              </a>
+            </div>
           </div>
         </div>
         <Footer />
