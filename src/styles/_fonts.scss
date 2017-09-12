@@ -140,13 +140,4 @@ a {
     background-position: 0 1.07em;
     background-size: 10px 2px;
   }
-
-  @media screen and (min-width: $screen-m) {
-
-    &.-ff2-m {
-      font-size: $ff2-size-xs;
-      letter-spacing: 1px;
-      line-height: 1.67;
-    }
-  }
 }

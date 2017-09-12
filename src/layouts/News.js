@@ -164,7 +164,7 @@ class News extends Component {
               )}
               <div className="contain-button large-12 medium-12 small-12">
                 <button
-                  className="c-button -primary text -uppercase -ff2-m"
+                  className="c-button -back-gray text -uppercase -ff2-m"
                   onClick={() => this.updateLimitGrid()}
                 >load more</button>
               </div>

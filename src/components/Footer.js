@@ -59,6 +59,9 @@ function Footer() {
                   <use xlinkHref="#icon-instagram">{}</use></svg>
               </a>
             </div>
+            <h4
+              className="text -ff2-xs -uppercase -white terms-text"
+            >Terms and Conditions</h4>
           </div>
         </div>
       </div>
