@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDom from 'react-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -8,6 +7,11 @@ import image2 from '../images/home/cover/2.jpg';
 import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
 import image5 from '../images/home/cover/5.jpg';
+
+import slider1 from '../images/home/cover/slider/1.jpg';
+import slider2 from '../images/home/cover/slider/2.jpg';
+import slider3 from '../images/home/cover/slider/3.jpg';
+import slider4 from '../images/home/cover/slider/4.jpg';
 
 class Home extends Component {
   constructor(props) {
@@ -28,6 +32,7 @@ class Home extends Component {
       slideStudiesNext: true,
       slideStudiesBack: false,
       positionSlideStudies: '',
+      sliderHomePage: 0,
     };
 
     this.sliderTestimonial = [
@@ -57,6 +62,29 @@ class Home extends Component {
       },
     ];
 
+    this.sliderHomePage = [
+      {
+        title: 'Open Data. Neutral Environment. Transformative Impact.',
+        text: 'Explore, search and discover satellite, aerial and drone imagery, as well as complimentary non-raster geospatial data sets from archives around the world for a scientific window into understanding global activity better.',
+        image: slider1,
+      },
+      {
+        title: 'Supporting the Global Development Community',
+        text: 'Improved discovery of data and geospatial capacity to drive open remote sensing science to support global development objectives. ',
+        image: slider2,
+      },
+      {
+        title: 'Scaling Data',
+        text: 'A convenient vehicle allowing for uploading, storing and sharing of drone, manned-aerial and satellite imagery from local files, Amazon S3, Dropbox or Google Drive.',
+        image: slider3,
+      },
+      {
+        title: 'Analytical and Visualization Tools',
+        text: 'Extract features and calculate indices, or customize data visualization in a cross-domain multidisciplinary ecosystem.',
+        image: slider4,
+      }
+    ];
+
     this.sliderStudies = [
       {
         title: 'How an Amazonas Moisture Index helped the Yanomami tribe',
@@ -84,6 +112,12 @@ class Home extends Component {
         img: ''
       },
     ];
+  }
+
+  slideHomePage(sliderHomePage) {
+    this.setState({
+      sliderHomePage
+    });
   }
 
   slideTestimonial(d) {
@@ -118,24 +152,26 @@ class Home extends Component {
         <Header />
         <div className="l-home">
           <div className="l-home__cover">
-            <div className="l-home__cover-title">
-              <h1 className="text -ff2-xl -color-1 -center">Open. Neutral. Transformative.</h1>
-              <p className="text -ff1-m -center">
-                Radiant Earth provides a geospatial and imagery technology platform
-                that supports knowledge transfer to positively impact the developing
-                world’s greatest social, economic and environmental challenges.
-              </p>
-            </div>
-            <span className="c-button-circle">
-              <svg className="icon icon-arrow-down">{}
-                <use xlinkHref="#icon-arrow-down">{}</use>
-              </svg>
-            </span>
+            {this.sliderHomePage.map((item, i) =>
+              (<div key={i.toString()} style={{ backgroundImage: `url(${item.image})` }} className={`l-home__cover-slider ${i === this.state.sliderHomePage ? '-show' : ''}`} >
+                <div className="l-home__cover-title">
+                  <h1 className="text -ff2-xl -white -center">{item.title}</h1>
+                  <p className="text -ff1-m -white -center -shadow">{item.text}</p>
+                </div>
+              </div>)
+            )}
+            {/*
             <div className={`l-home__circle-image -image-1 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image1})` }}>{}</div>
             <div className={`l-home__circle-image -image-2 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image2})` }}>{}</div>
             <div className={`l-home__circle-image -image-3 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image3})` }}>{}</div>
             <div className={`l-home__circle-image -image-4 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image4})` }}>{}</div>
             <div className={`l-home__circle-image -image-5 ${this.state.classCircleSelect}`} style={{ backgroundImage: `url(${image5})` }}>{}</div>
+            */}
+            <div className="contain-buttons">
+              {this.sliderHomePage.map((item, i) =>
+                <button key={i.toString()} className={`${i === this.state.sliderHomePage ? '-selected' : ''}`} onClick={() => this.slideHomePage(i)}>{}</button>
+              )}
+            </div>
           </div>
           <div className="l-home__intro">
             <div className="row">
@@ -143,14 +179,8 @@ class Home extends Component {
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""
-                  title="Open geospatial data for positive global
-                  impact, and improved decision-making"
-                  text="Radiant offers solutions to fully realizing
-                  the potential of earth observation for positive, even l
-                  ife-changing global impact: It simplifies the overall process
-                  across the value chain of using geospatial data."
-                  buttonText="find out more"
-                  buttonUrl="#"
+                  title="Accelerate improved decision-making"
+                  text="Accessible to anyone anywhere and anytime, Radiant.Earth’s platform expose imagery across the globe, date and spectrum, helping people discover the vast resources of Earth imagery, data sets and tools for new solutions, discoveries and innovations."
                 />
               </div>
             </div>
@@ -195,14 +225,8 @@ class Home extends Component {
               <div className="l-home__intro-text columns large-6 medium-6 small-6">
                 <BoxTitleContent
                   subTitle=""
-                  title="Open geospatial data for positive
-                  global impact, and improved decision-making"
-                  text="Radiant offers solutions to fully
-                  realizing the potential of earth observation
-                  for positive, even life-changing global impact:
-                  It simplifies the overall process across the value
-                  chain of using geospatial data."
-                  buttonText="find out more"
+                  title="Create powerful insights and evidence-based support for change"
+                  text="Radiant.Earth guide people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market information and analysis on remote sensing activity, highlighting use cases and best practices, and offering a market place for Earth imagery."
                   buttonUrl="#"
                 />
               </div>
