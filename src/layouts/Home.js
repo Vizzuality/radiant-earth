@@ -8,6 +8,9 @@ import slider2 from '../images/home/cover/slider/2.jpg';
 import slider3 from '../images/home/cover/slider/3.jpg';
 import slider4 from '../images/home/cover/slider/4.jpg';
 
+import einar from '../images/home/testimonials/einar.jpg';
+import jed from '../images/home/testimonials/jed.jpg';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -32,29 +35,19 @@ class Home extends Component {
 
     this.sliderTestimonial = [
       {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
+        text: 'Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
         name: 'Einar Bjorgo, UNOSAT´s Manager',
+        image: einar,
+      },
+      {
+        text: 'We regularly hear from researchers who are held back by the time and expense required to acquire copies of data. Radiant.Earth is set to do something remarkable by making large amounts of Earth observation data available on the cloud where anyone can analyze it at any scale without needing to copy it, using whatever tools they want, and even creating new tools of their own.',
+        name: 'Einar Bjorgo, UNOSAT´s Manager',
+        image: jed,
       },
       {
         text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-      },
-      {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-      },
-      {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-      },
-      {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-      },
-      {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-      },
+        name: 'People',
+      }
     ];
 
     this.sliderHomePage = [
@@ -185,7 +178,7 @@ class Home extends Component {
               </button>
               <h2
                 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-              >TESTIMONIAL</h2>
+              >community</h2>
               <div
                 className="l-home__testimonial-slider columns large-12 medium-12 small-12"
                 style={{ transform: this.state.positionSlideTestimonial }}
@@ -201,7 +194,7 @@ class Home extends Component {
                     </div>
                     <div className="author-contain">
                       <span className="name text -color-1">- {item.name}</span>
-                      <div className="img">{}</div>
+                      <div style={{ backgroundImage: `url(${item.image})` }} className="img">{}</div>
                     </div>
                   </div>)
                 )}

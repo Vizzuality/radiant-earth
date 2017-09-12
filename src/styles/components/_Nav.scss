@@ -54,22 +54,33 @@
 
   .has-sub-menu {
     .sub-menu {
-      display: none;
       position: absolute;
-      top: rem(22px);
-      left: 0;
-      width: calc(100% + 50px);
-      padding: rem(5px) rem(12px);
-      transition: display .2s;
-      transition-delay: .5s;
+      top: rem(20px);
+      left: 50%;
+      width: calc(100% + 100px);
+      padding: rem(7px) rem(12px);
+      transform: translate(-50%, 0);
+      transition: .1s linear;
       border: 2px solid rgba($color-4, .5);
       background-color: $white;
-      text-align: left;
+      text-align: center;
+      opacity: 0;
+
+      li {
+        width: 100%;
+        padding: 5px;
+        transition: .1s linear;
+
+        &:hover {
+          background-color: rgba($color-1, .2);
+        }
+      }
     }
 
     &:hover {
       .sub-menu {
-        display: block;
+        top: rem(22px);
+        opacity: 1;
       }
     }
   }

@@ -16,12 +16,12 @@ import peter from '../images/team/bios_peter.png';
 import sanjay from '../images/team/bios_sanjay.png';
 import margie from '../images/team/bios_margie.png';
 
-import esa from '../images/footer/esa.png';
-import nasa from '../images/footer/nasa.png';
-import unitar from '../images/footer/unitar.png';
-import newAmerica from '../images/footer/newAmerica.png';
-import azavea from '../images/footer/azavea.png';
-import vizzuality from '../images/footer/vizzuality.png';
+import esa from '../images/about/logos/esa.png';
+import nasa from '../images/about/logos/nasa.jpg';
+import unitar from '../images/about/logos/unitar.png';
+import newAmerica from '../images/about/logos/newAmerica.png';
+import azavea from '../images/about/logos/azavea.png';
+import vizzuality from '../images/about/logos/vizzuality.png';
 
 class About extends Component {
   constructor(props) {
@@ -157,10 +157,10 @@ class About extends Component {
           <div className="l-about__logos-container">
             <h4 className="text -ff2-xs -uppercase -color-2 row columns">data providers</h4>
             <div className="row align-middle">
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer">
                 <img alt="ESA" className="l-about__logos-item -esa" src={esa} />
               </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">
                 <img alt="NASA" className="l-about__logos-item -nasa" src={nasa} />
               </a>
             </div>
@@ -168,13 +168,13 @@ class About extends Component {
           <div className="l-about__logos-container">
             <h4 className="text -ff2-xs -uppercase -color-2 row columns">Partners</h4>
             <div className="row align-middle">
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="http://www.unitar.org/" target="_blank" rel="noopener noreferrer">
                 <img alt="Unitar" className="l-about__logos-item" src={unitar} />
               </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer">
                 <img alt="ESA"className="l-about__logos-item -esa" src={esa} />
               </a>
-              <a className="columns small-4 link-logo" href={'/#'} target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="https://www.newamerica.org/" target="_blank" rel="noopener noreferrer">
                 <img alt="New America" className="l-about__logos-item" src={newAmerica} />
               </a>
             </div>
@@ -182,13 +182,29 @@ class About extends Component {
           <div className="l-about__logos-container">
             <h4 className="text -ff2-xs -uppercase -color-2 row columns">Collaborators</h4>
             <div className="row align-middle">
-              <a className="columns small-4 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
                 <img alt="Azavea" className="l-about__logos-item" src={azavea} />
               </a>
-              <a className="columns small-4 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
+              <a className="columns small-3 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
                 <img alt="Vizzuality" className="l-about__logos-item" src={vizzuality} />
               </a>
             </div>
+          </div>
+        </div>
+        <div className="l-about__contact">
+          <div className="row">
+            <h4 className="text -ff2-xs -uppercase -color-2 small-12 columns">Contact</h4>
+            <div className="l-about__contact-text small-6 columns">
+              <div>
+                <p className="text -ff2-m">740 15th Street, Suite 900</p>
+                <p className="text -ff2-m">Washington, DC 20005</p>
+              </div>
+              <div>
+                <p className="text -ff2-m">Email: <a className="text -color-1" href="mailto:hello@radiant.earth">hello@radiant.earth</a></p>
+                <p className="text -ff2-m">Phone: <a className="text -color-1" href="tel:+1.2020.596.3603">+1.2020.596.3603</a></p>
+              </div>
+            </div>
+            <div className="l-about__contact-map small-6">{}</div>
           </div>
         </div>
         <Footer />
