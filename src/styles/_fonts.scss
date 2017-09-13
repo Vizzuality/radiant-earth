@@ -43,49 +43,76 @@ a {
   letter-spacing: 1px;
 
   &.-ff2-xl {
-    font-size: $ff2-size-xl;
+    font-size: $ff2-size-l;
     font-weight: $font-weight-semibold;
     line-height: 1.09;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff2-size-xl;
+    }
   }
 
   &.-ff1-l {
-    font-size: $ff2-size-l;
+    font-size: $ff2-size-xm;
     font-weight: $font-weight-light;
     line-height: 1.13;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff2-size-l;
+    }
   }
 
   &.-ff2-l {
-    font-size: $ff2-size-l;
+    font-size: $ff2-size-xm;
     font-weight: $font-weight-light;
-    line-height: 1.13;
     letter-spacing: normal;
+    line-height: 1.13;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff2-size-l;
+    }
   }
 
   &.-ff1-m {
+    font-family: $font-family-1;
+    font-size: $ff2-size-s;
+    letter-spacing: normal;
+    line-height: 1.75;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff1-size-m;
+    }
+  }
+
+  &.-ff1-xm {
     font-family: $font-family-1;
     font-size: $ff1-size-m;
     letter-spacing: normal;
     line-height: 1.75;
 
-  }
-
-  &.-ff1-xm {
-    font-family: $font-family-1;
-    font-size: $ff1-size-xm;
-    letter-spacing: normal;
-    line-height: 1.75;
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff1-size-xm;
+    }
   }
 
   &.-ff2-m {
-    font-size: $ff2-size-m;
+    font-size: $ff2-size-s;
     font-weight: $font-weight-semibold;
     letter-spacing: 1.3px;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff2-size-m;
+    }
   }
 
   &.-ff2-xm {
-    font-size: $ff2-size-xm;
+    font-size: $ff2-size-m;
     font-weight: $font-weight-semibold;
     letter-spacing: 1.3px;
+
+    @media screen and (min-width: $screen-l) {
+      font-size: $ff2-size-xm;
+    }
   }
 
   &.-ff2-s {

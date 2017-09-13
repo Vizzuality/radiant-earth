@@ -1,6 +1,14 @@
 .l-get-involved {
-  padding: rem(110px) 0 rem(175px);
+  padding: 0 0 rem(100px);
   background-color: rgba($color-4, .05);
+
+  @media screen and (min-width: $screen-l) {
+    padding: rem(60px) rem(70px) rem(100px);
+  }
+
+  @media screen and (min-width: $screen-xl) {
+    padding: rem(110px) 0 rem(175px);
+  }
 
   .hidden-box {
     display: none;
@@ -42,7 +50,15 @@
   }
 
   .l-get-involved__form {
-    margin: rem(15px) 0;
+    margin-top: rem(35px);
+    padding-top: rem(35px);
+    border-top: 2px solid rgba($color-4, .3);
+
+    @media screen and (min-width: $screen-xl) {
+      margin: rem(15px) 0;
+      padding-top: 0;
+      border-top: 0;
+    }
 
     label {
       display: block;

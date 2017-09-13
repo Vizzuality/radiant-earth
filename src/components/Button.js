@@ -5,7 +5,7 @@ function Button(props) {
   const { text, url, back } = props;
   return (
     <div className={`c-button ${back === 'orange' ? '-back-orange' : '-back-white'}`}>
-      <a href={url} className={`text -ff2-m -color-2 -uppercase ${back === 'orange' ? '-white' : '-color-2'}`}>{text}</a>
+      <a href={url} className={`text -ff2-xs -color-2 -uppercase ${back === 'orange' ? '-white' : '-color-2'}`}>{text}</a>
     </div>
   );
 }

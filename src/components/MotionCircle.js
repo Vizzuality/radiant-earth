@@ -5,8 +5,8 @@ class MotionCircle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      x: -this.props.width,
-      y: -this.props.width
+      x: 0,
+      y: 0
     };
   }
 
@@ -24,7 +24,7 @@ class MotionCircle extends Component {
       <div
         className="c-motion-circle"
         onMouseMove={this.handleMouseMove}
-        style={{ backgroundPosition: `${x - (x / 2)}px ${y - (x / 2)}px`, width: `${width}px`, height: `${width}px`, backgroundImage: `url(${backgroundImage})`, backgroundSize: `${width * 1.9}px ${width * 1.9}px` }}
+        style={{ backgroundPosition: `${x / 7}px ${y / 7}px`, width: `${width}px`, height: `${width}px`, backgroundImage: `url(${backgroundImage})`, backgroundSize: `${width * 1.2}px ${width * 1.2}px` }}
       />
     );
   }

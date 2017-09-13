@@ -1,5 +1,10 @@
 .c-burger-menu {
 
+  img {
+    width: rem(100px);
+    margin-bottom: (50px);
+  }
+
   ul {
     margin: 0;
     padding: 0;
@@ -11,9 +16,10 @@
     position: relative;
     text-transform: uppercase;
     cursor: pointer;
+    color: rgba($color-4, .8) !important;
 
     &:not(:last-child) {
-      margin-bottom: rem(49px);
+      margin-bottom: rem(30px);
     }
   }
 
@@ -55,11 +61,11 @@
   }
 
   .bm-menu {
-    background: $color-1;
+    background: $white;
   }
 
   .bm-item-list {
-    padding: rem(129px) rem(20px) rem(20px) rem(20px);
+    padding: rem(40px) rem(20px) rem(20px) rem(20px);
   }
 
   .bm-overlay {

@@ -93,7 +93,7 @@ class About extends Component {
           </div>
         </div>
         <div className="l-about__information row">
-          <div className="columns small-6 l-about__information-text">
+          <div className="columns small-12 medium-12 large-6 l-about__information-text">
             <h2 className="text -ff1-l -color-1">Our Purpose</h2>
             <p
               className="text -ff1-m"
@@ -135,7 +135,7 @@ class About extends Component {
             commercial marketplace and related policies.
             </p>
           </div>
-          <div className="l-about__contact small-6 columns">
+          <div className="l-about__contact small-12 medium-12 large-6 columns">
             <div className="contain-contact">
               <div className="contain-contact-text">
                 <h4 className="text -ff2-xs -uppercase -color-2 columns">Contact</h4>
@@ -161,7 +161,7 @@ class About extends Component {
             {this.boardContent.map((item, i) =>
               (<div
                 key={i.toString()}
-                className="l-about__board-item columns large-3 medium-3 small-3"
+                className="l-about__board-item columns large-3 medium-4 small-6"
               >
                 <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
                 <span className="text -ff2-xs -uppercase">{item.position}</span>
