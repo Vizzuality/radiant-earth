@@ -30,7 +30,7 @@ class BoxCard extends Component {
     const { title, subTitle, text, buttonText, buttonUrl, img, video, channel } = this.props;
     const { showTooltip, isOpen } = this.state;
     return (
-      <div className="c-box-card columns large-4 medium-4 small-4">
+      <div className="c-box-card columns large-4 medium-6 small-12">
         <div
           className="c-box-card__img"
           style={{ backgroundImage: `url(${img})` }}

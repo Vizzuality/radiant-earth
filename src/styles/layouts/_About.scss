@@ -8,57 +8,99 @@
       z-index: 4;
 
       &.-image-1 {
-        right: -260px;
-        bottom: -140px;
-        width: rem(572px);
-        height: rem(572px);
-        border-radius: rem(572px);
+        display: none;
+
+        @media screen and (min-width: $screen-l) {
+          display: block;
+          right: -260px;
+          bottom: -140px;
+          width: rem(572px);
+          height: rem(572px);
+          border-radius: rem(572px);
+        }
       }
 
       &.-image-2 {
+        display: none;
         top: 200px;
         right: 270px;
         width: rem(150px);
         height: rem(150px);
         border-radius: rem(150px);
+
+        @media screen and (min-width: $screen-xl) {
+          display: block;
+        }
       }
 
       &.-image-3 {
-        top: 305px;
-        right: 312px;
-        width: rem(360px);
-        height: rem(360px);
-        border-radius: rem(360px);
+        display: none;
+
+        @media screen and (min-width: $screen-l) {
+          display: block;
+          top: 694px;
+          right: 135px;
+          width: rem(100px);
+          height: rem(100px);
+          border-radius: rem(360px);
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          top: 305px;
+          right: 312px;
+          width: rem(360px);
+          height: rem(360px);
+          border-radius: rem(360px);
+        }
       }
 
       &.-image-4 {
+        display: none;
         right: 178px;
         bottom: -310px;
         width: rem(284px);
         height: rem(284px);
         border-radius: rem(284px);
+
+        @media screen and (min-width: $screen-xl) {
+          display: block;
+        }
       }
 
       &.-image-5 {
-        right: -195px;
-        bottom: -565px;
-        width: rem(422px);
-        height: rem(422px);
-        border-radius: rem(422px);
+        display: none;
+
+        @media screen and (min-width: $screen-l) {
+          display: block;
+          right: -195px;
+          bottom: -565px;
+          width: rem(422px);
+          height: rem(422px);
+          border-radius: rem(422px);
+        }
       }
     }
 
     .title {
       max-width: rem(528px);
-      margin-top: rem(150px);
-      margin-bottom: rem(285px);
+      margin-top: rem(100px);
+      margin-bottom: rem(150px);
+
+      @media screen and (min-width: $screen-l) {
+        margin-top: rem(150px);
+        margin-bottom: rem(285px);
+      }
     }
   }
 
   .l-about__information {
     .l-about__information-text {
-      max-width: rem(510px);
+      max-width: none;
       margin-top: rem(60px);
+
+      @media screen and (min-width: $screen-l) {
+        max-width: rem(510px);
+      }
 
       p {
         margin-top: rem(5px);
@@ -75,16 +117,40 @@
         display: flex;
         align-items: flex-end;
         width: 100%;
-        margin-left: rem(100px);
+        margin-left: 0;
+
+        @media screen and (min-width: $screen-xl) {
+          margin-left: rem(100px);
+        }
 
         .contain-contact-text {
-          padding-left: rem(15px);
-          border-left: 2px solid rgba($color-4, .4);
+          padding-top: rem(15px);
+          border-top: 2px solid rgba($color-4, .4);
+
+          @media screen and (min-width: $screen-xl) {
+            padding-top: 0;
+            padding-left: rem(15px);
+            border-top: 0;
+            border-left: 2px solid rgba($color-4, .4);
+          }
+
+          h4 {
+            padding: 0;
+
+            @media screen and (min-width: $screen-xl) {
+              padding: inherit;
+            }
+          }
 
 
           .l-about__contact-text {
             width: 100%;
             margin-top: rem(10px);
+            padding: 0;
+
+            @media screen and (min-width: $screen-xl) {
+              padding: inherit;
+            }
 
             div {
               margin-bottom: rem(16px);
@@ -222,6 +288,7 @@
       .link-logo {
         display: flex;
         align-items: center;
+        margin-right: rem(10px);
 
         &.-vizzuality {
           position: relative;
