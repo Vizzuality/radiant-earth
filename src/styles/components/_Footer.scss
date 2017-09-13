@@ -55,8 +55,18 @@
   }
 
   .c-footer__social {
+    margin-top: rem(40px);
+
+    @media screen and (min-width: $screen-l) {
+      margin-top: 0;
+    }
+
     .c-footer__social-container {
-      margin-bottom: rem(20px);
+      margin-bottom: rem(40px);
+
+      @media screen and (min-width: $screen-l) {
+        margin-bottom: rem(20px);
+      }
 
       &:last-of-type {
         margin-bottom: 0;
