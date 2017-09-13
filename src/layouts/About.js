@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MotionCircle from '../components/MotionCircle';
 
 import image1 from '../images/home/cover/1.jpg';
 import image2 from '../images/home/cover/2.jpg';
@@ -77,11 +78,11 @@ class About extends Component {
       <div className="l-about">
         <Header />
         <div className="l-about__cover">
-          <div className="l-about__circle-image -image-1" style={{ backgroundImage: `url(${image1})` }}>{}</div>
-          <div className="l-about__circle-image -image-2" style={{ backgroundImage: `url(${image2})` }}>{}</div>
-          <div className="l-about__circle-image -image-3" style={{ backgroundImage: `url(${image3})` }}>{}</div>
-          <div className="l-about__circle-image -image-4" style={{ backgroundImage: `url(${image4})` }}>{}</div>
-          <div className="l-about__circle-image -image-5" style={{ backgroundImage: `url(${image5})` }}>{}</div>
+          <div className="l-about__circle-image -image-1"><MotionCircle width="572" backgroundImage={image1} /></div>
+          <div className="l-about__circle-image -image-2"><MotionCircle width="150" backgroundImage={image2} /></div>
+          <div className="l-about__circle-image -image-3"><MotionCircle width="360" backgroundImage={image3} /></div>
+          <div className="l-about__circle-image -image-4"><MotionCircle width="284" backgroundImage={image4} /></div>
+          <div className="l-about__circle-image -image-5"><MotionCircle width="422" backgroundImage={image5} /></div>
           <div className="row">
             <div className="columns large-12 medium-12 small-12 title">
               <h1 className="text -ff2-xl -color-1">Open geospatial data for positive impact</h1>
