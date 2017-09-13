@@ -19,7 +19,7 @@ class MotionCircle extends Component {
 
   render() {
     const { x, y } = this.state;
-    const { backgroundImage, width} = this.props;
+    const { backgroundImage, width } = this.props;
     return (
       <div
         className="c-motion-circle"

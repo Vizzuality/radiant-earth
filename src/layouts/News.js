@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
 import BoxCard from '../components/BoxCard';
+import MotionCircle from '../components/MotionCircle';
 
 import image1 from '../images/home/cover/1.jpg';
 import image2 from '../images/home/cover/2.jpg';
@@ -121,7 +122,9 @@ class News extends Component {
             <div className="row">
               <div className="columns large-6 medium-6 small-12 l-news__image">
                 {sliderContent.map((item, i) =>
-                  <div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`} style={{ backgroundImage: `url(${item.img})` }}>{}</div>
+                  (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
+                    <MotionCircle width="510" backgroundImage={item.img} />
+                  </div>)
                 )}
               </div>
               <div className="columns large-6 medium-6 small-12 l-news__text-cover">
