@@ -90,10 +90,10 @@ class Explore extends Component {
                     <div className="container-buttons">
                       <button
                         onClick={() => this.showModal()}
-                        className="c-button -back-gray text -ff2-m -uppercase -gray"
+                        className="c-button -back-gray text -ff2-xs -uppercase -gray"
                       >REQUEST ACCESS</button>
                       <div className="c-button -back-orange">
-                        <a className="text -ff2-m -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
+                        <a className="text -ff2-xs -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
                       </div>
                     </div>
                   </div>)
@@ -170,7 +170,7 @@ class Explore extends Component {
               </div>
               <div className="contain-button">
                 <button
-                  className="c-button text -ff2-m -color-2 -uppercase -back-orange"
+                  className="c-button text -ff2-xs -color-2 -uppercase -back-orange"
                 >Submit request</button>
               </div>
             </form>
