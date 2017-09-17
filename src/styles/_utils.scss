@@ -1,8 +1,11 @@
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 @function rem($px, $base: 16px) {
   @return ($px / $base) * 1rem;
 }
 
-@mixin placeholder() {
+@mixin placeholder {
   &::-webkit-input-placeholder {@content}
   &:-moz-placeholder {@content}
   &::-moz-placeholder {@content}

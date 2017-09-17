@@ -4,80 +4,80 @@ $testimonial-font-size: 18px;
 
 .l-home {
   .l-home__cover {
-    display: flex;
     position: relative;
     align-content: center;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 40px);
+    height: 100vh;
     margin-top: -118px;
 
-    &:before {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($black, .4);
-      content: '';
-      z-index: 2;
+    .slick-track {
+      transform: none!important;
     }
 
-    .l-home__cover-slider {
+    .slick-slide {
       display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
+      flex-direction: column;
+      align-content: center;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 100%;
-      transition: opacity .2s linear;
+      height: calc(100vh - 40px);
       background-repeat: no-repeat;
       background-size: cover;
-      opacity: 0;
 
-      &.-show {
-        opacity: 1;
-      }
-
-      .l-home__cover-title {
+      h1,
+      p {
         max-width: rem(700px);
-        z-index: 3;
-
-        h1 {
-          margin-bottom: rem(10px);
-        }
+        z-index: 2;
       }
-    }
 
-    .c-button-circle {
-      position: absolute;
-      bottom: -20px;
-      z-index: 1;
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, .4);
+        content: '';
+        z-index: 2;
+      }
     }
 
     .contain-buttons {
+      display: flex !important;
       position: absolute;
-      bottom: rem(10px);
+      bottom: rem(60px);
+      align-content: center;
+      justify-content: center;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
       z-index: 3;
 
-      button {
-        width: rem(10px);
-        height: rem(10px);
-        margin-right: rem(15px);
-        transition: .2s linear;
-        border-radius: rem(10px);
-        background-color: rgba($white, .9);
-        cursor: pointer;
-
-        &.-selected {
-          background-color: $color-2;
-        }
+      li {
+        display: inline-block;
+        width: rem(12px);
+        height: rem(12px);
+        margin-right: 15px;
+        border-radius: rem(12px);
+        background-color: rgba($white, .5);
 
         &:last-of-type {
           margin-right: 0;
+        }
+
+        &.slick-active {
+          background-color: $color-2;
+        }
+
+        button {
+          top: 0;
+          width: rem(15px);
+          height: rem(15px);
+          color: transparent;
+          cursor: pointer;
         }
       }
     }
@@ -143,20 +143,10 @@ $testimonial-font-size: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-width: calc(100vw / 2.7);
         margin-right: rem(30px);
         padding: rem(40px);
         transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
-        opacity: .5;
-
-        &.-show {
-          opacity: 1;
-        }
-
-        &.-not-back {
-          opacity: .5;
-        }
 
         p {
           color: rgba($black-2, .6);

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Slider from 'react-slick';
+import ReactSiema from 'react-siema';
+import Siema from 'siema';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -106,58 +109,64 @@ class Home extends Component {
     ];
   }
 
+  componentDidMount() {
+    const mySiema = new Siema({
+      selector: '.l-home__testimonial-slider',
+      duration: 200,
+      easing: 'ease-out',
+      perPage: 1,
+      startIndex: 0,
+      draggable: true,
+      threshold: 20,
+      loop: false,
+      onInit: () => {},
+      onChange: () => {},
+    });
+  }
+
   slideHomePage(sliderHomePage) {
     this.setState({
       sliderHomePage
     });
   }
 
-  slideTestimonial(d) {
-    const windowWidth = window.innerWidth;
-    const vwSlidePx = 30 / (windowWidth * 0.01);
-    let currentSlider;
-    currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
-    this.setState({
-      slideTestimonialNumber: currentSlider,
-      slideTestimonialBack: currentSlider > 1,
-      slideTestimonialNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 1),
-      positionSlideTestimonial: `translate3d(calc((((100vw / 2.7) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
-    });
-  }
-
-  slideStudies(d) {
-    const windowWidth = window.innerWidth;
-    const vwSlidePx = 30 / (windowWidth * 0.01);
-    let currentSlider;
-    currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
-    this.setState({
-      slideStudiesNumber: currentSlider,
-      slideStudiesBack: currentSlider > 1,
-      slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 3),
-      positionSlideStudies: `translate3d(calc((((100vw / 4) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
-    });
-  }
-
   render() {
+    const settingsCover = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      className: 'l-home__cover',
+      swipeToSlide: false,
+      dotsClass: 'contain-buttons'
+    };
+
+    const options = {
+      resizeDebounce: 250,
+      duration: 200,
+      easing: 'ease-out',
+      perPage: 3,
+      startIndex: 0,
+      draggable: true,
+      threshold: 20,
+      loop: false,
+    };
+
     return (
       <div>
         <Header color="white" />
         <div className="l-home">
-          <div className="l-home__cover">
+          <Slider {...settingsCover}>
             {this.sliderHomePage.map((item, i) =>
-              (<div key={i.toString()} style={{ backgroundImage: `url(${item.image})` }} className={`l-home__cover-slider ${i === this.state.sliderHomePage ? '-show' : ''}`} >
-                <div className="l-home__cover-title">
+              (
+                <div key={i.toString()} className="l-home__cover-title" style={{ backgroundImage: `url(${item.image})` }}>
                   <h1 className="text -ff2-xl -white -center">{item.title}</h1>
                   <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
                 </div>
-              </div>)
+              )
             )}
-            <div className="contain-buttons">
-              {this.sliderHomePage.map((item, i) =>
-                <button key={i.toString()} className={`${i === this.state.sliderHomePage ? '-selected' : ''}`} onClick={() => this.slideHomePage(i)}>{}</button>
-              )}
-            </div>
-          </div>
+          </Slider>
           <div className="l-home__intro">
             <div className="row">
               <div className="l-home__intro-image columns large-6 medium-6 small-6">
@@ -174,23 +183,12 @@ class Home extends Component {
           </div>
           <div className="l-home__testimonial">
             <div className="row">
-              <button className={`c-button-circle -next -right ${this.state.slideTestimonialNext ? '-show' : ''}`} onClick={() => this.slideTestimonial('next')}>
-                <svg className="icon icon-arrow-down">
-                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
-              </button>
-              <button className={`c-button-circle -back -left ${this.state.slideTestimonialBack ? '-show' : ''}`} onClick={() => this.slideTestimonial('back')}>
-                <svg className="icon icon-arrow-down">
-                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
-              </button>
               <h2
                 className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
               >community</h2>
-              <div
-                className="l-home__testimonial-slider columns large-12 medium-12 small-12"
-                style={{ transform: this.state.positionSlideTestimonial }}
-              >
+              <div className="l-home__testimonial-slider">
                 {this.sliderTestimonial.map((item, i) =>
-                  (<div key={i.toString()} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
+                  (<div key={i.toString()} className="l-home__testimonial-item">
                     <div>
                       <p className="text -ff2-m">
                         <span className="quotes">“</span>
@@ -207,50 +205,50 @@ class Home extends Component {
               </div>
             </div>
           </div>
-          <div className="l-home__intro-secondary">
-            <div className="row">
-              <div className="l-home__intro-text columns large-6 medium-6 small-6">
-                <BoxTitleContent
-                  subTitle=""
-                  title="Create powerful insights and evidence-based support for change"
-                  text="Radiant.Earth guide people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market information and analysis on remote sensing activity, highlighting use cases and best practices, and offering a market place for Earth imagery."
-                  buttonUrl="#"
-                />
-              </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">
-                <MotionCircle width="510" backgroundImage={sub2} />
-              </div>
+        </div>
+        <div className="l-home__intro-secondary">
+          <div className="row">
+            <div className="l-home__intro-text columns large-6 medium-6 small-6">
+              <BoxTitleContent
+                subTitle=""
+                title="Create powerful insights and evidence-based support for change"
+                text="Radiant.Earth guide people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market information and analysis on remote sensing activity, highlighting use cases and best practices, and offering a market place for Earth imagery."
+                buttonUrl="#"
+              />
+            </div>
+            <div className="l-home__intro-image columns large-6 medium-6 small-6">
+              <MotionCircle width="510" backgroundImage={sub2} />
             </div>
           </div>
-          <div className="l-home__studies">
-            <div className="row">
-              <button className={`c-button-circle -next -right ${this.state.slideStudiesNext ? '-show' : ''}`} onClick={() => this.slideStudies('next')}>
-                <svg className="icon icon-arrow-down">
-                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
-              </button>
-              <button className={`c-button-circle -back -left ${this.state.slideStudiesBack ? '-show' : ''}`} onClick={() => this.slideStudies('back')}>
-                <svg className="icon icon-arrow-down">
-                  <use xlinkHref="#icon-arrow-down">{}</use></svg>
-              </button>
-              <h2
-                className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-              >LATEST CASE STUDIES</h2>
-              <div
-                className="l-home__studies-slider columns large-12 medium-12 small-12"
-                style={{ transform: this.state.positionSlideStudies }}
-              >
-                {this.sliderStudies.map((item, i) =>
-                  (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
-                    <div className="img">{}</div>
-                    <div>
-                      <BoxTitleContent
-                        title={item.title}
-                        text={item.text}
-                      />
-                    </div>
-                  </div>)
-                )};
-              </div>
+        </div>
+        <div className="l-home__studies">
+          <div className="row">
+            <button className={`c-button-circle -next -right ${this.state.slideStudiesNext ? '-show' : ''}`} onClick={() => this.slideStudies('next')}>
+              <svg className="icon icon-arrow-down">
+                <use xlinkHref="#icon-arrow-down">{}</use></svg>
+            </button>
+            <button className={`c-button-circle -back -left ${this.state.slideStudiesBack ? '-show' : ''}`} onClick={() => this.slideStudies('back')}>
+              <svg className="icon icon-arrow-down">
+                <use xlinkHref="#icon-arrow-down">{}</use></svg>
+            </button>
+            <h2
+              className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
+            >LATEST CASE STUDIES</h2>
+            <div
+              className="l-home__studies-slider columns large-12 medium-12 small-12"
+              style={{ transform: this.state.positionSlideStudies }}
+            >
+              {this.sliderStudies.map((item, i) =>
+                (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
+                  <div className="img">{}</div>
+                  <div>
+                    <BoxTitleContent
+                      title={item.title}
+                      text={item.text}
+                    />
+                  </div>
+                </div>)
+              )};
             </div>
           </div>
         </div>
