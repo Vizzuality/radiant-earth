@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-import image1 from '../images/home/cover/1.jpg';
-import image2 from '../images/home/cover/2.jpg';
-import image3 from '../images/home/cover/3.jpg';
-import image4 from '../images/home/cover/4.jpg';
-import image5 from '../images/home/cover/5.jpg';
-
 import anne from '../images/team/bios_anne.jpg';
 import dan from '../images/team/bios_dan.jpg';
 import anthony from '../images/team/bios_anthony.jpg';

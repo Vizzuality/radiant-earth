@@ -33,26 +33,33 @@
     "validator": "^8.0.0"
   },
   "devDependencies": {
-    "node-sass-chokidar": "^0.0.3",
-    "npm-run-all": "^4.0.2",
-    "react-scripts": "1.0.10",
-    "eslint": "^4.6.1",
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.0.2",
+    "precommit": "^1.2.2",
+    "react-scripts": "1.0.10",
     "sass-lint": "^1.11.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "start-js": "react-scripts start",
+    "hook-install": "precommit install",
     "start": "npm-run-all -p watch-css start-js",
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test-eslint": "eslint --ext .jsx --ext .js src/**",
     "eject": "react-scripts eject",
     "precommit": "npm run test-eslint"
-
+  },
+  "precommit": {
+    "tasks": [
+      "npm run precommit"
+    ]
   }
 }

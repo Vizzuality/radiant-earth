@@ -111,10 +111,16 @@ class Home extends Component {
     ];
   }
 
-  showModal() {
-    this.setState({
-      showModal: !this.state.showModal
-    });
+  onResize() {
+    if (window.innerWidth < 1050) {
+      this.setState({
+        widthCircle: 310
+      });
+    } else {
+      this.setState({
+        widthCircle: 510
+      });
+    }
   }
 
   slideTestimonial(d) {
@@ -149,16 +155,10 @@ class Home extends Component {
     });
   }
 
-  onResize() {
-    if (window.innerWidth < 1050) {
-      this.setState({
-        widthCircle: 310
-      });
-    } else {
-      this.setState({
-        widthCircle: 510
-      });
-    }
+  showModal() {
+    this.setState({
+      showModal: !this.state.showModal
+    });
   }
 
   render() {

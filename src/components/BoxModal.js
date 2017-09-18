@@ -37,4 +37,9 @@ function BoxModal(props) {
   );
 }
 
+BoxModal.propTypes = {
+  show: PropTypes.string.isRequired,
+  openModal: PropTypes.func.isRequired,
+};
+
 export default BoxModal;
