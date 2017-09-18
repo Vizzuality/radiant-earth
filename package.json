@@ -51,6 +51,8 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test-eslint": "eslint --ext .jsx --ext .js src/**",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "precommit": "npm run test-eslint"
+
   }
 }
