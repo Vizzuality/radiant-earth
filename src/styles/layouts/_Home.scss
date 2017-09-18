@@ -104,18 +104,42 @@ $testimonial-font-size: 18px;
   .l-home__intro,
   .l-home__intro-secondary {
     position: relative;
-    padding-top: rem(95px);
+    padding-top: rem(50px);
     background-color: $white;
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(95px);
+    }
 
     .row {
       align-items: center;
+      justify-content: space-around;
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
     }
 
     .l-home__intro-image {
-      width: rem(510px);
-      max-width: rem(510px);
-      height: rem(510px);
-      margin-right: rem(15px);
+      display: none;
+
+      @media screen and (min-width: $screen-m) {
+        display: block;
+        width: rem(310px);
+        max-width: rem(310px);
+        height: rem(310px);
+        margin-right: rem(15px);
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        width: rem(510px);
+        max-width: rem(510px);
+        height: rem(510px);
+      }
     }
   }
 

@@ -17,6 +17,7 @@
     "react-iframe": "^1.0.7",
     "react-infinite-scroller": "^1.0.15",
     "react-masonry-component": "^5.0.7",
+    "react-resize-detector": "^0.6.0",
     "react-router-dom": "^4.1.1",
     "react-scroll": "^1.5.4",
     "react-select": "^1.0.0-rc.5",

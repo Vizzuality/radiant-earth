@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import ReactResizeDetector from 'react-resize-detector';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -37,7 +38,8 @@ class Home extends Component {
       slideStudiesBack: false,
       positionSlideStudies: '',
       sliderHomePage: 0,
-      showModal: false
+      showModal: false,
+      widthCircle: 510
     };
 
     this.sliderTestimonial = [
@@ -147,6 +149,18 @@ class Home extends Component {
     });
   }
 
+  onResize() {
+    if (window.innerWidth < 1050) {
+      this.setState({
+        widthCircle: 310
+      });
+    } else {
+      this.setState({
+        widthCircle: 510
+      });
+    }
+  }
+
   render() {
     const settingsCover = {
       dots: true,
@@ -184,10 +198,10 @@ class Home extends Component {
           </Slider>
           <div className="l-home__intro">
             <div className="row">
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">
-                <MotionCircle width="510" backgroundImage={sub1} />
+              <div className="l-home__intro-image columns large-6 medium-6 small-12">
+                <MotionCircle width={this.state.widthCircle} backgroundImage={sub1} />
               </div>
-              <div className="l-home__intro-text columns large-6 medium-6 small-6">
+              <div className="l-home__intro-text columns large-6 medium-6 small-12">
                 <BoxTitleContent
                   subTitle=""
                   title="Accelerate improved decision-making"
@@ -233,7 +247,7 @@ class Home extends Component {
           </div>
           <div className="l-home__intro-secondary">
             <div className="row">
-              <div className="l-home__intro-text columns large-6 medium-6 small-6">
+              <div className="l-home__intro-text columns large-6 medium-6 small-12">
                 <BoxTitleContent
                   subTitle=""
                   title="Create powerful insights and evidence-based support for change"
@@ -241,7 +255,7 @@ class Home extends Component {
                   buttonUrl="#"
                 />
               </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">
+              <div className="l-home__intro-image columns large-6 medium-6 small-12">
                 <MotionCircle width="510" backgroundImage={sub2} />
               </div>
             </div>
@@ -280,6 +294,7 @@ class Home extends Component {
           <BoxModal openModal={this.showModal.bind(this)} show={this.state.showModal} />
         </div>
         <Footer />
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize.bind(this)} />
       </div>
     );
   }
