@@ -3,6 +3,20 @@ $quotes-font: 'Fira Sans', sans-serif;
 $testimonial-font-size: 18px;
 
 .l-home {
+  .container-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: rem(30px);
+    z-index: 4;
+
+    .c-button {
+      &:first-of-type {
+        min-width: rem(200px);
+        margin-right: rem(20px);
+      }
+    }
+  }
+
   .l-home__cover {
     position: relative;
     align-content: center;

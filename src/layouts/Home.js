@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import ReactSiema from 'react-siema';
 import Siema from 'siema';
+import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -38,6 +38,7 @@ class Home extends Component {
       slideStudiesBack: false,
       positionSlideStudies: '',
       sliderHomePage: 0,
+      showModal: false
     };
 
     this.sliderTestimonial = [
@@ -124,9 +125,9 @@ class Home extends Component {
     });
   }
 
-  slideHomePage(sliderHomePage) {
+  showModal() {
     this.setState({
-      sliderHomePage
+      showModal: !this.state.showModal
     });
   }
 
@@ -142,17 +143,6 @@ class Home extends Component {
       dotsClass: 'contain-buttons'
     };
 
-    const options = {
-      resizeDebounce: 250,
-      duration: 200,
-      easing: 'ease-out',
-      perPage: 3,
-      startIndex: 0,
-      draggable: true,
-      threshold: 20,
-      loop: false,
-    };
-
     return (
       <div>
         <Header color="white" />
@@ -163,6 +153,15 @@ class Home extends Component {
                 <div key={i.toString()} className="l-home__cover-title" style={{ backgroundImage: `url(${item.image})` }}>
                   <h1 className="text -ff2-xl -white -center">{item.title}</h1>
                   <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
+                  {i === 0 && <div className="container-buttons">
+                    <div className="c-button -back-orange">
+                      <a className="text -ff2-xs -color-2 -uppercase -white" href="#" target="_blank" rel="noopener noreferrer">explore data</a>
+                    </div>
+                    <button
+                      onClick={this.showModal.bind(this)}
+                      className="c-button -back-white text -ff2-xs -uppercase"
+                    >REQUEST ACCESS</button>
+                  </div>}
                 </div>
               )
             )}
@@ -252,6 +251,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <BoxModal openModal={this.showModal.bind(this)} show={this.state.showModal} />
         <Footer />
       </div>
     );
