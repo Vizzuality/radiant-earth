@@ -45,6 +45,10 @@ $testimonial-font-size: 18px;
         z-index: 2;
       }
 
+      h1 {
+        margin-bottom: rem(20px);
+      }
+
       &::before {
         display: block;
         position: absolute;
@@ -134,8 +138,17 @@ $testimonial-font-size: 18px;
       z-index: 3;
 
       &.-next {
-        left: calc((100vw / 2.7) * 2);
-        margin-left: 60px;
+        right: 10px;
+
+        @media screen and (min-width: $screen-xl) {
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 60px;
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+          right: -240px;
+          left: auto;
+        }
       }
 
       &.-back {
@@ -157,10 +170,31 @@ $testimonial-font-size: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        margin-right: rem(30px);
+        min-width: calc(100vw - 40px);
+        margin-right: rem(35px);
         padding: rem(40px);
         transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
+        opacity: .5;
+
+        @media screen and (min-width: $screen-xl) {
+          min-width: calc(100vw / 2.7);
+          margin-right: rem(30px);
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+          width: 610px;
+          min-width: 610px;
+        }
+
+
+        &.-show {
+          opacity: 1;
+        }
+
+        &.-not-back {
+          opacity: .5;
+        }
 
         p {
           color: rgba($black-2, .6);
@@ -218,8 +252,24 @@ $testimonial-font-size: 18px;
       z-index: 3;
 
       &.-next {
-        left: calc((100vw / 4) * 3);
-        margin-left: 90px;
+        right: 10px;
+
+        @media screen and (min-width: $screen-l) {
+          right: auto;
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 60px;
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          right: auto;
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 90px;
+        }
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          right: -128px;
+          left: inherit;
+        }
       }
 
       &.-back {
@@ -238,11 +288,25 @@ $testimonial-font-size: 18px;
       transition: .3s linear;
 
       .l-home__studies-item {
-        min-width: calc(100vw / 4);
-        margin-right: rem(30px);
+        min-width: calc(100vw - 40px);
+        margin-right: rem(35px);
         transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
         opacity: .5;
+
+        @media screen and (min-width: $screen-l) {
+          min-width: calc(100vw / 2.7);
+          margin-right: rem(30px);
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          min-width: calc(100vw / 4);
+        }
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          width: rem(360px);
+          min-width: rem(360px);
+        }
 
         &.-show {
           opacity: 1;
