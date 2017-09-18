@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import { API_BASE_URL, API_ROOT } from '../global';
+
 import anne from '../images/team/bios_anne.jpg';
 import dan from '../images/team/bios_dan.jpg';
 import anthony from '../images/team/bios_anthony.jpg';
@@ -74,14 +76,14 @@ class Staff extends Component {
 
   getBoard= () => {
     const self = this;
-    fetch('http://radiant-earth-cms.herokuapp.com/api/v1/members?is_board_member=true')
+    fetch(`${API_BASE_URL}/members?is_board_member=true`)
       .then(r => r.json())
       .then(data => self.setState({ members: data }));
   }
 
   getStaff= () => {
     const self = this;
-    fetch('http://radiant-earth-cms.herokuapp.com/api/v1/members?category=Staff')
+    fetch(`${API_BASE_URL}/members?category=Staff`)
       .then(r => r.json())
       .then(data => self.setState({ staff: data }));
   }
@@ -100,7 +102,7 @@ class Staff extends Component {
               (<div className="columns large-6 medium-6 small-6" key={i.toString()}>
                 <div className="l-about__staff-item">
                   <div className="contain-info">
-                    <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
+                    <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
                     <div className="info">
                       <span className="text -ff2-xs -uppercase">{item.title}</span>
                       <h3 className="text -ff2-l -color-1">{item.name}</h3>
@@ -124,7 +126,7 @@ class Staff extends Component {
                 key={i.toString()}
                 className="l-about__board-item columns large-3 medium-4 small-6"
               >
-                <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
+                <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
                 <span className="text -ff2-xs -uppercase">{item.title}</span>
                 <h3 className="text -ff2-l -color-1">{item.name}</h3>
               </div>)
