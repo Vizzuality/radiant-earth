@@ -99,7 +99,7 @@ class Staff extends Component {
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >STAFF</h2>
             {staff.map((item, i) =>
-              (<div className="columns large-6 medium-6 small-6" key={i.toString()}>
+              (<div className="columns large-6 medium-12 small-12" key={i.toString()}>
                 <div className="l-about__staff-item">
                   <div className="contain-info">
                     <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
