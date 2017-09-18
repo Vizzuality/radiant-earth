@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "@vimeo/player": "^2.1.1",
-    "axios": "^0.16.2",
     "babel-preset-es2015": "^6.24.1",
     "formsy-react": "^0.19.5",
     "infinite-scroll": "^3.0.1",
     "lory.js": "^2.3.3",
     "map-limit": "0.0.1",
+    "node-fetch": "^1.7.3",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-burger-menu": "^2.1.1",

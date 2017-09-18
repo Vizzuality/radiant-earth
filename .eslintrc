@@ -6,7 +6,8 @@
     "es6": true
   },
   "globals": {
-    "Stats": true
+    "Stats": true,
+    "fetch": true,
   },
   "parser": "babel-eslint",
   "parserOptions": {
