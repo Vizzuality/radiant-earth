@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
 import BoxCard from '../components/BoxCard';
+import BoxModal from '../components/BoxModal';
 import oneExplore from '../images/explorePage/1.png';
 import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
@@ -140,42 +141,7 @@ class Explore extends Component {
               />
             </div>
           </div>
-          { showModal &&
-            <div
-              className="l-explore__modal-back"
-              onClick={() => this.showModal()}
-              role="button"
-              tabIndex={0}
-            >{}</div>
-          }
-          { showModal && <div className="l-explore__modal-resquest">
-            <form>
-              <svg className="icon" onClick={() => this.showModal()}>
-                <use xlinkHref="#icon-close">{}</use>
-              </svg>
-              <div className="contain-input">
-                <label htmlFor="email" className="text -ff2-xs -uppercase">Name
-                  <input
-                    id="email"
-                    name="email"
-                    className="c-input -text-field text -ff2-s"
-                    placeholder="ex: email@organization.com"
-                  />
-                </label>
-              </div>
-              <div className="contain-input">
-                <label htmlFor="text" className="text -ff2-xs -uppercase">Text
-                  <textarea className="text -ff2-s" name="text" id="text" />
-                </label>
-              </div>
-              <div className="contain-button">
-                <button
-                  className="c-button text -ff2-xs -color-2 -uppercase -back-orange"
-                >Submit request</button>
-              </div>
-            </form>
-          </div> }
-
+          <BoxModal openModal={this.showModal.bind(this)} show={showModal} />
         </div>
         <Footer />
       </div>

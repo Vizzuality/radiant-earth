@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Slider from 'react-slick';
+import ReactResizeDetector from 'react-resize-detector';
+import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -35,6 +38,8 @@ class Home extends Component {
       slideStudiesBack: false,
       positionSlideStudies: '',
       sliderHomePage: 0,
+      showModal: false,
+      widthCircle: 510
     };
 
     this.sliderTestimonial = [
@@ -106,9 +111,9 @@ class Home extends Component {
     ];
   }
 
-  slideHomePage(sliderHomePage) {
+  showModal() {
     this.setState({
-      sliderHomePage
+      showModal: !this.state.showModal
     });
   }
 
@@ -116,12 +121,15 @@ class Home extends Component {
     const windowWidth = window.innerWidth;
     const vwSlidePx = 30 / (windowWidth * 0.01);
     let currentSlider;
+    let transition = '100vw / 2.7';
+    if (windowWidth > 1711) { transition = '610px'; }
+    if (windowWidth < 1024) { transition = '100vw - 35px'; }
     currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
     this.setState({
       slideTestimonialNumber: currentSlider,
       slideTestimonialBack: currentSlider > 1,
-      slideTestimonialNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 1),
-      positionSlideTestimonial: `translate3d(calc((((100vw / 2.7) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+      slideTestimonialNext: currentSlider <= (document.getElementsByClassName('l-home__testimonial-item').length / 2),
+      positionSlideTestimonial: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
     });
   }
 
@@ -129,41 +137,71 @@ class Home extends Component {
     const windowWidth = window.innerWidth;
     const vwSlidePx = 30 / (windowWidth * 0.01);
     let currentSlider;
+    let transition = '100vw / 4';
+    if (windowWidth > 1625) { transition = '360px'; }
+    if (windowWidth < 1024) { transition = '100vw - 35px'; }
     currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
     this.setState({
       slideStudiesNumber: currentSlider,
       slideStudiesBack: currentSlider > 1,
-      slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__testimonial-item').length - 3),
-      positionSlideStudies: `translate3d(calc((((100vw / 4) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+      slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__studies-item').length - 2),
+      positionSlideStudies: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
     });
   }
 
+  onResize() {
+    if (window.innerWidth < 1050) {
+      this.setState({
+        widthCircle: 310
+      });
+    } else {
+      this.setState({
+        widthCircle: 510
+      });
+    }
+  }
+
   render() {
+    const settingsCover = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      className: 'l-home__cover',
+      swipeToSlide: false,
+      dotsClass: 'contain-buttons'
+    };
+
     return (
       <div>
         <Header color="white" />
         <div className="l-home">
-          <div className="l-home__cover">
+          <Slider {...settingsCover}>
             {this.sliderHomePage.map((item, i) =>
-              (<div key={i.toString()} style={{ backgroundImage: `url(${item.image})` }} className={`l-home__cover-slider ${i === this.state.sliderHomePage ? '-show' : ''}`} >
-                <div className="l-home__cover-title">
+              (
+                <div key={i.toString()} className="l-home__cover-title" style={{ backgroundImage: `url(${item.image})` }}>
                   <h1 className="text -ff2-xl -white -center">{item.title}</h1>
                   <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
+                  {i === 0 && <div className="container-buttons">
+                    <div className="c-button -back-orange">
+                      <a className="text -ff2-xs -color-2 -uppercase -white" href="#" target="_blank" rel="noopener noreferrer">explore data</a>
+                    </div>
+                    <button
+                      onClick={this.showModal.bind(this)}
+                      className="c-button -back-white text -ff2-xs -uppercase"
+                    >REQUEST ACCESS</button>
+                  </div>}
                 </div>
-              </div>)
+              )
             )}
-            <div className="contain-buttons">
-              {this.sliderHomePage.map((item, i) =>
-                <button key={i.toString()} className={`${i === this.state.sliderHomePage ? '-selected' : ''}`} onClick={() => this.slideHomePage(i)}>{}</button>
-              )}
-            </div>
-          </div>
+          </Slider>
           <div className="l-home__intro">
             <div className="row">
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">
-                <MotionCircle width="510" backgroundImage={sub1} />
+              <div className="l-home__intro-image columns large-6 medium-6 small-12">
+                <MotionCircle width={this.state.widthCircle} backgroundImage={sub1} />
               </div>
-              <div className="l-home__intro-text columns large-6 medium-6 small-6">
+              <div className="l-home__intro-text columns large-6 medium-6 small-12">
                 <BoxTitleContent
                   subTitle=""
                   title="Accelerate improved decision-making"
@@ -209,7 +247,7 @@ class Home extends Component {
           </div>
           <div className="l-home__intro-secondary">
             <div className="row">
-              <div className="l-home__intro-text columns large-6 medium-6 small-6">
+              <div className="l-home__intro-text columns large-6 medium-6 small-12">
                 <BoxTitleContent
                   subTitle=""
                   title="Create powerful insights and evidence-based support for change"
@@ -217,7 +255,7 @@ class Home extends Component {
                   buttonUrl="#"
                 />
               </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-6">
+              <div className="l-home__intro-image columns large-6 medium-6 small-12">
                 <MotionCircle width="510" backgroundImage={sub2} />
               </div>
             </div>
@@ -249,12 +287,14 @@ class Home extends Component {
                       />
                     </div>
                   </div>)
-                )};
+                )}
               </div>
             </div>
           </div>
+          <BoxModal openModal={this.showModal.bind(this)} show={this.state.showModal} />
         </div>
         <Footer />
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize.bind(this)} />
       </div>
     );
   }

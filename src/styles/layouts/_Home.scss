@@ -3,81 +3,99 @@ $quotes-font: 'Fira Sans', sans-serif;
 $testimonial-font-size: 18px;
 
 .l-home {
-  .l-home__cover {
+  .container-buttons {
     display: flex;
+    flex-direction: row;
+    margin-top: rem(30px);
+    z-index: 4;
+
+    .c-button {
+      &:first-of-type {
+        min-width: rem(200px);
+        margin-right: rem(20px);
+      }
+    }
+  }
+
+  .l-home__cover {
     position: relative;
     align-content: center;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 40px);
+    height: 100vh;
     margin-top: -118px;
 
-    &:before {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($black, .4);
-      content: '';
-      z-index: 2;
+    .slick-track {
+      transform: none!important;
     }
 
-    .l-home__cover-slider {
+    .slick-slide {
       display: flex;
-      position: absolute;
-      top: 0;
-      left: 0;
+      flex-direction: column;
+      align-content: center;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 100%;
-      transition: opacity .2s linear;
+      height: calc(100vh - 40px);
       background-repeat: no-repeat;
       background-size: cover;
-      opacity: 0;
 
-      &.-show {
-        opacity: 1;
-      }
-
-      .l-home__cover-title {
+      h1,
+      p {
         max-width: rem(700px);
-        z-index: 3;
-
-        h1 {
-          margin-bottom: rem(10px);
-        }
+        z-index: 2;
       }
-    }
 
-    .c-button-circle {
-      position: absolute;
-      bottom: -20px;
-      z-index: 1;
+      h1 {
+        margin-bottom: rem(20px);
+      }
+
+      &::before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($black, .4);
+        content: '';
+        z-index: 2;
+      }
     }
 
     .contain-buttons {
+      display: flex !important;
       position: absolute;
-      bottom: rem(10px);
+      bottom: rem(60px);
+      align-content: center;
+      justify-content: center;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
       z-index: 3;
 
-      button {
-        width: rem(10px);
-        height: rem(10px);
-        margin-right: rem(15px);
-        transition: .2s linear;
-        border-radius: rem(10px);
-        background-color: rgba($white, .9);
-        cursor: pointer;
-
-        &.-selected {
-          background-color: $color-2;
-        }
+      li {
+        display: inline-block;
+        width: rem(12px);
+        height: rem(12px);
+        margin-right: 15px;
+        border-radius: rem(12px);
+        background-color: rgba($white, .5);
 
         &:last-of-type {
           margin-right: 0;
+        }
+
+        &.slick-active {
+          background-color: $color-2;
+        }
+
+        button {
+          top: 0;
+          width: rem(15px);
+          height: rem(15px);
+          color: transparent;
+          cursor: pointer;
         }
       }
     }
@@ -86,18 +104,42 @@ $testimonial-font-size: 18px;
   .l-home__intro,
   .l-home__intro-secondary {
     position: relative;
-    padding-top: rem(95px);
+    padding-top: rem(50px);
     background-color: $white;
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(95px);
+    }
 
     .row {
       align-items: center;
+      justify-content: space-around;
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
     }
 
     .l-home__intro-image {
-      width: rem(510px);
-      max-width: rem(510px);
-      height: rem(510px);
-      margin-right: rem(15px);
+      display: none;
+
+      @media screen and (min-width: $screen-m) {
+        display: block;
+        width: rem(310px);
+        max-width: rem(310px);
+        height: rem(310px);
+        margin-right: rem(15px);
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        width: rem(510px);
+        max-width: rem(510px);
+        height: rem(510px);
+      }
     }
   }
 
@@ -120,8 +162,17 @@ $testimonial-font-size: 18px;
       z-index: 3;
 
       &.-next {
-        left: calc((100vw / 2.7) * 2);
-        margin-left: 60px;
+        right: 10px;
+
+        @media screen and (min-width: $screen-xl) {
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 60px;
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+          right: -240px;
+          left: auto;
+        }
       }
 
       &.-back {
@@ -143,12 +194,23 @@ $testimonial-font-size: 18px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-width: calc(100vw / 2.7);
-        margin-right: rem(30px);
+        min-width: calc(100vw - 40px);
+        margin-right: rem(35px);
         padding: rem(40px);
         transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
         opacity: .5;
+
+        @media screen and (min-width: $screen-xl) {
+          min-width: calc(100vw / 2.7);
+          margin-right: rem(30px);
+        }
+
+        @media screen and (min-width: $screen-xxxl) {
+          width: 610px;
+          min-width: 610px;
+        }
+
 
         &.-show {
           opacity: 1;
@@ -214,8 +276,24 @@ $testimonial-font-size: 18px;
       z-index: 3;
 
       &.-next {
-        left: calc((100vw / 4) * 3);
-        margin-left: 90px;
+        right: 10px;
+
+        @media screen and (min-width: $screen-l) {
+          right: auto;
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 60px;
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          right: auto;
+          left: calc((100vw / 2.7) * 2);
+          margin-left: 90px;
+        }
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          right: -128px;
+          left: inherit;
+        }
       }
 
       &.-back {
@@ -234,11 +312,25 @@ $testimonial-font-size: 18px;
       transition: .3s linear;
 
       .l-home__studies-item {
-        min-width: calc(100vw / 4);
-        margin-right: rem(30px);
+        min-width: calc(100vw - 40px);
+        margin-right: rem(35px);
         transition: opacity .3s linear;
         background-color: rgba($color-4, .05);
         opacity: .5;
+
+        @media screen and (min-width: $screen-l) {
+          min-width: calc(100vw / 2.7);
+          margin-right: rem(30px);
+        }
+
+        @media screen and (min-width: $screen-xl) {
+          min-width: calc(100vw / 4);
+        }
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          width: rem(360px);
+          min-width: rem(360px);
+        }
 
         &.-show {
           opacity: 1;
