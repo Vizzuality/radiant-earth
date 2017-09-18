@@ -231,38 +231,6 @@
     }
   }
 
-  .l-about__board {
-    margin-top: rem(70px);
-    padding: rem(80px) 0;
-    background-color: rgba($color-4, .05);
-
-    .row {
-      position: relative;
-
-      h2 {
-        margin-bottom: rem(20px);
-      }
-    }
-
-    .l-about__board-item {
-      margin-bottom: rem(60px);
-
-      span {
-        display: block;
-        margin: rem(20px) 0;
-        opacity: .5;
-      }
-
-      .img {
-        width: rem(130px);
-        height: rem(130px);
-        border-radius: rem(130px);
-        background-repeat: no-repeat;
-        background-size: cover;
-      }
-    }
-  }
-
   .l-about__logos {
     padding: rem(80px) 0 rem(50px);
 

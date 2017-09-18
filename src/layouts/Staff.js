@@ -14,6 +14,14 @@ class Staff extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      members: [],
+      staff: [],
+    };
+
+    this.getBoard = this.getBoard.bind(this);
+    this.getStaff = this.getStaff.bind(this);
+
     this.staffContent = [
       {
         img: anne,
@@ -59,7 +67,27 @@ class Staff extends Component {
     ];
   }
 
+  componentDidMount() {
+    this.getBoard();
+    this.getStaff();
+  }
+
+  getBoard= () => {
+    const self = this;
+    fetch('http://radiant-earth-cms.herokuapp.com/api/v1/members?is_board_member=true')
+      .then(r => r.json())
+      .then(data => self.setState({ members: data }));
+  }
+
+  getStaff= () => {
+    const self = this;
+    fetch('http://radiant-earth-cms.herokuapp.com/api/v1/members?category=Staff')
+      .then(r => r.json())
+      .then(data => self.setState({ staff: data }));
+  }
+
   render() {
+    const { members, staff } = this.state;
     return (
       <div className="l-staff">
         <Header />
@@ -68,20 +96,37 @@ class Staff extends Component {
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >STAFF</h2>
-            {this.staffContent.map((item, i) =>
+            {staff.map((item, i) =>
               (<div className="columns large-6 medium-6 small-6" key={i.toString()}>
                 <div className="l-about__staff-item">
                   <div className="contain-info">
                     <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
                     <div className="info">
-                      <span className="text -ff2-xs -uppercase">{item.position}</span>
+                      <span className="text -ff2-xs -uppercase">{item.title}</span>
                       <h3 className="text -ff2-l -color-1">{item.name}</h3>
                     </div>
                   </div>
                   <div className="contain-text">
-                    <p className="text -ff1-m">{item.text}</p>
+                    <p className="text -ff1-m">{item.description}</p>
                   </div>
                 </div>
+              </div>)
+            )}
+          </div>
+        </div>
+        <div className="l-staff__board">
+          <div className="row">
+            <h2
+              className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
+            >BOARD</h2>
+            {members.map((item, i) =>
+              (<div
+                key={i.toString()}
+                className="l-about__board-item columns large-3 medium-4 small-6"
+              >
+                <div className="img" style={{ backgroundImage: `url(${item.img})` }}>{}</div>
+                <span className="text -ff2-xs -uppercase">{item.title}</span>
+                <h3 className="text -ff2-l -color-1">{item.name}</h3>
               </div>)
             )}
           </div>

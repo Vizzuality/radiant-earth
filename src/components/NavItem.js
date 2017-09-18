@@ -16,11 +16,16 @@ function NavItem(props) {
   );
 }
 
+NavItem.defaultProps = {
+  subMenu: null,
+  color: null,
+};
+
 NavItem.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  subMenu: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  subMenu: PropTypes.array,
+  color: PropTypes.string
 };
 
 export default NavItem;

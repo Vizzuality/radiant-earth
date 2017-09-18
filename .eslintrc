@@ -20,6 +20,7 @@
   },
   "extends": "airbnb",
   "rules": {
+    "react/forbid-prop-types": [0, { "forbid": ['array'] }],
     "jsx-a11y/href-no-hash": [0, { components: ['a'] }],
     "react/jsx-no-bind": [1, {
       "ignoreRefs": true,

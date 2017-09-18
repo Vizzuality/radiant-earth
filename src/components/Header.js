@@ -59,6 +59,10 @@ class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  color: ''
+};
+
 Header.propTypes = {
   color: PropTypes.string.isRequired,
 };

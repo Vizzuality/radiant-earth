@@ -22,7 +22,7 @@ function Nav(props) {
 }
 
 Nav.propTypes = {
-  links: PropTypes.string.isRequired,
+  links: PropTypes.array.isRequired,
   color: PropTypes.string.isRequired
 };
 
