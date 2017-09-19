@@ -129,7 +129,7 @@ class Home extends Component {
     let currentSlider;
     let transition = '100vw / 2.7';
     if (windowWidth > 1711) { transition = '610px'; }
-    if (windowWidth < 1024) { transition = '100vw - 35px'; }
+    if (windowWidth < 1024) { transition = '100vw - 55px'; }
     currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
     this.setState({
       slideTestimonialNumber: currentSlider,
@@ -145,7 +145,7 @@ class Home extends Component {
     let currentSlider;
     let transition = '100vw / 4';
     if (windowWidth > 1625) { transition = '360px'; }
-    if (windowWidth < 1024) { transition = '100vw - 35px'; }
+    if (windowWidth < 1024) { transition = '100vw - 55px'; }
     currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
     this.setState({
       slideStudiesNumber: currentSlider,

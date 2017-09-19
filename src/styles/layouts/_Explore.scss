@@ -1,4 +1,5 @@
 $height-slider: rem(375px);
+$height-slider-small: rem(275px);
 $animation: .3s;
 $animation-text: .2s;
 $animation-delay: .35s;
@@ -11,12 +12,31 @@ $animation-delay: .35s;
   }
 
   .l-explore__slider-content {
-    padding: rem(60px) 0;
+
     background-color: rgba($color-4, .05);
 
+    @media screen and (min-width: $screen-l) {
+      padding: rem(60px) 0;
+    }
+
     .l-explore__image {
+      display: none;
       position: relative;
-      height: $height-slider;
+      max-width: rem(600px);
+      min-height: $height-slider;
+      margin: 0 auto;
+
+      @media screen and (min-width: $screen-m) {
+        display: block;
+      }
+
+
+      @media screen and (min-width: $screen-xl) {
+        display: block;
+        max-width: none;
+        min-height: $height-slider;
+        margin: 0 auto;
+      }
 
       &::before {
         display: block;
@@ -51,7 +71,7 @@ $animation-delay: .35s;
         top: 0;
         left: rem(15px);
         width: calc(100% - 30px);
-        height: $height-slider;
+        min-height: $height-slider;
         transition: $animation linear;
         border: 1px solid rgba($color-4, .1);
         background-repeat: no-repeat;
@@ -71,8 +91,22 @@ $animation-delay: .35s;
     .l-explore__content {
       display: flex;
       position: relative;
+      right: rem(15px);
       align-items: center;
+      max-width: calc(100vw - 100px);
       height: $height-slider;
+      margin: -40px auto 0;
+
+      @media screen and (min-width: $screen-l) {
+        right: inherit;
+        max-width: rem(600px);
+        margin: -10px auto 0;
+        padding: inherit;
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        max-width: none;
+      }
 
       .box-container {
         position: absolute;
@@ -108,6 +142,26 @@ $animation-delay: .35s;
 
     .l-explore__circle-container {
       list-style: none;
+      text-align: center;
+
+      @media screen and (min-width: $screen-m) {
+        position: absolute;
+        top: rem(390px);
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @media screen and (min-width: $screen-l) {
+        top: rem(448px);
+        text-align: left;
+      }
+
+      @media screen and (min-width: $screen-xl) {
+        position: inherit;
+        top: inherit;
+        left: inherit;
+        transform: none;
+      }
 
       button {
         margin-right: rem(20px);
@@ -116,12 +170,17 @@ $animation-delay: .35s;
 
       .circle {
         display: inline-block;
-        width: rem(10px);
-        height: rem(10px);
+        width: rem(15px);
+        height: rem(15px);
         transition: background-color $animation linear;
         border-radius: rem(10px);
         background-color: rgba($color-4, .2);
         cursor: pointer;
+
+        @media screen and (min-width: $screen-l) {
+          width: rem(10px);
+          height: rem(10px);
+        }
 
         &:last-of-type {
           margin-right: 0;
@@ -136,6 +195,14 @@ $animation-delay: .35s;
 
   .l-explore__api-content {
     padding: rem(60px) 0 rem(50px);
+
+    .c-box-card {
+      margin-bottom: rem(30px);
+
+      @media screen and (min-width: $screen-xl) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .l-explore__modal-resquest {
