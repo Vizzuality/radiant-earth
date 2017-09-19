@@ -83,11 +83,11 @@ BoxCard.defaultProps = {
 
 BoxCard.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
+  subTitle: PropTypes.string,
   text: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
-  channel: PropTypes.string.isRequired,
+  buttonText: PropTypes.string,
+  buttonUrl: PropTypes.string,
+  channel: PropTypes.string,
   img: PropTypes.string.isRequired,
   video: PropTypes.string.isRequired,
 };

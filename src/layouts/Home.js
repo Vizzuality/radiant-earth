@@ -185,7 +185,7 @@ class Home extends Component {
                   <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
                   {i === 0 && <div className="container-buttons">
                     <div className="c-button -back-orange">
-                      <a className="text -ff2-xs -color-2 -uppercase -white" href="#" target="_blank" rel="noopener noreferrer">explore data</a>
+                      <a className="text -ff2-xs -color-2 -uppercase -white" href={'/#'} rel="noopener noreferrer">explore data</a>
                     </div>
                     <button
                       onClick={this.showModal.bind(this)}

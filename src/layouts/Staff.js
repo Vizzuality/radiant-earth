@@ -1,16 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
 import { API_BASE_URL, API_ROOT } from '../global';
-
-import anne from '../images/team/bios_anne.jpg';
-import dan from '../images/team/bios_dan.jpg';
-import anthony from '../images/team/bios_anthony.jpg';
-
-import peter from '../images/team/bios_peter.png';
-import sanjay from '../images/team/bios_sanjay.png';
-import margie from '../images/team/bios_margie.png';
 
 class Staff extends Component {
   constructor(props) {
@@ -23,50 +14,6 @@ class Staff extends Component {
 
     this.getBoard = this.getBoard.bind(this);
     this.getStaff = this.getStaff.bind(this);
-
-    this.staffContent = [
-      {
-        img: anne,
-        position: 'CEO, Radiant.Earth',
-        name: 'Anne Hale Miglarese',
-        text: 'Anne Hale Miglarese, founding CEO of Radiant, is committed to providing geospatial analytics using imagery and mapping data to empower informed decision-making to help solve the developing world’s greatest social, economic and environmental challenges. Read more',
-      },
-      {
-        img: dan,
-        position: 'Chief Technology Officer',
-        name: 'Dan Lopez',
-        text: 'Dan Lopez is an innovative entrepreneur and architect who has advised a wide variety of web-centric businesses and brands by lending his creative, strategic and technological vision. Read more',
-      },
-      {
-        img: anthony,
-        position: '...',
-        name: 'Anthony Burn',
-        text: 'Anthony Burn is passionate about harnessing the full power of GIS enabled data across multiple platforms, to transform individual lives and whole societies for the better. Read more',
-      },
-    ];
-
-    this.boardContent = [
-      {
-        img: anne,
-        position: 'CEO, Radiant.Earth',
-        name: 'Anne Hale Miglarese',
-      },
-      {
-        img: peter,
-        position: 'Venture Partner, Omidyar Network',
-        name: 'Peter Rabley',
-      },
-      {
-        img: sanjay,
-        position: 'CEO, Geospatial Media & Communications',
-        name: 'Sanjay Kumar',
-      },
-      {
-        img: margie,
-        position: 'CEO, Sullivan Strategy',
-        name: 'Margie Sullivan',
-      },
-    ];
   }
 
   componentDidMount() {
