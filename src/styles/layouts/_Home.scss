@@ -271,7 +271,9 @@ $testimonial-font-size: 18px;
 
           .img {
             width: rem(50px);
+            min-width: rem(50px);
             height: rem(50px);
+            min-height: rem(50px);
             margin-left: rem(10px);
             border-radius: rem(50px);
             background-color: $color-1;

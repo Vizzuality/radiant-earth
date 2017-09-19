@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
+import { Swipeable } from 'react-touch';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -58,9 +59,11 @@ class News extends Component {
   }
 
   changeSlider(slider) {
-    this.setState({
-      slider,
-    });
+    if (slider >= 0 && slider <= this.state.gridNews.length) {
+      this.setState({
+        slider,
+      });
+    }
   }
 
   render() {
@@ -70,39 +73,44 @@ class News extends Component {
       <div>
         <Header currentPath={pathname} />
         <div className="l-news">
-          <div className="l-news__cover">
-            <div className="row">
-              <div className="columns large-6 medium-6 small-12 l-news__image">
-                {sliderNews.map((item, i) =>
-                  (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
-                    <MotionCircle width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />
-                  </div>)
-                )}
+          <Swipeable
+            onSwipeLeft={() => this.changeSlider(slider + 1)}
+            onSwipeRight={() => this.changeSlider(slider - 1)}
+          >
+            <div className="l-news__cover">
+              <div className="row">
+                <div className="columns large-6 medium-6 small-12 l-news__image">
+                  {sliderNews.map((item, i) =>
+                    (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
+                      <MotionCircle width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />
+                    </div>)
+                  )}
+                </div>
+                <div className="columns large-6 medium-6 small-12 l-news__text-cover">
+                  {sliderNews.map((item, i) =>
+                    (<div key={i.toString()} className={`text-cover-contain ${i === slider ? '-show' : '-hidden'}`}>
+                      <BoxTitleContent
+                        title={item.title}
+                        subTitle={item.category}
+                      />
+                    </div>)
+                  )}
+                </div>
+                <ul className="dots-cover">
+                  {sliderNews.map((item, i) =>
+                    (<button
+                      onClick={() => this.changeSlider(i)}
+                      key={i.toString()}
+                    >
+                      <li
+                        className={`${i === slider ? '-selected' : ''}`}
+                      >{}</li>
+                    </button>)
+                  )}
+                </ul>
               </div>
-              <div className="columns large-6 medium-6 small-12 l-news__text-cover">
-                {sliderNews.map((item, i) =>
-                  (<div key={i.toString()} className={`text-cover-contain ${i === slider ? '-show' : '-hidden'}`}>
-                    <BoxTitleContent
-                      title={item.title}
-                      subTitle={item.category}
-                    />
-                  </div>)
-                )}
-              </div>
-              <ul className="dots-cover">
-                {sliderNews.map((item, i) =>
-                  (<button
-                    onClick={() => this.changeSlider(i)}
-                    key={i.toString()}
-                  >
-                    <li
-                      className={`${i === slider ? '-selected' : ''}`}
-                    >{}</li>
-                  </button>)
-                )}
-              </ul>
             </div>
-          </div>
+          </Swipeable>
           <div className="l-news__gallery">
             <div className="row">
               {gridNews.map((item, i) =>
