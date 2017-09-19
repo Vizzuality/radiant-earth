@@ -5,6 +5,7 @@ import Select from 'react-select-me';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
+import { API_COUNTRIES } from '../global';
 
 class GetInvolved extends Component {
   constructor(props) {
@@ -13,7 +14,14 @@ class GetInvolved extends Component {
       country: null,
       area: null,
       caseSlider: 0,
+      countries: []
     };
+
+    this.getCountries = this.getCountries.bind(this);
+  }
+
+  componentDidMount() {
+    this.getCountries();
   }
 
   onChangeCountry(country) {
@@ -26,6 +34,13 @@ class GetInvolved extends Component {
     this.setState({
       area
     });
+  }
+
+  getCountries() {
+    const self = this;
+    fetch(`${API_COUNTRIES}all?fields=name`)
+      .then(r => r.json())
+      .then(data => self.setState({ countries: data }));
   }
 
   changeSlider(caseSlider) {

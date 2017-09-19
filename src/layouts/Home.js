@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { Swipeable } from 'react-touch';
 import ReactResizeDetector from 'react-resize-detector';
+import { API_BASE_URL, API_ROOT } from '../global';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -15,9 +16,6 @@ import slider4 from '../images/home/cover/slider/4.jpg';
 
 import sub1 from '../images/home/cover/1-sub.jpg';
 import sub2 from '../images/home/cover/2-sub.jpg';
-
-import einar from '../images/home/testimonials/einar.jpg';
-import jed from '../images/home/testimonials/jed.jpg';
 
 class Home extends Component {
   constructor(props) {
@@ -40,25 +38,10 @@ class Home extends Component {
       positionSlideStudies: '',
       sliderHomePage: 0,
       showModal: false,
-      widthCircle: 510
+      widthCircle: 510,
+      testimonials: [],
+      caseStudies: []
     };
-
-    this.sliderTestimonial = [
-      {
-        text: 'Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-        image: einar,
-      },
-      {
-        text: 'We regularly hear from researchers who are held back by the time and expense required to acquire copies of data. Radiant.Earth is set to do something remarkable by making large amounts of Earth observation data available on the cloud where anyone can analyze it at any scale without needing to copy it, using whatever tools they want, and even creating new tools of their own.',
-        name: 'Einar Bjorgo, UNOSAT´s Manager',
-        image: jed,
-      },
-      {
-        text: 'This partnership fits us perfectly, as we can combine the operational nature of UNOSAT with the outreach and long-term impact Radiant.Earth is also looking for. Finally, we will have a platform and solutions in place for accessing the wealth of Earth observation data out there, and the ready-to-use products that will go along with them.',
-        name: 'People',
-      }
-    ];
 
     this.sliderHomePage = [
       {
@@ -83,33 +66,13 @@ class Home extends Component {
       }
     ];
 
-    this.sliderStudies = [
-      {
-        title: 'How an Amazonas Moisture Index helped the Yanomami tribe',
-        text: 'On minimizing the latency of serving painted raster tiles.',
-        img: ''
-      },
-      {
-        title: 'Expanding Access to Earth Observation Data',
-        text: 'Reflections on a SatSummit panel focused on how to expand access and distribution to earth imagery.',
-        img: ''
-      },
-      {
-        title: 'Atomate analyses when updated imagery is available',
-        text: 'Develop custom algorithms to extract information from your imagery and define automated pipelines to analyze your data.',
-        img: ''
-      },
-      {
-        title: 'Ingest your own data',
-        text: 'Bring your own drone, manned-aerial, and satellite imagery into the Data Explorer with a few clicks.',
-        img: ''
-      },
-      {
-        title: 'How an Amazonas Moisture Index helped the Yanomami tribe',
-        text: 'On minimizing the latency of serving painted raster tiles.',
-        img: ''
-      },
-    ];
+    this.getTestimonials = this.getTestimonials.bind(this);
+    this.getCaseStudies = this.getCaseStudies.bind(this);
+  }
+
+  componentDidMount() {
+    this.getTestimonials();
+    this.getCaseStudies();
   }
 
   onResize() {
@@ -122,6 +85,24 @@ class Home extends Component {
         widthCircle: 510
       });
     }
+  }
+
+  getTestimonials() {
+    const self = this;
+    fetch(`${API_BASE_URL}/use_cases?category=Testimonial`)
+      .then(r => r.json())
+      .then(data => self.setState({
+        testimonials: data,
+      }));
+  }
+
+  getCaseStudies() {
+    const self = this;
+    fetch(`${API_BASE_URL}/use_cases?category=Case study`)
+      .then(r => r.json())
+      .then(data => self.setState({
+        caseStudies: data,
+      }));
   }
 
   slideTestimonial(d) {
@@ -167,6 +148,8 @@ class Home extends Component {
   }
 
   render() {
+    const { testimonials, caseStudies } = this.state;
+
     const settingsCover = {
       dots: true,
       infinite: true,
@@ -233,18 +216,18 @@ class Home extends Component {
                   className="l-home__testimonial-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideTestimonial }}
                 >
-                  {this.sliderTestimonial.map((item, i) =>
+                  {testimonials.map((item, i) =>
                     (<div key={i.toString()} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
                       <div>
                         <p className="text -ff2-m">
                           <span className="quotes">“</span>
-                          {item.text}
+                          {item.quote}
                           <span className="quotes">”</span>
                         </p>
                       </div>
                       <div className="author-contain">
-                        <span className="name text -color-1">- {item.name}</span>
-                        <div style={{ backgroundImage: `url(${item.image})` }} className="img">{}</div>
+                        <span className="name text -color-1">- {item.author}</span>
+                        <div style={{ backgroundImage: `url(${API_ROOT}${item.image})` }} className="img">{}</div>
                       </div>
                     </div>)
                   )}
@@ -285,13 +268,13 @@ class Home extends Component {
                   className="l-home__studies-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideStudies }}
                 >
-                  {this.sliderStudies.map((item, i) =>
+                  {caseStudies.map((item, i) =>
                     (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
-                      <div className="img">{}</div>
+                      <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
                       <div>
                         <BoxTitleContent
-                          title={item.title}
-                          text={item.text}
+                          title={item.quote}
+                          text={item.description}
                         />
                       </div>
                     </div>)
