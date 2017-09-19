@@ -12,7 +12,7 @@ function BurgerMenu(props) {
         <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />
         <ul>
           {links.map((item, i) =>
-            <NavItem key={i.toString()} name={item.name} url={item.url} />
+            <NavItem key={i.toString()} name={item.name} url={item.url} subMenu={item.subMenu} />
           )}
         </ul>
       </Menu>
@@ -21,7 +21,7 @@ function BurgerMenu(props) {
 }
 
 BurgerMenu.propTypes = {
-  links: PropTypes.string.isRequired
+  links: PropTypes.array.isRequired
 };
 
 export default BurgerMenu;

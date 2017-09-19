@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function NavItem(props) {
-  const { url, name, subMenu, color } = props;
+  const { url, name, subMenu, color, current } = props;
   return (
-    <li className={`text -ff2-s -color-1 ${color === 'white' ? '-white' : '-color-1'} ${subMenu ? 'has-sub-menu' : ''}`}>
+    <li className={`text -ff2-s -color-1 ${color === 'white' ? '-white' : '-color-1'} ${subMenu ? 'has-sub-menu' : ''} ${current ? '-selected' : ''}`}>
       <a href={url}>{name}</a>
       {subMenu && <ul className="sub-menu">
         <li>
@@ -16,11 +16,18 @@ function NavItem(props) {
   );
 }
 
+NavItem.defaultProps = {
+  subMenu: null,
+  color: null,
+  current: null
+};
+
 NavItem.propTypes = {
   name: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  subMenu: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  subMenu: PropTypes.array,
+  color: PropTypes.string,
+  current: PropTypes.bool
 };
 
 export default NavItem;

@@ -14,6 +14,7 @@ function Nav(props) {
             url={item.url}
             subMenu={item.subMenu}
             color={color}
+            current={item.current}
           />)
         )}
       </ul>
@@ -22,7 +23,7 @@ function Nav(props) {
 }
 
 Nav.propTypes = {
-  links: PropTypes.string.isRequired,
+  links: PropTypes.array.isRequired,
   color: PropTypes.string.isRequired
 };
 

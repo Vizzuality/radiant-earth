@@ -1,6 +1,6 @@
 .l-staff {
   .l-staff__content {
-    padding: rem(110px) 0 rem(175px);
+    padding: rem(110px) 0;
     background-color: rgba($color-4, .05);
 
     .row {
@@ -45,6 +45,38 @@
         p {
           opacity: .6;
         }
+      }
+    }
+  }
+
+  .l-staff__board {
+    padding: rem(80px) 0;
+
+    .row {
+      position: relative;
+
+      h2 {
+        margin-bottom: rem(20px);
+      }
+    }
+
+    .l-about__board-item {
+      margin-bottom: rem(60px);
+
+      span {
+        display: block;
+        margin: rem(20px) 0;
+        opacity: .5;
+      }
+
+      .img {
+
+        width: rem(130px);
+        height: rem(130px);
+        border-radius: rem(130px);
+        background-color: rgba($color-4, .1);
+        background-repeat: no-repeat;
+        background-size: cover;
       }
     }
   }

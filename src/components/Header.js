@@ -8,27 +8,31 @@ import radiantLogoWhite from '../images/logos/radiant-white.png';
 class Header extends Component {
   constructor(props) {
     super(props);
-
     this.navLinks = [
       {
         name: 'Explore',
-        url: '/explore'
+        url: '/explore',
+        current: props.currentPath === '/explore'
       },
       {
         name: 'Community',
-        url: '/community'
+        url: '/community',
+        current: props.currentPath === '/community'
       },
       {
         name: 'Get Involved',
-        url: '/get-involved'
+        url: '/get-involved',
+        current: props.currentPath === '/get-involved'
       },
       {
         name: 'News',
-        url: '/news'
+        url: '/news',
+        current: props.currentPath === '/news'
       },
       {
         name: 'About',
         url: '/about',
+        current: props.currentPath === '/about',
         subMenu: [
           {
             name: 'staff',
@@ -59,8 +63,14 @@ class Header extends Component {
   }
 }
 
+Header.defaultProps = {
+  color: '',
+  currentPath: null
+};
+
 Header.propTypes = {
   color: PropTypes.string.isRequired,
+  currentPath: PropTypes.string,
 };
 
 export default Header;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -63,13 +64,14 @@ class Explore extends Component {
 
   render() {
     const { slider, showModal } = this.state;
+    const { pathname } = this.props.location;
     return (
       <div>
-        <Header />
+        <Header currentPath={pathname} />
         <div className="l-explore">
           <div className="l-explore__slider-content">
             <div className="row align-middle">
-              <div className="l-explore__image columns large-6 medium-6 small-6">
+              <div className="l-explore__image columns large-6 medium-12 small-12">
                 {this.sliderContent.map((item, i) =>
                   (<div
                     key={i.toString()}
@@ -80,7 +82,7 @@ class Explore extends Component {
                   </div>)
                 )}
               </div>
-              <div className="l-explore__content columns large-6 medium-6 small-6">
+              <div className="l-explore__content columns large-6 medium-12 small-12">
                 {this.sliderContent.map((item, i) =>
                   (<div key={i.toString()} className={`box-container ${i === slider ? '-show' : '-hidden'}`}>
                     <BoxTitleContent
@@ -148,5 +150,9 @@ class Explore extends Component {
     );
   }
 }
+
+Explore.propTypes = {
+  location: PropTypes.object.isRequired,
+};
 
 export default Explore;

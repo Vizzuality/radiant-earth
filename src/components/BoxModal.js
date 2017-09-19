@@ -38,7 +38,7 @@ function BoxModal(props) {
 }
 
 BoxModal.propTypes = {
-  show: PropTypes.string.isRequired,
+  show: PropTypes.bool.isRequired,
   openModal: PropTypes.func.isRequired,
 };
 

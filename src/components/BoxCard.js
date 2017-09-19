@@ -82,14 +82,14 @@ BoxCard.defaultProps = {
 };
 
 BoxCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  buttonUrl: PropTypes.string.isRequired,
-  channel: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  video: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  subTitle: PropTypes.string,
+  text: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonUrl: PropTypes.string,
+  channel: PropTypes.string,
+  img: PropTypes.string,
+  video: PropTypes.string,
 };
 
 export default BoxCard;

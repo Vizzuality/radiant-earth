@@ -5,6 +5,7 @@
   .c-box-card__img {
     position: relative;
     min-height: rem(240px);
+    background-color: rgba($color-4, .05);
     background-repeat: no-repeat;
     background-size: cover;
 
