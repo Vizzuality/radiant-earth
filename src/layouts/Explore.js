@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Swipeable } from 'react-touch';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -51,9 +52,11 @@ class Explore extends Component {
   }
 
   changeSlider(slider) {
-    this.setState({
-      slider,
-    });
+    if (slider >= 0 && slider < this.sliderContent.length) {
+      this.setState({
+        slider,
+      });
+    }
   }
 
   showModal() {
@@ -69,48 +72,53 @@ class Explore extends Component {
       <div>
         <Header currentPath={pathname} />
         <div className="l-explore">
-          <div className="l-explore__slider-content">
-            <div className="row align-middle">
-              <div className="l-explore__image columns large-6 medium-12 small-12">
-                {this.sliderContent.map((item, i) =>
-                  (<div
-                    key={i.toString()}
-                    className={`img ${i === slider ? '-show' : '-hidden'}`}
-                    style={{ backgroundImage: `url(${item.img})` }}
-                  >
-                    {}
-                  </div>)
-                )}
-              </div>
-              <div className="l-explore__content columns large-6 medium-12 small-12">
-                {this.sliderContent.map((item, i) =>
-                  (<div key={i.toString()} className={`box-container ${i === slider ? '-show' : '-hidden'}`}>
-                    <BoxTitleContent
-                      subTitle={item.subTitle}
-                      title={item.title}
-                      text={item.text}
-                    />
-                    <div className="container-buttons">
-                      <button
-                        onClick={() => this.showModal()}
-                        className="c-button -back-gray text -ff2-xs -uppercase -gray"
-                      >REQUEST ACCESS</button>
-                      <div className="c-button -back-orange">
-                        <a className="text -ff2-xs -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
+          <Swipeable
+            onSwipeLeft={() => this.changeSlider(slider + 1)}
+            onSwipeRight={() => this.changeSlider(slider - 1)}
+          >
+            <div className="l-explore__slider-content">
+              <div className="row align-middle">
+                <div className="l-explore__image columns large-6 medium-12 small-12">
+                  {this.sliderContent.map((item, i) =>
+                    (<div
+                      key={i.toString()}
+                      className={`img ${i === slider ? '-show' : '-hidden'}`}
+                      style={{ backgroundImage: `url(${item.img})` }}
+                    >
+                      {}
+                    </div>)
+                  )}
+                </div>
+                <div className="l-explore__content columns large-6 medium-12 small-12">
+                  {this.sliderContent.map((item, i) =>
+                    (<div key={i.toString()} className={`box-container ${i === slider ? '-show' : '-hidden'}`}>
+                      <BoxTitleContent
+                        subTitle={item.subTitle}
+                        title={item.title}
+                        text={item.text}
+                      />
+                      <div className="container-buttons">
+                        <button
+                          onClick={() => this.showModal()}
+                          className="c-button -back-gray text -ff2-xs -uppercase -gray"
+                        >REQUEST ACCESS</button>
+                        <div className="c-button -back-orange">
+                          <a className="text -ff2-xs -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
+                        </div>
                       </div>
-                    </div>
-                  </div>)
-                )}
+                    </div>)
+                  )}
+                </div>
+                <ul className="l-explore__circle-container columns large-12 medium-12 small-12 ">
+                  {this.sliderContent.map((item, i) =>
+                    (<button key={i.toString()} onClick={() => this.changeSlider(i)}>
+                      <li className={`circle ${i === slider ? '-active' : ''}`}>{}</li>
+                    </button>)
+                  )}
+                </ul>
               </div>
-              <ul className="l-explore__circle-container columns large-12 medium-12 small-12 ">
-                {this.sliderContent.map((item, i) =>
-                  (<button key={i.toString()} onClick={() => this.changeSlider(i)}>
-                    <li className={`circle ${i === slider ? '-active' : ''}`}>{}</li>
-                  </button>)
-                )}
-              </ul>
             </div>
-          </div>
+          </Swipeable>
           <div className="-back-white l-explore__api-content">
             <div className="row">
               <h3

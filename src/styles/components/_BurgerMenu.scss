@@ -40,7 +40,7 @@
 
   .bm-burger-bars {
     height: rem(2px) !important;
-    background: $white;
+    background: $black;
   }
 
   .bm-cross-button {
@@ -48,24 +48,21 @@
     height: rem(30px) !important;
     right: rem(27px) !important;
     top: rem(33px) !important;
-
-    button {
-      text-indent: 0 !important;
-    }
   }
 
   .bm-cross {
     width: rem(2px) !important;
     height: rem(20px) !important;
-    background: $white;
+    background: $black;
   }
 
   .bm-menu-wrap {
     top: 0;
+    z-index: 5 !important;
   }
 
   .bm-menu {
-    background: $white;
+    background: $white !important;
   }
 
   .bm-item-list {

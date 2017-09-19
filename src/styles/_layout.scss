@@ -1,9 +1,13 @@
+html {
+  overflow-x: hidden !important;
+}
+
 body {
   max-width: 100%;
   background-color: $white;
   font-family: $font-family-1;
   font-size: $ff1-size-m;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 
   button {
     outline: 0;

@@ -3,7 +3,7 @@
     position: fixed;
     top: calc(50% - 10px);
     left: 50%;
-    width: calc(100% - 100px);
+    width: calc(100% - 60px);
     padding: rem(30px);
     transform: translate(-50%, -50%);
     transition: z-index .1s step-end, opacity .1s linear, top .2s linear;
