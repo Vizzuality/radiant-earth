@@ -36,15 +36,6 @@
       &.-image-3 {
         display: none;
 
-        @media screen and (min-width: $screen-l) {
-          display: block;
-          top: 694px;
-          right: 135px;
-          width: rem(100px);
-          height: rem(100px);
-          border-radius: rem(360px);
-        }
-
         @media screen and (min-width: $screen-xl) {
           top: 305px;
           right: 312px;

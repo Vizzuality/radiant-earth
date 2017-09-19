@@ -48,6 +48,10 @@
     height: rem(30px) !important;
     right: rem(27px) !important;
     top: rem(33px) !important;
+
+    button {
+      text-indent: 0 !important;
+    }
   }
 
   .bm-cross {
@@ -65,7 +69,17 @@
   }
 
   .bm-item-list {
-    padding: rem(40px) rem(20px) rem(20px) rem(20px);
+    padding: rem(40px) rem(20px) rem(20px);
+
+    ul {
+      li {
+        &.has-sub-menu {
+          .sub-menu {
+            padding: rem(20px) rem(25px);
+          }
+        }
+      }
+    }
   }
 
   .bm-overlay {
