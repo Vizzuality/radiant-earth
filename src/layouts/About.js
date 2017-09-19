@@ -142,7 +142,7 @@ function About(props) {
 }
 
 About.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default About;

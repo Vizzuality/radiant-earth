@@ -152,7 +152,7 @@ class Explore extends Component {
 }
 
 Explore.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default Explore;

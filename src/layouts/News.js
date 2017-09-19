@@ -70,6 +70,7 @@ class News extends Component {
                   (<div key={i.toString()} className={`text-cover-contain ${i === slider ? '-show' : '-hidden'}`}>
                     <BoxTitleContent
                       title={item.title}
+                      subTitle={item.category}
                     />
                   </div>)
                 )}
@@ -118,7 +119,7 @@ class News extends Component {
 }
 
 News.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default News;

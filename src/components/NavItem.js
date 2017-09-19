@@ -19,6 +19,7 @@ function NavItem(props) {
 NavItem.defaultProps = {
   subMenu: null,
   color: null,
+  current: null
 };
 
 NavItem.propTypes = {
@@ -26,7 +27,7 @@ NavItem.propTypes = {
   url: PropTypes.string.isRequired,
   subMenu: PropTypes.array,
   color: PropTypes.string,
-  current: PropTypes.string.isRequired
+  current: PropTypes.bool
 };
 
 export default NavItem;

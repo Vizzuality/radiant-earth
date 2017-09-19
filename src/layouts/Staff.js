@@ -89,7 +89,7 @@ class Staff extends Component {
 }
 
 Staff.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default Staff;

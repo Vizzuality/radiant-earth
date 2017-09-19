@@ -202,7 +202,7 @@ class GetInvolved extends Component {
 }
 
 GetInvolved.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default GetInvolved;

@@ -64,12 +64,13 @@ class Header extends Component {
 }
 
 Header.defaultProps = {
-  color: ''
+  color: '',
+  currentPath: null
 };
 
 Header.propTypes = {
   color: PropTypes.string.isRequired,
-  currentPath: PropTypes.string.isRequired,
+  currentPath: PropTypes.string,
 };
 
 export default Header;
