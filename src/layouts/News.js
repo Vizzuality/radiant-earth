@@ -13,12 +13,11 @@ class News extends Component {
       slider: 0,
       sliderNews: [],
       gridNews: [],
-      gridShowNumber: 3
+      gridShowNumber: 0
     };
 
     this.getSliderNews = this.getSliderNews.bind(this);
     this.getGridNews = this.getGridNews.bind(this);
-    this.updateLimitGrid = this.updateLimitGrid.bind(this);
   }
 
   componentDidMount() {
@@ -35,21 +34,17 @@ class News extends Component {
 
   getGridNews() {
     const self = this;
-    fetch(`${API_BASE_URL}/posts?per_page=${this.state.gridShowNumber}`)
+    fetch(`${API_BASE_URL}/posts?per_page=${this.state.gridShowNumber + 3}`)
       .then(r => r.json())
-      .then(data => self.setState({ gridNews: data }));
+      .then(data => self.setState({
+        gridNews: data,
+        gridShowNumber: this.state.gridShowNumber + 3
+      }));
   }
 
   changeSlider(slider) {
     this.setState({
       slider,
-    });
-  }
-
-  updateLimitGrid() {
-    const self = this;
-    self.setState({
-      gridShowNumber: this.state.gridShowNumber + 3
     });
   }
 
@@ -109,7 +104,7 @@ class News extends Component {
               <div className="contain-button large-12 medium-12 small-12">
                 <button
                   className="c-button -back-gray text -uppercase -ff2-m"
-                  onClick={() => this.updateLimitGrid()}
+                  onClick={() => this.getGridNews()}
                 >load more</button>
               </div>
             </div>
