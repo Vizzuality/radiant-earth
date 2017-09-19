@@ -3,14 +3,22 @@
     position: fixed;
     top: calc(50% - 10px);
     left: 50%;
-    width: 100%;
-    max-width: rem(700px);
-    padding: rem(60px);
+    width: calc(100% - 100px);
+    padding: rem(30px);
     transform: translate(-50%, -50%);
     transition: z-index .1s step-end, opacity .1s linear, top .2s linear;
     background-color: $white;
     opacity: 0;
     z-index: -1;
+
+    @media screen and (min-width: $screen-m) {
+      padding: rem(60px);
+    }
+
+    @media screen and (min-width: $screen-l) {
+      width: 100%;
+      max-width: rem(700px);
+    }
 
     &.-show {
       top: 50%;
@@ -24,11 +32,16 @@
 
       .icon {
         position: absolute;
-        top: -50px;
-        right: -50px;
+        top: -20px;
+        right: -20px;
         width: rem(20px);
         height: rem(20px);
         cursor: pointer;
+
+        @media screen and (min-width: $screen-m) {
+          top: -50px;
+          right: -50px;
+        }
       }
 
       .contain-input {

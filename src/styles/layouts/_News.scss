@@ -6,27 +6,51 @@ $height-slider: rem(510px);
   }
 
   .l-news__cover {
-    padding: rem(12px) 0 rem(60px);
+    padding: rem(12px) 0 rem(30px);
     background-color: rgba($color-4, .05);
+
+    @media screen and (min-width: $screen-m) {
+      padding: rem(12px) 0 rem(60px);
+    }
 
     .row {
       position: relative;
     }
 
     .l-news__image {
+      display: none;
       position: relative;
-      height: $height-slider;
+
+      @media screen and (min-width: $screen-m) {
+        display: flex;
+        justify-content: center;
+        width: rem(310px);
+        height: rem(310px);
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        display: block;
+        width: $height-slider;
+        height: $height-slider;
+      }
 
       .circle-image {
         position: absolute;
         top: 0;
-        width: rem(510px);
-        max-width: rem(510px);
-        height: rem(510px);
-        max-height: rem(510px);
+        width: rem(310px);
+        max-width: rem(310px);
+        height: rem(310px);
+        max-height: rem(310px);
         transition: opacity $animation-text linear;
-        border-radius: rem(510px);
+        border-radius: rem(310px);
         background-color: $color-1;
+
+        @media screen and (min-width: $screen-xxl) {
+          width: rem(510px);
+          max-width: rem(510px);
+          height: rem(510px);
+          max-height: rem(510px);
+        }
 
 
         &.-show {
@@ -45,8 +69,12 @@ $height-slider: rem(510px);
       display: flex;
       position: relative;
       align-items: center;
-      height: $height-slider;
+      min-height: rem(250px);
       padding-right: rem(45px);
+
+      @media screen and (min-width: $screen-m) {
+        min-height: $height-slider;
+      }
 
       .text-cover-contain {
         position: absolute;
@@ -67,22 +95,59 @@ $height-slider: rem(510px);
 
     .dots-cover {
       position: absolute;
-      right: 0;
+      bottom: -25px;
+      left: 50%;
+      width: 100%;
       padding: 0;
-      transform: translate(50%, 0%);
+      transform: translate(-50%, -50%);
       list-style: none;
+      text-align: center;
       z-index: 5;
+
+      @media screen and (min-width: $screen-m) {
+        bottom: 0;
+      }
+
+      @media screen and (min-width: $screen-l) {
+        width: auto;
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        right: 0;
+        bottom: auto;
+        left: auto;
+        transform: translate(-50%, 0);
+      }
 
       li,
       button {
-        display: block;
-        width: rem(8px);
-        height: rem(8px);
-        margin-bottom: rem(40px);
+        display: inline-block;
+        width: rem(15px);
+        height: rem(15px);
+        margin-right: rem(40px);
         border-radius: rem(8px);
         outline: 0;
         background-color: rgba($color-4, .1);
         cursor: pointer;
+
+        @media screen and (min-width: $screen-l) {
+          width: rem(8px);
+          height: rem(8px);
+        }
+
+        @media screen and (min-width: $screen-xxl) {
+          display: block;
+          margin-right: 0;
+          margin-bottom: rem(40px);
+        }
+
+        li {
+          margin-bottom: 5px;
+
+          @media screen and (min-width: $screen-xxl) {
+            margin-bottom: 0;
+          }
+        }
 
         &.-selected {
           background-color: $color-2;

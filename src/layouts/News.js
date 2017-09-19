@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,7 +15,8 @@ class News extends Component {
       slider: 0,
       sliderNews: [],
       gridNews: [],
-      gridShowNumber: 0
+      gridShowNumber: 0,
+      widthCircle: 510
     };
 
     this.getSliderNews = this.getSliderNews.bind(this);
@@ -24,6 +26,18 @@ class News extends Component {
   componentDidMount() {
     this.getSliderNews();
     this.getGridNews();
+  }
+
+  onResize() {
+    if (window.innerWidth < 1080) {
+      this.setState({
+        widthCircle: 310
+      });
+    } else {
+      this.setState({
+        widthCircle: 510
+      });
+    }
   }
 
   getSliderNews() {
@@ -50,7 +64,7 @@ class News extends Component {
   }
 
   render() {
-    const { slider, sliderNews, gridNews } = this.state;
+    const { slider, sliderNews, gridNews, widthCircle } = this.state;
     const { pathname } = this.props.location;
     return (
       <div>
@@ -61,7 +75,7 @@ class News extends Component {
               <div className="columns large-6 medium-6 small-12 l-news__image">
                 {sliderNews.map((item, i) =>
                   (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
-                    <MotionCircle width="510" backgroundImage={`${API_ROOT}${item.image}`} />
+                    <MotionCircle width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />
                   </div>)
                 )}
               </div>
@@ -113,6 +127,7 @@ class News extends Component {
           </div>
         </div>
         <Footer />
+        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize.bind(this)} />
       </div>
     );
   }
