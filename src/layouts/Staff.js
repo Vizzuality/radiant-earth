@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { API_BASE_URL, API_ROOT } from '../global';
@@ -37,9 +38,10 @@ class Staff extends Component {
 
   render() {
     const { members, staff } = this.state;
+    const { pathname } = this.props.location;
     return (
       <div className="l-staff">
-        <Header />
+        <Header currentPath={pathname} />
         <div className="l-staff__content">
           <div className="row">
             <h2
@@ -85,5 +87,9 @@ class Staff extends Component {
     );
   }
 }
+
+Staff.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default Staff;

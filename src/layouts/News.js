@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -27,7 +28,7 @@ class News extends Component {
 
   getSliderNews() {
     const self = this;
-    fetch(`${API_BASE_URL}/posts?per_page=3`)
+    fetch(`${API_BASE_URL}/posts?per_page=4`)
       .then(r => r.json())
       .then(data => self.setState({ sliderNews: data }));
   }
@@ -50,10 +51,10 @@ class News extends Component {
 
   render() {
     const { slider, sliderNews, gridNews } = this.state;
-
+    const { pathname } = this.props.location;
     return (
       <div>
-        <Header />
+        <Header currentPath={pathname} />
         <div className="l-news">
           <div className="l-news__cover">
             <div className="row">
@@ -115,5 +116,9 @@ class News extends Component {
     );
   }
 }
+
+News.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default News;

@@ -14,6 +14,7 @@ function Nav(props) {
             url={item.url}
             subMenu={item.subMenu}
             color={color}
+            current={item.current}
           />)
         )}
       </ul>

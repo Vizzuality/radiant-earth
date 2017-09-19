@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -63,9 +64,10 @@ class Explore extends Component {
 
   render() {
     const { slider, showModal } = this.state;
+    const { pathname } = this.props.location;
     return (
       <div>
-        <Header />
+        <Header currentPath={pathname} />
         <div className="l-explore">
           <div className="l-explore__slider-content">
             <div className="row align-middle">
@@ -148,5 +150,9 @@ class Explore extends Component {
     );
   }
 }
+
+Explore.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default Explore;

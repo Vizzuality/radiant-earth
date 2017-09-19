@@ -1,5 +1,6 @@
 import 'react-select-me/lib/ReactSelectMe.css';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select-me';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -65,10 +66,10 @@ class GetInvolved extends Component {
     ];
 
     const { caseSlider } = this.state;
-
+    const { pathname } = this.props.location;
     return (
       <div>
-        <Header />
+        <Header currentPath={pathname} />
         <div className="l-get-involved">
           <div className="row ">
 
@@ -199,5 +200,9 @@ class GetInvolved extends Component {
     );
   }
 }
+
+GetInvolved.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default GetInvolved;

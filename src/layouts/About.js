@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MotionCircle from '../components/MotionCircle';
@@ -15,10 +16,11 @@ import newAmerica from '../images/about/logos/newAmerica.png';
 import azavea from '../images/about/logos/azavea.png';
 import vizzuality from '../images/about/logos/vizzuality.png';
 
-function About() {
+function About(props) {
+  const { pathname } = props.location;
   return (
     <div className="l-about">
-      <Header />
+      <Header currentPath={pathname} />
       <div className="l-about__cover">
         <div className="l-about__circle-image -image-1"><MotionCircle width="572" backgroundImage={image1} /></div>
         <div className="l-about__circle-image -image-2"><MotionCircle width="150" backgroundImage={image2} /></div>
@@ -138,5 +140,9 @@ function About() {
     </div>
   );
 }
+
+About.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default About;

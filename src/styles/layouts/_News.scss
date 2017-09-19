@@ -56,6 +56,7 @@ $height-slider: rem(510px);
         &.-show {
           position: absolute;
           opacity: 1;
+          z-index: 4;
         }
 
         &.-hidden {
@@ -70,6 +71,7 @@ $height-slider: rem(510px);
       padding: 0;
       transform: translate(50%, 0%);
       list-style: none;
+      z-index: 5;
 
       li,
       button {
@@ -86,6 +88,10 @@ $height-slider: rem(510px);
           background-color: $color-2;
         }
       }
+    }
+
+    .c-box-title-content {
+      padding-right: rem(40px);
     }
   }
 
