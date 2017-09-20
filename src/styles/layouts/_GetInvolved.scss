@@ -50,14 +50,28 @@
   }
 
   .l-get-involved__form {
+    position: relative;
     margin-top: rem(35px);
     padding-top: rem(35px);
-    border-top: 2px solid rgba($color-4, .3);
+
+    &::before {
+      display: block;
+      position: absolute;
+      top: 0;
+      width: calc(100% - 30px);
+      height: 2px;
+      background-color: rgba($color-4, .2);
+      content: '';
+    }
 
     @media screen and (min-width: $screen-xl) {
       margin: rem(15px) 0;
       padding-top: 0;
       border-top: 0;
+
+      &::before {
+        display: none;
+      }
     }
 
     label {

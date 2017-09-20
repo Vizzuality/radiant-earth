@@ -1,7 +1,12 @@
 .c-box-title-content {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: space-between;
+
+  &.-safari {
+    flex-basis: 0;
+  }
 
   h2 {
     margin: rem(15px) 0 0;
@@ -9,8 +14,12 @@
   }
 
   .c-button {
-    max-width: rem(180px);
+    width: 100%;
     margin-top: rem(20px);
+
+    @media screen and (min-width: $screen-m) {
+      max-width: rem(180px);
+    }
   }
 
   .hidden-button {

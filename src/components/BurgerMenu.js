@@ -5,14 +5,20 @@ import NavItem from './NavItem';
 import radiantLogo from '../images/logos/radiant.png';
 
 function BurgerMenu(props) {
-  const { links } = props;
+  const { links, color } = props;
   return (
-    <div className="c-burger-menu">
+    <div className={`c-burger-menu ${color === 'white' ? '-white' : ''}`}>
       <Menu right width={'100%'}>
-        <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />
+        <a href="/"><img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} /></a>
         <ul>
           {links.map((item, i) =>
-            <NavItem key={i.toString()} name={item.name} url={item.url} subMenu={item.subMenu} />
+            (<NavItem
+              key={i.toString()}
+              name={item.name}
+              url={item.url}
+              subMenu={item.subMenu}
+              disabled={item.disabled}
+            />)
           )}
         </ul>
       </Menu>
@@ -21,7 +27,8 @@ function BurgerMenu(props) {
 }
 
 BurgerMenu.propTypes = {
-  links: PropTypes.array.isRequired
+  links: PropTypes.array.isRequired,
+  color: PropTypes.array.isRequired
 };
 
 export default BurgerMenu;

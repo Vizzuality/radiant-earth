@@ -6,8 +6,12 @@ $testimonial-font-size: 18px;
   .container-buttons {
     display: flex;
     flex-direction: column;
-    margin-top: rem(30px);
+    margin-top: 0;
     z-index: 4;
+
+    @media screen and (min-width: $screen-s) {
+      margin-top: rem(30px);
+    }
 
     @media screen and (min-width: $screen-m) {
       flex-direction: row;
@@ -65,6 +69,14 @@ $testimonial-font-size: 18px;
       h1 {
         margin-top: rem(30px);
         margin-bottom: rem(20px);
+      }
+
+      p {
+        display: none;
+
+        @media screen and (min-width: $screen-s) {
+          display: block;
+        }
       }
 
       &::before {
@@ -150,7 +162,6 @@ $testimonial-font-size: 18px;
         width: rem(310px);
         max-width: rem(310px);
         height: rem(310px);
-        margin-right: rem(15px);
       }
 
       @media screen and (min-width: $screen-xxl) {

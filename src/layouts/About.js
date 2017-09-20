@@ -9,6 +9,7 @@ import image2 from '../images/home/cover/2.jpg';
 import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
 import image5 from '../images/home/cover/5.jpg';
+
 import esa from '../images/about/logos/esa.png';
 import nasa from '../images/about/logos/nasa.jpg';
 import unitar from '../images/about/logos/unitar.png';
@@ -102,37 +103,23 @@ function About(props) {
         <div className="l-about__logos-container">
           <h4 className="text -ff2-xs -uppercase -color-2 row columns">data providers</h4>
           <div className="row align-middle">
-            <a className="columns small-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer">
-              <img alt="ESA" className="l-about__logos-item -esa" src={esa} />
-            </a>
-            <a className="columns small-3 link-logo" href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer">
-              <img alt="NASA" className="l-about__logos-item -nasa" src={nasa} />
-            </a>
+            <a className="columns small-6 medium-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${esa})` }}>{}</a>
+            <a className="columns small-6 medium-3 link-logo" href="https://www.nasa.gov/" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${nasa})` }}>{}</a>
           </div>
         </div>
         <div className="l-about__logos-container">
           <h4 className="text -ff2-xs -uppercase -color-2 row columns">Partners</h4>
           <div className="row align-middle">
-            <a className="columns small-3 link-logo" href="http://www.unitar.org/" target="_blank" rel="noopener noreferrer">
-              <img alt="Unitar" className="l-about__logos-item" src={unitar} />
-            </a>
-            <a className="columns small-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer">
-              <img alt="ESA"className="l-about__logos-item -esa" src={esa} />
-            </a>
-            <a className="columns small-3 link-logo" href="https://www.newamerica.org/" target="_blank" rel="noopener noreferrer">
-              <img alt="New America" className="l-about__logos-item" src={newAmerica} />
-            </a>
+            <a className="columns small-6 medium-3 link-logo" href="http://www.unitar.org/" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${unitar})` }}>{}</a>
+            <a className="columns small-6 medium-3 link-logo" href="http://www.esa.int/ESA" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${esa})` }}>{}</a>
+            <a className="columns small-6 medium-3 link-logo -small" href="https://www.newamerica.org/" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${newAmerica})` }}>{}</a>
           </div>
         </div>
         <div className="l-about__logos-container">
           <h4 className="text -ff2-xs -uppercase -color-2 row columns">Collaborators</h4>
           <div className="row align-middle">
-            <a className="columns small-3 link-logo" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer">
-              <img alt="Azavea" className="l-about__logos-item" src={azavea} />
-            </a>
-            <a className="columns small-3 link-logo -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer">
-              <img alt="Vizzuality" className="l-about__logos-item" src={vizzuality} />
-            </a>
+            <a className="columns small-6 medium-3 link-logo -small" href="https://www.azavea.com/" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${azavea})` }}>{}</a>
+            <a className="columns small-6 medium-3 link-logo -small -vizzuality" href="http://www.vizzuality.com/" target="_blank" rel="noopener noreferrer" style={{ backgroundImage: `url(${vizzuality})` }}>{}</a>
           </div>
         </div>
       </div>

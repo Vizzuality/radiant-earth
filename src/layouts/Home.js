@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { Swipeable } from 'react-touch';
 import ReactResizeDetector from 'react-resize-detector';
-import { API_BASE_URL, API_ROOT } from '../global';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
 import MotionCircle from '../components/MotionCircle';
+import { API_BASE_URL, API_ROOT } from '../global';
 
 import slider1 from '../images/home/cover/slider/1.jpg';
 import slider2 from '../images/home/cover/slider/2.jpg';
 import slider3 from '../images/home/cover/slider/3.jpg';
 import slider4 from '../images/home/cover/slider/4.jpg';
-
 import sub1 from '../images/home/cover/1-sub.jpg';
 import sub2 from '../images/home/cover/2-sub.jpg';
 
@@ -21,13 +20,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    const positionCircle = Math.floor((Math.random() * 2) + 0);
-    const classCircles = ['-one-position', '-two-position'];
-    const classCircle = classCircles[positionCircle];
-
     this.state = {
       slider: null,
-      classCircleSelect: classCircle,
       slideTestimonialNumber: 1,
       slideTestimonialNext: true,
       slideTestimonialBack: false,
@@ -107,17 +101,18 @@ class Home extends Component {
 
   slideTestimonial(d) {
     if (d !== 'null') {
+      let minNumber = 2;
       const windowWidth = window.innerWidth;
       const vwSlidePx = 30 / (windowWidth * 0.01);
       let currentSlider;
       let transition = '100vw / 2.7';
       if (windowWidth > 1711) { transition = '610px'; }
-      if (windowWidth < 1024) { transition = '100vw - 55px'; }
+      if (windowWidth < 1024) { transition = '100vw - 55px'; minNumber = 1; }
       currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
       this.setState({
         slideTestimonialNumber: currentSlider,
         slideTestimonialBack: currentSlider > 1,
-        slideTestimonialNext: currentSlider <= (document.getElementsByClassName('l-home__testimonial-item').length / 2),
+        slideTestimonialNext: currentSlider <= (this.state.testimonials.length - minNumber),
         positionSlideTestimonial: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
       });
     }
@@ -125,17 +120,19 @@ class Home extends Component {
 
   slideStudies(d) {
     if (d !== 'null') {
+      let minNumber = 3;
       const windowWidth = window.innerWidth;
       const vwSlidePx = 30 / (windowWidth * 0.01);
       let currentSlider;
       let transition = '100vw / 4';
       if (windowWidth > 1625) { transition = '360px'; }
-      if (windowWidth < 1024) { transition = '100vw - 55px'; }
+      if (windowWidth < 1025) { transition = '100vw / 2.7'; minNumber = 2; }
+      if (windowWidth < 769) { transition = '100vw - 55px'; minNumber = 1; }
       currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
       this.setState({
         slideStudiesNumber: currentSlider,
         slideStudiesBack: currentSlider > 1,
-        slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__studies-item').length - 2),
+        slideStudiesNext: currentSlider <= (this.state.caseStudies.length - minNumber),
         positionSlideStudies: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
       });
     }
@@ -246,7 +243,7 @@ class Home extends Component {
                 />
               </div>
               <div className="l-home__intro-image columns large-6 medium-6 small-12">
-                <MotionCircle width="510" backgroundImage={sub2} />
+                <MotionCircle width={this.state.widthCircle.toString()} backgroundImage={sub2} />
               </div>
             </div>
           </div>

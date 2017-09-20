@@ -5,6 +5,7 @@
   "dependencies": {
     "@vimeo/player": "^2.1.1",
     "babel-preset-es2015": "^6.24.1",
+    "detect-browser": "^1.12.0",
     "formsy-react": "^0.19.5",
     "infinite-scroll": "^3.0.1",
     "lory.js": "^2.3.3",

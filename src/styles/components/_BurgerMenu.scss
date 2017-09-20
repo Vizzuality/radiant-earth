@@ -18,6 +18,12 @@
     cursor: pointer;
     color: rgba($color-4, .8) !important;
 
+    &.-disabled {
+      color: rgba($color-4, .2) !important;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     &:not(:last-child) {
       margin-bottom: rem(30px);
     }
@@ -41,6 +47,12 @@
   .bm-burger-bars {
     height: rem(2px) !important;
     background: $black;
+  }
+
+  &.-white {
+    .bm-burger-bars {
+      background: $white;
+    }
   }
 
   .bm-cross-button {
