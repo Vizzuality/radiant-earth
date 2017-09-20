@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 import { Swipeable } from 'react-touch';
+import browser from 'detect-browser';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -67,6 +68,8 @@ class News extends Component {
   }
 
   render() {
+    const browserSafari = browser.name === 'safari';
+    const browserIOS = browser.name === 'ios';
     const { slider, sliderNews, gridNews, widthCircle } = this.state;
     const { pathname } = this.props.location;
     return (
@@ -79,7 +82,7 @@ class News extends Component {
           >
             <div className="l-news__cover">
               <div className="row">
-                <div className="columns large-6 medium-6 small-12 l-news__image">
+                <div className={`columns large-6 medium-6 small-12 l-news__image ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
                   {sliderNews.map((item, i) =>
                     (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
                       <MotionCircle width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />

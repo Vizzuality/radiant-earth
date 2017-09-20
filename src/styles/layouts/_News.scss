@@ -6,8 +6,10 @@ $height-slider: rem(510px);
   }
 
   .l-news__cover {
+    position: relative;
     padding: rem(12px) 0 rem(30px);
     background-color: rgba($color-4, .05);
+    z-index: 1;
 
     @media screen and (min-width: $screen-m) {
       padding: rem(12px) 0 rem(60px);
@@ -63,6 +65,16 @@ $height-slider: rem(510px);
           opacity: 0;
         }
       }
+
+      &.-safari {
+        .circle-image {
+          left: rem(20px);
+          @media screen and (min-width: $screen-xxl) {
+            right: 20px;
+            left: inherit;
+          }
+        }
+      }
     }
 
     .l-news__text-cover {
@@ -78,8 +90,17 @@ $height-slider: rem(510px);
 
       .text-cover-contain {
         position: absolute;
+        top: 25%;
+        left: 50%;
         width: 100%;
+        max-width: calc(100vw - 50px);
+        transform: translate(-50%, -50%);
         transition: opacity $animation-text linear;
+
+        @media screen and (min-width: $screen-m) {
+          max-width: none;
+          top: 50%;
+        }
 
         &.-show {
           position: absolute;
@@ -98,14 +119,17 @@ $height-slider: rem(510px);
       bottom: -25px;
       left: 50%;
       width: 100%;
+      margin-left: rem(30px);
       padding: 0;
       transform: translate(-50%, -50%);
       list-style: none;
-      text-align: center;
+      text-align: left;
       z-index: 5;
 
       @media screen and (min-width: $screen-m) {
         bottom: 0;
+        margin-left: 0;
+        text-align: center;
       }
 
       @media screen and (min-width: $screen-l) {
@@ -113,10 +137,11 @@ $height-slider: rem(510px);
       }
 
       @media screen and (min-width: $screen-xxl) {
+        top: 50%;
         right: 0;
         bottom: auto;
         left: auto;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, -50%);
       }
 
       li,
@@ -172,6 +197,14 @@ $height-slider: rem(510px);
         .c-box-title-content {
           h2 {
             font-size: $ff2-size-xm;
+          }
+
+          p {
+            display: none;
+
+            @media screen and (min-width: $screen-s) {
+              display: block;
+            }
           }
         }
       }
