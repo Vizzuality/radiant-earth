@@ -101,17 +101,18 @@ class Home extends Component {
 
   slideTestimonial(d) {
     if (d !== 'null') {
+      let minNumber = 2;
       const windowWidth = window.innerWidth;
       const vwSlidePx = 30 / (windowWidth * 0.01);
       let currentSlider;
       let transition = '100vw / 2.7';
       if (windowWidth > 1711) { transition = '610px'; }
-      if (windowWidth < 1024) { transition = '100vw - 55px'; }
+      if (windowWidth < 1024) { transition = '100vw - 55px'; minNumber = 1; }
       currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
       this.setState({
         slideTestimonialNumber: currentSlider,
         slideTestimonialBack: currentSlider > 1,
-        slideTestimonialNext: currentSlider <= (document.getElementsByClassName('l-home__testimonial-item').length / 2),
+        slideTestimonialNext: currentSlider <= (this.state.testimonials.length - minNumber),
         positionSlideTestimonial: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
       });
     }
@@ -119,17 +120,19 @@ class Home extends Component {
 
   slideStudies(d) {
     if (d !== 'null') {
+      let minNumber = 3;
       const windowWidth = window.innerWidth;
       const vwSlidePx = 30 / (windowWidth * 0.01);
       let currentSlider;
       let transition = '100vw / 4';
       if (windowWidth > 1625) { transition = '360px'; }
-      if (windowWidth < 1024) { transition = '100vw - 55px'; }
+      if (windowWidth < 1025) { transition = '100vw / 2.7'; minNumber = 2; }
+      if (windowWidth < 769) { transition = '100vw - 55px'; minNumber = 1; }
       currentSlider = d === 'next' ? currentSlider = this.state.slideStudiesNumber + 1 : currentSlider = this.state.slideStudiesNumber - 1;
       this.setState({
         slideStudiesNumber: currentSlider,
         slideStudiesBack: currentSlider > 1,
-        slideStudiesNext: currentSlider !== (document.getElementsByClassName('l-home__studies-item').length - 2),
+        slideStudiesNext: currentSlider <= (this.state.caseStudies.length - minNumber),
         positionSlideStudies: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
       });
     }
