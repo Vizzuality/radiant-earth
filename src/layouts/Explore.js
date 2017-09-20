@@ -6,10 +6,10 @@ import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
 import BoxCard from '../components/BoxCard';
 import BoxModal from '../components/BoxModal';
+
 import oneExplore from '../images/explorePage/1.png';
 import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
-
 import oneSlider from '../images/explorePage/1_slider.png';
 import twoSlider from '../images/explorePage/2_slider.png';
 import threeSlider from '../images/explorePage/3_slider.png';

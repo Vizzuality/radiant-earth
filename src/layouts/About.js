@@ -9,6 +9,7 @@ import image2 from '../images/home/cover/2.jpg';
 import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
 import image5 from '../images/home/cover/5.jpg';
+
 import esa from '../images/about/logos/esa.png';
 import nasa from '../images/about/logos/nasa.jpg';
 import unitar from '../images/about/logos/unitar.png';

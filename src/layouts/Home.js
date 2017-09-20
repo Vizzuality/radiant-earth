@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { Swipeable } from 'react-touch';
 import ReactResizeDetector from 'react-resize-detector';
-import { API_BASE_URL, API_ROOT } from '../global';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
 import MotionCircle from '../components/MotionCircle';
+import { API_BASE_URL, API_ROOT } from '../global';
 
 import slider1 from '../images/home/cover/slider/1.jpg';
 import slider2 from '../images/home/cover/slider/2.jpg';
 import slider3 from '../images/home/cover/slider/3.jpg';
 import slider4 from '../images/home/cover/slider/4.jpg';
-
 import sub1 from '../images/home/cover/1-sub.jpg';
 import sub2 from '../images/home/cover/2-sub.jpg';
 
@@ -21,13 +20,8 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    const positionCircle = Math.floor((Math.random() * 2) + 0);
-    const classCircles = ['-one-position', '-two-position'];
-    const classCircle = classCircles[positionCircle];
-
     this.state = {
       slider: null,
-      classCircleSelect: classCircle,
       slideTestimonialNumber: 1,
       slideTestimonialNext: true,
       slideTestimonialBack: false,
