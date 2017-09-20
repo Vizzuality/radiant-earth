@@ -9,7 +9,7 @@ $testimonial-font-size: 18px;
     margin-top: 0;
     z-index: 4;
 
-    @media screen and (min-width: $screen-m) {
+    @media screen and (min-width: $screen-s) {
       margin-top: rem(30px);
     }
 

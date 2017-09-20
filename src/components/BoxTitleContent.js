@@ -1,11 +1,14 @@
 import React from 'react';
+import browser from 'detect-browser';
 import PropTypes from 'prop-types';
 import Button from './Button';
 
 function BoxTitleContent(props) {
+  const browserSafari = browser.name === 'safari';
+  const browserIOS = browser.name === 'ios';
   const { subTitle, text, buttonText, buttonUrl, title } = props;
   return (
-    <div className="c-box-title-content">
+    <div className={`c-box-title-content ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
       <div>
         {subTitle && <span className="text -ff2-xs -color-2 -uppercase">
           {subTitle}

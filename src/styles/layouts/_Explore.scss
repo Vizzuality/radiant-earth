@@ -24,10 +24,11 @@ $animation-delay: .35s;
       position: relative;
       max-width: rem(600px);
       min-height: $height-slider;
-      margin: 0 auto;
+      margin: rem(20px) auto;
 
       @media screen and (min-width: $screen-m) {
         display: block;
+        margin: rem(20px) auto;
       }
 
 
@@ -97,11 +98,15 @@ $animation-delay: .35s;
       height: $height-slider;
       margin: -40px auto 0;
 
+      @media screen and (min-width: $screen-m) {
+        max-width: rem(540px);
+        padding: 0;
+      }
+
       @media screen and (min-width: $screen-l) {
         right: inherit;
-        max-width: rem(600px);
+        max-width: rem(570px);
         margin: -10px auto 0;
-        padding: inherit;
       }
 
       @media screen and (min-width: $screen-xl) {
@@ -110,7 +115,10 @@ $animation-delay: .35s;
 
       .box-container {
         position: absolute;
+        top: 50%;
+        left: 50%;
         width: 100%;
+        transform: translate(-50%, -50%);
         transition: opacity $animation-text linear;
 
         &.-show {
@@ -124,11 +132,24 @@ $animation-delay: .35s;
 
         .container-buttons {
           display: flex;
-          margin-top: rem(30px);
+          flex-direction: column;
+          margin-top: rem(20px);
+
+          @media screen and (min-width: $screen-s) {
+            flex-direction: row;
+            margin-top: rem(30px);
+          }
 
           .c-button {
-            width: rem(180px);
-            margin-right: rem(15px);
+            width: 100%;
+            margin: 0 auto rem(10px);
+
+            @media screen and (min-width: $screen-s) {
+              width: rem(180px);
+              margin-right: rem(15px);
+              margin-bottom: 0;
+              margin-left: 0;
+            }
           }
         }
       }
@@ -146,13 +167,13 @@ $animation-delay: .35s;
 
       @media screen and (min-width: $screen-m) {
         position: absolute;
-        top: rem(390px);
+        top: rem(420px);
         left: 50%;
         transform: translate(-50%, -50%);
       }
 
       @media screen and (min-width: $screen-l) {
-        top: rem(448px);
+        top: rem(480px);
         text-align: left;
       }
 
