@@ -60,7 +60,7 @@ class Header extends Component {
           </div>
           <div className="small-9 columns">
             <Nav color={color} links={this.navLinks} />
-            <BurgerMenu links={this.navLinks} />
+            <BurgerMenu links={this.navLinks} color={color} />
           </div>
         </div>
       </div>

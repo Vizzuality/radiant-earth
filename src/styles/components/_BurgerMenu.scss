@@ -49,6 +49,12 @@
     background: $black;
   }
 
+  &.-white {
+    .bm-burger-bars {
+      background: $white;
+    }
+  }
+
   .bm-cross-button {
     width: rem(27px) !important;
     height: rem(30px) !important;
