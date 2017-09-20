@@ -91,7 +91,11 @@
   }
 
   .icon {
-    width: 25px;
-    height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem(25px);
+    height: rem(25px);
+    transform: translate(-50%, -50%);
   }
 }
