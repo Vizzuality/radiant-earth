@@ -12,27 +12,32 @@ class Header extends Component {
       {
         name: 'Explore',
         url: '/explore',
-        current: props.currentPath === '/explore'
+        current: props.currentPath === '/explore',
+        disabled: false
       },
       {
         name: 'Community',
         url: '/community',
-        current: props.currentPath === '/community'
+        current: props.currentPath === '/community',
+        disabled: true
       },
       {
         name: 'Get Involved',
         url: '/get-involved',
-        current: props.currentPath === '/get-involved'
+        current: props.currentPath === '/get-involved',
+        disabled: false
       },
       {
         name: 'News',
         url: '/news',
-        current: props.currentPath === '/news'
+        current: props.currentPath === '/news',
+        disabled: false
       },
       {
         name: 'About',
         url: '/about',
         current: props.currentPath === '/about',
+        disabled: false,
         subMenu: [
           {
             name: 'staff',

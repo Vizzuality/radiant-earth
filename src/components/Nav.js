@@ -15,6 +15,7 @@ function Nav(props) {
             subMenu={item.subMenu}
             color={color}
             current={item.current}
+            disabled={item.disabled}
           />)
         )}
       </ul>

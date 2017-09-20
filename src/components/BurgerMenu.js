@@ -12,7 +12,13 @@ function BurgerMenu(props) {
         <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />
         <ul>
           {links.map((item, i) =>
-            <NavItem key={i.toString()} name={item.name} url={item.url} subMenu={item.subMenu} />
+            (<NavItem
+              key={i.toString()}
+              name={item.name}
+              url={item.url}
+              subMenu={item.subMenu}
+              disabled={item.disabled}
+            />)
           )}
         </ul>
       </Menu>
