@@ -6,10 +6,12 @@ Radiant-Earth is a new a geospatial and imagery technology platform to help peop
 
 This repository covers:
 - The home page (an introduction to the platform and the wider initiative).
-- The image explorer (based on [Raster Foundry](http://www.opengovpartnership.org/))
-- Blog page.
+- Explore page.
+- Community (disabled)
+- Get Involved page.
+- News page.
 - About page.
-- Documentation to help you get started using the API and imagery.
+- Staff page.
 
 # Development set up
 
