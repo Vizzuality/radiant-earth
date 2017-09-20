@@ -28,7 +28,7 @@ function BurgerMenu(props) {
 
 BurgerMenu.propTypes = {
   links: PropTypes.array.isRequired,
-  color: PropTypes.array.isRequired
+  color: PropTypes.string.isRequired
 };
 
 export default BurgerMenu;
