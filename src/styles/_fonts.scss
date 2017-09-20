@@ -155,6 +155,10 @@ a {
     text-align: center;
   }
 
+  &.-bold {
+    font-weight: $font-weight-bold;
+  }
+
   &.-shadow {
     font-weight: $font-weight-semibold;
     text-shadow: 0 1px 4px rgba($black, .2);

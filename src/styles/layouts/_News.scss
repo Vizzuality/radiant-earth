@@ -19,6 +19,18 @@ $height-slider: rem(510px);
       position: relative;
     }
 
+    .c-box-title-content {
+      padding-left: 0;
+
+      @media screen and (min-width: $screen-m) {
+        padding-left: rem(20px);
+      }
+
+      h2 {
+        font-weight: $font-weight-bold;
+      }
+    }
+
     .l-news__image {
       display: none;
       position: relative;
