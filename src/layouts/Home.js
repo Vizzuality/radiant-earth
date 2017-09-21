@@ -39,21 +39,27 @@ class Home extends Component {
 
     this.sliderHomePage = [
       {
-        title: 'Open Data. Neutral Environment. Transformative Impact.',
+        multiple: true,
+        title1: 'Open Data.',
+        title2: 'Neutral Environment.',
+        title3: 'Transformative Impact.',
         text: 'Explore, search and discover satellite, aerial and drone imagery, as well as complimentary non-raster geospatial data sets from archives around the world for a scientific window into understanding global activity better.',
         image: slider1,
       },
       {
+        multiple: false,
         title: 'Supporting the Global Development Community',
         text: 'Improved discovery of data and geospatial capacity to drive open remote sensing science to support global development objectives. ',
         image: slider2,
       },
       {
+        multiple: false,
         title: 'Scaling Data',
         text: 'A convenient vehicle allowing for uploading, storing and sharing of drone, manned-aerial and satellite imagery from local files, Amazon S3, Dropbox or Google Drive.',
         image: slider3,
       },
       {
+        multiple: false,
         title: 'Analytical and Visualization Tools',
         text: 'Extract features and calculate indices, or customize data visualization in a cross-domain multidisciplinary ecosystem.',
         image: slider4,
@@ -67,6 +73,7 @@ class Home extends Component {
   componentDidMount() {
     this.getTestimonials();
     this.getCaseStudies();
+    this.slideTestimonial('start');
   }
 
   onResize() {
@@ -109,12 +116,19 @@ class Home extends Component {
       if (windowWidth > 1711) { transition = '610px'; }
       if (windowWidth < 1024) { transition = '100vw - 55px'; minNumber = 1; }
       currentSlider = d === 'next' ? currentSlider = this.state.slideTestimonialNumber + 1 : currentSlider = this.state.slideTestimonialNumber - 1;
-      this.setState({
-        slideTestimonialNumber: currentSlider,
-        slideTestimonialBack: currentSlider > 1,
-        slideTestimonialNext: currentSlider <= (this.state.testimonials.length - minNumber),
-        positionSlideTestimonial: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
-      });
+      if (d !== 'start') {
+        this.setState({
+          slideTestimonialNumber: currentSlider,
+          slideTestimonialBack: currentSlider > 1,
+          slideTestimonialNext: currentSlider <= (this.state.testimonials.length - minNumber),
+          positionSlideTestimonial: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
+        });
+      } else {
+        this.setState({
+          slideTestimonialBack: currentSlider > 1,
+          slideTestimonialNext: this.state.testimonials.length > 2,
+        });
+      }
     }
   }
 
@@ -166,7 +180,8 @@ class Home extends Component {
             {this.sliderHomePage.map((item, i) =>
               (
                 <div key={i.toString()} className="l-home__cover-title" style={{ backgroundImage: `url(${item.image})` }}>
-                  <h1 className="text -ff2-xl -white -center">{item.title}</h1>
+                  {item.multiple === false && <h1 className="text -ff2-xl -white -center">{item.title}</h1>}
+                  {item.multiple === true && <h1 className="text -ff2-xl -white -center">{item.title1}<br />{item.title2}<br />{item.title3}</h1>}
                   <p className="text -ff1-xm -white -center -shadow">{item.text}</p>
                   {i === 0 && <div className="container-buttons">
                     <div className="c-button -back-orange">
@@ -191,6 +206,25 @@ class Home extends Component {
                   subTitle=""
                   title="Accelerate improved decision-making"
                   text="Accessible to anyone anywhere and anytime, Radiant.Earth’s platform expose imagery across the globe, date and spectrum, helping people discover the vast resources of Earth imagery, data sets and tools for new solutions, discoveries and innovations."
+                />
+              </div>
+            </div>
+          </div>
+          <div className="l-home__intro-secondary">
+            <div className="row">
+              <div className="l-home__intro-text columns large-6 medium-6 small-12">
+                <BoxTitleContent
+                  subTitle=""
+                  title="Create powerful insights and evidence-based support for change"
+                  text="Radiant.Earth guides people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market analysis, use cases and best practices, all creating a market place for the global development community"
+                  buttonUrl="#"
+                />
+              </div>
+              <div className="l-home__intro-image columns large-6 medium-6 small-12">
+                <MotionCircle
+                  move={false}
+                  width={this.state.widthCircle.toString()}
+                  backgroundImage={sub2}
                 />
               </div>
             </div>
@@ -232,21 +266,6 @@ class Home extends Component {
               </div>
             </div>
           </Swipeable>
-          <div className="l-home__intro-secondary">
-            <div className="row">
-              <div className="l-home__intro-text columns large-6 medium-6 small-12">
-                <BoxTitleContent
-                  subTitle=""
-                  title="Create powerful insights and evidence-based support for change"
-                  text="Radiant.Earth guide people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market information and analysis on remote sensing activity, highlighting use cases and best practices, and offering a market place for Earth imagery."
-                  buttonUrl="#"
-                />
-              </div>
-              <div className="l-home__intro-image columns large-6 medium-6 small-12">
-                <MotionCircle width={this.state.widthCircle.toString()} backgroundImage={sub2} />
-              </div>
-            </div>
-          </div>
           <Swipeable onSwipeLeft={() => this.slideStudies(`${this.state.slideStudiesNext ? 'next' : 'null'}`)} onSwipeRight={() => this.slideStudies(`${this.state.slideStudiesBack ? 'back' : 'null'}`)}>
             <div className="l-home__studies">
               <div className="row">
