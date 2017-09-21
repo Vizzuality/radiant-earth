@@ -11,7 +11,7 @@ import oneExplore from '../images/explorePage/1.png';
 import twoExplore from '../images/explorePage/2.png';
 import threeExplore from '../images/explorePage/3.png';
 import oneSlider from '../images/explorePage/1_slider.png';
-import twoSlider from '../images/explorePage/2_slider.png';
+import twoSlider from '../images/explorePage/2_slider.jpg';
 import threeSlider from '../images/explorePage/3_slider.png';
 
 class Explore extends Component {
@@ -27,24 +27,24 @@ class Explore extends Component {
       {
         img: oneSlider,
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
-        title: 'Browse the whole world, updated constantly.',
-        text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
+        title: 'Browse the world.',
+        text: 'Explore, search and discover satellite, aerial, and drone imagery, as well as data sets from archives around the world for a scientific window into understanding global activity better.',
         buttonText: 'REQUEST ACCESS',
         buttonUrl: '#',
       },
       {
         img: twoSlider,
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
-        title: 'Browse the whole world, updated constantly. -2',
-        text: 'Find free and timely imagery of open data sets like the Landsat and Sentinel archives.',
+        title: 'Upload Drone Imagery',
+        text: 'Create secured single sign-on profile on Radiant.Earths’ cloud infrastructure, and upload, store and share drone imagery on demand for easy processing and visualization. ',
         buttonText: 'REQUEST ACCESS',
         buttonUrl: '#',
       },
       {
         img: threeSlider,
         subTitle: 'RADIANT.EARTH DATA EXPLORER',
-        title: 'Browse the whole world, updated constantly. -3',
-        text: 'Find free and timely imagery of anywhere on earth by searching popular open data sets like the Landsat and Sentinel archives.',
+        title: 'Integrate with external platforms',
+        text: 'Streamline workflow by integrating Radiant.Earth directly into your existing software, and run algorithms, modeling and reports against own data for cross-domain analysis and decision-making.',
         buttonText: 'REQUEST ACCESS',
         buttonUrl: '#',
       },
