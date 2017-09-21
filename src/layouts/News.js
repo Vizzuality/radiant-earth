@@ -85,7 +85,7 @@ class News extends Component {
                 <div className={`columns large-6 medium-6 small-12 l-news__image ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
                   {sliderNews.map((item, i) =>
                     (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
-                      <MotionCircle width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />
+                      <MotionCircle move={false} width={widthCircle.toString()} backgroundImage={`${API_ROOT}${item.image}`} />
                     </div>)
                   )}
                 </div>
@@ -125,6 +125,7 @@ class News extends Component {
                   text={item.short_description}
                   video={item.video_url}
                   channel={item.channel}
+                  url={item.url}
                 />
                 )
               )}
