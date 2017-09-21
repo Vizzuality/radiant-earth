@@ -1,0 +1,92 @@
+.l-team {
+
+  .l-team__board,
+  .l-team__fellows,
+  .l-team__interns {
+    padding: rem(80px) 0;
+    background-color: rgba($color-4, .05);
+
+    .row {
+      position: relative;
+
+      h2 {
+        margin-bottom: rem(20px);
+      }
+    }
+
+    .l-about__board-item,
+    .l-about__fellows-item,
+    .l-about__interns-item {
+      margin-bottom: rem(60px);
+
+      span {
+        display: block;
+        margin: rem(20px) 0;
+        opacity: .5;
+      }
+
+      .img {
+
+        width: rem(130px);
+        height: rem(130px);
+        border-radius: rem(130px);
+        background-color: rgba($color-4, .1);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+  }
+
+  .l-team__content {
+    padding: rem(110px) 0;
+
+    .row {
+      h2 {
+        margin-bottom: rem(20px);
+      }
+
+      .columns {
+        margin-bottom: rem(30px);
+      }
+    }
+
+    .l-about__team-item {
+      padding: rem(20px);
+      background-color: rgba($color-4, .05);
+
+      .contain-info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        .info {
+          span {
+            font-weight: $font-weight-semibold;
+            opacity: .5;
+          }
+        }
+
+        .img {
+          width: rem(130px);
+          height: rem(130px);
+          margin-right: rem(30px);
+          border-radius: rem(130px);
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+
+      .contain-text {
+        margin-top: rem(10px);
+
+        p {
+          opacity: .6;
+        }
+      }
+    }
+  }
+
+  .l-team__interns {
+    background-color: $white;
+  }
+}

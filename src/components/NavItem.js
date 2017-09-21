@@ -7,10 +7,11 @@ function NavItem(props) {
     <li className={`text -ff2-s -color-1 ${color === 'white' ? '-white' : '-color-1'} ${subMenu ? 'has-sub-menu' : ''} ${current ? '-selected' : ''} ${disabled ? '-disabled' : ''}`}>
       <a href={url}>{name}</a>
       {subMenu && <ul className="sub-menu">
-        <li>
-          {subMenu.map((item, i) =>
-            <a className="text -ff2-xs -uppercase" key={i.toString()} href={item.url}>{item.name}</a>
-          )}</li>
+        {subMenu.map((item, i) =>
+          (<a key={i.toString()} href={item.url}>
+            <li className="text -ff2-xs -uppercase">{item.name}</li>
+          </a>)
+          )}
       </ul>}
     </li>
   );
