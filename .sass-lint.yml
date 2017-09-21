@@ -4,6 +4,8 @@ rules:
     - order: 'smacss'
   force-element-nesting:
     - 0
+  class-name-format:
+    - 0
   no-color-literals:
     - 2
     -

@@ -40,8 +40,8 @@ class Header extends Component {
         disabled: false,
         subMenu: [
           {
-            name: 'staff',
-            url: '/staff'
+            name: 'our tem',
+            url: '/our-team'
           }
         ]
       },

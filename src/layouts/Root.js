@@ -9,7 +9,7 @@ import Explore from './Explore';
 import About from './About';
 import GetInvolved from './GetInvolved';
 import News from './News';
-import Staff from './Staff';
+import OurTeam from './OurTeam';
 
 const Root = () => (
   <Router>
@@ -19,7 +19,7 @@ const Root = () => (
       <Route exact path="/about" component={About} />
       <Route exact path="/get-involved" component={GetInvolved} />
       <Route exact path="/news" component={News} />
-      <Route exact path="/staff" component={Staff} />
+      <Route exact path="/our-team" component={OurTeam} />
     </div>
   </Router>
 );
