@@ -2,4 +2,8 @@
   transition: .5s linear;
   border-radius: 400px;
   background-repeat: no-repeat;
+
+  &.-no-move {
+    background-size: cover !important;
+  }
 }

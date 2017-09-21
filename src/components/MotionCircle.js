@@ -11,18 +11,20 @@ class MotionCircle extends Component {
   }
 
   handleMouseMove = (e) => {
-    this.setState({
-      x: e.clientX - e.target.getBoundingClientRect().left - this.props.width,
-      y: e.clientY - e.target.getBoundingClientRect().top - this.props.width
-    });
+    if (this.props.move) {
+      this.setState({
+        x: e.clientX - e.target.getBoundingClientRect().left - this.props.width,
+        y: e.clientY - e.target.getBoundingClientRect().top - this.props.width
+      });
+    }
   }
 
   render() {
     const { x, y } = this.state;
-    const { backgroundImage, width } = this.props;
+    const { backgroundImage, width, move } = this.props;
     return (
       <div
-        className="c-motion-circle"
+        className={`c-motion-circle ${move ? '' : '-no-move'}`}
         onMouseMove={this.handleMouseMove}
         style={{ backgroundPosition: `${x / 7}px ${y / 7}px`, width: `${width}px`, height: `${width}px`, backgroundImage: `url(${backgroundImage})`, backgroundSize: `${width * 1.2}px ${width * 1.2}px` }}
       />
@@ -31,12 +33,14 @@ class MotionCircle extends Component {
 }
 
 MotionCircle.defaultProps = {
-  backgroundImage: ''
+  backgroundImage: '',
+  move: true
 };
 
 MotionCircle.propTypes = {
   backgroundImage: PropTypes.string.isRequired,
-  width: PropTypes.string.isRequired
+  width: PropTypes.string.isRequired,
+  move: PropTypes.bool
 };
 
 export default MotionCircle;
