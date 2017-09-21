@@ -6,16 +6,19 @@ import Button from './Button';
 function BoxTitleContent(props) {
   const browserSafari = browser.name === 'safari';
   const browserIOS = browser.name === 'ios';
-  const { subTitle, text, buttonText, buttonUrl, title } = props;
+  const { subTitle, text, buttonText, buttonUrl, title, url } = props;
   return (
     <div className={`c-box-title-content ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
       <div>
         {subTitle && <span className="text -ff2-xs -color-2 -uppercase">
           {subTitle}
         </span>}
-        {title && <h2 className="text -ff2-l -color-1">
+        {title && !url && <h2 className="text -ff2-l -color-1">
           {title}
         </h2>}
+        {title && url && <a href={url} target="_blank">
+          <h2 className="text -ff2-l -color-1">{title}</h2>
+        </a>}
         {text && <p className="text -ff1-m">
           {text}
         </p>}
@@ -32,7 +35,8 @@ BoxTitleContent.defaultProps = {
   text: null,
   buttonText: null,
   buttonUrl: null,
-  title: null
+  title: null,
+  url: null
 };
 
 BoxTitleContent.propTypes = {
@@ -40,7 +44,8 @@ BoxTitleContent.propTypes = {
   text: PropTypes.string,
   buttonText: PropTypes.string,
   buttonUrl: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
+  url: PropTypes.string
 };
 
 export default BoxTitleContent;
