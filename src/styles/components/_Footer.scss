@@ -114,4 +114,18 @@
       }
     }
   }
+
+  .contain-contact {
+    margin-top: rem(50px);
+
+    h4 {
+      opacity: .5;
+      margin-bottom: rem(10px);
+    }
+
+    p {
+      opacity: .7;
+      margin-bottom: rem(5px);
+    }
+  }
 }

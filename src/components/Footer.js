@@ -19,6 +19,21 @@ function Footer() {
               </a>
             </div>
           </div>
+          <div className="contain-contact">
+            <div className="contain-contact-text">
+              <h4 className="text -ff2-xs -uppercase -white">Contact</h4>
+              <div className="l-about__contact-text">
+                <div>
+                  <p className="text -ff2-m -white">740 15th Street, Suite 900</p>
+                  <p className="text -ff2-m -white">Washington, DC 20005</p>
+                </div>
+                <div>
+                  <p className="text -ff2-m -white">Email: <a className="text -color-1 -white" href="mailto:hello@radiant.earth">hello@radiant.earth</a></p>
+                  <p className="text -ff2-m -white">Phone: <a className="text -color-1 -white" href="tel:+1.2020.596.3603">+1.2020.596.3603</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="c-footer__social columns large-6 medium-6 small-12">
           <div className="c-footer__social-container">
