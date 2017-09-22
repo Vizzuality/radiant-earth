@@ -34,7 +34,9 @@ class Home extends Component {
       showModal: false,
       widthCircle: 510,
       testimonials: [],
-      caseStudies: []
+      caseStudies: [],
+      loaderTestimonials: false,
+      loaderCase: false,
     };
 
     this.sliderHomePage = [
@@ -94,6 +96,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         testimonials: data,
+        loaderTestimonials: data.length !== 0
       }));
   }
 
@@ -103,6 +106,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         caseStudies: data,
+        loaderCase: data.length !== 0
       }));
   }
 
@@ -159,7 +163,7 @@ class Home extends Component {
   }
 
   render() {
-    const { testimonials, caseStudies } = this.state;
+    const { testimonials, caseStudies, loaderTestimonials, loaderCase } = this.state;
 
     const settingsCover = {
       dots: true,
@@ -247,21 +251,45 @@ class Home extends Component {
                   className="l-home__testimonial-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideTestimonial }}
                 >
-                  {testimonials.map((item, i) =>
-                    (<div key={i.toString()} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
-                      <div>
-                        <p className="text -ff2-m">
-                          <span className="quotes">“</span>
-                          {item.quote}
-                          <span className="quotes">”</span>
-                        </p>
-                      </div>
-                      <div className="author-contain">
-                        <span className="name text -color-1">- {item.author}</span>
-                        <div style={{ backgroundImage: `url(${API_ROOT}${item.image})` }} className="img">{}</div>
-                      </div>
-                    </div>)
-                  )}
+                  {loaderTestimonials === false && <div className="c-box-loader -primary">
+                    <div className="timeline-item">
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background -s">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -blue -footer">{}</div>
+                    </div>
+                  </div>}
+                  {loaderTestimonials === false && <div className="c-box-loader -primary">
+                    <div className="timeline-item">
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -s">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background -blue -footer">{}</div>
+                    </div>
+                  </div>}
+                  {loaderTestimonials && <div className="l-home__testimonial-slider large-12 medium-12 small-12">
+                    {testimonials.map((item, i) =>
+                      (<div key={i.toString()} className={`l-home__testimonial-item ${(i + 1) > (this.state.slideTestimonialNumber + 1) ? '' : '-show'} ${(i + 1) < this.state.slideTestimonialNumber ? '-not-back' : ''}`}>
+                        <div>
+                          <p className="text -ff2-m">
+                            <span className="quotes">“</span>
+                            {item.quote}
+                            <span className="quotes">”</span>
+                          </p>
+                        </div>
+                        <div className="author-contain">
+                          <span className="name text -color-1">- {item.author}</span>
+                          <div style={{ backgroundImage: `url(${API_ROOT}${item.image})` }} className="img">{}</div>
+                        </div>
+                      </div>)
+                    )}
+                  </div>}
                 </div>
               </div>
             </div>
@@ -284,17 +312,56 @@ class Home extends Component {
                   className="l-home__studies-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideStudies }}
                 >
-                  {caseStudies.map((item, i) =>
-                    (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
-                      <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                      <div>
-                        <BoxTitleContent
-                          title={item.quote}
-                          text={item.description}
-                        />
-                      </div>
-                    </div>)
-                  )}
+
+                  {loaderCase === false && <div className="c-box-loader -secondary">
+                    <div className="timeline-item">
+                      <div className="animated-background -image">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background -s">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                    </div>
+                  </div>}
+                  {loaderCase === false && <div className="c-box-loader -secondary">
+                    <div className="timeline-item">
+                      <div className="animated-background -image">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background -s">{}</div>
+                    </div>
+                  </div>}
+                  {loaderCase === false && <div className="c-box-loader -secondary">
+                    <div className="timeline-item">
+                      <div className="animated-background -image">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -s">{}</div>
+                      <div className="animated-background -m">{}</div>
+                    </div>
+                  </div>}
+                  {loaderCase === false && <div className="c-box-loader -secondary">
+                    <div className="timeline-item">
+                      <div className="animated-background -image">{}</div>
+                      <div className="animated-background -m">{}</div>
+                      <div className="animated-background">{}</div>
+                      <div className="animated-background -s">{}</div>
+                      <div className="animated-background -m">{}</div>
+                    </div>
+                  </div>}
+                  {loaderCase && <div className="l-home__studies-slider large-12 medium-12 small-12">
+                    {caseStudies.map((item, i) =>
+                      (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
+                        <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
+                        <div>
+                          <BoxTitleContent
+                            title={item.quote}
+                            text={item.description}
+                          />
+                        </div>
+                      </div>)
+                    )}
+                  </div>}
                 </div>
               </div>
             </div>
