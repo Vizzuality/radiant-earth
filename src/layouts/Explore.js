@@ -100,7 +100,7 @@ class Explore extends Component {
                       {i === 0 && <div className="container-buttons">
                         <button
                           onClick={() => this.showModal()}
-                          className="c-button -back-gray text -ff2-xs -uppercase -gray"
+                          className="c-button -back-white text -ff2-xs -uppercase -gray"
                         >REQUEST ACCESS</button>
                         <div className="c-button -back-orange">
                           <a className="text -ff2-xs -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
