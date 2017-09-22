@@ -95,7 +95,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         testimonials: data,
-        loaderTestimonials: false
+        loaderTestimonials: data.length !== 0
       }));
   }
 
@@ -105,7 +105,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         caseStudies: data,
-        loaderCase: false
+        loaderCase: data.length !== 0
       }));
   }
 
