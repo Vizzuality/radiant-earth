@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Swipeable } from 'react-touch';
+import ScrollEvent from 'react-onscroll';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -21,6 +22,7 @@ class Explore extends Component {
     this.state = {
       slider: 0,
       showModal: false,
+      sticky: false,
     };
 
     this.sliderContent = [
@@ -59,6 +61,18 @@ class Explore extends Component {
     }
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   showModal() {
     this.setState({
       showModal: !this.state.showModal
@@ -66,12 +80,13 @@ class Explore extends Component {
   }
 
   render() {
-    const { slider, showModal } = this.state;
+    const { slider, showModal, sticky } = this.state;
     const { pathname } = this.props.location;
     return (
       <div>
         <Header currentPath={pathname} />
-        <div className="l-explore">
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
+        <div className={`l-explore ${sticky ? '-sticky' : ''}`}>
           <Swipeable
             onSwipeLeft={() => this.changeSlider(slider + 1)}
             onSwipeRight={() => this.changeSlider(slider - 1)}

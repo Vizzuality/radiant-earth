@@ -10,6 +10,7 @@
     "react": "^15.6.1",
     "react-burger-menu": "^2.1.1",
     "react-dom": "^15.6.1",
+    "react-onscroll": "^1.0.4",
     "react-resize-detector": "^0.6.0",
     "react-router-dom": "^4.1.1",
     "react-select-me": "^0.9.0",

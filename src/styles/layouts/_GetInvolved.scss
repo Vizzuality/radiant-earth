@@ -10,6 +10,10 @@
     padding: rem(110px) 0 rem(175px);
   }
 
+  &.-sticky {
+    padding-top: rem(218px);
+  }
+
   .hidden-box {
     display: none;
   }
