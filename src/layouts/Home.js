@@ -45,7 +45,6 @@ class Home extends Component {
         title1: 'Open Data.',
         title2: 'Neutral Environment.',
         title3: 'Transformative Impact.',
-        text: 'Explore, search and discover satellite, aerial and drone imagery, as well as complimentary non-raster geospatial data sets from archives around the world for a scientific window into understanding global activity better.',
         image: slider1,
       },
       {
@@ -96,7 +95,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         testimonials: data,
-        loaderTestimonials: data.length !== 0
+        loaderTestimonials: false
       }));
   }
 
@@ -106,7 +105,7 @@ class Home extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         caseStudies: data,
-        loaderCase: data.length !== 0
+        loaderCase: false
       }));
   }
 
@@ -210,6 +209,8 @@ class Home extends Component {
                   subTitle=""
                   title="Accelerate improved decision-making"
                   text="Accessible to anyone, anywhere and anytime, Radiant.Earth’s platform exposes imagery across the globe, time and spectrum, helping people discover the vast resources of Earth imagery, and tools for new solutions, discoveries and innovations."
+                  buttonText="explore page"
+                  buttonUrl="/explore"
                 />
               </div>
             </div>
@@ -221,7 +222,8 @@ class Home extends Component {
                   subTitle=""
                   title="Create powerful insights and evidence-based support for change"
                   text="Radiant.Earth guides people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market analysis, use cases and best practices, all creating a market place for the global development community"
-                  buttonUrl="#"
+                  buttonText="community page"
+                  buttonUrl="/"
                 />
               </div>
               <div className="l-home__intro-image columns large-6 medium-6 small-12">
@@ -259,7 +261,7 @@ class Home extends Component {
                       <div className="animated-background">{}</div>
                       <div className="animated-background -m">{}</div>
                       <div className="animated-background">{}</div>
-                      <div className="animated-background -blue -footer">{}</div>
+                      <div className="animated-background -footer">{}</div>
                     </div>
                   </div>}
                   {loaderTestimonials === false && <div className="c-box-loader -primary">
@@ -270,7 +272,7 @@ class Home extends Component {
                       <div className="animated-background -s">{}</div>
                       <div className="animated-background">{}</div>
                       <div className="animated-background -m">{}</div>
-                      <div className="animated-background -blue -footer">{}</div>
+                      <div className="animated-background -footer">{}</div>
                     </div>
                   </div>}
                   {loaderTestimonials && <div className="l-home__testimonial-slider large-12 medium-12 small-12">
