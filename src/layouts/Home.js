@@ -205,7 +205,7 @@ class Home extends Component {
                 <BoxTitleContent
                   subTitle=""
                   title="Accelerate improved decision-making"
-                  text="Accessible to anyone anywhere and anytime, Radiant.Earth’s platform expose imagery across the globe, date and spectrum, helping people discover the vast resources of Earth imagery, data sets and tools for new solutions, discoveries and innovations."
+                  text="Accessible to anyone, anywhere and anytime, Radiant.Earth’s platform exposes imagery across the globe, time and spectrum, helping people discover the vast resources of Earth imagery, and tools for new solutions, discoveries and innovations."
                 />
               </div>
             </div>
