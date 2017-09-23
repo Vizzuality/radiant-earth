@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ScrollEvent from 'react-onscroll';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { API_BASE_URL, API_ROOT } from '../global';
@@ -56,13 +57,26 @@ class OurTeam extends Component {
       .then(data => self.setState({ interns: data }));
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   render() {
-    const { members, staff, fellows, interns } = this.state;
+    const { members, staff, fellows, interns, sticky } = this.state;
     const { pathname } = this.props.location;
     return (
       <div className="l-team">
         <Header currentPath={pathname} />
-        <div className="l-team__board">
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
+        <div className={`l-team__board ${sticky ? '-sticky' : ''}`}>
           <div className="row">
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"

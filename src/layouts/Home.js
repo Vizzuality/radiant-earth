@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { Swipeable } from 'react-touch';
 import ReactResizeDetector from 'react-resize-detector';
+import ScrollEvent from 'react-onscroll';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -161,8 +162,20 @@ class Home extends Component {
     });
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   render() {
-    const { testimonials, caseStudies, loaderTestimonials, loaderCase } = this.state;
+    const { testimonials, caseStudies, loaderTestimonials, loaderCase, sticky } = this.state;
 
     const settingsCover = {
       dots: true,
@@ -177,8 +190,9 @@ class Home extends Component {
 
     return (
       <div>
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
         <Header color="white" />
-        <div className="l-home">
+        <div className={`l-home ${sticky ? '-sticky' : ''}`}>
           <Slider {...settingsCover}>
             {this.sliderHomePage.map((item, i) =>
               (

@@ -1,4 +1,9 @@
 .l-team {
+  .l-team__board {
+    &.-sticky {
+      padding-top: rem(198px);
+    }
+  }
 
   .l-team__board,
   .l-team__fellows,

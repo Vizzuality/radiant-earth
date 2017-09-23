@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ScrollEvent from 'react-onscroll';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MotionCircle from '../components/MotionCircle';
@@ -26,6 +27,7 @@ class About extends Component {
 
     this.state = {
       vacancies: [],
+      sticky: false,
     };
 
     this.getVacancies = this.getVacancies.bind(this);
@@ -44,15 +46,28 @@ class About extends Component {
       }));
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   render() {
     const { pathname } = this.props.location;
-    const { vacancies } = this.state;
+    const { vacancies, sticky } = this.state;
     return (
       <div className="l-about">
         <Header currentPath={pathname} />
-        <div className="l-about__cover">
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
+        <div className={`l-about__cover ${sticky ? '-sticky' : ''}`}>
           <div className="l-about__circle-image -image-1"><MotionCircle width="572" backgroundImage={image1} /></div>
-          <div className="l-about__circle-image -image-2"><MotionCircle width="150" backgroundImage={image2} /></div>
+          <div className={`l-about__circle-image -image-2 ${sticky ? '-sticky' : ''}`}><MotionCircle width="150" backgroundImage={image2} /></div>
           <div className="l-about__circle-image -image-3"><MotionCircle width="360" backgroundImage={image3} /></div>
           <div className="l-about__circle-image -image-4"><MotionCircle width="284" backgroundImage={image4} /></div>
           <div className="l-about__circle-image -image-5"><MotionCircle width="422" backgroundImage={image5} /></div>

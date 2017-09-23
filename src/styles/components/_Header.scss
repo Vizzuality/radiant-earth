@@ -1,3 +1,4 @@
+$menu-sticky: rgb(244, 245, 245);
 .c-header {
   position: relative;
   width: 100%;
@@ -7,6 +8,23 @@
 
   &.-white {
     background-color: transparent;
+
+    &.-sticky {
+      top: 0;
+
+      .c-nav {
+        li {
+          color: $color-1;
+        }
+      }
+    }
+  }
+
+  &.-sticky {
+    background-color: $menu-sticky;
+    border-bottom: 1px solid rgba($color-4, .1);
+    position: fixed;
+    z-index: 99;
   }
 
   .icon-logo {

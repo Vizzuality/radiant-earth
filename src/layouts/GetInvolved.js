@@ -2,6 +2,7 @@ import 'react-select-me/lib/ReactSelectMe.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select-me';
+import ScrollEvent from 'react-onscroll';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -14,7 +15,8 @@ class GetInvolved extends Component {
       country: null,
       area: null,
       caseSlider: 0,
-      countries: []
+      countries: [],
+      sticky: false,
     };
 
     this.getCountries = this.getCountries.bind(this);
@@ -41,6 +43,18 @@ class GetInvolved extends Component {
     fetch(`${API_COUNTRIES}all?fields=name`)
       .then(r => r.json())
       .then(data => self.setState({ countries: data }));
+  }
+
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
   }
 
   changeSlider(caseSlider) {
@@ -80,12 +94,13 @@ class GetInvolved extends Component {
       },
     ];
 
-    const { caseSlider } = this.state;
+    const { caseSlider, sticky } = this.state;
     const { pathname } = this.props.location;
     return (
       <div>
         <Header currentPath={pathname} />
-        <div className="l-get-involved">
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
+        <div className={`l-get-involved ${sticky ? '-sticky' : ''}`}>
           <div className="row ">
 
             <div className="columns large-6 medium-12 small-12">

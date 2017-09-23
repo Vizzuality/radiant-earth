@@ -10,6 +10,18 @@
     padding: rem(110px) 0 rem(175px);
   }
 
+  &.-sticky {
+    padding-top: rem(118px);
+
+    @media screen and (min-width: $screen-l) {
+      padding-top: rem(178px)
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding-top: rem(228px);
+    }
+  }
+
   .hidden-box {
     display: none;
   }

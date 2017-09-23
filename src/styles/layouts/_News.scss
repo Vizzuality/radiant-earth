@@ -5,6 +5,10 @@ $height-slider: rem(510px);
     justify-content: space-between;
   }
 
+  &.-sticky {
+    padding-top: rem(118px);
+  }
+
   .l-news__cover {
     position: relative;
     padding: rem(12px) 0 rem(30px);

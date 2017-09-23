@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ScrollEvent from 'react-onscroll';
 import Nav from './Nav';
 import BurgerMenu from './BurgerMenu';
 import radiantLogo from '../images/logos/radiant.png';
@@ -8,6 +9,11 @@ import radiantLogoWhite from '../images/logos/radiant-white.png';
 class Header extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      sticky: false,
+    };
+
     this.navLinks = [
       {
         name: 'Explore',
@@ -48,14 +54,29 @@ class Header extends Component {
     ];
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   render() {
     const { color } = this.props;
+    const { sticky } = this.state;
     return (
-      <div className={`c-header ${color === 'white' ? '-white' : ''}`}>
+      <div className={`c-header ${color === 'white' ? '-white' : ''} ${sticky ? '-sticky' : ''}`}>
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
         <div className="c-header__content row">
           <div className="small-3 columns">
             <a href="/">
-              <img alt="Radiant.earth" className="c-header__logo" src={`${color === 'white' ? radiantLogoWhite : radiantLogo}`} />
+              {sticky === false && <img alt="Radiant.earth" className="c-header__logo" src={`${color === 'white' ? radiantLogoWhite : radiantLogo}`} />}
+              {sticky === true && <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />}
             </a>
           </div>
           <div className="small-9 columns">

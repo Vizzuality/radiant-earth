@@ -11,6 +11,10 @@ $animation-delay: .35s;
     margin-bottom: rem(10px);
   }
 
+  &.-sticky {
+    padding-top: rem(118px);
+  }
+
   .l-explore__slider-content {
 
     background-color: rgba($color-4, .05);
@@ -182,6 +186,16 @@ $animation-delay: .35s;
         top: inherit;
         left: inherit;
         transform: none;
+      }
+
+      &.-sticky {
+        @media screen and (min-width: $screen-m) {
+          top: rem(538px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          top: rem(598px);
+        }
       }
 
       button {
