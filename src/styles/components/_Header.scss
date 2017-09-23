@@ -8,6 +8,16 @@ $menu-sticky: rgb(244, 245, 245);
 
   &.-white {
     background-color: transparent;
+
+    &.-sticky {
+      top: 0;
+
+      .c-nav {
+        li {
+          color: $color-1;
+        }
+      }
+    }
   }
 
   &.-sticky {

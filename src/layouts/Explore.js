@@ -124,7 +124,7 @@ class Explore extends Component {
                     </div>)
                   )}
                 </div>
-                <ul className="l-explore__circle-container columns large-12 medium-12 small-12 ">
+                <ul className={`l-explore__circle-container columns large-12 medium-12 small-12 ${sticky ? '-sticky' : ''}`}>
                   {this.sliderContent.map((item, i) =>
                     (<button key={i.toString()} onClick={() => this.changeSlider(i)}>
                       <li className={`circle ${i === slider ? '-active' : ''}`}>{}</li>

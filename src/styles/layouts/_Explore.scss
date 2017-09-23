@@ -188,6 +188,16 @@ $animation-delay: .35s;
         transform: none;
       }
 
+      &.-sticky {
+        @media screen and (min-width: $screen-m) {
+          top: rem(538px);
+        }
+
+        @media screen and (min-width: $screen-l) {
+          top: rem(598px);
+        }
+      }
+
       button {
         margin-right: rem(20px);
         outline: 0;

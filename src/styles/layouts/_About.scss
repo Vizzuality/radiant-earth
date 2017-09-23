@@ -3,6 +3,10 @@
     position: relative;
     background-color: rgba($color-4, .05);
 
+    &.-sticky {
+      padding-top: rem(118px);
+    }
+
     .l-about__circle-image {
       position: absolute;
       z-index: 4;
@@ -27,6 +31,10 @@
         width: rem(150px);
         height: rem(150px);
         border-radius: rem(150px);
+
+        &.-sticky {
+          top: 318px;
+        }
 
         @media screen and (min-width: $screen-xl) {
           display: block;

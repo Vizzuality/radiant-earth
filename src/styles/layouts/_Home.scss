@@ -3,6 +3,10 @@ $quotes-font: 'Fira Sans', sans-serif;
 $testimonial-font-size: 18px;
 
 .l-home {
+  &.-sticky {
+    padding-top: rem(118px);
+  }
+
   .container-buttons {
     display: flex;
     flex-direction: column;

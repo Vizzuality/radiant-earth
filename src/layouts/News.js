@@ -3,6 +3,7 @@ import ReactResizeDetector from 'react-resize-detector';
 import PropTypes from 'prop-types';
 import { Swipeable } from 'react-touch';
 import browser from 'detect-browser';
+import ScrollEvent from 'react-onscroll';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -18,7 +19,8 @@ class News extends Component {
       sliderNews: [],
       gridNews: [],
       gridShowNumber: 0,
-      widthCircle: 510
+      widthCircle: 510,
+      sticky: false
     };
 
     this.getSliderNews = this.getSliderNews.bind(this);
@@ -59,6 +61,18 @@ class News extends Component {
       }));
   }
 
+  handleScrollCallback() {
+    if (window.scrollY > 120) {
+      this.setState({
+        sticky: true
+      });
+    } else {
+      this.setState({
+        sticky: false
+      });
+    }
+  }
+
   changeSlider(slider) {
     if (slider >= 0 && slider <= this.state.gridNews.length) {
       this.setState({
@@ -70,12 +84,13 @@ class News extends Component {
   render() {
     const browserSafari = browser.name === 'safari';
     const browserIOS = browser.name === 'ios';
-    const { slider, sliderNews, gridNews, widthCircle } = this.state;
+    const { slider, sliderNews, gridNews, widthCircle, sticky } = this.state;
     const { pathname } = this.props.location;
     return (
       <div>
         <Header currentPath={pathname} />
-        <div className="l-news">
+        <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
+        <div className={`l-news ${sticky ? '-sticky' : ''}`}>
           <Swipeable
             onSwipeLeft={() => this.changeSlider(slider + 1)}
             onSwipeRight={() => this.changeSlider(slider - 1)}

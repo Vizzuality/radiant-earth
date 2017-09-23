@@ -11,7 +11,15 @@
   }
 
   &.-sticky {
-    padding-top: rem(218px);
+    padding-top: rem(118px);
+
+    @media screen and (min-width: $screen-l) {
+      padding-top: rem(178px)
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding-top: rem(228px);
+    }
   }
 
   .hidden-box {
