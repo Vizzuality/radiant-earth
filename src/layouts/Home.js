@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import { Swipeable } from 'react-touch';
 import ReactResizeDetector from 'react-resize-detector';
 import ScrollEvent from 'react-onscroll';
+import { Helmet } from 'react-helmet';
 import BoxModal from '../components/BoxModal';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -190,6 +191,9 @@ class Home extends Component {
 
     return (
       <div>
+        <Helmet>
+          <script id="typef_orm_share" src="https://embed.typeform.com/embed.js">{}</script>
+        </Helmet>
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
         <Header color="white" />
         <div className={`l-home ${sticky ? '-sticky' : ''}`}>
@@ -204,10 +208,12 @@ class Home extends Component {
                     <div className="c-button -back-orange">
                       <a className="text -ff2-xs -color-2 -uppercase -white" href={'/#'} rel="noopener noreferrer">explore data</a>
                     </div>
-                    <button
-                      onClick={this.showModal.bind(this)}
-                      className="c-button -back-white text -ff2-xs -uppercase"
-                    >REQUEST ACCESS</button>
+                    <a
+                      target="_black"
+                      data-mode="popup"
+                      href="https://radiantearth.typeform.com/to/MLG7bC"
+                      className="c-button -flex -back-white text -ff2-xs -uppercase typeform-share link"
+                    >REQUEST ACCESS</a>
                   </div>}
                 </div>
               )

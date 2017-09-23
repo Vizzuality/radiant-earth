@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Swipeable } from 'react-touch';
 import ScrollEvent from 'react-onscroll';
+import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
@@ -84,6 +85,10 @@ class Explore extends Component {
     const { pathname } = this.props.location;
     return (
       <div>
+        <Helmet>
+          <script id="typef_orm_share" src="https://embed.typeform.com/embed.js">{}</script>
+          <title>Radiant-Earth | Explore</title>
+        </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
         <div className={`l-explore ${sticky ? '-sticky' : ''}`}>
@@ -113,10 +118,12 @@ class Explore extends Component {
                         text={item.text}
                       />
                       {i === 0 && <div className="container-buttons">
-                        <button
-                          onClick={() => this.showModal()}
-                          className="c-button -back-white text -ff2-xs -uppercase -gray"
-                        >REQUEST ACCESS</button>
+                        <a
+                          target="_black"
+                          data-mode="popup"
+                          href="https://radiantearth.typeform.com/to/MLG7bC"
+                          className="c-button -flex -back-white text -ff2-xs -uppercase typeform-share link"
+                        >REQUEST ACCESS</a>
                         <div className="c-button -back-orange">
                           <a className="text -ff2-xs -color-2 -uppercase -white" href="https://app.radiant.earth/login" target="_blank" rel="noopener noreferrer">login</a>
                         </div>

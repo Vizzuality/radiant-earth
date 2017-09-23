@@ -4,6 +4,12 @@
   border-radius: rem(100px);
   cursor: pointer;
 
+  &.-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   &.-back-orange {
     background-color: $color-2;
     color: $white;
