@@ -14,7 +14,11 @@ class OurTeam extends Component {
       members: [],
       staff: [],
       fellows: [],
-      interns: []
+      interns: [],
+      loaderBoard: false,
+      loaderStaff: false,
+      loaderFellows: false,
+      loaderInterns: false
     };
 
     this.getBoardDirectors = this.getBoardDirectors.bind(this);
@@ -34,28 +38,40 @@ class OurTeam extends Component {
     const self = this;
     fetch(`${API_BASE_URL}/members?is_board_member=true`)
       .then(r => r.json())
-      .then(data => self.setState({ members: data }));
+      .then(data => self.setState({
+        members: data,
+        loaderBoard: data.length !== 0
+      }));
   }
 
   getStaff= () => {
     const self = this;
     fetch(`${API_BASE_URL}/members?category=Staff`)
       .then(r => r.json())
-      .then(data => self.setState({ staff: data }));
+      .then(data => self.setState({
+        staff: data,
+        loaderStaff: data.length !== 0
+      }));
   }
 
   getFellows= () => {
     const self = this;
     fetch(`${API_BASE_URL}/members?category=Fellows`)
       .then(r => r.json())
-      .then(data => self.setState({ fellows: data }));
+      .then(data => self.setState({
+        fellows: data,
+        loaderFellows: data.length !== 0
+      }));
   }
 
   getInterns= () => {
     const self = this;
     fetch(`${API_BASE_URL}/members?category=Interns`)
       .then(r => r.json())
-      .then(data => self.setState({ interns: data }));
+      .then(data => self.setState({
+        interns: data,
+        loaderInterns: data.length !== 0
+      }));
   }
 
   handleScrollCallback() {
@@ -71,7 +87,8 @@ class OurTeam extends Component {
   }
 
   render() {
-    const { members, staff, fellows, interns, sticky } = this.state;
+    const { members, staff, fellows, interns, sticky, loaderBoard } = this.state;
+    const { loaderFellows, loaderInterns, loaderStaff } = this.state;
     const { pathname } = this.props.location;
     return (
       <div className="l-team">
@@ -85,16 +102,42 @@ class OurTeam extends Component {
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >Board of Directors</h2>
-            {members.map((item, i) =>
-              (<div
-                key={i.toString()}
-                className="l-about__board-item columns large-3 medium-4 small-6"
-              >
-                <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                <span className="text -ff2-xs -uppercase">{item.title}</span>
-                <h3 className="text -ff2-l -color-1">{item.name}</h3>
-              </div>)
-            )}
+            {loaderBoard === false && <div className="row l-team__loader-container">
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -m">{}</div>
+                </div>
+              </div>
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                </div>
+              </div>
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background ">{}</div>
+                  <div className="animated-background -s">{}</div>
+                </div>
+              </div>
+            </div>}
+            { loaderBoard && <div className="flex">
+              {members.map((item, i) =>
+                (<div
+                  key={i.toString()}
+                  className="l-about__board-item columns large-3 medium-4 small-6"
+                >
+                  <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
+                  <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                </div>)
+              )}
+            </div>}
+
           </div>
         </div>
         <div className="l-team__content">
@@ -102,22 +145,51 @@ class OurTeam extends Component {
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >STAFF</h2>
-            {staff.map((item, i) =>
-              (<div className="columns large-6 medium-12 small-12" key={i.toString()}>
-                <div className="l-about__team-item">
-                  <div className="contain-info">
-                    <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                    <div className="info">
-                      <span className="text -ff2-xs -uppercase">{item.title}</span>
-                      <h3 className="text -ff2-l -color-1">{item.name}</h3>
+
+            {loaderStaff === false && <div className="l-team__loader-container -flex">
+              <div className="c-box-loader -primary columns large-6 medium-12 small-12">
+                <div className="timeline-item">
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -footer">{}</div>
+                </div>
+              </div>
+              <div className="c-box-loader -primary columns large-6 medium-12 small-12">
+                <div className="timeline-item">
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -footer">{}</div>
+                </div>
+              </div>
+            </div> }
+
+            {loaderStaff && <div className="flex">
+              {staff.map((item, i) =>
+                (<div className="columns large-6 medium-12 small-12" key={i.toString()}>
+                  <div className="l-about__team-item">
+                    <div className="contain-info">
+                      <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
+                      <div className="info">
+                        <span className="text -ff2-xs -uppercase">{item.title}</span>
+                        <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                      </div>
+                    </div>
+                    <div className="contain-text">
+                      <p className="text -ff1-m">{item.description}</p>
                     </div>
                   </div>
-                  <div className="contain-text">
-                    <p className="text -ff1-m">{item.description}</p>
-                  </div>
-                </div>
-              </div>)
-            )}
+                </div>)
+              )}
+            </div>}
+
           </div>
         </div>
         <div className="l-team__fellows">
@@ -125,16 +197,41 @@ class OurTeam extends Component {
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >Fellows</h2>
-            {fellows.map((item, i) =>
-              (<div
-                key={i.toString()}
-                className="l-about__fellows-item columns large-3 medium-4 small-6"
-              >
-                <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                <span className="text -ff2-xs -uppercase">{item.title}</span>
-                <h3 className="text -ff2-l -color-1">{item.name}</h3>
-              </div>)
-            )}
+            {loaderFellows === false && <div className="row l-team__loader-container">
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -m">{}</div>
+                </div>
+              </div>
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                </div>
+              </div>
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background ">{}</div>
+                  <div className="animated-background -s">{}</div>
+                </div>
+              </div>
+            </div>}
+            {loaderFellows && <div className="flex">
+              {fellows.map((item, i) =>
+                (<div
+                  key={i.toString()}
+                  className="l-about__fellows-item columns large-3 medium-4 small-6"
+                >
+                  <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
+                  <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                </div>)
+              )}
+            </div>}
           </div>
         </div>
         <div className="l-team__interns">
@@ -142,16 +239,35 @@ class OurTeam extends Component {
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
             >Interns</h2>
-            {interns.map((item, i) =>
-              (<div
-                key={i.toString()}
-                className="l-about__interns-item columns large-3 medium-4 small-6"
-              >
-                <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                <span className="text -ff2-xs -uppercase">{item.title}</span>
-                <h3 className="text -ff2-l -color-1">{item.name}</h3>
-              </div>)
-            )}
+            {loaderInterns === false && <div className="row l-team__loader-container">
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -m">{}</div>
+                </div>
+              </div>
+              <div className="columns c-box-loader -small large-3 medium-4 small-6">
+                <div className="timeline-item">
+                  <div className="animated-background -circle">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                </div>
+              </div>
+            </div>}
+            {loaderInterns && <div className="flex">
+              {interns.map((item, i) =>
+                (<div
+                  key={i.toString()}
+                  className="l-about__interns-item columns large-3 medium-4 small-6"
+                >
+                  <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
+                  <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                </div>)
+              )}
+            </div>}
+
           </div>
         </div>
         <Footer />

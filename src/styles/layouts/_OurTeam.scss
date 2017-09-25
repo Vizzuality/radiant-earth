@@ -5,6 +5,26 @@
     }
   }
 
+  .flex {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  }
+
+  .l-team__loader-container {
+    padding-left: rem(15px);
+    padding-right: rem(15px);
+
+    &.-flex {
+      display: flex;
+      flex-flow: row wrap;
+
+      @media screen and (min-width: $screen-xl) {
+        flex-flow: row;
+      }
+    }
+  }
+
   .l-team__board,
   .l-team__fellows,
   .l-team__interns {
