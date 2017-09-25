@@ -21,7 +21,9 @@ class News extends Component {
       gridNews: [],
       gridShowNumber: 0,
       widthCircle: 510,
-      sticky: false
+      sticky: false,
+      loaderSlider: false,
+      loaderGrid: false
     };
 
     this.getSliderNews = this.getSliderNews.bind(this);
@@ -49,7 +51,10 @@ class News extends Component {
     const self = this;
     fetch(`${API_BASE_URL}/posts?per_page=4`)
       .then(r => r.json())
-      .then(data => self.setState({ sliderNews: data }));
+      .then(data => self.setState({
+        sliderNews: data,
+        loaderSlider: data.length !== 0
+      }));
   }
 
   getGridNews() {
@@ -58,7 +63,8 @@ class News extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         gridNews: data,
-        gridShowNumber: this.state.gridShowNumber + 3
+        gridShowNumber: this.state.gridShowNumber + 3,
+        loaderGrid: data.length !== 0
       }));
   }
 
@@ -86,6 +92,7 @@ class News extends Component {
     const browserSafari = browser.name === 'safari';
     const browserIOS = browser.name === 'ios';
     const { slider, sliderNews, gridNews, widthCircle, sticky } = this.state;
+    const { loaderSlider, loaderGrid } = this.state;
     const { pathname } = this.props.location;
     return (
       <div>
@@ -100,7 +107,25 @@ class News extends Component {
             onSwipeRight={() => this.changeSlider(slider - 1)}
           >
             <div className="l-news__cover">
-              <div className="row">
+              {loaderSlider === false && <div className="row">
+                <div className={`columns large-6 medium-6 small-12 l-news__image ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
+                  <div className="circle-image">
+                    <MotionCircle move={false} width={widthCircle.toString()} />
+                  </div>
+                </div>
+                <div className="columns large-6 medium-6 small-12 l-news__text-cover">
+                  <div className="text-cover-contain">
+                    <div className="columns c-box-loader -slider">
+                      <div className="timeline-item">
+                        <div className="animated-background">{}</div>
+                        <div className="animated-background -m">{}</div>
+                        <div className="animated-background -m">{}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>}
+              {loaderSlider && <div className="row">
                 <div className={`columns large-6 medium-6 small-12 l-news__image ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
                   {sliderNews.map((item, i) =>
                     (<div key={i.toString()} className={`circle-image ${i === slider ? '-show' : '-hidden'}`}>
@@ -130,11 +155,47 @@ class News extends Component {
                     </button>)
                   )}
                 </ul>
-              </div>
+              </div>}
             </div>
           </Swipeable>
           <div className="l-news__gallery">
-            <div className="row">
+            {loaderGrid === false && <div className="row">
+              <div className="c-box-loader -back columns large-4 medium-6 small-12">
+                <div className="timeline-item">
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -footer">{}</div>
+                </div>
+              </div>
+              <div className="c-box-loader -back columns large-4 medium-6 small-12">
+                <div className="timeline-item">
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -s">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -footer">{}</div>
+                </div>
+              </div>
+              <div className="c-box-loader -back columns large-4 medium-6 small-12">
+                <div className="timeline-item">
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -s">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background -m">{}</div>
+                  <div className="animated-background">{}</div>
+                  <div className="animated-background -footer">{}</div>
+                </div>
+              </div>
+            </div>}
+
+            {loaderGrid && <div className="row">
               {gridNews.map((item, i) =>
                 (<BoxCard
                   key={i.toString()}
@@ -154,7 +215,8 @@ class News extends Component {
                   onClick={() => this.getGridNews()}
                 >load more</button>
               </div>
-            </div>
+            </div>}
+
           </div>
         </div>
         <Footer />
