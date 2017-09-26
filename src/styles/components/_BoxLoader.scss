@@ -38,6 +38,11 @@
         height: rem(70px);
         border-radius: rem(70px);
       }
+
+      &.-orange {
+        animation-duration: 2s;
+        background: linear-gradient(to right, rgba($color-2, .1), rgba($color-2, .15) 25%, rgba($color-2, .2) 50%, rgba($color-2, .15) 75%, rgba($color-2, .1) 100%);
+      }
   }
 
   &.-primary {

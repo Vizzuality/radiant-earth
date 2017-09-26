@@ -69,10 +69,11 @@
       width: calc(100% + 100px);
       padding: rem(7px) rem(12px);
       transition: .1s linear;
-      border: 2px solid rgba($color-4, .5);
       background-color: $white;
       text-align: center;
       opacity: 0;
+      box-shadow: 1px 1px 2px 0px rgba($color-4, .5);
+      pointer-events: none;
 
       li {
         width: 100%;
@@ -89,6 +90,8 @@
       .sub-menu {
         top: rem(24px);
         opacity: 1;
+        pointer-events: all;
+        animation-delay: 2s;
       }
     }
   }

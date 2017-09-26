@@ -56,3 +56,8 @@
 .dd__expandIcon {
   display: none;
 }
+
+.dd__list {
+  z-index: 100 !important;
+  max-height: rem(300px) !important;
+}

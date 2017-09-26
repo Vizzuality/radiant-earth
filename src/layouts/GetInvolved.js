@@ -7,7 +7,6 @@ import { Helmet } from 'react-helmet';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import BoxTitleContent from '../components/BoxTitleContent';
-import { API_COUNTRIES } from '../global';
 
 class GetInvolved extends Component {
   constructor(props) {
@@ -41,7 +40,7 @@ class GetInvolved extends Component {
 
   getCountries() {
     const self = this;
-    fetch(`${API_COUNTRIES}all?fields=name`)
+    fetch('https://restcountries.eu/rest/v2/all?fields=name')
       .then(r => r.json())
       .then(data => self.setState({ countries: data }));
   }
@@ -65,12 +64,7 @@ class GetInvolved extends Component {
   }
 
   render() {
-    const optionsCountry = [
-      { value: 'spain', label: 'Spain' },
-      { value: 'portugal', label: 'Portugal' },
-      { value: 'france', label: 'France' },
-    ];
-
+    const optionsCountry = [];
     const optionsArea = [
       { value: '1', label: 'Area 1' },
       { value: '2', label: 'Area 2' },
@@ -95,8 +89,11 @@ class GetInvolved extends Component {
       },
     ];
 
-    const { caseSlider, sticky } = this.state;
+    const { caseSlider, sticky, countries } = this.state;
     const { pathname } = this.props.location;
+    for (let i = 0; i < countries.length; i += 1) {
+      optionsCountry[i] = { value: countries[i].name, label: countries[i].name };
+    }
     return (
       <div>
         <Helmet>
@@ -108,19 +105,6 @@ class GetInvolved extends Component {
           <div className="row ">
 
             <div className="columns large-6 medium-12 small-12">
-              <div>
-                {casesInformation.map((item, i) =>
-                  (<div
-                    className={`${i === caseSlider ? 'show-box' : 'hidden-box'}`}
-                    key={i.toString()}
-                  >
-                    <BoxTitleContent
-                      title={item.titleText}
-                      text={item.text}
-                    />
-                  </div>)
-                )}
-              </div>
               <div className="l-get-involved__tab-case">
                 <div className="tab-case-list">
                   {casesInformation.map((item, i) =>
@@ -133,6 +117,19 @@ class GetInvolved extends Component {
                     </button>)
                   )}
                 </div>
+              </div>
+              <div>
+                {casesInformation.map((item, i) =>
+                  (<div
+                    className={`${i === caseSlider ? 'show-box' : 'hidden-box'}`}
+                    key={i.toString()}
+                  >
+                    <BoxTitleContent
+                      title={item.titleText}
+                      text={item.text}
+                    />
+                  </div>)
+                )}
               </div>
             </div>
             <div className="columns large-6 medium-12 small-12 l-get-involved__form">

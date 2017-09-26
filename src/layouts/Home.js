@@ -222,7 +222,11 @@ class Home extends Component {
           <div className="l-home__intro">
             <div className="row">
               <div className="l-home__intro-image columns large-6 medium-6 small-12">
-                <MotionCircle width={this.state.widthCircle.toString()} backgroundImage={sub1} />
+                <MotionCircle
+                  width={this.state.widthCircle.toString()}
+                  backgroundImage={sub1}
+                  move={false}
+                />
               </div>
               <div className="l-home__intro-text columns large-6 medium-6 small-12">
                 <BoxTitleContent

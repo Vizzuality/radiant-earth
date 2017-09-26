@@ -5,16 +5,16 @@ class MotionCircle extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      x: 0,
-      y: 0
+      x: props.width * 2,
+      y: props.width * 2
     };
   }
 
   handleMouseMove = (e) => {
     if (this.props.move) {
       this.setState({
-        x: e.clientX - e.target.getBoundingClientRect().left - this.props.width,
-        y: e.clientY - e.target.getBoundingClientRect().top - this.props.width
+        x: e.clientX - e.target.getBoundingClientRect().left - ((this.props.width * 2) / 40),
+        y: e.clientY - e.target.getBoundingClientRect().top - ((this.props.width * 2) / 40)
       });
     }
   }
@@ -26,7 +26,7 @@ class MotionCircle extends Component {
       <div
         className={`c-motion-circle ${move ? '' : '-no-move'}`}
         onMouseMove={this.handleMouseMove}
-        style={{ backgroundPosition: `${x / 7}px ${y / 7}px`, width: `${width}px`, height: `${width}px`, backgroundImage: `url(${backgroundImage})`, backgroundSize: `${width * 1.2}px ${width * 1.2}px` }}
+        style={{ backgroundPosition: `${-(x / 10)}px ${-(y / 10)}px`, width: `${width}px`, height: `${width}px`, backgroundImage: `url(${backgroundImage})`, backgroundSize: `${width * 1.2}px ${width * 1.2}px` }}
       />
     );
   }

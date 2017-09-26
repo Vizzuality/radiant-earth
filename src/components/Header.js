@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import ScrollEvent from 'react-onscroll';
 import Nav from './Nav';
 import BurgerMenu from './BurgerMenu';
-import radiantLogo from '../images/logos/radiant.png';
-import radiantLogoWhite from '../images/logos/radiant-white.png';
 
 class Header extends Component {
   constructor(props) {
@@ -75,8 +73,8 @@ class Header extends Component {
         <div className="c-header__content row">
           <div className="small-3 columns">
             <a href="/">
-              {sticky === false && <img alt="Radiant.earth" className="c-header__logo" src={`${color === 'white' ? radiantLogoWhite : radiantLogo}`} />}
-              {sticky === true && <img alt="Radiant.earth" className="c-header__logo" src={radiantLogo} />}
+              {sticky === false && <svg className="icon icon-radiant_logo_color"><use xlinkHref={`${color === 'white' ? '#icon-radiant_logo_white' : '#icon-radiant_logo_color'}`}>{}</use></svg>}
+              {sticky === true && <svg className="icon icon-radiant_logo_color"><use xlinkHref="#icon-radiant_logo_color">{}</use></svg>}
             </a>
           </div>
           <div className="small-9 columns">
