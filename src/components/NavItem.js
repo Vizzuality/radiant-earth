@@ -6,13 +6,13 @@ function NavItem(props) {
   return (
     <li className={`text -ff2-s -color-1 ${color === 'white' ? '-white' : '-color-1'} ${subMenu ? 'has-sub-menu' : ''} ${current ? '-selected' : ''} ${disabled ? '-disabled' : ''}`}>
       <a href={url}>{name}</a>
-      {subMenu && <ul className="sub-menu">
+      {subMenu && <div className="border-sub-menu"><ul className="sub-menu">
         {subMenu.map((item, i) =>
           (<a key={i.toString()} href={item.url}>
             <li className="text -ff2-xs -uppercase">{item.name}</li>
           </a>)
           )}
-      </ul>}
+      </ul></div>}
     </li>
   );
 }
