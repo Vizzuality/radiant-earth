@@ -248,7 +248,6 @@ $testimonial-font-size: 18px;
           min-width: 610px;
         }
 
-
         &.-show {
           opacity: 1;
         }
@@ -282,6 +281,8 @@ $testimonial-font-size: 18px;
 
           .name {
             font-size: $testimonial-font-size;
+            text-align: right;
+            letter-spacing: 0;
           }
 
           .img {

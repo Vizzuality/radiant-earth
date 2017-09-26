@@ -247,6 +247,11 @@
       li {
         margin-bottom: rem(20px);
 
+        a {
+          letter-spacing: 0;
+          font-weight: $font-weight-semibold;
+        }
+
         &:last-of-type {
           margin-bottom: 0;
         }

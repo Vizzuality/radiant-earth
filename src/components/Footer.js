@@ -75,7 +75,7 @@ function Footer() {
               </a>
             </div>
             <h4
-              className="text -ff2-xs -uppercase -white terms-text"
+              className="text -ff2-m -white terms-text"
             >Terms and Conditions</h4>
           </div>
         </div>

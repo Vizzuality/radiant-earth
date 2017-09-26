@@ -23,7 +23,8 @@ class News extends Component {
       widthCircle: 510,
       sticky: false,
       loaderSlider: false,
-      loaderGrid: false
+      loaderGrid: false,
+      showLoadMore: true
     };
 
     this.getSliderNews = this.getSliderNews.bind(this);
@@ -53,7 +54,7 @@ class News extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         sliderNews: data,
-        loaderSlider: data.length !== 0
+        loaderSlider: false,
       }));
   }
 
@@ -64,7 +65,8 @@ class News extends Component {
       .then(data => self.setState({
         gridNews: data,
         gridShowNumber: this.state.gridShowNumber + 3,
-        loaderGrid: data.length !== 0
+        loaderGrid: data.length !== 0,
+        showLoadMore: (data.length % 3) === 0
       }));
   }
 
@@ -91,7 +93,7 @@ class News extends Component {
   render() {
     const browserSafari = browser.name === 'safari';
     const browserIOS = browser.name === 'ios';
-    const { slider, sliderNews, gridNews, widthCircle, sticky } = this.state;
+    const { slider, sliderNews, gridNews, widthCircle, sticky, showLoadMore } = this.state;
     const { loaderSlider, loaderGrid } = this.state;
     const { pathname } = this.props.location;
     return (
@@ -117,8 +119,8 @@ class News extends Component {
                   <div className="text-cover-contain">
                     <div className="columns c-box-loader -slider">
                       <div className="timeline-item">
+                        <div className="animated-background -orange -s">{}</div>
                         <div className="animated-background">{}</div>
-                        <div className="animated-background -m">{}</div>
                         <div className="animated-background -m">{}</div>
                       </div>
                     </div>
@@ -206,15 +208,16 @@ class News extends Component {
                   video={item.video_url}
                   channel={item.channel}
                   url={item.url}
+                  dots
                 />
                 )
               )}
-              <div className="contain-button large-12 medium-12 small-12">
+              {showLoadMore && <div className="contain-button large-12 medium-12 small-12">
                 <button
                   className="c-button -back-gray text -uppercase -ff2-m"
                   onClick={() => this.getGridNews()}
                 >load more</button>
-              </div>
+              </div>}
             </div>}
 
           </div>
