@@ -78,6 +78,32 @@
           border-radius: rem(422px);
         }
       }
+
+      &.-image-6 {
+        display: none;
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          display: block;
+          right: 315px;
+          top: 313px;
+          width: rem(344px);
+          height: rem(344px);
+          border-radius: rem(422px);
+        }
+      }
+
+      &.-image-7 {
+        display: none;
+
+        @media screen and (min-width: $screen-xxxl-secondary) {
+          display: block;
+          right: 208px;
+          bottom: -650px;
+          width: rem(344px);
+          height: rem(344px);
+          border-radius: rem(422px);
+        }
+      }
     }
 
     .title {

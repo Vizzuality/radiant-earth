@@ -12,6 +12,8 @@ import image2 from '../images/home/cover/2.jpg';
 import image3 from '../images/home/cover/3.jpg';
 import image4 from '../images/home/cover/4.jpg';
 import image5 from '../images/home/cover/5.jpg';
+import image6 from '../images/home/cover/6.jpg';
+import image7 from '../images/home/cover/1-sub.jpg';
 
 import esa from '../images/about/logos/esa.png';
 import nasa from '../images/about/logos/nasa.jpg';
@@ -75,6 +77,8 @@ class About extends Component {
           <div className="l-about__circle-image -image-3"><MotionCircle width="360" backgroundImage={image3} /></div>
           <div className="l-about__circle-image -image-4"><MotionCircle width="284" backgroundImage={image4} /></div>
           <div className="l-about__circle-image -image-5"><MotionCircle width="422" backgroundImage={image5} /></div>
+          <div className="l-about__circle-image -image-6"><MotionCircle width="344" backgroundImage={image6} /></div>
+          <div className="l-about__circle-image -image-7"><MotionCircle width="344" backgroundImage={image7} /></div>
           <div className="row">
             <div className="columns large-12 medium-12 small-12 title">
               <h1 className="text -ff2-xl -color-1">Open geospatial data for positive impact</h1>
