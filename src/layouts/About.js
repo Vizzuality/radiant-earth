@@ -77,7 +77,7 @@ class About extends Component {
           <div className="l-about__circle-image -image-3"><MotionCircle width="360" backgroundImage={image3} /></div>
           <div className="l-about__circle-image -image-4"><MotionCircle width="284" backgroundImage={image4} /></div>
           <div className="l-about__circle-image -image-5"><MotionCircle width="422" backgroundImage={image5} /></div>
-          <div className="l-about__circle-image -image-6"><MotionCircle width="344" backgroundImage={image6} /></div>
+          <div className={`l-about__circle-image -image-6 ${sticky ? '-sticky' : ''}`}><MotionCircle width="344" backgroundImage={image6} /></div>
           <div className="l-about__circle-image -image-7"><MotionCircle width="344" backgroundImage={image7} /></div>
           <div className="row">
             <div className="columns large-12 medium-12 small-12 title">

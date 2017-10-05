@@ -89,6 +89,10 @@
           width: rem(344px);
           height: rem(344px);
           border-radius: rem(422px);
+
+          &.-sticky {
+            top: 431px;
+          }
         }
       }
 
