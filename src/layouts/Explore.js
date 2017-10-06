@@ -87,7 +87,7 @@ class Explore extends Component {
       <div>
         <Helmet>
           <script id="typef_orm_share" src="https://embed.typeform.com/embed.js">{}</script>
-          <title>Radiant-Earth | Explore</title>
+          <title>Radiant.Earth | Explore</title>
         </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />

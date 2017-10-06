@@ -7,7 +7,7 @@ import Button from './Button';
 function BoxTitleContent(props) {
   const browserSafari = browser.name === 'safari';
   const browserIOS = browser.name === 'ios';
-  const { subTitle, text, buttonText, buttonUrl, title, url, dots } = props;
+  const { subTitle, text, buttonText, buttonUrl, title, url, dots, readmore } = props;
   return (
     <div className={`c-box-title-content ${browserSafari ? '-safari' : ''} ${browserIOS ? '-safari' : ''}`}>
       <div>
@@ -33,6 +33,9 @@ function BoxTitleContent(props) {
       {buttonText && <div>
         <Button text={buttonText} url={buttonUrl} back="orange" />
       </div> }
+      {readmore &&
+        <a className="text -ff2-xm -color-1 read-more" href={url} target="_blank">Read more</a>
+      }
     </div>
   );
 }
@@ -44,7 +47,8 @@ BoxTitleContent.defaultProps = {
   buttonUrl: null,
   title: null,
   url: null,
-  dots: false
+  dots: false,
+  readmore: false
 };
 
 BoxTitleContent.propTypes = {
@@ -54,7 +58,8 @@ BoxTitleContent.propTypes = {
   buttonUrl: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,
-  dots: PropTypes.bool
+  dots: PropTypes.bool,
+  readmore: PropTypes.bool
 };
 
 export default BoxTitleContent;

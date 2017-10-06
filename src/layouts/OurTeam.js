@@ -93,7 +93,7 @@ class OurTeam extends Component {
     return (
       <div className="l-team">
         <Helmet>
-          <title>Radiant-Earth | Our Team</title>
+          <title>Radiant.Earth | Our Team</title>
         </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />

@@ -99,7 +99,7 @@ class News extends Component {
     return (
       <div>
         <Helmet>
-          <title>Radiant-Earth | News</title>
+          <title>Radiant.Earth | News on Earth Imagery, Geospatial Data, Global</title>
         </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
@@ -209,6 +209,7 @@ class News extends Component {
                   channel={item.channel}
                   url={item.url}
                   dots
+                  readmore
                 />
                 )
               )}

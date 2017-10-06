@@ -28,7 +28,7 @@ class BoxCard extends Component {
 
   render() {
     const { title, subTitle, text, buttonText } = this.props;
-    const { buttonUrl, img, video, channel, url, dots } = this.props;
+    const { buttonUrl, img, video, channel, url, dots, readmore } = this.props;
     const { showTooltip, isOpen } = this.state;
     return (
       <div className="c-box-card columns large-4 medium-6 small-12">
@@ -67,6 +67,7 @@ class BoxCard extends Component {
           buttonUrl={buttonUrl}
           url={url}
           dots={dots}
+          readmore={readmore}
         />
       </div>
     );
@@ -83,7 +84,8 @@ BoxCard.defaultProps = {
   img: null,
   video: null,
   url: null,
-  dots: false
+  dots: false,
+  readmore: false
 };
 
 BoxCard.propTypes = {
@@ -97,6 +99,7 @@ BoxCard.propTypes = {
   video: PropTypes.string,
   url: PropTypes.string,
   dots: PropTypes.bool,
+  readmore: PropTypes.bool
 };
 
 export default BoxCard;
