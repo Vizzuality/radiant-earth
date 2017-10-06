@@ -29,7 +29,7 @@ function Footer() {
                 </div>
                 <div>
                   <p className="text -ff2-m -white">Email: <a className="text -color-1 -white" href="mailto:hello@radiant.earth">hello@radiant.earth</a></p>
-                  <p className="text -ff2-m -white">Phone: <a className="text -color-1 -white" href="tel:+1.2020.596.3603">+1.2020.596.3603</a></p>
+                  <p className="text -ff2-m -white">Phone: <a className="text -color-1 -white" href="tel:+1.202.596.3603">+1.202.596.3603</a></p>
                 </div>
               </div>
             </div>
