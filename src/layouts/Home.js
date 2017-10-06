@@ -36,46 +36,46 @@ class Home extends Component {
       showModal: false,
       widthCircle: 510,
       testimonials: [],
-      caseStudies: [],
       loaderTestimonials: false,
-      loaderCase: false,
+      loaderNews: false,
+      newsData: [],
     };
 
     this.sliderHomePage = [
       {
         multiple: true,
         title1: 'Open Data.',
-        title2: 'Neutral Environment.',
+        title2: 'Neutral platform.',
         title3: 'Transformative Impact.',
         image: slider1,
       },
       {
         multiple: false,
         title: 'Supporting the Global Development Community',
-        text: 'Improved discovery of data and geospatial capacity to drive open remote sensing science to support global development objectives. ',
+        text: 'Improved discovery of data and geospatial capacity to drive open remote sensing science for global development objectives. ',
         image: slider2,
       },
       {
         multiple: false,
-        title: 'Scaling Data',
+        title: 'Driving Greater Scalability',
         text: 'A convenient vehicle allowing for uploading, storing and sharing of drone, manned-aerial and satellite imagery from local files, Amazon S3, Dropbox or Google Drive.',
         image: slider3,
       },
       {
         multiple: false,
-        title: 'Analytical and Visualization Tools',
-        text: 'Extract features and calculate indices, or customize data visualization in a cross-domain multidisciplinary ecosystem.',
+        title: 'Providing Analytical and Visualization Tools',
+        text: 'Streamline workflow by importing your existing databases directly into Radiant.Earth,and run algorithms, modeling and reports for cross-domain analysis and decision-making.',
         image: slider4,
       }
     ];
 
     this.getTestimonials = this.getTestimonials.bind(this);
-    this.getCaseStudies = this.getCaseStudies.bind(this);
+    this.getNews = this.getNews.bind(this);
   }
 
   componentDidMount() {
     this.getTestimonials();
-    this.getCaseStudies();
+    this.getNews();
     this.slideTestimonial('start');
   }
 
@@ -101,13 +101,13 @@ class Home extends Component {
       }));
   }
 
-  getCaseStudies() {
+  getNews() {
     const self = this;
-    fetch(`${API_BASE_URL}/use_cases?category=Case study`)
+    fetch(`${API_BASE_URL}/posts`)
       .then(r => r.json())
       .then(data => self.setState({
-        caseStudies: data,
-        loaderCase: data.length !== 0
+        newsData: data,
+        loaderNews: data.length !== 0,
       }));
   }
 
@@ -151,7 +151,7 @@ class Home extends Component {
       this.setState({
         slideStudiesNumber: currentSlider,
         slideStudiesBack: currentSlider > 1,
-        slideStudiesNext: currentSlider <= (this.state.caseStudies.length - minNumber),
+        slideStudiesNext: currentSlider <= (this.state.newsData.length - minNumber),
         positionSlideStudies: `translate3d(calc((((${transition}) * ${currentSlider - 1}) * (-1)) - ((${vwSlidePx}vw) * ${currentSlider - 1})), 0px, 0px)`,
       });
     }
@@ -176,7 +176,7 @@ class Home extends Component {
   }
 
   render() {
-    const { testimonials, caseStudies, loaderTestimonials, loaderCase, sticky } = this.state;
+    const { testimonials, newsData, loaderTestimonials, loaderNews, sticky } = this.state;
 
     const settingsCover = {
       dots: true,
@@ -232,8 +232,8 @@ class Home extends Component {
                 <BoxTitleContent
                   subTitle=""
                   title="Accelerate improved decision-making"
-                  text="Accessible to anyone, anywhere and anytime, Radiant.Earth’s platform exposes imagery across the globe, time and spectrum, helping people discover the vast resources of Earth imagery, and tools for new solutions, discoveries and innovations."
-                  buttonText="explore page"
+                  text="Accessible to anyone, anywhere and anytime, Radiant.Earth’s platform exposes imagery across the globe, time and spectrum, helping people discover the vast resources of Earth imagery and tools for new solutions, discoveries and innovations."
+                  buttonText="explore data"
                   buttonUrl="/explore"
                 />
               </div>
@@ -245,8 +245,8 @@ class Home extends Component {
                 <BoxTitleContent
                   subTitle=""
                   title="Create powerful insights and evidence-based support for change"
-                  text="Radiant.Earth guides people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market analysis, use cases and best practices, all creating a market place for the global development community"
-                  buttonText="community page"
+                  text="Radiant.Earth guides people in the use of Earth imagery, geospatial data sets and tools through capacity building programs, market analysis, use cases and best practices, all creating a market place for the global development community."
+                  buttonText="Learn more"
                   buttonUrl="/"
                 />
               </div>
@@ -272,7 +272,7 @@ class Home extends Component {
                 </button>
                 <h2
                   className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-                >community</h2>
+                >Community Voices</h2>
                 <div
                   className="l-home__testimonial-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideTestimonial }}
@@ -333,13 +333,13 @@ class Home extends Component {
                 </button>
                 <h2
                   className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-                >LATEST CASE STUDIES</h2>
+                >LATEST NEWS</h2>
                 <div
                   className="l-home__studies-slider columns large-12 medium-12 small-12"
                   style={{ transform: this.state.positionSlideStudies }}
                 >
 
-                  {loaderCase === false && <div className="c-box-loader -secondary">
+                  {loaderNews === false && <div className="c-box-loader -secondary">
                     <div className="timeline-item">
                       <div className="animated-background -image">{}</div>
                       <div className="animated-background -m">{}</div>
@@ -348,7 +348,7 @@ class Home extends Component {
                       <div className="animated-background -m">{}</div>
                     </div>
                   </div>}
-                  {loaderCase === false && <div className="c-box-loader -secondary">
+                  {loaderNews === false && <div className="c-box-loader -secondary">
                     <div className="timeline-item">
                       <div className="animated-background -image">{}</div>
                       <div className="animated-background">{}</div>
@@ -357,7 +357,7 @@ class Home extends Component {
                       <div className="animated-background -s">{}</div>
                     </div>
                   </div>}
-                  {loaderCase === false && <div className="c-box-loader -secondary">
+                  {loaderNews === false && <div className="c-box-loader -secondary">
                     <div className="timeline-item">
                       <div className="animated-background -image">{}</div>
                       <div className="animated-background -m">{}</div>
@@ -366,7 +366,7 @@ class Home extends Component {
                       <div className="animated-background -m">{}</div>
                     </div>
                   </div>}
-                  {loaderCase === false && <div className="c-box-loader -secondary">
+                  {loaderNews === false && <div className="c-box-loader -secondary">
                     <div className="timeline-item">
                       <div className="animated-background -image">{}</div>
                       <div className="animated-background -m">{}</div>
@@ -375,14 +375,14 @@ class Home extends Component {
                       <div className="animated-background -m">{}</div>
                     </div>
                   </div>}
-                  {loaderCase && <div className="l-home__studies-slider large-12 medium-12 small-12">
-                    {caseStudies.map((item, i) =>
+                  {loaderNews && <div className="l-home__studies-slider large-12 medium-12 small-12">
+                    {newsData.map((item, i) =>
                       (<div key={i.toString()} className={`l-home__studies-item ${(i) > (this.state.slideStudiesNumber + 1) ? '' : '-show'} ${(i + 1) < (this.state.slideStudiesNumber) ? '-not-back' : ''}`}>
                         <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
                         <div>
                           <BoxTitleContent
-                            title={item.quote}
-                            text={item.description}
+                            title={item.title}
+                            url={item.url}
                           />
                         </div>
                       </div>)
