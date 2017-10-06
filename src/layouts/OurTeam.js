@@ -15,6 +15,7 @@ class OurTeam extends Component {
       staff: [],
       fellows: [],
       interns: [],
+      vacancies: [],
       loaderBoard: false,
       loaderStaff: false,
       loaderFellows: false,
@@ -25,6 +26,7 @@ class OurTeam extends Component {
     this.getStaff = this.getStaff.bind(this);
     this.getFellows = this.getFellows.bind(this);
     this.getInterns = this.getInterns.bind(this);
+    this.getVacancies = this.getVacancies.bind(this);
   }
 
   componentDidMount() {
@@ -32,6 +34,7 @@ class OurTeam extends Component {
     this.getStaff();
     this.getFellows();
     this.getInterns();
+    this.getVacancies();
   }
 
   getBoardDirectors= () => {
@@ -74,6 +77,15 @@ class OurTeam extends Component {
       }));
   }
 
+  getVacancies() {
+    const self = this;
+    fetch(`${API_BASE_URL}/vacancies`)
+      .then(r => r.json())
+      .then(data => self.setState({
+        vacancies: data,
+      }));
+  }
+
   handleScrollCallback() {
     if (window.scrollY > 120) {
       this.setState({
@@ -88,7 +100,7 @@ class OurTeam extends Component {
 
   render() {
     const { members, staff, fellows, interns, sticky, loaderBoard } = this.state;
-    const { loaderFellows, loaderInterns, loaderStaff } = this.state;
+    const { loaderFellows, loaderInterns, loaderStaff, vacancies } = this.state;
     const { pathname } = this.props.location;
     return (
       <div className="l-team">
@@ -132,8 +144,8 @@ class OurTeam extends Component {
                   className="l-about__board-item columns large-3 medium-4 small-6"
                 >
                   <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                   <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                 </div>)
               )}
             </div>}
@@ -144,7 +156,7 @@ class OurTeam extends Component {
           <div className="row">
             <h2
               className="text -ff2-xs -color-2 columns -uppercase large-12 medium-12 small-12"
-            >STAFF</h2>
+            >OUR TEAM</h2>
 
             {loaderStaff === false && <div className="l-team__loader-container -flex">
               <div className="c-box-loader -primary columns large-6 medium-12 small-12">
@@ -178,8 +190,8 @@ class OurTeam extends Component {
                     <div className="contain-info">
                       <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
                       <div className="info">
-                        <span className="text -ff2-xs -uppercase">{item.title}</span>
                         <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                        <span className="text -ff2-xs -uppercase">{item.title}</span>
                       </div>
                     </div>
                     <div className="contain-text">
@@ -227,8 +239,8 @@ class OurTeam extends Component {
                   className="l-about__fellows-item columns large-3 medium-4 small-6"
                 >
                   <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                   <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                 </div>)
               )}
             </div>}
@@ -262,12 +274,24 @@ class OurTeam extends Component {
                   className="l-about__interns-item columns large-3 medium-4 small-6"
                 >
                   <div className="img" style={{ backgroundImage: `url(${API_ROOT}${item.image})` }}>{}</div>
-                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                   <h3 className="text -ff2-l -color-1">{item.name}</h3>
+                  <span className="text -ff2-xs -uppercase">{item.title}</span>
                 </div>)
               )}
             </div>}
 
+          </div>
+        </div>
+        <div className="l-team__vacancies">
+          <div className="row">
+            <div className="small-12 medium-12 large-12 columns">
+              <h4 className="text -ff2-xs -uppercase -color-2 row columns">Careers</h4>
+              <ul>
+                {vacancies.map((item, i) =>
+                  <li key={i.toString()}><a className="text -color-1" href={item.url} target="_blank">{item.title}</a></li>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
         <Footer />
