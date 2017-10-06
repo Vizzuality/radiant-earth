@@ -44,6 +44,10 @@
     .l-about__interns-item {
       margin-bottom: rem(60px);
 
+      h3 {
+        margin-top: rem(16px);
+      }
+
       span {
         display: block;
         margin: rem(20px) 0;
@@ -113,5 +117,28 @@
 
   .l-team__interns {
     background-color: $white;
+  }
+
+  .l-team__vacancies {
+    background-color: rgba($color-4, .05);
+    padding: rem(50px) 0;
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: rem(20px);
+
+        a {
+          letter-spacing: 0;
+          font-weight: $font-weight-semibold;
+        }
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
