@@ -45,7 +45,7 @@ class Home extends Component {
       {
         multiple: true,
         title1: 'Open Data.',
-        title2: 'Neutral platform.',
+        title2: 'Neutral Platform.',
         title3: 'Transformative Impact.',
         image: slider1,
       },
