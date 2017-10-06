@@ -54,7 +54,7 @@ class News extends Component {
       .then(r => r.json())
       .then(data => self.setState({
         sliderNews: data,
-        loaderSlider: false,
+        loaderSlider: data.length !== 0,
       }));
   }
 
