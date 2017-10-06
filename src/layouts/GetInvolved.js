@@ -97,7 +97,7 @@ class GetInvolved extends Component {
     return (
       <div>
         <Helmet>
-          <title>Radiant-Earth | Get Involved</title>
+          <title>Radiant.Earth | Get Involved</title>
         </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />

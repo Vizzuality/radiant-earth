@@ -67,7 +67,7 @@ class About extends Component {
     return (
       <div className="l-about">
         <Helmet>
-          <title>Radiant-Earth | About</title>
+          <title>Radiant.Earthh | About</title>
         </Helmet>
         <Header currentPath={pathname} />
         <ScrollEvent handleScrollCallback={() => this.handleScrollCallback()} />
