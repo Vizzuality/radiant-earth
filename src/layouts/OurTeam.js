@@ -39,7 +39,7 @@ class OurTeam extends Component {
 
   getBoardDirectors= () => {
     const self = this;
-    fetch(`${API_BASE_URL}/members?is_board_member=true`)
+    fetch(`${API_BASE_URL}board_members`)
       .then(r => r.json())
       .then(data => self.setState({
         members: data,
