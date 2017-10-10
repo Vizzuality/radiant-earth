@@ -1,123 +1,55 @@
 .l-about {
+
+  &.-sticky {
+    padding-top: rem(118px);
+  }
+
   .l-about__cover {
     position: relative;
-    background-color: rgba($color-4, .05);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 50px);
+    margin-top: -118px;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
-    &.-sticky {
-      padding-top: rem(118px);
-    }
-
-    .l-about__circle-image {
+    &:before {
+      display: block;
       position: absolute;
-      z-index: 4;
-
-      &.-image-1 {
-        display: none;
-
-        @media screen and (min-width: $screen-l) {
-          display: block;
-          right: -260px;
-          bottom: -140px;
-          width: rem(572px);
-          height: rem(572px);
-          border-radius: rem(572px);
-        }
-      }
-
-      &.-image-2 {
-        display: none;
-        top: 200px;
-        right: 270px;
-        width: rem(150px);
-        height: rem(150px);
-        border-radius: rem(150px);
-
-        &.-sticky {
-          top: 318px;
-        }
-
-        @media screen and (min-width: $screen-xl) {
-          display: block;
-        }
-      }
-
-      &.-image-3 {
-        display: none;
-
-        @media screen and (min-width: $screen-xl) {
-          top: 305px;
-          right: 312px;
-          width: rem(360px);
-          height: rem(360px);
-          border-radius: rem(360px);
-        }
-      }
-
-      &.-image-4 {
-        display: none;
-        right: 178px;
-        bottom: -310px;
-        width: rem(284px);
-        height: rem(284px);
-        border-radius: rem(284px);
-
-        @media screen and (min-width: $screen-xl) {
-          display: block;
-        }
-      }
-
-      &.-image-5 {
-        display: none;
-
-        @media screen and (min-width: $screen-l) {
-          display: block;
-          right: -195px;
-          bottom: -565px;
-          width: rem(422px);
-          height: rem(422px);
-          border-radius: rem(422px);
-        }
-      }
-
-      &.-image-6 {
-        display: none;
-
-        @media screen and (min-width: $screen-xxxl-secondary) {
-          display: block;
-          right: 315px;
-          top: 313px;
-          width: rem(344px);
-          height: rem(344px);
-          border-radius: rem(422px);
-
-          &.-sticky {
-            top: 431px;
-          }
-        }
-      }
-
-      &.-image-7 {
-        display: none;
-
-        @media screen and (min-width: $screen-xxxl-secondary) {
-          display: block;
-          right: 208px;
-          bottom: -650px;
-          width: rem(344px);
-          height: rem(344px);
-          border-radius: rem(422px);
-        }
-      }
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($black, .4);
+      content: '';
+      z-index: 2;
     }
 
     .title {
+      position: relative;
+      z-index: 2;
       max-width: rem(528px);
-      margin-top: rem(100px);
-      margin-bottom: rem(150px);
 
-      @media screen and (min-width: $screen-l) {
-        margin-top: rem(150px);
-        margin-bottom: rem(285px);
+      h1,
+      p {
+        text-align: center;
+        max-width: rem(700px);
+        padding: 0 rem(25px);
+        z-index: 2;
+
+        @media screen and (min-width: $screen-m) {
+          padding: 0;
+        }
+      }
+
+      h1 {
+        margin-bottom: 1.25rem;
+      }
+
+      &.-sticky {
+        padding-top: rem(118px);
       }
     }
   }
@@ -287,5 +219,51 @@
         }
       }
     }
+  }
+
+  .l-about__intro,
+  .l-about__intro-secondary {
+    position: relative;
+    padding-top: rem(50px);
+    background-color: $white;
+
+    @media screen and (min-width: $screen-m) {
+      padding-top: rem(95px);
+    }
+
+    .row {
+      align-items: center;
+      justify-content: space-around;
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
+    }
+
+    .l-about__intro-image {
+      display: none;
+
+      @media screen and (min-width: $screen-m) {
+        display: block;
+        width: rem(310px);
+        max-width: rem(310px);
+        height: rem(310px);
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        justify-content: space-between;
+      }
+
+      @media screen and (min-width: $screen-xxl) {
+        width: rem(510px);
+        max-width: rem(510px);
+        height: rem(510px);
+      }
+    }
+  }
+
+  .l-about__intro-secondary  {
+    margin-top: rem(95px);
+    padding-top: 0;
   }
 }
